@@ -1,5 +1,5 @@
 const { resolve } = require("node:path");
-
+const { rules } = require('./baseRules');
 const project = resolve(process.cwd(), "tsconfig.json");
 
 /** @type {import("eslint").Linter.Config} */
@@ -31,4 +31,7 @@ module.exports = {
       files: ["*.js?(x)", "*.ts?(x)"],
     },
   ],
+  rules: {
+    ...rules,
+  }
 };

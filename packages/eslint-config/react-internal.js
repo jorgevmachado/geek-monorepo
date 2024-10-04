@@ -1,5 +1,5 @@
 const { resolve } = require("node:path");
-
+const { rules } = require('./baseRules');
 const project = resolve(process.cwd(), "tsconfig.json");
 
 /*
@@ -36,4 +36,7 @@ module.exports = {
     // Force ESLint to detect .tsx files
     { files: ["*.js?(x)", "*.ts?(x)"] },
   ],
+  rules: {
+    ...rules,
+  }
 };

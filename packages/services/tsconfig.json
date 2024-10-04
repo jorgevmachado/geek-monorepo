@@ -1,0 +1,9 @@
+{
+  "extends": "@geek/typescript-config/base.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "dist",
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "build"]
+}

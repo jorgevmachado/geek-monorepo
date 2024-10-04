@@ -1,4 +1,5 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
 .DS_Store
 .sentryclirc
 package-lock.json
@@ -7,6 +8,7 @@ screenshots/
 .nitro
 .output
 .idea
+.idea/
 *.suo
 *.ntvs*
 *.njsproj

@@ -1,0 +1,25 @@
+{
+  "name": "@geek/services",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc"
+  },
+  "exports": {
+    ".": {
+      "import": "./index.js",
+      "require": "./index.js",
+      "types": "./index.d.ts"
+    },
+    "./*": {
+      "import": "./*/index.js",
+      "require": "./*/index.js",
+      "types": "./*/index.d.ts"
+    }
+  },
+  "devDependencies": {
+    "@geek/typescript-config": "*",
+    "typescript": "latest"
+  }
+}

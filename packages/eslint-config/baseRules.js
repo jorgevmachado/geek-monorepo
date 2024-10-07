@@ -3,6 +3,7 @@ module.exports = {
     quotes: ["error", "single"],
     allowString : 0,
     allowNumber : 0,
+    "turbo/no-undeclared-env-vars": "off",
     "no-redeclare": "off",
     "no-unused-vars": "off",
     "object-curly-spacing": ["error", "always"],

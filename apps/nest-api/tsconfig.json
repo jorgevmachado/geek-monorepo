@@ -1,0 +1,14 @@
+{
+  "extends": "@geek/typescript-config/nestjs.json",
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "nest"
+      }
+    ]
+  },
+  "include": [
+    "src/**/*.ts",
+  ],
+  "exclude": ["node_modules"]
+}

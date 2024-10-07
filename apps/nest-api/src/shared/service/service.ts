@@ -1,6 +1,6 @@
 import { ObjectLiteral, Repository, SelectQueryBuilder } from 'typeorm';
-import type { IFilterParams, IIndexParams, IPaginate, IQueryParameters } from './interface';
-import { ConflictException } from '@nestjs/common';
+import type { IFilterParams, IFindByParams, IIndexParams, IPaginate, IQueryParameters } from './interface';
+import { ConflictException, NotFoundException } from '@nestjs/common';
 
 export abstract class Service<T extends ObjectLiteral> {
   protected constructor(
@@ -27,6 +27,28 @@ export abstract class Service<T extends ObjectLiteral> {
     }
 
     return await this.paginate(query, indexParams.parameters, indexParams.filters);
+  }
+
+  async findBy({ by, value, withThrow = false, withDeleted = false }: IFindByParams) {
+    const query = this.repository.createQueryBuilder(this.alias);
+
+    this.queryRelations(query, this.relations, this.alias);
+
+    query.andWhere(`${this.alias}.${by} = :${by}`, { [by]: value });
+
+    if (withDeleted) {
+      query.withDeleted();
+    }
+
+    const result = await query.getOne();
+
+    if (!result) {
+      if (!withThrow) {
+        return null;
+      }
+      throw new NotFoundException(`${this.alias} not found`);
+    }
+    return result;
   }
 
   private queryOrderBy(

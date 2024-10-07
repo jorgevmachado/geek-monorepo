@@ -14,12 +14,12 @@ export interface IUser {
   id: string;
   cpf: string;
   role: ERole;
-  salt: string;
+  salt?: string;
   name: string;
   email: string;
   gender?: EGender;
   status: EStatus;
-  password: string;
+  password?: string;
   createdAt: Date;
   updatedAt: Date;
   deletedAt?: Date;

@@ -14,7 +14,7 @@ export class Users implements IUser {
   role: ERole;
 
   @Column({ nullable: false })
-  salt: string;
+  salt?: string;
 
   @Column({ nullable: false, length: 200 })
   name: string;
@@ -29,7 +29,7 @@ export class Users implements IUser {
   status: EStatus;
 
   @Column({ nullable: false })
-  password: string;
+  password?: string;
 
   @CreateDateColumn()
   createdAt: Date;

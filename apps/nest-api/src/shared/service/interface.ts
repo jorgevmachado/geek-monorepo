@@ -36,3 +36,12 @@ export interface IPaginate<T> {
   skip: number;
   data: Array<T>;
 }
+
+export type TBy = 'id' | 'cpf' | 'name' | 'email' | 'accountId';
+
+export interface IFindByParams {
+  by: TBy;
+  value: string;
+  withThrow?: boolean;
+  withDeleted?: boolean;
+}

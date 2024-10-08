@@ -3,7 +3,7 @@
   "display": "business",
   "extends": "./base.json",
   "compilerOptions": {
-    "plugins": [{ "name": "business" }],
+    "plugins": [{ "name": "business" }, { "transform":  "typescript-transform-paths", "afterDeclarations": true }],
     "outDir": "./dist"
   }
 }

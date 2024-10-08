@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "business",
+  "extends": "./base.json",
+  "compilerOptions": {
+    "plugins": [{ "name": "business" }],
+    "outDir": "./dist"
+  }
+}

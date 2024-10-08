@@ -1,8 +1,8 @@
 {
-  "extends": "@geek/typescript-config/base.json",
+  "extends": "@geek/typescript-config/business.json",
   "compilerOptions": {
+    "plugins": [{ "name": "business" }],
     "baseUrl": "./",
-    "outDir": "dist",
     "paths": {
       "@/*": [
         "src/*"

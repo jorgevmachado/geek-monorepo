@@ -11,38 +11,102 @@ define delete_dependencies_build
 	rm -Rf ./$(1)/dist
 endef
 
-define build_dependencies
-	@echo build_dependencies $(1)
-	cd ./$(1) && $(RUN) build
+define delete_in_project
+	@echo delete_in_project $(1) item $(2)
+	rm -Rf ./$(1)/$(2)
+endef
+
+define run_project
+	@echo run_project $(1) action $(2)
+	cd ./$(1) && $(RUN) $(2)
 endef
 #------------------------------------------------- END ----------------------------------------------------------------#
 
 #------------------------------------------------- CLEAN --------------------------------------------------------------#
 clean-dependencies:
 	rm -Rf ./node_modules
-	$(call delete_dependencies,packages/business)
-	$(call delete_dependencies,packages/services)
-	$(call delete_dependencies,packages/ui)
-	$(call delete_dependencies,packages/eslint-config)
+	$(call delete_in_project,packages/business,node_modules)
+	$(call delete_in_project,packages/services,node_modules)
+	$(call delete_in_project,packages/ui,node_modules)
+	$(call delete_in_project,packages/eslint-config,node_modules)
 
 clean-builds:
-	$(call delete_dependencies_build,packages/business)
-	$(call delete_dependencies_build,packages/services)
-	$(call delete_dependencies_build,packages/typescrupt-config)
-	$(call delete_dependencies_build,packages/ui)
+	$(call delete_in_project,packages/business,dist)
+	$(call delete_in_project,packages/services,dist)
+	$(call delete_in_project,packages/typescript-config,dist)
+	$(call delete_in_project,packages/ui,dist)
 
 clean-all: clean-dependencies clean-builds
 #------------------------------------------------- END ----------------------------------------------------------------#
 
 #------------------------------------------------- BUILD --------------------------------------------------------------#
+build:
+	turbo build
+
+nest-build:
+	$(call run_project,apps/nest-api,build)
+
+next-build:
+	$(call dev_project,apps/web,build)
+
+vite-build:
+	$(call dev_project,apps/react-vite,build)
+
+business-build:
+	$(call dev_project,packages/business,build)
+
+services-build:
+	$(call dev_project,packages/services,build)
+
+ui-build:
+	$(call dev_project,packages/ui,build)
+
 build-dependencies:
-	$(call build_dependencies,packages/services)
-	$(call build_dependencies,packages/business)
+	make business-build
+	make services-build
+
 #------------------------------------------------- END ----------------------------------------------------------------#
 
 #------------------------------------------------- INSTALL ------------------------------------------------------------#
 install:
 	yarn
+#------------------------------------------------- END ----------------------------------------------------------------#
+
+#------------------------------------------------- DEV ----------------------------------------------------------------#
+dev:
+	turbo dev
+
+nest-dev:
+	$(call run_project,apps/nest-api,dev)
+
+next-dev:
+	$(call dev_project,apps/web,dev)
+
+vite-dev:
+	$(call dev_project,apps/react-vite,dev)
+#------------------------------------------------- END ----------------------------------------------------------------#
+
+#------------------------------------------------- LINT ---------------------------------------------------------------#
+lint:
+	turbo lint
+
+nest-lint:
+	$(call run_project,apps/nest-api,lint)
+
+next-lint:
+	$(call dev_project,apps/web,lint)
+
+vite-lint:
+	$(call dev_project,apps/react-vite,lint)
+
+business-lint:
+	$(call dev_project,packages/business,lint)
+
+services-lint:
+	$(call dev_project,packages/services,lint)
+
+ui-lint:
+	$(call dev_project,packages/ui,lint)
 #------------------------------------------------- END ----------------------------------------------------------------#
 
 setup:

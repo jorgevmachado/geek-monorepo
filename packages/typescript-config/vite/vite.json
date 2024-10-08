@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "vite",
+  "files": [],
+  "compilerOptions": {
+    "plugins": [{ "name": "vite" }],
+    "jsx": "preserve",
+    "noEmit": true,
+    "allowImportingTsExtensions": true
+  },
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ],
+  "exclude": ["node_modules"]
+}

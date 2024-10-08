@@ -1,0 +1,15 @@
+{
+  "extends": "@geek/typescript-config/vite/vite.json",
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "vite"
+      }
+    ]
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+  ],
+  "exclude": ["node_modules"]
+}

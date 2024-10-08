@@ -4,7 +4,7 @@
   "files": [],
   "compilerOptions": {
     "plugins": [{ "name": "vite" }],
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "noEmit": true,
     "allowImportingTsExtensions": true
   },

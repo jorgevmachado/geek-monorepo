@@ -47,19 +47,19 @@ nest-build:
 	$(call run_project,apps/nest-api,build)
 
 next-build:
-	$(call dev_project,apps/web,build)
+	$(call run_project,apps/web,build)
 
 vite-build:
-	$(call dev_project,apps/react-vite,build)
+	$(call run_project,apps/react-vite,build)
 
 business-build:
-	$(call dev_project,packages/business,build)
+	$(call run_project,packages/business,build)
 
 services-build:
-	$(call dev_project,packages/services,build)
+	$(call run_project,packages/services,build)
 
 ui-build:
-	$(call dev_project,packages/ui,build)
+	$(call run_project,packages/ui,build)
 
 build-dependencies:
 	make business-build
@@ -80,10 +80,10 @@ nest-dev:
 	$(call run_project,apps/nest-api,dev)
 
 next-dev:
-	$(call dev_project,apps/web,dev)
+	$(call run_project,apps/web,dev)
 
 vite-dev:
-	$(call dev_project,apps/react-vite,dev)
+	$(call run_project,apps/react-vite,dev)
 #------------------------------------------------- END ----------------------------------------------------------------#
 
 #------------------------------------------------- LINT ---------------------------------------------------------------#
@@ -94,19 +94,19 @@ nest-lint:
 	$(call run_project,apps/nest-api,lint)
 
 next-lint:
-	$(call dev_project,apps/web,lint)
+	$(call run_project,apps/web,lint)
 
 vite-lint:
-	$(call dev_project,apps/react-vite,lint)
+	$(call run_project,apps/react-vite,lint)
 
 business-lint:
-	$(call dev_project,packages/business,lint)
+	$(call run_project,packages/business,lint)
 
 services-lint:
-	$(call dev_project,packages/services,lint)
+	$(call run_project,packages/services,lint)
 
 ui-lint:
-	$(call dev_project,packages/ui,lint)
+	$(call run_project,packages/ui,lint)
 #------------------------------------------------- END ----------------------------------------------------------------#
 
 setup:

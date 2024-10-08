@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Button } from "@geek/ui/button";
+import Button from "@geek/ui/button";
 import styles from "./page.module.css";
 
 export default function Home() {

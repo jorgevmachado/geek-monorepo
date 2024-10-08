@@ -70,7 +70,7 @@ export class UsersService extends Service<Users>{
     user.dateOfBirth = createAuthDto.dateOfBirth;
     user.confirmationToken = crypto.randomBytes(32).toString('hex');
     if (createAuthDto?.gender) {
-      user.gender = createAuthDto.gender;
+      user.gender = createAuthDto.gender.toUpperCase() as EGender;
     }
 
     user.status = this.validateStatus(
@@ -137,6 +137,7 @@ export class UsersService extends Service<Users>{
     currentUser.dateOfBirth = !updateAuthDto.dateOfBirth
       ? currentUser.dateOfBirth
       : updateAuthDto.dateOfBirth;
+
     currentUser.status = this.validateStatus(
       currentUser.status,
       currentUser.gender,
@@ -257,6 +258,10 @@ export class UsersService extends Service<Users>{
   }
 
   private validateStatus(userStatus: EStatus = EStatus.INCOMPLETE, userGender?: EGender) {
+    if (userStatus === EStatus.ACTIVE) {
+      return userStatus;
+    }
+
     return userStatus === EStatus.INCOMPLETE && Boolean(userGender)
       ? EStatus.ACTIVE
       : EStatus.INCOMPLETE;

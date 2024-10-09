@@ -1,0 +1,33 @@
+@import "../../../../../../styles/variables";
+.header-button {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-decoration: none;
+  color: $token-color-neutral-28;
+  text-wrap: nowrap;
+  font-size: $token-spacing-regular;
+  font-weight: $token-new-text-display-small-font-weight;
+  transition: all 0.2s ease-in-out;
+
+  &::after {
+    content: "";
+    background-color: transparent;
+    width: 0;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    transition: all 0.2s ease-in-out;
+  }
+
+  &:hover::after {
+    width: $token-spacing-regular;
+    background-color: $token-color-primary-100;
+  }
+
+  &:hover {
+    color: $token-color-primary-100;
+  }
+}

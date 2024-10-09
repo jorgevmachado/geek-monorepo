@@ -1,0 +1,20 @@
+@import "../../../../../styles/variables";
+
+.g-sidebar {
+  display: none;
+  @include mq-medium(up) {
+    top: 0;
+    width: 100%;
+    display: flex;
+    max-width: 360px;
+    min-width: 360px;
+    position: sticky;
+    flex-direction: column;
+    height: 100%;
+    border-right: 1px solid $token-color-neutral-96;
+    background-color: $token-color-neutral-100;
+    &-container {
+      height: 100%;
+    }
+  }
+}

@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
-    "./GDefault": "./src/components/GDefault/index.ts",
+    "./GDefault": "./src/layouts/GDefault/index.ts",
+    "./GHeader": "./src/layouts/GHeader/index.ts",
     "./GIcon": "./src/components/GIcon/index.ts",
     "./button": "./src/button/index.ts",
     "./card": "./src/card/index.ts",
@@ -27,6 +28,8 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "sass": "^1.79.4",
+    "sass-loader": "^16.0.2"
   }
 }

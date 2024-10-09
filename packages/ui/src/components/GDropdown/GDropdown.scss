@@ -1,0 +1,18 @@
+@import "../../styles/colors";
+
+.g-dropdown {
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  &__trigger {
+    cursor: pointer;
+  }
+  &__content {
+    background-color: $token-color-neutral-100;
+    width: auto;
+    position: absolute;
+    z-index: 101;
+    margin-top: $token-spacing-small;
+    border-radius: $token-border-radius-regular;
+  }
+}

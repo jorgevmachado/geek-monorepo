@@ -1,17 +1,20 @@
 import Fade from "../../animations/fade";
-import GHeader from "../GHeader";
+import GHeader, { GHeaderNavBarProps } from "../GHeader";
 
 import './GDefault.scss';
+import GSidebar from "../GSidebar";
 
 interface DefaultProps {
     logo: string;
+    navbar?: Array<GHeaderNavBarProps>;
     children: React.ReactNode;
 }
-export default function GDefault({ logo, children }: DefaultProps ) {
+export default function GDefault({ logo, navbar, children }: DefaultProps ) {
     return (
         <Fade>
-            <GHeader logo={logo} />
+            <GHeader logo={logo} navbar={navbar} />
             <main className="main-container">
+                <GSidebar />
                 <div className="main-content">
                     {children}
                 </div>

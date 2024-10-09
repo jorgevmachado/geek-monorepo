@@ -1,6 +1,23 @@
+$token-border-radius-small: 4px;
+$token-border-radius-regular: 8px;
+$token-border-radius-large: 12px;
+$token-border-radius-rounded: 26px;
+$token-border-radius-circle: 50%;
+
 $token-spacing-xsmall: 0.25rem; // 4px if 16px = 1rem
 $token-spacing-small: 0.5rem; // 8px if 16px = 1rem
+$token-spacing-regular: 1rem; // 16px if 16px = 1rem
 $token-spacing-large: 1.5rem; // 24px if 16px = 1rem
 $token-spacing-xlarge: 2rem; // 32px if 16px = 1rem
 
 $token-font-size-body-xsmall: 0.75rem;
+$token-new-text-display-small-font-weight: 500;
+
+$token-box-shadow-xsmall: 0px 8px 8px rgba(24, 39, 75, 0.08);
+$token-box-shadow-small: 0px 8px 16px rgba(24, 39, 75, 0.08);
+$token-box-shadow-regular: 0px 8px 32px rgba(24, 39, 75, 0.16);
+$token-box-shadow-large: 0px 8px 24px -8px rgba(24, 39, 75, 0.12), 0px 8px 88px -4px rgba(24, 39, 75, 0.16);
+$token-box-shadow-xlarge: 0px 8px 24px -8px rgba(24, 39, 75, 0.12), 0px 8px 88px -4px rgba(24, 39, 75, 0.16);
+$token-box-shadow-enhancer-small: 0px 0px 10px rgba(0, 0, 0, 0.1);
+$token-box-shadow-enhancer-regular: 0px 0px 20px rgba(0, 0, 0, 0.1);
+$token-box-shadow-enhancer-large: 0px 0px 30px rgba(0, 0, 0, 0.15);

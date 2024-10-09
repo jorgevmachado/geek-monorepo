@@ -1,6 +1,6 @@
-"use client";
+'use client';
 import './GDropdown.scss';
-import {useEffect, useRef, useState} from "react";
+import { useEffect, useRef, useState } from 'react';
 
 interface DropdownProps {
     isOpen?: boolean;
@@ -21,9 +21,9 @@ export default function GDropdown( { isOpen, disabled, onChange, children, activ
                     onChange && onChange(isOpenModel);
                 }
             }
-            document.addEventListener("mousedown", handleClickOutside);
+            document.addEventListener('mousedown', handleClickOutside);
             return () => {
-                document.removeEventListener("mousedown", handleClickOutside);
+                document.removeEventListener('mousedown', handleClickOutside);
             };
         }, [ref]);
     }
@@ -72,5 +72,5 @@ export default function GDropdown( { isOpen, disabled, onChange, children, activ
             )}
 
         </div>
-    )
+    );
 }

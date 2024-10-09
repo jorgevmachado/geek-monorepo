@@ -1,6 +1,6 @@
-"use client";
-import {useEffect, useState} from "react";
-import {Style} from "../interface";
+'use client';
+import { useEffect, useState } from 'react';
+import { Style } from '../interface';
 
 interface FadeProps {
     enter?: boolean;
@@ -19,7 +19,7 @@ const styledHide = (timeout: number): Style => ({
     transition: `all ${timeout}s ease-in-out`
 });
 
-export default function Fade({enter = true, delay = 0, timeout = .2, children}: FadeProps) {
+export default function Fade({ enter = true, delay = 0, timeout = .2, children }: FadeProps) {
     const [style, setStyle] = useState<Style>(styledHide(timeout));
 
     useEffect(() => {

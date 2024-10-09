@@ -1,9 +1,11 @@
+import { FaHamburger } from 'react-icons/fa';
+import GHeaderButton from './GHeaderButton';
+import GHeaderDropdown from './GHeaderDropdown';
+import GIcon from '../../components/GIcon';
+
+import type { GHeaderNavBarProps } from './interface';
+
 import './GHeader.scss';
-import GIcon from "../../components/GIcon";
-import { FaHamburger } from "react-icons/fa";
-import type { GHeaderNavBarProps } from "./interface";
-import GHeaderButton from "./GHeaderButton";
-import GHeaderDropdown from "./GHeaderDropdown";
 
 interface HeaderProps {
     logo: string;

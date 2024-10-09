@@ -1,8 +1,9 @@
-import Fade from "../../animations/fade";
-import GHeader, { GHeaderNavBarProps } from "../GHeader";
+import GHeader, { GHeaderNavBarProps } from '../GHeader';
+import Fade from '../../animations/fade';
+
 
 import './GDefault.scss';
-import GSidebar from "../GSidebar";
+import GSidebar from '../GSidebar';
 
 interface DefaultProps {
     logo: string;
@@ -20,5 +21,5 @@ export default function GDefault({ logo, navbar, children }: DefaultProps ) {
                 </div>
             </main>
         </Fade>
-    )
+    );
 }

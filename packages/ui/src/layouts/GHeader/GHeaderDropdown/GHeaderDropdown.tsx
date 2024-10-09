@@ -1,9 +1,11 @@
-"use client";
+'use client';
+import { MdOutlineArrowDropDown, MdOutlineArrowDropUp } from 'react-icons/md';
+import { useState } from 'react';
+
+import GDropdown from '../../../components/GDropdown';
+import GIcon from '../../../components/GIcon';
+
 import './GHeaderDropdown.scss';
-import GDropdown from "../../../components/GDropdown";
-import GIcon from "../../../components/GIcon";
-import {useState} from "react";
-import {MdOutlineArrowDropDown, MdOutlineArrowDropUp} from "react-icons/md";
 
 interface HeaderDropdownProps {
     label: string;

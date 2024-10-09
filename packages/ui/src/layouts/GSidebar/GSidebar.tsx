@@ -6,5 +6,5 @@ export default function GSidebar() {
                 SIDEBAR
             </div>
         </aside>
-    )
+    );
 }

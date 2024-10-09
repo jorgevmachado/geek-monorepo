@@ -1,0 +1,48 @@
+@import "../../../../../styles/_variables";
+$header-height-mobile: 55px;
+$header-height-desktop: 68px;
+
+.header-container {
+  height: $header-height-mobile;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: $token-spacing-xsmall $token-font-size-body-xsmall;
+  border-bottom: 1px solid $token-color-neutral-96;
+  background-color: $token-color-neutral-100;
+  &__brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &--button {
+      margin-right: $token-spacing-xsmall;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+    }
+    &--logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: $token-spacing-xlarge;
+        width: $token-spacing-xlarge;
+    }
+  }
+  &__nav {
+    &--list {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: $token-spacing-xlarge;
+    }
+  }
+
+  @include mq-medium(up) {
+    &__brand {
+      &--button {
+        display: none;
+      }
+    }
+  }
+}

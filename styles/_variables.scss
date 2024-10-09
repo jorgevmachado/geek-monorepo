@@ -1,0 +1,19 @@
+// COLORS
+@import "_colors";
+
+// SPACING
+@import "_spacings";
+
+// BORDER
+$token-border-radius-rounded: 26px;
+
+// BREAKPOINTS
+$token-breakpoint-xs: 0;
+$token-breakpoint-sm: 360px;
+$token-breakpoint-md: 720px;
+$token-breakpoint-lg: 1024px;
+$token-breakpoint-xl: 1279px;
+
+// MEDIA QUERIES
+@import "_media-queries";
+

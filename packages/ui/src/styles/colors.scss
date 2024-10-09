@@ -1,0 +1,27 @@
+@import "../../../../styles/_variables";
+$colors: (
+        "primary-20": $token-color-primary-20,
+        "primary-30": $token-color-primary-30,
+        "primary-40": $token-color-primary-40,
+        "primary-50": $token-color-primary-50,
+        "primary-60": $token-color-primary-60,
+        "primary-70": $token-color-primary-70,
+        "primary-80": $token-color-primary-80,
+        "primary-90": $token-color-primary-90,
+        "primary-100": $token-color-primary-100,
+        "secondary-20": $token-color-secondary-20,
+        "secondary-30": $token-color-secondary-30,
+        "secondary-40": $token-color-secondary-40,
+        "secondary-50": $token-color-secondary-50,
+        "secondary-60": $token-color-secondary-60,
+        "secondary-70": $token-color-secondary-70,
+        "secondary-80": $token-color-secondary-80,
+        "secondary-90": $token-color-secondary-90,
+        "secondary-100": $token-color-secondary-100,
+);
+
+@each $name, $value in $colors {
+  .g-u-color-#{$name} {
+    color: $value;
+  }
+}

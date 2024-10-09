@@ -1,0 +1,66 @@
+/*
+ * Private mixins:
+ * You should not be using these mixins on your project
+ */
+
+$grid-breakpoints: (
+        xs: $token-breakpoint-xs,
+        sm: $token-breakpoint-sm,
+        md: $token-breakpoint-md,
+        lg: $token-breakpoint-lg,
+        xl: $token-breakpoint-xl
+);
+
+$type-width: (
+  up: 'min-width',
+  down: 'max-width'
+);
+
+@function breakpoint($widthLabel, $widthValue) {
+  @if $widthLabel == 'min-width' {
+    @return if($widthValue and $widthValue > 0, $widthValue, null);
+  } @else {
+    @return if($widthValue != 0, $widthValue, null);
+  }
+}
+
+@mixin _media-breakpoint($breakPointName, $breakpoints: $grid-breakpoints, $widthName, $widths: $type-width) {
+  $widthLabel: map-get($widths, $widthName);
+  $widthValue: map-get($breakpoints, $breakPointName);
+  $value: breakpoint($widthLabel, $widthValue);
+  @if $value {
+    @media screen and ($widthLabel: $value) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+/*
+ * Public mixins:
+ * You should be using only these mixins on your project
+ */
+@mixin mq-small($widthName: $type-width) {
+  @include _media-breakpoint(sm, $grid-breakpoints, $widthName, $type-width) {
+    @content;
+  }
+}
+
+@mixin mq-medium($widthName: $type-width) {
+  @include _media-breakpoint(md, $grid-breakpoints, $widthName, $type-width) {
+    @content;
+  }
+}
+
+@mixin mq-large($widthName: $type-width) {
+  @include _media-breakpoint(lg, $grid-breakpoints, $widthName, $type-width) {
+    @content;
+  }
+}
+
+@mixin mq-x-large($widthName: $type-width) {
+  @include _media-breakpoint(xl, $grid-breakpoints, $widthName, $type-width) {
+    @content;
+  }
+}

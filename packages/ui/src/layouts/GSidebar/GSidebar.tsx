@@ -1,4 +1,3 @@
-'use client';
 import './GSidebar.scss';
 import GSidebarButton from './GSidebarButton';
 import { GSidebarItemProps } from './interface';

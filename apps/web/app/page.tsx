@@ -1,3 +1,4 @@
+"use client";
 import GDefault from "@geek/ui/GDefault";
 import {FaBeer} from "react-icons/fa";
 import { GHeaderNavBarProps } from "@geek/ui/GHeader";
@@ -11,18 +12,18 @@ export default function Home() {
             type: 'button',
             path: '/aluguel',
             label: 'Alugar',
-            href: '/aluguel',
-            rel: 'noopener',
-            target: 'self',
+            onRedirect: () => {
+              window.open('/aluguel', '_self', 'noopener');
+            },
         },
         {
             key: 'sale',
             type: 'button',
             label: 'Comprar',
             path: '/venda',
-            href: '/venda',
-            rel: 'noopener',
-            target: 'self',
+            onRedirect: () => {
+                window.open('/venda', '_self', 'noopener');
+            },
         },
         {
             key: 'developments',
@@ -37,36 +38,36 @@ export default function Home() {
                     type: 'button',
                     label: 'Na planta',
                     path: '/lancamentos/imoveis/na-planta',
-                    href: '/lancamentos/imoveis/na-planta',
-                    rel: 'noopener',
-                    target: 'self',
+                    onRedirect: () => {
+                        window.open('/lancamentos/imoveis/na-planta', '_self', 'noopener');
+                    },
                 },
                 {
                     key: 'under-construction',
                     type: 'button',
                     label: 'Em construção',
                     path: '/lancamentos/imoveis/em-construcao',
-                    href: '/lancamentos/imoveis/em-construcao',
-                    rel: 'noopener',
-                    target: 'self',
+                    onRedirect: () => {
+                        window.open('/lancamentos/imoveis/em-construcao', '_self', 'noopener');
+                    },
                 },
                 {
                     key: 'ready-to-live',
                     type: 'button',
                     label: 'Pronto para morar',
                     path: '/lancamentos/imoveis/pronto-para-morar',
-                    href: '/lancamentos/imoveis/pronto-para-morar',
-                    rel: 'noopener',
-                    target: 'self',
+                    onRedirect: () => {
+                        window.open('/lancamentos/imoveis/pronto-para-morar', '_self', 'noopener');
+                    },
                 },
                 {
                     key: 'all-properties',
                     type: 'button',
                     label: 'Todos os imóveis',
                     path: '/lancamentos',
-                    href: '/lancamentos',
-                    rel: 'noopener',
-                    target: 'self',
+                    onRedirect: () => {
+                        window.open('/lancamentos', '_self', 'noopener');
+                    },
                 },
             ]
         },
@@ -81,19 +82,19 @@ export default function Home() {
                     key: 'broker',
                     type: 'button',
                     label: 'Sou corretor(a)/imobiliária',
-                    path: '/proprietarios',
-                    href: '/proprietarios',
-                    rel: 'noopener',
-                    target: 'self',
+                    path: '/corretor',
+                    onRedirect: () => {
+                        window.open('/corretor', '_self', 'noopener');
+                    },
                 },
                 {
                     key: 'owner',
                     type: 'button',
                     label: 'Sou proprietário(a)',
                     path: '/proprietarios',
-                    href: '/proprietarios',
-                    rel: 'noopener',
-                    target: 'self',
+                    onRedirect: () => {
+                        window.open('/proprietarios', '_self', 'noopener');
+                    },
                 },
             ]
         },
@@ -102,27 +103,27 @@ export default function Home() {
             type: 'button',
             label: 'Descobrir',
             path: '/descobrir',
-            href: '/descobrir',
-            rel: 'noopener',
-            target: 'self',
+            onRedirect: () => {
+                window.open('/descobrir', '_self', 'noopener');
+            },
         },
         {
             key: 'financing',
             type: 'button',
             label: 'Financiamento',
             path: '/financiamento',
-            href: '/financiamento',
-            rel: 'noopener',
-            target: 'self',
+            onRedirect: () => {
+                window.open('/financiamento', '_self', 'noopener');
+            },
         },
         {
             key: 'help',
             type: 'button',
             label: 'Ajuda',
             path: '/ajuda',
-            href: '/ajuda',
-            rel: 'noopener',
-            target: 'self',
+            onRedirect: () => {
+                window.open('/ajuda', '_self', 'noopener');
+            },
         }
     ];
 
@@ -132,53 +133,53 @@ export default function Home() {
             icon: <CiUser />,
             label: 'Meus dados',
             path: '/meus-dados/perfil',
-            href: '/meus-dados/perfil',
-            rel: 'noopener',
-            target: 'self',
+            onRedirect: () => {
+                window.open('/meus-dados/perfil', '_self', 'noopener');
+            }
         },
         {
             key: 'favorites',
             icon: <CiHeart />,
             label: 'Favoritos',
             path: '/favoritos',
-            href: '/favoritos',
-            rel: 'noopener',
-            target: 'self',
+            onRedirect: () => {
+                window.open('/favoritos', '_self', 'noopener');
+            }
         },
         {
             key: 'contracted-advertisements',
             icon: <CiPhone />,
             label: 'Anúncios contatados',
             path: '/contatados',
-            href: '/contatados',
-            rel: 'noopener',
-            target: 'self',
+            onRedirect: () => {
+                window.open('/contatados', '_self', 'noopener');
+            }
         },
         {
             key: 'requested-visits',
             icon: <CiCalendar />,
             label: 'Visitas solicitadas',
             path: '/minhas-visitas',
-            href: '/minhas-visitas',
-            rel: 'noopener',
-            target: 'self',
+            onRedirect: () => {
+                window.open('/minhas-visitas', '_self', 'noopener');
+            }
         },
         {
             key: 'proposals-sent',
             icon: <IoDocumentTextOutline />,
             label: 'Propostas enviadas',
             path: '/minhas-propostas',
-            href: '/minhas-propostas',
-            rel: 'noopener',
-            target: 'self',
+            onRedirect: () => {
+                window.open('/minhas-propostas', '_self', 'noopener');
+            }
         },
         {
             key: 'publisher',
             label: 'Anunciar meu imóvel',
             path: '/anuncio/cadastrar/',
-            href: '/anuncio/cadastrar/',
-            rel: 'noopener',
-            target: 'self',
+            onRedirect: () => {
+                window.open('//anuncio/cadastrar/', '_self', 'noopener');
+            }
         },
     ];
     return (

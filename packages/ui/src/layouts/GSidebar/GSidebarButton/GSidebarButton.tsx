@@ -3,22 +3,18 @@ import GIcon from '../../../components/GIcon';
 import { MdOutlineSpaceDashboard } from 'react-icons/md';
 
 interface GSidebarButtonProps {
-    rel?: string;
-    href?: string;
     icon?: React.ReactNode;
     label: string;
-    target?: string;
+    onRedirect?: () => void;
 }
 
 export default function GSidebarButton({
-    rel = 'noopener',
-    href,
     label,
     icon = <MdOutlineSpaceDashboard />,
-    target = '_self'
+    onRedirect,
 }: GSidebarButtonProps) {
     return (
-        <button className="g-sidebar-button">
+        <button className="g-sidebar-button" onClick={onRedirect}>
             <div className="g-sidebar-button__title">
                 <GIcon icon={icon} color="primary-100" className="g-sidebar-button__title--icon" />
                 {label}

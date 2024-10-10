@@ -6,4 +6,5 @@ export interface GSidebarItemProps {
     href?: string;
     rel?: string;
     target?: string;
+    onRedirect?: () => void;
 }

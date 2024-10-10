@@ -6,5 +6,6 @@ export interface GHeaderNavBarProps {
     href?: string;
     rel?: string;
     target?: string;
+    onRedirect?: () => void;
     items?: Array<GHeaderNavBarProps>;
 }

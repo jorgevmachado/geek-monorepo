@@ -1,15 +1,13 @@
 import './GHeaderButton.scss';
 
 interface HeaderButtonProps {
-    rel?: string;
-    href?: string;
     label: string;
-    target?: string;
+    onRedirect?: () => void;
 }
 
-export default function GHeaderButton({ rel = 'noopener', href, label, target = '_self' }: HeaderButtonProps) {
+export default function GHeaderButton({ label, onRedirect }: HeaderButtonProps) {
     return (
-        <a className="header-button" href={href} rel={rel} target={target}  data-testid="header-button">
+        <a className="header-button" onClick={onRedirect}  data-testid="header-button">
         {label}
         </a>
     );

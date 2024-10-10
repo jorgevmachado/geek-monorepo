@@ -28,16 +28,11 @@ export default function GHeader({ logo, navbar }: HeaderProps) {
                     {navbar?.map((item) => (
                         <li className={`header-container__nav--list-item ${item.type === 'dropdown' ? 'header-container__nav--list-dropdown' : ''}`} key={item.key}>
                             {item.type === 'button' ? (
-                                <GHeaderButton label={item.label} href={item?.href} />
+                                <GHeaderButton label={item.label} onRedirect={item?.onRedirect} />
                             ) : (
                                 <GHeaderDropdown label={item.label}>
                                     {item?.items?.map((subItem) => (
-                                        <GHeaderButton
-                                            key={subItem.label}
-                                            rel={subItem?.rel}
-                                            label={subItem.label}
-                                            href={subItem?.href}
-                                            target={subItem?.target} />
+                                        <GHeaderButton key={subItem.key} label={subItem.label} onRedirect={subItem?.onRedirect}/>
                                     ))}
                                 </GHeaderDropdown>
                             )}

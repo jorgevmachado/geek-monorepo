@@ -1,3 +1,4 @@
+'use client';
 import './GSidebar.scss';
 import GSidebarButton from './GSidebarButton';
 import { GSidebarItemProps } from './interface';
@@ -16,9 +17,8 @@ export default function GSidebar({ sidebar }: GSidebarProps) {
                             key={item.key}
                             icon={item.icon}
                             label={item.label}
-                            href={item.href}
-                            target={item.target}
-                            rel={item.rel}/>
+                            onRedirect={item?.onRedirect}
+                        />
                     ))
                 }
             </div>

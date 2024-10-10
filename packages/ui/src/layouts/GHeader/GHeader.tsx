@@ -1,11 +1,18 @@
+import { useState } from 'react';
+
 import { FaHamburger } from 'react-icons/fa';
+
+import GIcon from '../../components/GIcon';
+
 import GHeaderButton from './GHeaderButton';
 import GHeaderDropdown from './GHeaderDropdown';
-import GIcon from '../../components/GIcon';
+import GMenu from '../GMenu';
 
 import type { GHeaderNavBarProps } from './interface';
 
 import './GHeader.scss';
+
+
 
 interface HeaderProps {
     logo: string;
@@ -13,10 +20,14 @@ interface HeaderProps {
 }
 
 export default function GHeader({ logo, navbar }: HeaderProps) {
+    const [showMobileMenu, setShowMobileMenu] = useState(false);
+
+    const handleToggleMenu = () => { setShowMobileMenu(!showMobileMenu); };
+
     return (
         <header className="header-container">
             <div className="header-container__brand">
-                <button className="header-container__brand--button">
+                <button className="header-container__brand--button" onClick={handleToggleMenu} >
                     <GIcon icon={<FaHamburger/>} color="primary-100" />
                 </button>
                 <div className="header-container__brand--logo">
@@ -40,6 +51,7 @@ export default function GHeader({ logo, navbar }: HeaderProps) {
                     ))}
                 </ul>
             </nav>
+            <GMenu isOpen={showMobileMenu} onToggleMenu={handleToggleMenu}/>
         </header>
     );
 }

@@ -1,0 +1,50 @@
+@import "../../../../../styles/variables";
+.g-menu {
+  width: 392px;
+  top: 100%;
+  right: 0;
+  left: auto;
+  box-shadow: $token-box-shadow-regular;
+  gap: $token-spacing-small;
+  list-style: none;
+  border-radius: $token-border-radius-regular;
+  background-color: $token-color-neutral-100;
+  color: $token-color-neutral-28;
+  overscroll-behavior-y: contain;
+  z-index: $token-z-index-modal;
+  overflow: hidden;
+  padding: $token-spacing-regular 0;
+  @include mq-medium(down) {
+    padding: 0;
+    position: fixed;
+    transition: all ease-in-out 300ms;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateX(-100%);
+    z-index: $token-z-index-modal;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 0;
+    &__show {
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateX(0);
+    }
+  }
+  &__content {
+    height: 100%;
+    overflow-y: auto;
+    &--header {
+      &-close-icon {
+        width: fit-content;
+        cursor: pointer;
+      }
+      &[data-active="true"] {
+        display: block;
+      }
+    }
+  }
+
+}

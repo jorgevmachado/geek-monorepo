@@ -1,0 +1,69 @@
+@import "../../styles/colors";
+.g-text {
+  &__variant {
+    &--tiny{
+      font-size: $token-size-font-xsmall;
+      line-height: $token-line-height-tiny;
+      font-weight: $token-font-weight-normal;
+    }
+    &--xsmall{
+      font-size: $token-size-font-xsmall;
+      line-height: $token-line-height-xsmall;
+      font-weight: $token-font-weight-normal;
+    }
+    &--small{
+      font-size: $token-size-font-xsmall;
+      line-height: $token-line-height-small;
+      font-weight: $token-font-weight-normal;
+    }
+    &--regular{
+      font-size: $token-size-font-xsmall;
+      line-height: $token-line-height-regular;
+      font-weight: $token-font-weight-normal;
+    }
+    &--medium{
+      font-size: $token-size-font-medium;
+      line-height: $token-line-height-medium;
+      font-weight: $token-font-weight-normal;
+    }
+    &--large{
+      font-size: $token-size-font-large;
+      line-height: $token-line-height-large;
+      font-weight: $token-font-weight-normal;
+    }
+    &--xlarge{
+      font-size: $token-size-font-xlarge;
+      line-height: $token-line-height-xlarge;
+      font-weight: $token-font-weight-normal;
+    }
+    &--big{
+      font-size: $token-size-font-big;
+      line-height: $token-line-height-big;
+      font-weight: $token-font-weight-normal;
+    }
+    &--huge{
+      font-size: $token-size-font-huge;
+      line-height: $token-line-height-huge;
+      font-weight: $token-font-weight-normal;
+    }
+    &--giant{
+      font-size: $token-size-font-giant;
+      line-height: $token-line-height-giant;
+      font-weight: $token-font-weight-normal;
+    }
+  }
+  &__weight {
+    &--normal{
+      font-weight: $token-font-weight-normal;
+    }
+    &--medium{
+      font-weight: $token-font-weight-medium;
+    }
+    &--semi-bold{
+      font-weight: $token-font-weight-semi-bold;
+    }
+    &--bold{
+      font-weight: $token-font-weight-bold;
+    }
+  }
+}

@@ -1,10 +1,11 @@
 import { HTMLAttributes } from 'react';
 
 import './GIcon.scss';
+import { TColors } from '../../interfaces';
 
 interface IconProps extends HTMLAttributes<HTMLSpanElement> {
     readonly icon: React.ReactNode;
-    readonly color?: string;
+    readonly color?: TColors;
 }
 
 export default function GIcon({ icon, color, ...props }: IconProps) {

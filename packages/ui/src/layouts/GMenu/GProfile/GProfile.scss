@@ -1,0 +1,23 @@
+@import "../../../../../../styles/variables";
+.g-profile {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px 24px 5px;
+  background-color: $token-color-primary-100;
+  &__info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+    &--name {
+      font-weight: 600;
+      font-size: $token-size-font-medium;
+      color: $token-color-neutral-100;
+    }
+    &--email {
+      color: $token-color-neutral-100;
+      font-size: $token-size-font-small;
+    }
+  }
+}

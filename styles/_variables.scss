@@ -15,7 +15,10 @@ $token-breakpoint-lg: 1024px;
 $token-breakpoint-xl: 1279px;
 
 // FONTS
-$token-font-weight-semi-bold: 600;
+@import "_fonts";
+
+// Z-INDEX
+$token-z-index-modal: 90;
 
 // MEDIA QUERIES
 @import "_media-queries";

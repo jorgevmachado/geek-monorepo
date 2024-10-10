@@ -1,4 +1,4 @@
-import GDefault from "../../../packages/ui/src/layouts/GDefault";
+import GDefault from "@geek/ui/GDefault";
 import {FaBeer} from "react-icons/fa";
 import { GHeaderNavBarProps } from "@geek/ui/GHeader";
 export default function Home() {

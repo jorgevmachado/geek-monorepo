@@ -15,11 +15,16 @@ import './GHeader.scss';
 
 
 interface HeaderProps {
+    user: {
+        name: string;
+        email: string;
+        picture?: string;
+    };
     logo: string;
     navbar?: Array<GHeaderNavBarProps>;
 }
 
-export default function GHeader({ logo, navbar }: HeaderProps) {
+export default function GHeader({ user, logo, navbar }: HeaderProps) {
     const [showMobileMenu, setShowMobileMenu] = useState(false);
 
     const handleToggleMenu = () => { setShowMobileMenu(!showMobileMenu); };
@@ -51,7 +56,7 @@ export default function GHeader({ logo, navbar }: HeaderProps) {
                     ))}
                 </ul>
             </nav>
-            <GMenu isOpen={showMobileMenu} onToggleMenu={handleToggleMenu}/>
+            <GMenu user={user} isOpen={showMobileMenu} onToggleMenu={handleToggleMenu}/>
         </header>
     );
 }

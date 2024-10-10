@@ -1,0 +1,84 @@
+@import "../../styles/colors";
+.g-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border: 1px solid $token-color-neutral-96;
+  box-sizing: border-box;
+  background-color: $token-color-neutral-70;
+  border-radius: $token--border-radius-xlarge;
+
+  &__wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: $token--border-radius-xlarge;
+  }
+
+  &__size {
+    &--small,
+    &--medium {
+      .l-text {
+        font-size: $token-size-font-small;
+      }
+    }
+
+    &--large,
+    &--xlarge {}
+
+    &--small {
+      width: calc(1.25 * $token-spacing-regular);
+      height: calc(1.25 * $token-spacing-regular);
+
+      &.g-avatar__has-notification {
+        &:after {
+          width: calc($token-spacing-xsmall + $token-spacing-xxsmall);
+          height: calc($token-spacing-xsmall + $token-spacing-xxsmall);
+        }
+      }
+    }
+
+    &--medium {
+      width: calc(2 * $token-spacing-regular);
+      height: calc(2 * $token-spacing-regular);
+
+      &.g-avatar__has-notification {
+        &:after {
+          width: calc(0.625 * $token-spacing-regular);
+          height: calc(0.625 * $token-spacing-regular);
+        }
+      }
+    }
+
+    &--large {
+      width: calc(2.5 * $token-spacing-regular);
+      height: calc(2.5 * $token-spacing-regular);
+    }
+
+    &--xlarge {
+      width: calc(3.5 * $token-spacing-regular);
+      height: calc(3.5 * $token-spacing-regular);
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.2s;
+    &--loaded {
+      opacity: 1;
+    }
+  }
+}

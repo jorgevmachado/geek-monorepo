@@ -11,7 +11,7 @@
     justify-content: flex-start;
     gap: 15px;
     &--name {
-      font-weight: 600;
+      font-weight: $token-font-weight-semi-bold;
       font-size: $token-size-font-medium;
       color: $token-color-neutral-100;
     }

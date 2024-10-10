@@ -17,12 +17,15 @@
 
   &__active {
     color: $token-color-primary-100;
-    background-color: $token-color-primary-80;
+    background-color: $token-color-primary-50;
     border-left: 4px solid $token-color-primary-100;
+    .g-sidebar-button__title, .g-sidebar-button__title--icon {
+      color: $token-color-neutral-110;
+    }
   }
 
   &:hover:not(&__active) {
-    background-color: $token-color-primary-60;
+    background-color: $token-color-primary-50;
   }
 
   &__title {

@@ -14,6 +14,7 @@ export default function GSidebar({ sidebar }: GSidebarProps) {
                     sidebar?.map((item) => (
                         <GSidebarButton 
                             key={item.key}
+                            path={item.path}
                             icon={item.icon}
                             label={item.label}
                             onRedirect={item?.onRedirect}

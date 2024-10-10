@@ -1,0 +1,37 @@
+@import "../../../../../../styles/variables";
+
+.g-sidebar-button {
+  width: 100%;
+  gap: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1rem;
+  padding: 1.25rem 1.5rem;
+  border: none;
+  font-weight: $token-font-weight-semi-bold;
+  border-left: 4px solid transparent;
+  transition: background 0.1s ease-in;
+  background-color: transparent;
+  cursor: pointer;
+
+  &__active {
+    color: $token-color-primary-100;
+    background-color: $token-color-primary-80;
+    border-left: 4px solid $token-color-primary-100;
+  }
+
+  &:hover:not(&__active) {
+    background-color: $token-color-primary-60;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: $token-color-primary-100;
+  }
+  @include mq-medium(down) {
+    display: none;
+  }
+}

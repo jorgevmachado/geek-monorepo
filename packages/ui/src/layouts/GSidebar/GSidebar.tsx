@@ -1,9 +1,26 @@
 import './GSidebar.scss';
-export default function GSidebar() {
+import GSidebarButton from './GSidebarButton';
+import { GSidebarItemProps } from './interface';
+
+interface GSidebarProps {
+    sidebar?: Array<GSidebarItemProps>;
+}
+
+export default function GSidebar({ sidebar }: GSidebarProps) {
     return (
         <aside className="g-sidebar">
             <div className="g-sidebar-container">
-                SIDEBAR
+                {
+                    sidebar?.map((item) => (
+                        <GSidebarButton 
+                            key={item.key}
+                            icon={item.icon}
+                            label={item.label}
+                            href={item.href}
+                            target={item.target}
+                            rel={item.rel}/>
+                    ))
+                }
             </div>
         </aside>
     );

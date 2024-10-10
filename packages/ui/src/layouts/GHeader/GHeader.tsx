@@ -32,7 +32,12 @@ export default function GHeader({ logo, navbar }: HeaderProps) {
                             ) : (
                                 <GHeaderDropdown label={item.label}>
                                     {item?.items?.map((subItem) => (
-                                        <GHeaderButton key={subItem.label} label={subItem.label} href={subItem?.href} />
+                                        <GHeaderButton
+                                            key={subItem.label}
+                                            rel={subItem?.rel}
+                                            label={subItem.label}
+                                            href={subItem?.href}
+                                            target={subItem?.target} />
                                     ))}
                                 </GHeaderDropdown>
                             )}

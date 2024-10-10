@@ -5,6 +5,7 @@
   "exports": {
     "./GDefault": "./src/layouts/GDefault/index.ts",
     "./GHeader": "./src/layouts/GHeader/index.ts",
+    "./GSidebar": "./src/layouts/GSidebar/index.ts",
     "./GIcon": "./src/components/GIcon/index.ts",
     "./button": "./src/button/index.ts",
     "./card": "./src/card/index.ts",

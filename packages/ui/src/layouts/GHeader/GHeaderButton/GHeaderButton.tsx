@@ -1,16 +1,16 @@
 import './GHeaderButton.scss';
 
 interface HeaderButtonProps {
+    rel?: string;
     href?: string;
     label: string;
+    target?: string;
 }
 
-const GHeaderButton: React.FC<HeaderButtonProps> = ({ href, label }) => {
+export default function GHeaderButton({ rel = 'noopener', href, label, target = '_self' }: HeaderButtonProps) {
     return (
-        <a className="header-button" href={href} target="_self"  data-testid="header-button">
+        <a className="header-button" href={href} rel={rel} target={target}  data-testid="header-button">
         {label}
         </a>
-);
+    );
 };
-
-export default GHeaderButton;

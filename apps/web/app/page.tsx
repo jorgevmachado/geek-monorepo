@@ -1,6 +1,9 @@
 import GDefault from "@geek/ui/GDefault";
 import {FaBeer} from "react-icons/fa";
 import { GHeaderNavBarProps } from "@geek/ui/GHeader";
+import {CiCalendar, CiHeart, CiPhone, CiUser} from "react-icons/ci";
+import {IoDocumentTextOutline} from "react-icons/io5";
+import {GSidebarItemProps} from "@geek/ui/GSidebar";
 export default function Home() {
     const navbar: Array<GHeaderNavBarProps> = [
         {
@@ -121,9 +124,65 @@ export default function Home() {
             rel: 'noopener',
             target: 'self',
         }
-    ]
+    ];
+
+    const sidebar: Array<GSidebarItemProps> = [
+        {
+            key: 'personal',
+            icon: <CiUser />,
+            label: 'Meus dados',
+            path: '/meus-dados/perfil',
+            href: '/meus-dados/perfil',
+            rel: 'noopener',
+            target: 'self',
+        },
+        {
+            key: 'favorites',
+            icon: <CiHeart />,
+            label: 'Favoritos',
+            path: '/favoritos',
+            href: '/favoritos',
+            rel: 'noopener',
+            target: 'self',
+        },
+        {
+            key: 'contracted-advertisements',
+            icon: <CiPhone />,
+            label: 'Anúncios contatados',
+            path: '/contatados',
+            href: '/contatados',
+            rel: 'noopener',
+            target: 'self',
+        },
+        {
+            key: 'requested-visits',
+            icon: <CiCalendar />,
+            label: 'Visitas solicitadas',
+            path: '/minhas-visitas',
+            href: '/minhas-visitas',
+            rel: 'noopener',
+            target: 'self',
+        },
+        {
+            key: 'proposals-sent',
+            icon: <IoDocumentTextOutline />,
+            label: 'Propostas enviadas',
+            path: '/minhas-propostas',
+            href: '/minhas-propostas',
+            rel: 'noopener',
+            target: 'self',
+        },
+        {
+            key: 'publisher',
+            label: 'Anunciar meu imóvel',
+            path: '/anuncio/cadastrar/',
+            href: '/anuncio/cadastrar/',
+            rel: 'noopener',
+            target: 'self',
+        },
+    ];
     return (
-        <GDefault logo="/logo/logo.svg" navbar={navbar}>
+        <GDefault logo="/logo/logo.svg" navbar={navbar} sidebar={sidebar}>
             <h3> Lets go for a <FaBeer/>? </h3>
         </GDefault>
     );

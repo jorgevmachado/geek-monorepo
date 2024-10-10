@@ -3,7 +3,7 @@ import { HTMLAttributes } from 'react';
 import './GIcon.scss';
 
 interface IconProps extends HTMLAttributes<HTMLSpanElement> {
-    readonly icon: string | React.ReactNode;
+    readonly icon: React.ReactNode;
     readonly color?: string;
 }
 

@@ -1,18 +1,20 @@
-import './GSidebar.scss';
-import GSidebarButton from './GSidebarButton';
-import { GSidebarItemProps } from './interface';
+import './Sidebar.scss';
+
+import { NavSidebar } from '../interface';
+
+import SidebarButton from './SidebarButton';
 
 interface GSidebarProps {
-    sidebar?: Array<GSidebarItemProps>;
+    sidebar?: Array<NavSidebar>;
 }
 
-export default function GSidebar({ sidebar }: GSidebarProps) {
+export default function Sidebar({ sidebar }: GSidebarProps) {
     return (
         <aside className="g-sidebar">
             <div className="g-sidebar-container">
                 {
                     sidebar?.map((item) => (
-                        <GSidebarButton 
+                        <SidebarButton
                             key={item.key}
                             path={item.path}
                             icon={item.icon}

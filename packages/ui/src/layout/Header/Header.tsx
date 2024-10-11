@@ -4,30 +4,38 @@ import { FaHamburger } from 'react-icons/fa';
 
 import GIcon from '../../components/GIcon';
 
-import GHeaderButton from './GHeaderButton';
-import GHeaderDropdown from './GHeaderDropdown';
-import GMenu from '../GMenu';
+import HeaderButton from './HeaderButton';
+import HeaderDropdown from './HeaderDropdown';
+import HeaderSidebar from './HeaderSidebar';
 
-import type { GHeaderNavBarProps } from './interface';
-
-import './GHeader.scss';
-
-
+import './Header.scss';
+import { NavSidebar, Navbar, User } from '../interface';
+import {CiUser} from "react-icons/ci";
 
 interface HeaderProps {
-    user: {
-        name: string;
-        email: string;
-        picture?: string;
-    };
+    user: User;
     logo: string;
-    navbar?: Array<GHeaderNavBarProps>;
+    navbar?: Array<Navbar>;
+    sidebar?: Array<NavSidebar>;
 }
 
-export default function GHeader({ user, logo, navbar }: HeaderProps) {
+export default function Header({ user, logo, navbar, sidebar }: HeaderProps) {
     const [showMobileMenu, setShowMobileMenu] = useState(false);
 
     const handleToggleMenu = () => { setShowMobileMenu(!showMobileMenu); };
+
+    const hasProfileSidebar = sidebar?.find((item) => item.key === 'profile');
+
+    const profileMenu = hasProfileSidebar
+        ? sidebar?.find((item) => item.key === 'profile')
+        : {
+            key: 'profile',
+            label: 'Meus dados',
+            path: '/meus-dados',
+            onRedirect: () => {
+                window.open('/meus-dados', '_self', 'noopener');
+            }
+        };
 
     return (
         <header className="header-container">
@@ -44,19 +52,19 @@ export default function GHeader({ user, logo, navbar }: HeaderProps) {
                     {navbar?.map((item) => (
                         <li className={`header-container__nav--list-item ${item.type === 'dropdown' ? 'header-container__nav--list-dropdown' : ''}`} key={item.key}>
                             {item.type === 'button' ? (
-                                <GHeaderButton label={item.label} onRedirect={item?.onRedirect} />
+                                <HeaderButton label={item.label} onRedirect={item?.onRedirect} />
                             ) : (
-                                <GHeaderDropdown label={item.label}>
+                                <HeaderDropdown label={item.label}>
                                     {item?.items?.map((subItem) => (
-                                        <GHeaderButton key={subItem.key} label={subItem.label} onRedirect={subItem?.onRedirect}/>
+                                        <HeaderButton key={subItem.key} label={subItem.label} onRedirect={subItem?.onRedirect}/>
                                     ))}
-                                </GHeaderDropdown>
+                                </HeaderDropdown>
                             )}
                         </li>
                     ))}
                 </ul>
             </nav>
-            <GMenu user={user} isOpen={showMobileMenu} onToggleMenu={handleToggleMenu}/>
+            <HeaderSidebar user={user} isOpen={showMobileMenu} profileMenu={profileMenu} onToggleMenu={handleToggleMenu}/>
         </header>
     );
 }

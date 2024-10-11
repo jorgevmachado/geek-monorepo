@@ -3,14 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
-    "./GDefault": "./src/layouts/GDefault/index.ts",
-    "./GHeader": "./src/layouts/GHeader/index.ts",
-    "./GSidebar": "./src/layouts/GSidebar/index.ts",
-    "./GIcon": "./src/components/GIcon/index.ts",
-    "./button": "./src/button/index.ts",
-    "./card": "./src/card/index.ts",
-    "./code": "./src/code/index.ts",
-    "./animations/fade": "./src/animations/fade/index.ts"
+    ".": "./src/index.ts"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",

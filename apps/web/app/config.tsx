@@ -1,11 +1,15 @@
-import {GHeaderNavBarProps} from "@geek/ui/GHeader";
-import {GSidebarItemProps} from "@geek/ui/GSidebar";
+import { NavSidebar, Navbar } from "@geek/ui";
 import {CiCalendar, CiHeart, CiPhone, CiUser} from "react-icons/ci";
 import {IoDocumentTextOutline} from "react-icons/io5";
 
 const logo = '/logo/logo.svg';
 
-const navbar: Array<GHeaderNavBarProps> = [
+const user = {
+    name: 'Jorge Luiz',
+    email: 'jorge.vmachado@gmail.com',
+};
+
+const navbar: Array<Navbar> = [
     {
         key: 'rental',
         type: 'button',
@@ -27,10 +31,8 @@ const navbar: Array<GHeaderNavBarProps> = [
     {
         key: 'developments',
         type: 'dropdown',
+        path: "/",
         label: 'Lançamentos',
-        href: '/descobrir',
-        rel: 'noopener',
-        target: 'self',
         items: [
             {
                 key: 'on-the-plant',
@@ -68,14 +70,13 @@ const navbar: Array<GHeaderNavBarProps> = [
                     window.open('/lancamentos', '_self', 'noopener');
                 },
             },
-        ]
+        ],
     },
     {
         key: 'advertising',
         type: 'dropdown',
+        path: "/",
         label: 'Anunciar',
-        rel: 'noopener',
-        target: 'self',
         items: [
             {
                 key: 'broker',
@@ -126,14 +127,14 @@ const navbar: Array<GHeaderNavBarProps> = [
     }
 ];
 
-const sidebar: Array<GSidebarItemProps> = [
+const sidebar: Array<NavSidebar> = [
     {
-        key: 'personal',
+        key: 'profile',
         icon: <CiUser />,
         label: 'Meus dados',
-        path: '/meus-dados/perfil',
+        path: '/meus-dados',
         onRedirect: () => {
-            window.open('/meus-dados/perfil', '_self', 'noopener');
+            window.open('/meus-dados', '_self', 'noopener');
         }
     },
     {
@@ -184,6 +185,7 @@ const sidebar: Array<GSidebarItemProps> = [
 
 export const config = {
     logo,
+    user,
     navbar,
     sidebar
 }

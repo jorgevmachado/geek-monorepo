@@ -1,12 +1,12 @@
 "use client";
 import {config} from "../config";
-import GDefault from "@geek/ui/GDefault";
+import { Default } from "@geek/ui";
 
 export default function Favorites() {
-    const { logo, navbar, sidebar} = config;
+    const { user, logo, navbar, sidebar} = config;
     return (
-        <GDefault logo={logo} navbar={navbar} sidebar={sidebar}>
+        <Default user={user} logo={logo} navbar={navbar} sidebar={sidebar}>
             <h3> Favoritos </h3>
-        </GDefault>
+        </Default>
     );
 }

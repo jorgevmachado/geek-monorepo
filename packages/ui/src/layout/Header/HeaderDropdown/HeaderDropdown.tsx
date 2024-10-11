@@ -5,14 +5,14 @@ import { useState } from 'react';
 import GDropdown from '../../../components/GDropdown';
 import GIcon from '../../../components/GIcon';
 
-import './GHeaderDropdown.scss';
+import './HeaderDropdown.scss';
 
 interface HeaderDropdownProps {
     label: string;
     children: React.ReactNode;
 }
 
-export default function GHeaderDropdown({ label, children }: HeaderDropdownProps) {
+export default function HeaderDropdown({ label, children }: HeaderDropdownProps) {
     const [isDropdownOpen, setIsMenuOpen] = useState(false);
     const icon = isDropdownOpen ? <MdOutlineArrowDropUp size={28} /> : <MdOutlineArrowDropDown size={28} />;
 

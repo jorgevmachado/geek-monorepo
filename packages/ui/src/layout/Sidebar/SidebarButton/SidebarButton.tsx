@@ -1,4 +1,4 @@
-import './GSidebarButton.scss';
+import './SidebarButton.scss';
 import GIcon from '../../../components/GIcon';
 import { MdOutlineSpaceDashboard } from 'react-icons/md';
 
@@ -9,7 +9,7 @@ interface GSidebarButtonProps {
     onRedirect?: () => void;
 }
 
-export default function GSidebarButton({
+export default function SidebarButton({
     label,
     icon = <MdOutlineSpaceDashboard />,
     path,

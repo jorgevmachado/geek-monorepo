@@ -1,2 +1,22 @@
 @import "../../styles/colors";
-.g-image {}
+.g-image {
+  &__fallback {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: $token-color-neutral-110;
+    color: $token-color-neutral-70;
+    align-items: center;
+    justify-items: center;
+    &--icon {
+      margin-left: 50%;
+      margin-right: auto;
+    }
+  }
+  &__fit-contain {
+    object-fit: contain;
+  }
+  &__fit-cover {
+    object-fit: cover;
+  }
+}

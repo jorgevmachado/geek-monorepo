@@ -1,13 +1,13 @@
-import { EStatus } from "@/status";
+import { EStatus } from '@/status';
 
 export enum ERole {
-  ADMIN = "ADMIN",
-  USER = "USER",
+  ADMIN = 'ADMIN',
+  USER = 'USER',
 }
 
 export enum EGender {
-  MALE = "MALE",
-  FEMALE = "FEMALE",
+  MALE = 'MALE',
+  FEMALE = 'FEMALE',
 }
 
 export interface IUser {

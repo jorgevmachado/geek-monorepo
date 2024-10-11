@@ -4,8 +4,7 @@ module.exports = {
   extends: ["@geek/eslint-config/base.js"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
-    project: true,
+    project: "./tsconfig.lint.json",
     tsconfigRootDir: __dirname,
-    sourceType: 'module',
   },
 };

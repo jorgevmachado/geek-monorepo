@@ -1,16 +1,20 @@
 import * as bcrypt from 'bcrypt';
 import * as crypto from 'crypto';
 import { BadRequestException, ConflictException, Injectable, InternalServerErrorException } from '@nestjs/common';
-import { IFilterParams, Service } from '../../../shared/service';
-import { Users } from './users.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { CredentialsAuthDto } from '../dto/credentials-auth.dto';
-import { EGender, ERole, EStatus } from '@geek/business/dist';
-import { CreateAuthDto } from '../dto/create-auth.dto';
-import { UpdateAuthDto } from '../dto/update-auth.dto';
-import { FilterAuthDto } from '../dto/filter-auth.dto';
 import { isArray } from 'class-validator';
+
+import { EGender, ERole, EStatus } from '@geek/business';
+
+import { IFilterParams, Service } from '../../../shared/service';
+
+import { CreateAuthDto } from '../dto/create-auth.dto';
+import { CredentialsAuthDto } from '../dto/credentials-auth.dto';
+import { FilterAuthDto } from '../dto/filter-auth.dto';
+import { UpdateAuthDto } from '../dto/update-auth.dto';
+
+import { Users } from './users.entity';
 
 @Injectable()
 export class UsersService extends Service<Users>{
@@ -90,7 +94,7 @@ export class UsersService extends Service<Users>{
     }
   }
 
-  async checkCredentials({email, password}: CredentialsAuthDto): Promise<Users | null> {
+  async checkCredentials({ email, password }: CredentialsAuthDto): Promise<Users | null> {
     const user = await this.findBy({
       by: 'email',
       value: email,
@@ -160,7 +164,7 @@ export class UsersService extends Service<Users>{
       withThrow: true,
       withDeleted,
     });
-    if(mustCleanUser) {
+    if (mustCleanUser) {
       return this.cleanUser(currentUser);
     }
     return currentUser;

@@ -1,7 +1,8 @@
-"use client";
-import {Default} from "@geek/ui";
-import {FaBeer} from "react-icons/fa";
-import {config} from "./config";
+'use client';
+import { Default } from '@geek/ui';
+import { FaBeer } from 'react-icons/fa';
+
+import { config } from './config';
 
 export default function Home() {
     const { user, logo, navbar, sidebar, onLogout } = config;

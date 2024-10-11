@@ -1,15 +1,17 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post, Query, UseGuards } from '@nestjs/common';
-import { AuthService } from './auth.service';
-import { FilterAuthDto } from './dto/filter-auth.dto';
 import { AuthGuard } from '@nestjs/passport';
-import { CredentialsAuthDto } from './dto/credentials-auth.dto';
+
+import { ERole } from '@geek/business';
+
 import { AuthRoleGuards } from './auth-role.guards';
-import { ERole } from '@geek/business/dist/user';
-import { Role } from './auth-role.decorator';
-import { GetUserAuth } from './auth-user.decorator';
-import { Users } from './users/users.entity';
+import { AuthService } from './auth.service';
 import { CreateAuthDto } from './dto/create-auth.dto';
+import { CredentialsAuthDto } from './dto/credentials-auth.dto';
+import { FilterAuthDto } from './dto/filter-auth.dto';
+import { GetUserAuth } from './auth-user.decorator';
+import { Role } from './auth-role.decorator';
 import { UpdateAuthDto } from './dto/update-auth.dto';
+import { Users } from './users/users.entity';
 
 @Controller('auth')
 export class AuthController {

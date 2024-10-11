@@ -1,6 +1,7 @@
-import { NavSidebar, Navbar } from "@geek/ui";
-import {CiCalendar, CiHeart, CiPhone, CiUser} from "react-icons/ci";
-import {IoDocumentTextOutline} from "react-icons/io5";
+import { CiCalendar, CiHeart, CiPhone, CiUser } from 'react-icons/ci';
+import { IoDocumentTextOutline } from 'react-icons/io5';
+
+import { NavSidebar, Navbar } from '@geek/ui';
 
 const logo = '/logo/logo.svg';
 
@@ -31,7 +32,7 @@ const navbar: Array<Navbar> = [
     {
         key: 'developments',
         type: 'dropdown',
-        path: "/",
+        path: '/',
         label: 'Lançamentos',
         items: [
             {
@@ -75,7 +76,7 @@ const navbar: Array<Navbar> = [
     {
         key: 'advertising',
         type: 'dropdown',
-        path: "/",
+        path: '/',
         label: 'Anunciar',
         items: [
             {
@@ -209,4 +210,4 @@ export const config = {
     onLogout: () => {
         window.open('/anuncio/cadastrar/', '_self', 'noopener');
     }
-}
+};

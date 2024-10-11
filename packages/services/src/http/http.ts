@@ -1,9 +1,9 @@
-import { formatUrl } from "../string";
+import { formatUrl } from '@/string';
 
 interface RequestConfig<B = any> {
   body?: B;
   params?: Record<string, any>;
-  override?: Omit<RequestInit, "body" | "method">;
+  override?: Omit<RequestInit, 'body' | 'method'>;
 }
 
 export abstract class Http {
@@ -25,13 +25,13 @@ export abstract class Http {
 
   get<T>(
     path: string,
-    config: Omit<RequestConfig, "body"> = { params: {}, override: {} },
+    config: Omit<RequestConfig, 'body'> = { params: {}, override: {} },
   ): Promise<T> {
     const { params, override } = config;
 
     const url = formatUrl(this.url, path, params);
 
-    return this.send<T>(url, { ...override, method: "GET" });
+    return this.send<T>(url, { ...override, method: 'GET' });
   }
 
   post<B, T = any>(
@@ -46,7 +46,7 @@ export abstract class Http {
 
     return this.send(url, {
       ...override,
-      method: "POST",
+      method: 'POST',
       body: isFormData ? body : JSON.stringify(body),
     });
   }

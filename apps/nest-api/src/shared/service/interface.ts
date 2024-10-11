@@ -1,5 +1,4 @@
-import { ERole } from '@geek/business/dist/user';
-import { EStatus } from '@geek/business/dist/status';
+import { ERole, EStatus } from '@geek/business';
 
 export interface IFilterParams {
   value: string;

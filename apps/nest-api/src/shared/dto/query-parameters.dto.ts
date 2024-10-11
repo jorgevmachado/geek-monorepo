@@ -1,6 +1,6 @@
-import { IQueryParameters } from '../service';
-import { ERole } from '@geek/business/dist/user';
-import { EStatus } from '@geek/business/dist/status';
+import { ERole, EStatus } from '@geek/business';
+
+import { type IQueryParameters } from '../service';
 
 export class QueryParametersDto implements IQueryParameters {
   all?: boolean;

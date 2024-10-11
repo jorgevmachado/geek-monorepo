@@ -7,9 +7,12 @@ import {
   MinLength,
 } from 'class-validator';
 import { Transform } from 'class-transformer';
-import { CPF } from '../decorators/cpf.decorator';
+
+import { EGender } from '@geek/business';
+
 import { Match } from '../../../shared/decorators/match.decorator';
-import { EGender } from '@geek/business/dist/user';
+
+import { CPF } from '../decorators/cpf.decorator';
 
 export class CreateAuthDto {
   /**

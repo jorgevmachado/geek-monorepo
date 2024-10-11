@@ -7,8 +7,10 @@ import {
   MaxLength,
 } from 'class-validator';
 import { Transform } from 'class-transformer';
+
+import { EGender, ERole } from '@geek/business';
+
 import { CPF } from '../decorators/cpf.decorator';
-import { EGender, ERole } from '@geek/business/dist/user';
 
 export class UpdateAuthDto {
   /**

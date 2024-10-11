@@ -1,13 +1,15 @@
 import { BadRequestException, ForbiddenException, Injectable, UnprocessableEntityException } from '@nestjs/common';
-import { UsersService } from './users/users.service';
 import { JwtService } from '@nestjs/jwt';
+
+import { ERole, EStatus } from '@geek/business';
+
 import type { IIndexParams } from '../../shared/service';
-import { CredentialsAuthDto } from './dto/credentials-auth.dto';
-import { Users } from './users/users.entity';
-import { ERole } from '@geek/business/dist/user';
+
 import { CreateAuthDto } from './dto/create-auth.dto';
+import { CredentialsAuthDto } from './dto/credentials-auth.dto';
 import { UpdateAuthDto } from './dto/update-auth.dto';
-import { EStatus } from '@geek/business/dist/status';
+import { Users } from './users/users.entity';
+import { UsersService } from './users/users.service';
 
 @Injectable()
 export class AuthService {
@@ -21,8 +23,8 @@ export class AuthService {
     return { message: 'Registration Completed Successfully!' };
   }
 
-  async signIn({email, password}: CredentialsAuthDto) {
-    const credential = await this.userService.checkCredentials({email, password});
+  async signIn({ email, password }: CredentialsAuthDto) {
+    const credential = await this.userService.checkCredentials({ email, password });
 
     if (!credential) {
       throw new UnprocessableEntityException('Invalid credentials');

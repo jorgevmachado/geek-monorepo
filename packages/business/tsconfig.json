@@ -1,15 +1,14 @@
 {
   "extends": "@geek/typescript-config/base.json",
   "compilerOptions": {
-    "plugins": [{ "name": "business" }],
     "baseUrl": "./",
-    "outDir": "dist",
+    "outDir": "./dist",
     "paths": {
       "@/*": [
         "src/*"
       ]
     }
   },
-  "include": ["src/**/*"],
+  "include": ["./src/**/*"],
   "exclude": ["node_modules", "dist", "build"]
 }

@@ -1,9 +1,28 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "business",
-  "extends": "./base.json",
+  "compileOnSave": false,
   "compilerOptions": {
-    "plugins": [{ "name": "business" }, { "transform":  "typescript-transform-paths", "afterDeclarations": true }],
-    "outDir": "./dist"
+    "target": "esnext",
+    "lib": ["es2018", "dom"],
+    "jsx": "preserve",
+    "experimentalDecorators": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "rootDirs": ["./dist"],
+    "types": [
+      "node"
+    ],
+    "resolveJsonModule": true,
+    "declaration": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "importHelpers": true,
+    "downlevelIteration": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "plugins": [{ "name": "business" }, { "transform":  "typescript-transform-paths", "afterDeclarations": true }]
   }
 }

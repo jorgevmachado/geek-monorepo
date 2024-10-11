@@ -1,6 +1,8 @@
 import { ObjectLiteral, Repository, SelectQueryBuilder } from 'typeorm';
-import type { IFilterParams, IFindByParams, IIndexParams, IPaginate, IQueryParameters } from './interface';
+
 import { ConflictException, NotFoundException } from '@nestjs/common';
+
+import type { IFilterParams, IFindByParams, IIndexParams, IPaginate, IQueryParameters } from './interface';
 
 export abstract class Service<T extends ObjectLiteral> {
   protected constructor(
@@ -14,7 +16,7 @@ export abstract class Service<T extends ObjectLiteral> {
 
     this.queryOrderBy(query, indexParams.parameters?.asc, indexParams.parameters?.desc);
 
-    if(indexParams.withDeleted) {
+    if (indexParams.withDeleted) {
       query.withDeleted();
     }
 
@@ -56,7 +58,7 @@ export abstract class Service<T extends ObjectLiteral> {
     asc?: string,
     desc?: string
   ) {
-    if(asc && desc) {
+    if (asc && desc) {
       throw new ConflictException('Cannot use asc and desc at the same time');
     }
 

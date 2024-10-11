@@ -1,5 +1,5 @@
-import { EGender, ERole, type IUser } from '@geek/business/dist/user';
-import { EStatus } from '@geek/business/dist/status';
+import { EGender, ERole, EStatus, type IUser } from '@geek/business';
+
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 
 @Entity({ name: 'users' })

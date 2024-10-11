@@ -1,0 +1,80 @@
+@import "../../../../../../../styles/variables";
+.header-sidebar {
+  &__button {
+    text-wrap: nowrap;
+    list-style: none;
+
+    &.active {
+      color: $token-color-neutral-12;
+      background-color: $token-color-primary-90;
+    }
+
+    &--link {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
+      flex-direction: row;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      background-color: transparent;
+      padding: 20px 24px;
+      font-size: $token-spacing-regular;
+      font-weight: $token-font-weight-semi-bold;
+      transition: background-color 0.3s ease-in;
+      color: $token-color-primary-100;
+
+      &:hover {
+        background-color: $token-color-primary-80;
+      }
+
+      &-icon {
+        margin-right: 5px;
+        svg {
+          width: 16px;
+          height: 16px;
+          vertical-align: middle;
+          margin-bottom: 4px;
+        }
+      }
+
+      &-counter {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        font-size: 14px;
+        font-weight: 500;
+        border-radius: 50%;
+        color: $token-color-neutral-100;
+        background-color: $token-color-primary-100;
+      }
+
+    }
+  }
+  &__dropdown {
+    cursor: pointer;
+    &--container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 1.5rem;
+      color: $token-color-primary-100;
+      font-size: $token-spacing-regular;
+      font-weight: $token-font-weight-semi-bold;
+
+      &-content {
+        padding: 0;
+        background-color: $token-color-primary-50;
+      }
+
+      &:hover,
+      &:focus {
+        background-color: $token-color-primary-80;
+      }
+    }
+  }
+}

@@ -9,8 +9,15 @@ export interface Navbar extends Navigation {
     items?: Array<Navbar>;
 }
 
-export interface NavSidebar extends Navigation {
+interface NavSidebarItem extends Navigation {
     icon?: React.ReactNode;
+    counter?: number;
+}
+
+export interface NavSidebar {
+    key: string;
+    label?: string;
+    items: Array<NavSidebarItem>;
 }
 
 export interface User {

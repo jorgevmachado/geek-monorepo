@@ -1,5 +1,5 @@
 @import "../../../../../../../styles/variables";
-.g-profile {
+.profile {
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -18,6 +18,21 @@
     &--email {
       color: $token-color-neutral-100;
       font-size: $token-size-font-small;
+    }
+    &--button {
+      border: none;
+      background-color: transparent;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      justify-content: flex-start;
+      font-weight: $token-font-weight-semi-bold;
+      color: $token-color-neutral-100;
+      padding: 5px 0;
+      &-icon {
+        margin-left: 5px;
+        margin-top: 6px;
+      }
     }
   }
 }

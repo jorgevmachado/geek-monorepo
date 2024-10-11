@@ -1,5 +1,5 @@
 @import "../../../../../../styles/variables";
-.g-menu {
+.header-sidebar {
   width: 392px;
   top: 100%;
   right: 0;
@@ -27,6 +27,7 @@
     top: 0;
     left: 0;
     border-radius: 0;
+
     &__show {
       visibility: visible;
       pointer-events: auto;
@@ -36,8 +37,10 @@
   &__content {
     height: 100%;
     overflow-y: auto;
+
     &--header {
       &-close-icon {
+        color: $token-color-neutral-100;
         width: fit-content;
         cursor: pointer;
       }
@@ -45,6 +48,33 @@
         display: block;
       }
     }
+
+    &--divider {
+      border: 0;
+      margin: 0;
+      height: $token-spacing-small;
+      background-color: $token-color-neutral-96;
+    }
+
+    &--navbar {
+      list-style: none;
+      margin: 0;
+    }
+
+    &::-webkit-scrollbar {
+      width: $token-spacing-small;
+      background: $token-color-neutral-100;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $token-color-neutral-84;
+      border-radius: $token-border-radius-rounded;
+      border-right: none;
+      border-left: none;
+    }
   }
 
+  @include mq-medium(up) {
+    display: none;
+  }
 }

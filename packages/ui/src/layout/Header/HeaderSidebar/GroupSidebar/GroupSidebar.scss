@@ -1,0 +1,9 @@
+@import "../../../../../../../styles/variables";
+.group-sidebar {
+  border-bottom: 1px solid $token-color-neutral-96;
+  &__title {
+    font-weight: 400;
+    padding: 1.25rem 1.75rem 0;
+    color: $token-color-neutral-28;
+  }
+}

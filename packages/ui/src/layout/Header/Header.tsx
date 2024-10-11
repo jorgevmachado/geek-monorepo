@@ -16,25 +16,13 @@ interface HeaderProps {
     logo: string;
     navbar?: Array<Navbar>;
     sidebar?: Array<NavSidebar>;
+    onLogout: () => void;
 }
 
-export default function Header({ user, logo, navbar, sidebar }: HeaderProps) {
+export default function Header({ user, logo, navbar, sidebar, onLogout }: HeaderProps) {
     const [showMobileMenu, setShowMobileMenu] = useState(false);
 
     const handleToggleMenu = () => { setShowMobileMenu(!showMobileMenu); };
-
-    const profileSidebar = sidebar?.find((item) => item.key === 'profile');
-
-    const profileMenu: NavSidebar = !profileSidebar
-        ? {
-            key: 'profile',
-            label: 'Meus dados',
-            path: '/meus-dados',
-            onRedirect: () => {
-                window.open('/meus-dados', '_self', 'noopener');
-            }
-        }
-        : profileSidebar;
 
     return (
         <header className="header-container">
@@ -63,7 +51,13 @@ export default function Header({ user, logo, navbar, sidebar }: HeaderProps) {
                     ))}
                 </ul>
             </nav>
-            <HeaderSidebar user={user} isOpen={showMobileMenu} profileMenu={profileMenu} onToggleMenu={handleToggleMenu}/>
+            <HeaderSidebar
+                user={user}
+                isOpen={showMobileMenu}
+                navbar={navbar}
+                sidebar={sidebar}
+                onLogout={onLogout}
+                onToggleMenu={handleToggleMenu}/>
         </header>
     );
 }

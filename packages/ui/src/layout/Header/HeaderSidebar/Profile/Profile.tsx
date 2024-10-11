@@ -28,21 +28,21 @@ function Avatar({ user, initialsLength = 2 }: AvatarProps) {
 interface GProfileProps {
     user: User;
     children: React.ReactNode;
-    profileMenu: NavSidebar;
+    profileMenu: NavSidebar['items'][number];
 
 }
 export default function Profile({ user, children, profileMenu }: GProfileProps) {
     return (
-        <div className="g-profile">
+        <div className="profile">
             {children}
-            <div className="g-profile__info">
+            <div className="profile__info">
                 <Avatar user={user}/>
                 <div>
-                    <GText className="g-profile__info--name">{user.name}</GText>
-                    <GText className="g-profile__info--email"><span>{user.email}</span></GText>
-                    <button className="g-profile__info--button" onClick={profileMenu.onRedirect}>
+                    <GText className="profile__info--name">{user.name}</GText>
+                    <GText className="profile__info--email"><span>{user.email}</span></GText>
+                    <button className="profile__info--button" onClick={profileMenu.onRedirect}>
                         {profileMenu.label}
-                        <GIcon icon={<MdOutlineKeyboardArrowRight />}/>
+                        <GIcon icon={<MdOutlineKeyboardArrowRight />} className="profile__info--button-icon"/>
                     </button>
                 </div>
             </div>

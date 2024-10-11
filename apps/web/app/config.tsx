@@ -130,62 +130,83 @@ const navbar: Array<Navbar> = [
 const sidebar: Array<NavSidebar> = [
     {
         key: 'profile',
-        icon: <CiUser />,
-        label: 'Meus dados',
-        path: '/meus-dados',
-        onRedirect: () => {
-            window.open('/meus-dados', '_self', 'noopener');
-        }
+        items: [
+            {
+                key: 'profile',
+                icon: <CiUser />,
+                label: 'Meus dados',
+                path: '/meus-dados',
+                onRedirect: () => {
+                    window.open('/meus-dados', '_self', 'noopener');
+                }
+            },
+        ]
     },
     {
-        key: 'favorites',
-        icon: <CiHeart />,
-        label: 'Favoritos',
-        path: '/favoritos',
-        onRedirect: () => {
-            window.open('/favoritos', '_self', 'noopener');
-        }
+        key: 'searching',
+        label: 'Buscando imóveis',
+        items: [
+            {
+                key: 'favorites',
+                icon: <CiHeart />,
+                label: 'Favoritos',
+                path: '/favoritos',
+                onRedirect: () => {
+                    window.open('/favoritos', '_self', 'noopener');
+                }
+            },
+            {
+                key: 'contracted-advertisements',
+                icon: <CiPhone />,
+                label: 'Anúncios contatados',
+                path: '/contatados',
+                onRedirect: () => {
+                    window.open('/contatados', '_self', 'noopener');
+                }
+            },
+            {
+                key: 'requested-visits',
+                icon: <CiCalendar />,
+                label: 'Visitas solicitadas',
+                path: '/minhas-visitas',
+                onRedirect: () => {
+                    window.open('/minhas-visitas', '_self', 'noopener');
+                }
+            },
+            {
+                key: 'proposals-sent',
+                icon: <IoDocumentTextOutline />,
+                label: 'Propostas enviadas',
+                path: '/minhas-propostas',
+                onRedirect: () => {
+                    window.open('/minhas-propostas', '_self', 'noopener');
+                }
+            },
+        ]
     },
     {
-        key: 'contracted-advertisements',
-        icon: <CiPhone />,
-        label: 'Anúncios contatados',
-        path: '/contatados',
-        onRedirect: () => {
-            window.open('/contatados', '_self', 'noopener');
-        }
-    },
-    {
-        key: 'requested-visits',
-        icon: <CiCalendar />,
-        label: 'Visitas solicitadas',
-        path: '/minhas-visitas',
-        onRedirect: () => {
-            window.open('/minhas-visitas', '_self', 'noopener');
-        }
-    },
-    {
-        key: 'proposals-sent',
-        icon: <IoDocumentTextOutline />,
-        label: 'Propostas enviadas',
-        path: '/minhas-propostas',
-        onRedirect: () => {
-            window.open('/minhas-propostas', '_self', 'noopener');
-        }
-    },
-    {
-        key: 'publisher',
-        label: 'Anunciar meu imóvel',
-        path: '/anuncio/cadastrar/',
-        onRedirect: () => {
-            window.open('//anuncio/cadastrar/', '_self', 'noopener');
-        }
-    },
+        key: 'owners',
+        label: 'Anunciando imóveis',
+        items: [
+            {
+                key: 'publisher',
+                label: 'Anunciar meu imóvel',
+                path: '/anuncio/cadastrar/',
+                counter: 96,
+                onRedirect: () => {
+                    window.open('/anuncio/cadastrar/', '_self', 'noopener');
+                }
+            }
+        ]
+    }
 ];
 
 export const config = {
     logo,
     user,
     navbar,
-    sidebar
+    sidebar,
+    onLogout: () => {
+        window.open('/anuncio/cadastrar/', '_self', 'noopener');
+    }
 }

@@ -9,11 +9,18 @@ interface GSidebarProps {
 }
 
 export default function Sidebar({ sidebar }: GSidebarProps) {
+
+    const menu = sidebar?.reduce((acc: NavSidebar['items'], item) => {
+        item.items.map((subItem) => acc.push(subItem));
+        return acc;
+    }, []);
+
+
     return (
         <aside className="g-sidebar">
             <div className="g-sidebar-container">
                 {
-                    sidebar?.map((item) => (
+                    menu?.map((item) => (
                         <SidebarButton
                             key={item.key}
                             path={item.path}

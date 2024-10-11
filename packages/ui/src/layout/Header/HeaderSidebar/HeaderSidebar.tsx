@@ -1,11 +1,12 @@
+import { IoClose } from 'react-icons/io5';
+
+import GIcon from '../../../components/GIcon';
+
+import { NavSidebar, User } from '../../interface';
+
 import Profile from './Profile';
 
-
 import './HeaderSidebar.scss';
-import GIcon from '../../../components/GIcon';
-import {IoClose} from 'react-icons/io5';
-import {NavSidebar, User} from '../../interface';
-
 
 interface GMenuProps {
     user: User,
@@ -14,7 +15,7 @@ interface GMenuProps {
     profileMenu: NavSidebar;
 }
 
-export default function HeaderSidebar({user, isOpen, onToggleMenu, profileMenu}: GMenuProps) {
+export default function HeaderSidebar({ user, isOpen, onToggleMenu, profileMenu }: GMenuProps) {
     return (
         <div className={`g-menu ${isOpen ? 'g-menu__show' : ''}`}>
             <div className="g-menu__content">

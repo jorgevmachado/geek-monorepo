@@ -10,7 +10,6 @@ import HeaderSidebar from './HeaderSidebar';
 
 import './Header.scss';
 import { NavSidebar, Navbar, User } from '../interface';
-import {CiUser} from "react-icons/ci";
 
 interface HeaderProps {
     user: User;
@@ -24,18 +23,18 @@ export default function Header({ user, logo, navbar, sidebar }: HeaderProps) {
 
     const handleToggleMenu = () => { setShowMobileMenu(!showMobileMenu); };
 
-    const hasProfileSidebar = sidebar?.find((item) => item.key === 'profile');
+    const profileSidebar = sidebar?.find((item) => item.key === 'profile');
 
-    const profileMenu = hasProfileSidebar
-        ? sidebar?.find((item) => item.key === 'profile')
-        : {
+    const profileMenu: NavSidebar = !profileSidebar
+        ? {
             key: 'profile',
             label: 'Meus dados',
             path: '/meus-dados',
             onRedirect: () => {
                 window.open('/meus-dados', '_self', 'noopener');
             }
-        };
+        }
+        : profileSidebar;
 
     return (
         <header className="header-container">

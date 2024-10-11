@@ -1,16 +1,18 @@
-import './Profile.scss';
+import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
+
+import { NavSidebar, User } from '../../../interface';
+import GAvatar from '../../../../components/GAvatar';
+import { GIcon } from '../../../../components';
 import GText from '../../../../components/GText';
 
-import GAvatar from '../../../../components/GAvatar';
-import {NavSidebar, User} from "../../../interface";
-import {GIcon} from "../../../../components";
-import {MdOutlineKeyboardArrowRight} from "react-icons/md";
+import './Profile.scss';
 
 interface AvatarProps {
     user: { name: string; email: string; picture?: string;};
     initialsLength?: number;
     
 }
+
 function Avatar({ user, initialsLength = 2 }: AvatarProps) {
     const picture = user?.picture ? user?.picture : '';
     return (

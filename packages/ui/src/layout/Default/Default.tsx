@@ -5,14 +5,10 @@ import Fade from '../../animations/fade';
 import Header from '../Header';
 import Sidebar from '../Sidebar';
 
-import type { NavSidebar, Navbar } from '../interface';
+import type { NavSidebar, Navbar, User } from '../interface';
 
 interface DefaultProps {
-    user: {
-        name: string;
-        email: string;
-        picture?: string;
-    }
+    user: User;
     logo: string;
     navbar?: Array<Navbar>;
     sidebar?: Array<NavSidebar>;

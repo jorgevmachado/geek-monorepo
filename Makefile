@@ -29,12 +29,14 @@ clean-dependencies:
 	$(call delete_in_project,packages/services,node_modules)
 	$(call delete_in_project,packages/ui,node_modules)
 	$(call delete_in_project,packages/eslint-config,node_modules)
+	$(call delete_in_project,packages/tokens,node_modules)
 
 clean-builds:
 	$(call delete_in_project,packages/business,dist)
 	$(call delete_in_project,packages/services,dist)
 	$(call delete_in_project,packages/typescript-config,dist)
 	$(call delete_in_project,packages/ui,dist)
+	$(call delete_in_project,packages/tokens,dist)
 
 clean-all: clean-dependencies clean-builds
 #------------------------------------------------- END ----------------------------------------------------------------#
@@ -61,9 +63,13 @@ services-build:
 ui-build:
 	$(call run_project,packages/ui,build)
 
+tokens-build:
+	$(call run_project,packages/tokens,build)
+
 build-dependencies:
 	make business-build
 	make services-build
+	make tokens-build
 
 #------------------------------------------------- END ----------------------------------------------------------------#
 

@@ -8,11 +8,11 @@
     cursor: pointer;
   }
   &__content {
-    background-color: $token-color-neutral-100;
+    background-color: var(--colors-neutral-100);
     width: auto;
     position: absolute;
     z-index: 101;
-    margin-top: $token-spacing-small;
-    border-radius: $token-border-radius-regular;
+    margin-top: var(--dimensions-tiny);
+    border-radius: var(--borders-regular);
   }
 }

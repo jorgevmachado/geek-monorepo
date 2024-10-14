@@ -1,4 +1,5 @@
-@import "../../../../../styles/variables";
+@import "../../styles/variables";
+
 $header-height-mobile: 55px;
 $header-height-desktop: 68px;
 
@@ -8,15 +9,15 @@ $header-height-desktop: 68px;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: $token-spacing-xsmall $token-font-size-body-xsmall;
-  border-bottom: 1px solid $token-color-neutral-96;
-  background-color: $token-color-neutral-100;
+  padding: var(--dimensions-xx-tiny) var(--dimensions-x-small);
+  border-bottom: 1px solid var(--colors-neutral-96);
+  background-color: var(--colors-neutral-100);
   &__brand {
     display: flex;
     align-items: center;
     justify-content: center;
     &--button {
-      margin-right: $token-spacing-xsmall;
+      margin-right: var(--dimensions-xx-tiny);
       border: none;
       background-color: transparent;
       cursor: pointer;
@@ -25,8 +26,8 @@ $header-height-desktop: 68px;
         display: flex;
         align-items: center;
         justify-content: center;
-        height: $token-spacing-xlarge;
-        width: $token-spacing-xlarge;
+        height: var(--dimensions-large);
+        width: var(--dimensions-large);
     }
   }
   &__nav {
@@ -46,7 +47,7 @@ $header-height-desktop: 68px;
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap: $token-spacing-xlarge;
+        gap: var(--dimensions-large);
         &-item {
           display: inherit;
         }
@@ -55,8 +56,8 @@ $header-height-desktop: 68px;
             padding: 0.75rem 1.25rem;
 
             &:hover {
-              background-color: $token-color-primary-80;
-              color: $token-color-neutral-12;
+              background-color: var(--colors-primary-80);
+              color: var(--colors-neutral-12);
             }
 
             &::after {

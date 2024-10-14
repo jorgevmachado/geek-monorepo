@@ -1,12 +1,13 @@
-@import "../../../../../../../styles/variables";
+@import "../../../../styles/variables";
+
 .header-sidebar {
   &__button {
     text-wrap: nowrap;
     list-style: none;
 
     &.active {
-      color: $token-color-neutral-12;
-      background-color: $token-color-primary-90;
+      color: var(--colors-neutral-12);
+      background-color: var(--colors-primary-90);
     }
 
     &--link {
@@ -20,13 +21,13 @@
       border: none;
       background-color: transparent;
       padding: 20px 24px;
-      font-size: $token-spacing-regular;
-      font-weight: $token-font-weight-semi-bold;
+      font-size: var(--dimensions-regular);
+      font-weight: var(--text-weights-semi-bold);
       transition: background-color 0.3s ease-in;
-      color: $token-color-primary-100;
+      color: var(--colors-primary-100);
 
       &:hover {
-        background-color: $token-color-primary-80;
+        background-color: var(--colors-primary-80);
       }
 
       &-icon {
@@ -48,8 +49,8 @@
         font-size: 14px;
         font-weight: 500;
         border-radius: 50%;
-        color: $token-color-neutral-100;
-        background-color: $token-color-primary-100;
+        color: var(--colors-neutral-100);
+        background-color: var(--colors-primary-100);
       }
 
     }
@@ -62,18 +63,18 @@
       align-items: center;
       justify-content: space-between;
       padding: 1.25rem 1.5rem;
-      color: $token-color-primary-100;
-      font-size: $token-spacing-regular;
-      font-weight: $token-font-weight-semi-bold;
+      color: var(--colors-primary-100);
+      font-size: var(--dimensions-regular);
+      font-weight: var(--text-weights-semi-bold);
 
       &-content {
         padding: 0;
-        background-color: $token-color-primary-50;
+        background-color: var(--colors-primary-50);
       }
 
       &:hover,
       &:focus {
-        background-color: $token-color-primary-80;
+        background-color: var(--colors-primary-80);
       }
     }
   }

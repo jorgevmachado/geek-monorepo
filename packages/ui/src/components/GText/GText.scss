@@ -2,68 +2,68 @@
 .g-text {
   &__variant {
     &--tiny{
-      font-size: $token-size-font-xsmall;
-      line-height: $token-line-height-tiny;
-      font-weight: $token-font-weight-normal;
+      font-size: var(--text-sizes-x-small);
+      line-height: var(--text-line-heights-tiny);
+      font-weight: var(--text-weights-normal);
     }
     &--xsmall{
-      font-size: $token-size-font-xsmall;
-      line-height: $token-line-height-xsmall;
-      font-weight: $token-font-weight-normal;
+      font-size: var(--text-sizes-x-small);
+      line-height: var(--text-line-heights-tiny);
+      font-weight: var(--text-weights-normal);
     }
     &--small{
-      font-size: $token-size-font-xsmall;
-      line-height: $token-line-height-small;
-      font-weight: $token-font-weight-normal;
+      font-size: var(--text-sizes-x-small);
+      line-height: var(--text-line-heights-small);
+      font-weight: var(--text-weights-normal);
     }
     &--regular{
-      font-size: $token-size-font-xsmall;
-      line-height: $token-line-height-regular;
-      font-weight: $token-font-weight-normal;
+      font-size: var(--text-sizes-x-small);
+      line-height: var(--text-line-heights-regular);
+      font-weight: var(--text-weights-normal);
     }
     &--medium{
-      font-size: $token-size-font-medium;
-      line-height: $token-line-height-medium;
-      font-weight: $token-font-weight-normal;
+      font-size: var(--text-sizes-medium);
+      line-height: var(--text-line-heights-medium);
+      font-weight: var(--text-weights-normal);
     }
     &--large{
-      font-size: $token-size-font-large;
-      line-height: $token-line-height-large;
-      font-weight: $token-font-weight-normal;
+      font-size: var(--text-sizes-large);
+      line-height: var(--text-line-heights-large);
+      font-weight: var(--text-weights-normal);
     }
     &--xlarge{
-      font-size: $token-size-font-xlarge;
-      line-height: $token-line-height-xlarge;
-      font-weight: $token-font-weight-normal;
+      font-size: var(--text-sizes-x-large);
+      line-height: var(--text-line-heights-x-large);
+      font-weight: var(--text-weights-normal);
     }
     &--big{
-      font-size: $token-size-font-big;
-      line-height: $token-line-height-big;
-      font-weight: $token-font-weight-normal;
+      font-size: var(--text-sizes-big);
+      line-height: var(--text-line-heights-big);
+      font-weight: var(--text-weights-normal);
     }
     &--huge{
-      font-size: $token-size-font-huge;
-      line-height: $token-line-height-huge;
-      font-weight: $token-font-weight-normal;
+      font-size: var(--text-sizes-huge);
+      line-height: var(--text-line-heights-huge);
+      font-weight: var(--text-weights-normal);
     }
     &--giant{
-      font-size: $token-size-font-giant;
-      line-height: $token-line-height-giant;
-      font-weight: $token-font-weight-normal;
+      font-size: var(--text-sizes-giant);
+      line-height: var(--text-line-heights-giant);
+      font-weight: var(--text-weights-normal);
     }
   }
   &__weight {
     &--normal{
-      font-weight: $token-font-weight-normal;
+      font-weight: var(--text-weights-normal);
     }
     &--medium{
-      font-weight: $token-font-weight-medium;
+      font-weight: var(--text-weights-medium);
     }
     &--semi-bold{
-      font-weight: $token-font-weight-semi-bold;
+      font-weight: var(--text-weights-semi-bold);
     }
     &--bold{
-      font-weight: $token-font-weight-bold;
+      font-weight: var(--text-weights-bold);
     }
   }
 }

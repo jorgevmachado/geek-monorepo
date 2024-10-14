@@ -1,4 +1,5 @@
-@import "../../../styles/variables";
+@import "@geek/tokens/dist/geek/css/_variables.css";
+
 html,
 body,
 #root {
@@ -20,13 +21,13 @@ body,
           sans-serif;
 
   &::-webkit-scrollbar {
-    width: $token-spacing-small;
-    background: $token-color-neutral-100;
+    width: var(--dimensions-tiny);
+    background: var(--colors-neutral-100);
   }
 
   &::-webkit-scrollbar-thumb {
-    background: $token-color-neutral-84;
-    border-radius: $token-border-radius-rounded;
+    background: var(--colors-neutral-84);
+    border-radius: var(--borders-rounded);
     border-right: none;
     border-left: none;
   }

@@ -12,6 +12,7 @@
   "devDependencies": {
     "@geek/eslint-config": "*",
     "@geek/typescript-config": "*",
+    "@geek/tokens": "*",
     "@turbo/gen": "^1.12.4",
     "@types/eslint": "^8.56.5",
     "@types/node": "^20.11.24",

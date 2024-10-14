@@ -9,30 +9,30 @@
   font-size: 1rem;
   padding: 1.25rem 1.5rem;
   border: none;
-  font-weight: $token-font-weight-semi-bold;
+  font-weight: var(--text-weights-semi-bold);
   border-left: 4px solid transparent;
   transition: background 0.1s ease-in;
   background-color: transparent;
   cursor: pointer;
 
   &__active {
-    color: $token-color-primary-100;
-    background-color: $token-color-primary-50;
-    border-left: 4px solid $token-color-primary-100;
+    color: var(--colors-primary-100);
+    background-color: var(--colors-primary-50);
+    border-left: 4px solid var(--colors-primary-100);
     .g-sidebar-button__title, .g-sidebar-button__title--icon {
       color: $token-color-neutral-110;
     }
   }
 
   &:hover:not(&__active) {
-    background-color: $token-color-primary-50;
+    background-color: var(--colors-primary-50);
   }
 
   &__title {
     display: flex;
     align-items: center;
     gap: 8px;
-    color: $token-color-primary-100;
+    color: var(--colors-primary-100);
   }
   @include mq-medium(down) {
     display: none;

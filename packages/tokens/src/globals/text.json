@@ -1,0 +1,119 @@
+{
+  "text": {
+    "fonts": {
+      "$type": "fontFamily",
+      "serif": {
+        "$value": "Times New Roman, serif"
+      },
+      "sans": {
+        "$value": "Open Sans, sans-serif"
+      }
+    },
+    "sizes": {
+      "$type": "fontSize",
+      "heading": {
+        "$value": "{dimensions.xx-medium}"
+      },
+      "body": {
+        "$value": "{dimensions.regular}"
+      },
+      "tiny": {
+        "$value": "{dimensions.xx-small}"
+      },
+      "x-small": {
+        "$value": "{dimensions.x-small}"
+      },
+      "small": {
+        "$value": "{dimensions.small}"
+      },
+      "regular": {
+        "$value": "{dimensions.regular}"
+      },
+      "medium": {
+        "$value": "{dimensions.x-regular}"
+      },
+      "large": {
+        "$value": "{dimensions.xx-regular}"
+      },
+      "x-large": {
+        "$value": "{dimensions.medium}"
+      },
+      "big": {
+        "$value": "{dimensions.large}"
+      },
+      "huge": {
+        "$value": "{dimensions.xx-large}"
+      },
+      "giant": {
+        "$value": "{dimensions.big}"
+      }
+    },
+    "weights": {
+      "$type": "fontWeight",
+      "normal": {
+        "$value": 400
+      },
+      "medium": {
+        "$value": 500
+      },
+      "semi-bold": {
+        "$value": 600
+      },
+      "bold": {
+        "$value": 700
+      }
+    },
+    "lineHeights": {
+      "$type": "lineHeight",
+      "tiny": {
+        "$value": "{dimensions.x-regular}"
+      },
+      "x-small": {
+        "$value": "{dimensions.xx-regular}"
+      },
+      "small": {
+        "$value": "{dimensions.medium}"
+      },
+      "regular": {
+        "$value": "{dimensions.xx-medium}"
+      },
+      "medium": {
+        "$value": "{dimensions.large}"
+      },
+      "large": {
+        "$value": "{dimensions.xx-large}"
+      },
+      "x-large": {
+        "$value": "{dimensions.xx-big}"
+      },
+      "big": {
+        "$value": "{dimensions.huge}"
+      },
+      "huge": {
+        "$value": "{dimensions.xx-huge}"
+      },
+      "giant": {
+        "$value": "{dimensions.giant}"
+      }
+    },
+    "typography": {
+      "$type": "typography",
+      "heading": {
+        "$value": {
+          "fontFamily": "{text.fonts.sans}",
+          "fontWeight": "{text.weights.bold}",
+          "fontSize": "{text.sizes.heading}",
+          "lineHeight": "{text.lineHeights.regular}"
+        }
+      },
+      "body": {
+        "$value": {
+          "fontFamily": "{text.fonts.serif}",
+          "fontWeight": "{text.weights.medium}",
+          "fontSize": "{text.sizes.body}",
+          "lineHeight": "{text.lineHeights.x-small}"
+        }
+      }
+    }
+  }
+}

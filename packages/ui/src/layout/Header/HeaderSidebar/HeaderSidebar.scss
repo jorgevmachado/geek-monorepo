@@ -1,19 +1,20 @@
-@import "../../../../../../styles/variables";
+@import "../../../styles/variables";
+
 .header-sidebar {
   width: 392px;
   top: 100%;
   right: 0;
   left: auto;
-  box-shadow: $token-box-shadow-regular;
-  gap: $token-spacing-small;
+  box-shadow: var(--shadows-regular);
+  gap: var(--dimensions-tiny);
   list-style: none;
-  border-radius: $token-border-radius-regular;
-  background-color: $token-color-neutral-100;
-  color: $token-color-neutral-28;
+  border-radius: var(--borders-regular);
+  background-color: var(--colors-neutral-100);
+  color: var(--colors-neutral-28);
   overscroll-behavior-y: contain;
-  z-index: $token-z-index-modal;
+  z-index: var(--z-index-modal);
   overflow: hidden;
-  padding: $token-spacing-regular 0;
+  padding: var(--dimensions-regular) 0;
   @include mq-medium(down) {
     padding: 0;
     position: fixed;
@@ -21,7 +22,7 @@
     visibility: hidden;
     pointer-events: none;
     transform: translateX(-100%);
-    z-index: $token-z-index-modal;
+    z-index: var(--z-index-modal);
     height: 100%;
     width: 100%;
     top: 0;
@@ -40,7 +41,7 @@
 
     &--header {
       &-close-icon {
-        color: $token-color-neutral-100;
+        color: var(--colors-neutral-100);
         width: fit-content;
         cursor: pointer;
       }
@@ -52,8 +53,8 @@
     &--divider {
       border: 0;
       margin: 0;
-      height: $token-spacing-small;
-      background-color: $token-color-neutral-96;
+      height: var(--dimensions-tiny);
+      background-color: var(--colors-neutral-96);
     }
 
     &--navbar {
@@ -62,13 +63,13 @@
     }
 
     &::-webkit-scrollbar {
-      width: $token-spacing-small;
-      background: $token-color-neutral-100;
+      width: var(--dimensions-tiny);
+      background: var(--colors-neutral-100);
     }
 
     &::-webkit-scrollbar-thumb {
-      background: $token-color-neutral-84;
-      border-radius: $token-border-radius-rounded;
+      background: var(--colors-neutral-84);
+      border-radius: var(--borders-rounded);
       border-right: none;
       border-left: none;
     }

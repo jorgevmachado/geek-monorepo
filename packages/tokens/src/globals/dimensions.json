@@ -1,0 +1,83 @@
+{
+  "dimensions": {
+    "$type": "dimension",
+    "none": {
+      "$value": "0px"
+    },
+    "xx-tiny": {
+      "$value": "0.25rem"
+    },
+    "x-tiny": {
+      "$value": "0.125rem"
+    },
+    "tiny": {
+      "$value": "0.5rem"
+    },
+    "xx-small": {
+      "$value": "0.625rem"
+    },
+    "x-small": {
+      "$value": "0.75rem"
+    },
+    "small": {
+      "$value": "0.875rem"
+    },
+    "regular": {
+      "$value": "1rem"
+    },
+    "x-regular": {
+      "$value": "1.125rem"
+    },
+    "xx-regular": {
+      "$value": "1.25rem"
+    },
+    "medium": {
+      "$value": "1.5rem"
+    },
+    "x-medium": {
+      "$value": "1.625rem"
+    },
+    "xx-medium": {
+      "$value": "1.75rem"
+    },
+    "large": {
+      "$value": "2rem"
+    },
+    "x-large": {
+      "$value": "2.25rem"
+    },
+    "xx-large": {
+      "$value": "2.5rem"
+    },
+    "xxx-large": {
+      "$value": "2.75rem"
+    },
+    "big": {
+      "$value": "3rem"
+    },
+    "x-big": {
+      "$value": "3.25rem"
+    },
+    "xx-big": {
+      "$value": "3.5rem"
+    },
+    "xxx-big": {
+      "$value": "3.75rem"
+    },
+    "huge": {
+      "$value": "4rem"
+    },
+    "x-huge": {
+      "$value": "4.25rem"
+    },
+    "xx-huge": {
+      "$value": "4.5rem"
+    },
+    "giant": {
+      "$value": "5rem"
+    },
+    "max": {
+      "$value": "9999px"
+    }
+  }
+}

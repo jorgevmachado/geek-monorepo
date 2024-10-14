@@ -1,23 +1,24 @@
-@import "../../../../../../../styles/variables";
+@import "../../../../styles/variables";
+
 .profile {
   display: flex;
   flex-direction: column;
   gap: 15px;
   padding: 20px 24px 5px;
-  background-color: $token-color-primary-100;
+  background-color: var(--colors-primary-100);
   &__info {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     gap: 15px;
     &--name {
-      font-weight: $token-font-weight-semi-bold;
-      font-size: $token-size-font-medium;
-      color: $token-color-neutral-100;
+      font-weight: var(--text-weights-semi-bold);
+      font-size: var(--text-sizes-medium);
+      color: var(--colors-neutral-100);
     }
     &--email {
-      color: $token-color-neutral-100;
-      font-size: $token-size-font-small;
+      color: var(--colors-neutral-100);
+      font-size: var(--text-sizes-small);
     }
     &--button {
       border: none;
@@ -26,8 +27,8 @@
       align-items: center;
       cursor: pointer;
       justify-content: flex-start;
-      font-weight: $token-font-weight-semi-bold;
-      color: $token-color-neutral-100;
+      font-weight: var(--text-weights-semi-bold);
+      color: var(--colors-neutral-100);
       padding: 5px 0;
       &-icon {
         margin-left: 5px;

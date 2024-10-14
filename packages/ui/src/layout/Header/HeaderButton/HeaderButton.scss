@@ -1,4 +1,5 @@
-@import "../../../../../../styles/variables";
+@import "../../../styles/variables";
+
 .header-button {
   position: relative;
   cursor: pointer;
@@ -6,10 +7,10 @@
   flex-direction: row;
   align-items: center;
   text-decoration: none;
-  color: $token-color-neutral-28;
+  color: var(--colors-neutral-28);
   text-wrap: nowrap;
-  font-size: $token-spacing-regular;
-  font-weight: $token-new-text-display-small-font-weight;
+  font-size: var(--dimensions-regular);
+  font-weight: var(--text-weights-medium);
   transition: all 0.2s ease-in-out;
 
   &::after {
@@ -23,11 +24,11 @@
   }
 
   &:hover::after {
-    width: $token-spacing-regular;
-    background-color: $token-color-primary-100;
+    width: var(--dimensions-regular);
+    background-color: var(--colors-primary-100);
   }
 
   &:hover {
-    color: $token-color-primary-100;
+    color: var(--colors-primary-100);
   }
 }

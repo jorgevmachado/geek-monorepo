@@ -1,4 +1,5 @@
-@import "../../../../../../styles/variables";
+@import "../../../styles/variables";
+
 .header-dropdown {
   &__button {
     padding: 0;
@@ -6,9 +7,9 @@
     cursor: pointer;
     text-wrap: nowrap;
     background-color: transparent;
-    color: $token-color-neutral-28;
-    font-size: $token-spacing-regular;
-    font-weight: $token-new-text-display-small-font-weight;
+    color: var(--colors-neutral-28);
+    font-size: var(--dimensions-regular);
+    font-weight: var(--text-weights-medium);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,20 +27,20 @@
 
     &:hover::after {
       width: 16px;
-      background-color: $token-color-primary-100;
+      background-color: var(--colors-primary-100);
     }
 
     &:hover {
-      color: $token-color-primary-100;
+      color: var(--colors-primary-100);
     }
     &-icon {
       margin-top: .5rem;
     }
   }
   &__content {
-    background-color: $token-color-neutral-100;
+    background-color: var(--colors-neutral-100);
     border-radius: 8px;
-    box-shadow: $token-box-shadow-xsmall;
+    box-shadow: var(--shadows-x-small);
     position: absolute;
     top: 100%;
     padding: 1rem 0;

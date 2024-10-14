@@ -4,10 +4,10 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  border: 1px solid $token-color-neutral-96;
+  border: 1px solid var(--colors-neutral-96);
   box-sizing: border-box;
-  background-color: $token-color-neutral-70;
-  border-radius: $token--border-radius-xlarge;
+  background-color: var(--colors-neutral-70);
+  border-radius: var(--borders-x-large);
 
   &__wrapper {
     position: relative;
@@ -17,14 +17,14 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    border-radius: $token--border-radius-xlarge;
+    border-radius: var(--borders-x-large);
   }
 
   &__size {
     &--small,
     &--medium {
       .l-text {
-        font-size: $token-size-font-small;
+        font-size: var(--text-sizes-small);
       }
     }
 
@@ -32,37 +32,37 @@
     &--xlarge {}
 
     &--small {
-      width: calc(1.25 * $token-spacing-regular);
-      height: calc(1.25 * $token-spacing-regular);
+      width: calc(1.25 * var(--dimensions-regular));
+      height: calc(1.25 * var(--dimensions-regular));
 
       &.g-avatar__has-notification {
         &:after {
-          width: calc($token-spacing-xsmall + $token-spacing-xxsmall);
-          height: calc($token-spacing-xsmall + $token-spacing-xxsmall);
+          width: calc(var(--dimensions-xx-tiny) + var(--dimensions-x-tiny));
+          height: calc(var(--dimensions-xx-tiny) + var(--dimensions-x-tiny));
         }
       }
     }
 
     &--medium {
-      width: calc(2 * $token-spacing-regular);
-      height: calc(2 * $token-spacing-regular);
+      width: calc(2 * var(--dimensions-regular));
+      height: calc(2 * var(--dimensions-regular));
 
       &.g-avatar__has-notification {
         &:after {
-          width: calc(0.625 * $token-spacing-regular);
-          height: calc(0.625 * $token-spacing-regular);
+          width: calc(0.625 * var(--dimensions-regular));
+          height: calc(0.625 * var(--dimensions-regular));
         }
       }
     }
 
     &--large {
-      width: calc(2.5 * $token-spacing-regular);
-      height: calc(2.5 * $token-spacing-regular);
+      width: calc(2.5 * var(--dimensions-regular));
+      height: calc(2.5 * var(--dimensions-regular));
     }
 
     &--xlarge {
-      width: calc(3.5 * $token-spacing-regular);
-      height: calc(3.5 * $token-spacing-regular);
+      width: calc(3.5 * var(--dimensions-regular));
+      height: calc(3.5 * var(--dimensions-regular));
     }
   }
 

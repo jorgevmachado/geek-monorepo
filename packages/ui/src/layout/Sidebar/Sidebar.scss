@@ -1,4 +1,4 @@
-@import "../../../../../styles/variables";
+@import "../../styles/variables";
 
 .g-sidebar {
   display: none;
@@ -11,8 +11,8 @@
     position: sticky;
     flex-direction: column;
     height: 100%;
-    border-right: 1px solid $token-color-neutral-96;
-    background-color: $token-color-neutral-100;
+    border-right: 1px solid var(--colors-neutral-96);
+    background-color: var(--colors-neutral-100);
     &-container {
       height: 100%;
     }

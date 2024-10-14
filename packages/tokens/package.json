@@ -1,0 +1,12 @@
+{
+  "name": "@geek/tokens",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "rm -rf dist && node config.mjs"
+  },
+  "devDependencies": {
+    "style-dictionary": "^4.1.3"
+  }
+}

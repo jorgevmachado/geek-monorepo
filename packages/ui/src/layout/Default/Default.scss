@@ -1,4 +1,4 @@
-@import "../../../../../styles/variables";
+@import "../../styles/variables";
 .main-container {
     width: 100%;
     display: flex;
@@ -8,6 +8,6 @@
         height: 100%;
         display: flex;
         flex-direction: column;
-        padding: $token-spacing-xlarge $token-spacing-large;
+        padding: var(--dimensions-large) var(--dimensions-medium);
     }
 }

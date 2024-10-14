@@ -1,0 +1,20 @@
+{
+  "breakpoints": {
+    "$type": "breakpoint",
+    "xs": {
+      "$value": "0"
+    },
+    "sm": {
+      "$value": "360px"
+    },
+    "md": {
+      "$value": "720px"
+    },
+    "lg": {
+      "$value": "1024px"
+    },
+    "xl": {
+      "$value": "1279px"
+    }
+  }
+}

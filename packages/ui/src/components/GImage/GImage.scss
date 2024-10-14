@@ -4,8 +4,8 @@
     display: flex;
     width: 100%;
     height: 100%;
-    background-color: $token-color-neutral-110;
-    color: $token-color-neutral-70;
+    background-color: var(--colors-neutral-110);
+    color: var(--colors-neutral-70);
     align-items: center;
     justify-items: center;
     &--icon {

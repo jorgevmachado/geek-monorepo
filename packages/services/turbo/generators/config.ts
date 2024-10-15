@@ -1,20 +1,20 @@
 import type { PlopTypes } from '@turbo/gen';
 
 export default function generator(plop: PlopTypes.NodePlopAPI): void {
-    plop.setGenerator('business', {
-        description: 'Adds a new business',
+    plop.setGenerator('service', {
+        description: 'Adds a new service',
         prompts: [
             {
                 type: 'input',
                 name: 'name',
-                message: 'What is the name of the business?',
+                message: 'What is the name of the service?',
             },
         ],
         actions: [
             {
                 type: 'add',
                 path: 'src/{{ kebabCase name }}/{{ kebabCase name }}.ts',
-                templateFile: 'templates/business.hbs',
+                templateFile: 'templates/service.hbs',
             },
             {
                 type: 'add',

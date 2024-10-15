@@ -8,6 +8,9 @@
     "base.js",
     "react-internal.js"
   ],
+  "scripts": {
+    "generate": "turbo gen eslint-config"
+  },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^8.8.1",
     "@typescript-eslint/parser": "^8.8.0",
@@ -17,6 +20,7 @@
     "eslint-plugin-only-warn": "^1.1.0",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.12",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "@turbo/gen": "^1.12.4"
   }
 }

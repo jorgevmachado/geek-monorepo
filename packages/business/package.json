@@ -6,7 +6,8 @@
   "sideEffects": false,
   "scripts": {
     "lint": "eslint . --max-warnings 0 --fix",
-    "build": "rimraf dist && tsc && tsc-alias -p tsconfig.json"
+    "build": "rimraf dist && tsc && tsc-alias -p tsconfig.json",
+    "generate": "turbo gen business"
   },
   "devDependencies": {
     "@geek/typescript-config": "*",
@@ -14,6 +15,7 @@
     "rimraf": "^6.0.1",
     "ts-node": "^10.9.2",
     "tsc-alias": "^1.8.10",
-    "typescript": "latest"
+    "typescript": "latest",
+    "@turbo/gen": "^1.12.4"
   }
 }

@@ -87,7 +87,7 @@ export function formatText(text: string): IFormattedText | undefined {
     })[0];
 }
 
-export function isReactNode(value: any): boolean {
+export function isReactNode(value: unknown): boolean {
     return (
         React.isValidElement(value)
         || (Array.isArray(value) && value.every(isReactNode))

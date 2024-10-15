@@ -1,17 +1,18 @@
-import { HTMLAttributes } from 'react';
+import React from 'react';
 
 import { TColors, TVariant, TWeight } from '../../interfaces';
 
-import './GText.scss';
 import { formatText, isReactNode, } from './config';
 import { IFormattedText } from './interface';
+
+import './GText.scss';
 
 type TDisplay =  'ALL' | 'DESKTOP' | 'MOBILE';
 
 interface FormatTextProps {
-    display?: TDisplay;
-    className?: string;
-    formattedText: IFormattedText;
+    readonly display?: TDisplay;
+    readonly className?: string;
+    readonly formattedText: IFormattedText;
 }
 
 function FormatText({ display, className, formattedText }: FormatTextProps) {
@@ -28,13 +29,13 @@ function FormatText({ display, className, formattedText }: FormatTextProps) {
 }
 
 
-interface GTextProps extends HTMLAttributes<HTMLSpanElement> {
-    tag?: string;
-    color?: TColors;
-    weight?: TWeight;
-    variant?: TVariant;
-    htmlFor?: string;
-    children: React.ReactNode | string;
+interface GTextProps extends React.HTMLProps<Element> {
+    readonly tag?: string;
+    readonly color?: TColors;
+    readonly weight?: TWeight;
+    readonly variant?: TVariant;
+    readonly htmlFor?: string;
+    readonly children: React.ReactNode | string;
 }
 
 export default function GText({
@@ -44,11 +45,11 @@ export default function GText({
     variant = 'regular',
     htmlFor,
     children,
-    className,
     ...props
 }: GTextProps) {
 
     const CustomTag = tag as React.ElementType;
+
     const formattedText = isReactNode(children) ? null : formatText(children as string);
     return (
         <CustomTag
@@ -57,7 +58,7 @@ export default function GText({
                 g-u-color-${color}
                 g-text__variant--${variant}
                 g-text__weight--${weight}
-                ${className}
+                ${props.className}
             `}
             htmlFor={htmlFor}
             {...props}

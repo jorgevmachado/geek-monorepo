@@ -7,7 +7,8 @@
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",
-    "generate:component": "turbo gen react-component"
+    "generate:component": "turbo gen component",
+    "generate:layout": "turbo gen layout"
   },
   "devDependencies": {
     "@geek/eslint-config": "*",

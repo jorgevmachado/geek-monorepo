@@ -4,8 +4,8 @@ import type { PlopTypes } from '@turbo/gen';
 
 export default function generator(plop: PlopTypes.NodePlopAPI): void {
   // A simple generator to add a new React component to the internal UI library
-  plop.setGenerator('react-component', {
-    description: 'Adds a new react component',
+  plop.setGenerator('component', {
+    description: 'Adds a new component',
     prompts: [
       {
         type: 'input',
@@ -16,14 +16,56 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
     actions: [
       {
         type: 'add',
-        path: 'src/{{kebabCase name}}.tsx',
-        templateFile: 'templates/component.hbs',
+        path: 'src/components/G{{pascalCase name}}/G{{pascalCase name}}.tsx',
+        templateFile: 'templates/components/component.hbs',
+      },
+      {
+        type: 'add',
+        path: 'src/components/G{{pascalCase name}}/G{{pascalCase name}}.scss',
+        templateFile: 'templates/components/stylesheet.hbs',
+      },
+      {
+        type: 'add',
+        path: 'src/components/G{{pascalCase name}}/index.ts',
+        templateFile: 'templates/components/index.hbs',
       },
       {
         type: 'append',
-        path: 'package.json',
-        pattern: /"exports": {(?<insertion>)/g,
-        template: '    "./{{kebabCase name}}": "./src/{{kebabCase name}}.tsx",',
+        path: 'src/components/index.ts',
+        template: 'export { default as G{{pascalCase name}} } from \'./G{{pascalCase name}}\';',
+      },
+    ],
+  });
+
+  plop.setGenerator('layout', {
+    description: 'Adds a new component',
+    prompts: [
+      {
+        type: 'input',
+        name: 'name',
+        message: 'What is the name of the layout?',
+      },
+    ],
+    actions: [
+      {
+        type: 'add',
+        path: 'src/layout/{{pascalCase name}}/{{pascalCase name}}.tsx',
+        templateFile: 'templates/layouts/layout.hbs',
+      },
+      {
+        type: 'add',
+        path: 'src/layout/{{pascalCase name}}/{{pascalCase name}}.scss',
+        templateFile: 'templates/layouts/stylesheet.hbs',
+      },
+      {
+        type: 'add',
+        path: 'src/layout/{{pascalCase name}}/index.ts',
+        templateFile: 'templates/layouts/index.hbs',
+      },
+      {
+        type: 'append',
+        path: 'src/layout/index.ts',
+        template: 'export { default as {{pascalCase name}} } from \'./{{pascalCase name}}\';',
       },
     ],
   });

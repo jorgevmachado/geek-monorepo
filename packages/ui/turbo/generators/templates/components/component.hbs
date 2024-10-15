@@ -1,0 +1,10 @@
+import './G{{ pascalCase name }}.scss';
+
+export default function G{{ pascalCase name }}({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="g-{{ kebabCase name }}">
+      <h1>{{ pascalCase name }} Component</h1>
+      {children}
+    </div>
+  );
+};

@@ -22,6 +22,16 @@ await Promise.all((
               }
             ]
           },
+          scss: {
+            transformGroup: 'scss',
+            buildPath: `dist/${brand}/scss/`,
+            files: [
+              {
+                destination: '_variables.scss',
+                format: 'scss/variables'
+              }
+            ]
+          },
           android: {
             transformGroup: 'android',
             buildPath: `dist/${brand}/android/`,

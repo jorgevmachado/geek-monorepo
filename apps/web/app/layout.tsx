@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 
-import '../../../styles/global.scss';
+import '@geek/tokens/dist/geek/css/_variables.css';
 
 import './globals.scss';
 

@@ -175,3 +175,5 @@ build
 
 # Misc
 *.pem
+
+*storybook.log

@@ -62,6 +62,8 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
     args: {
         tag: 'h1',
+        color: 'info-130',
+        weight: 'bold',
         children: 'Hello, World!',
     },
 };
@@ -69,6 +71,9 @@ export const Default: Story = {
 export const FirstWordItalic: Story = {
     args: {
         tag: 'p',
+        color: 'neutral-28',
+        weight: 'regular',
+        variant: 'huge',
         children: '_Hello_, World!',
     }
 };
@@ -76,6 +81,9 @@ export const FirstWordItalic: Story = {
 export const FirstWordBold: Story = {
     args: {
         tag: 'p',
+        color: 'error-130',
+        weight: 'regular',
+        variant: 'large',
         children: '*Hello*, World!',
     }
 };
@@ -83,6 +91,9 @@ export const FirstWordBold: Story = {
 export const NextLine: Story = {
     args: {
         tag: 'h1',
+        color: 'primary-100',
+        weight: 'bold',
+        variant: 'medium',
         children: 'Hello,++ World!',
     }
 };

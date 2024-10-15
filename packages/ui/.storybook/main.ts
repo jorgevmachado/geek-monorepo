@@ -20,6 +20,26 @@ const config: StorybookConfig = {
     name: "@storybook/react-webpack5",
     options: {},
   },
+  webpackFinal: async (config) => {
+    config.module.rules.push({
+      test: /\.scss$/,
+      use: [
+          'style-loader',
+          'css-loader',
+        {
+          loader: 'sass-loader',
+          options: {
+            additionalData: `
+              @import "~@geek/tokens/dist/geek/css/_variables.css";
+              @import "~@geek/tokens/dist/geek/scss/_variables.scss";
+            `,
+            implementation: require('sass'),
+          }
+        }
+      ]
+    });
+    return config;
+  },
   docs: {
     autodocs: true
   }

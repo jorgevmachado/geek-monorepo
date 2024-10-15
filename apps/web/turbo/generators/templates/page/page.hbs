@@ -1,0 +1,13 @@
+'use client';
+import { Default } from '@geek/ui';
+
+import { config } from '../config';
+
+export default function {{ pascalCase name }}() {
+    const { logo, user, navbar, sidebar, onLogout } = config;
+    return (
+        <Default logo={logo} user={user} navbar={navbar} sidebar={sidebar} onLogout={onLogout}>
+            <h1> {{ pascalCase name }} </h1>
+        </Default>
+    );
+}

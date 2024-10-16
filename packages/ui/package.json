@@ -4,11 +4,24 @@
   "private": true,
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [ "dist" ],
   "exports": {
-    ".": "./src/index.ts"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/geek/index.mjs",
+      "require": "./dist/geek/index.js",
+      "default": "./dist/geek"
+    },
+    "./geek": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/geek/index.mjs",
+      "require": "./dist/geek/index.js",
+      "default": "./dist/geek"
+    },
+    "./geek/*": "./dist/geek/*"
   },
   "scripts": {
-    "build": "rollup -c",
+    "build": "rimraf dist && rollup -c",
     "lint": "eslint . --max-warnings 0",
     "generate:component": "turbo gen component",
     "generate:layout": "turbo gen layout",

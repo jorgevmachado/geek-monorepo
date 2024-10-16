@@ -4,6 +4,13 @@
     "outDir": "dist",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
+    "paths": {
+      "@animations/*": ["src/animations/*"],
+      "@components/*": ["src/components/*"],
+      "@interfaces/*": ["src/interfaces/*"],
+      "@layout/*": ["src/layout/*"],
+      "@styles/*": ["src/styles/*"]
+    }
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]

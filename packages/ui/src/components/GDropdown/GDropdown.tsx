@@ -1,6 +1,6 @@
-'use client';
+import React, { useEffect, useRef, useState } from 'react';
+
 import './GDropdown.scss';
-import { useEffect, useRef, useState } from 'react';
 
 interface DropdownProps {
     isOpen?: boolean;

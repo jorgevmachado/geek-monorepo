@@ -1,5 +1,6 @@
+import React, { useState } from 'react';
+
 import { MdOutlineArrowDropDown, MdOutlineArrowDropUp } from 'react-icons/md';
-import { useState } from 'react';
 
 import { GIcon } from '../../../../components';
 import { Navbar } from '../../../interface';

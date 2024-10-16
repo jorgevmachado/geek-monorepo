@@ -1,6 +1,6 @@
-'use client';
+import React, { useState } from 'react';
+
 import { MdOutlineArrowDropDown, MdOutlineArrowDropUp } from 'react-icons/md';
-import { useState } from 'react';
 
 import GDropdown from '../../../components/GDropdown';
 import GIcon from '../../../components/GIcon';

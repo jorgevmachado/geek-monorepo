@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 
 import '@geek/tokens/dist/geek/css/_variables.css';
+import '@geek/tokens/dist/geek/scss/_variables.scss';
 
 import './globals.scss';
 

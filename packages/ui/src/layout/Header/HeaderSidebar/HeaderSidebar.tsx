@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { IoClose } from 'react-icons/io5';
 import { IoMdExit } from 'react-icons/io';
 

@@ -1,8 +1,9 @@
-import './Sidebar.scss';
+import React from 'react';
 
 import { NavSidebar } from '../interface';
-
 import SidebarButton from './SidebarButton';
+
+import './Sidebar.scss';
 
 interface GSidebarProps {
     sidebar?: Array<NavSidebar>;

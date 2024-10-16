@@ -1,6 +1,10 @@
-import './SidebarButton.scss';
-import GIcon from '../../../components/GIcon';
+import React from 'react';
+
 import { MdOutlineSpaceDashboard } from 'react-icons/md';
+
+import GIcon from '../../../components/GIcon';
+
+import './SidebarButton.scss';
 
 interface GSidebarButtonProps {
     icon?: React.ReactNode;

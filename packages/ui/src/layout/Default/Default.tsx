@@ -1,9 +1,10 @@
-import './Default.scss';
+import React from 'react';
 
 import Fade from '../../animations/fade';
-
 import Header from '../Header';
 import Sidebar from '../Sidebar';
+
+import './Default.scss';
 
 import type { NavSidebar, Navbar, User } from '../interface';
 

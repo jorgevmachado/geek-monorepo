@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 
 import type { TAppearance, TContext, TSize, TType } from './interface';
 
-import type { TIcon } from '@interfaces/icons';
+import type { TIcon } from '../../interfaces/icons';
 
-import GIcon from '@components/GIcon';
+import GIcon from '../GIcon';
 
 import './GButton.scss';
 

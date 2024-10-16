@@ -4,21 +4,8 @@
   "private": true,
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": [ "dist" ],
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/geek/index.mjs",
-      "require": "./dist/geek/index.js",
-      "default": "./dist/geek"
-    },
-    "./geek": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/geek/index.mjs",
-      "require": "./dist/geek/index.js",
-      "default": "./dist/geek"
-    },
-    "./geek/*": "./dist/geek/*"
+    ".": "./src/index.ts"
   },
   "scripts": {
     "build": "rimraf dist && rollup -c",

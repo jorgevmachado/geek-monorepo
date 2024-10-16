@@ -1,9 +1,15 @@
 {
   "extends": "@geek/typescript-config/react-library.json",
   "compilerOptions": {
+    "jsx": "react",
     "outDir": "dist",
+    "baseUrl": "./",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
+    "sourceMap": true,
+    "emitDeclarationOnly": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
     "paths": {
       "@animations/*": ["src/animations/*"],
       "@components/*": ["src/components/*"],

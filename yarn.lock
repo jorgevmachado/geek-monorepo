@@ -1240,6 +1240,11 @@
   resolved "https://registry.npmjs.org/@react-icons/all-files/-/all-files-4.1.0.tgz"
   integrity sha512-hxBI2UOuVaI3O/BhQfhtb4kcGn9ft12RWAFVMUeNjqqhLsHvFtzIkFaptBJpFDANTKoDfdVoHTKZDlwKCACbMQ==
 
+"@rollup/plugin-alias@^5.1.1":
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/@rollup/plugin-alias/-/plugin-alias-5.1.1.tgz#53601d88cda8b1577aa130b4a6e452283605bf26"
+  integrity sha512-PR9zDb+rOzkRb2VD+EuKB7UC41vU5DIwZ5qqCpk0KJudcWAyi8rvYOhS7+L5aZCspw1stTViLgN5v6FF1p5cgQ==
+
 "@rollup/plugin-commonjs@^28.0.1":
   version "28.0.1"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-commonjs/-/plugin-commonjs-28.0.1.tgz#e2138e31cc0637676dc3d5cae7739131f7cd565e"

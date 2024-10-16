@@ -24,7 +24,7 @@ endef
 
 #------------------------------------------------- CLEAN --------------------------------------------------------------#
 clean-dependencies:
-	rm -Rf ./node_modules
+	rm -rf ./node_modules
 	$(call delete_in_project,packages/business,node_modules)
 	$(call delete_in_project,packages/services,node_modules)
 	$(call delete_in_project,packages/ui,node_modules)
@@ -70,6 +70,7 @@ build-dependencies:
 	make business-build
 	make services-build
 	make tokens-build
+	make ui-build
 
 #------------------------------------------------- END ----------------------------------------------------------------#
 

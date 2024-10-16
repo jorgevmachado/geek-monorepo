@@ -3,8 +3,7 @@ import React from 'react';
 import { FaHamburger } from 'react-icons/fa';
 import { FaReact } from 'react-icons/fa6';
 
-import type { TColors } from '../../interfaces';
-import { TIcon } from './interface';
+import type { TColors, TIcon } from '../../interfaces';
 
 
 

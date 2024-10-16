@@ -1,8 +1,7 @@
 import React from 'react';
 
-import type { TColors } from '../../interfaces';
+import type { TColors, TIcon } from '../../interfaces';
 
-import { TIcon } from './interface';
 import { getIcon } from './options';
 
 import './GIcon.scss';

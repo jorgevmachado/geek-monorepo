@@ -7,11 +7,28 @@ const BRANDS = fs
     .filter((file) => fs.statSync(brandsFolder + '/' + file)
     .isDirectory())
 
+StyleDictionary.registerFormat({
+  name: 'json/variables',
+  format: function ({ dictionary }) {
+    return JSON.stringify(dictionary.tokens, null, 2);
+  },
+});
+
 await Promise.all((
     BRANDS.map((brand) => {
       const styleDictionary = new StyleDictionary({
         source: [`src/brands/${brand}/**/*.json`, `src/globals/**/*.json`],
         platforms: {
+          json: {
+            transformGroup: 'css',
+            buildPath: `dist/${brand}/json/`,
+            files: [
+              {
+                destination: '_variables.json',
+                format: 'json/variables',
+              }
+            ]
+          },
           css: {
             transformGroup: 'css',
             buildPath: `dist/${brand}/css/`,
@@ -183,6 +200,7 @@ await Promise.all((
           }
         }
       });
+
       return styleDictionary.buildAllPlatforms();
     })
 ));

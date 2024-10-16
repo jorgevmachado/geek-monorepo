@@ -2,7 +2,8 @@
 
 .g-sidebar {
   display: none;
-  @include mq-medium(up) {
+  // MD-UP
+  @media screen and (min-width: 720px) {
     top: 0;
     width: 100%;
     display: flex;
@@ -12,7 +13,7 @@
     flex-direction: column;
     height: 100%;
     border-right: 1px solid var(--colors-neutral-96);
-    background-color: var(--colors-neutral-100);
+    background-color: var(--colors-neutral-70);
     &-container {
       height: 100%;
     }

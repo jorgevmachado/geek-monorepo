@@ -11,7 +11,7 @@ $header-height-desktop: 68px;
   justify-content: space-between;
   padding: var(--dimensions-xx-tiny) var(--dimensions-x-small);
   border-bottom: 1px solid var(--colors-neutral-96);
-  background-color: var(--colors-neutral-100);
+  background-color: var(--colors-neutral-70);
   &__brand {
     display: flex;
     align-items: center;
@@ -34,7 +34,8 @@ $header-height-desktop: 68px;
     display: none;
   }
 
-  @include mq-medium(up) {
+  // MD-UP
+  @media screen and (min-width: 720px) {
     height: $header-height-desktop;
     &__brand {
       &--button {

@@ -14,10 +14,10 @@
     &--name {
       font-weight: var(--text-weights-semi-bold);
       font-size: var(--text-sizes-medium);
-      color: var(--colors-neutral-100);
+      color: var(--colors-neutral-70);
     }
     &--email {
-      color: var(--colors-neutral-100);
+      color: var(--colors-neutral-70);
       font-size: var(--text-sizes-small);
     }
     &--button {
@@ -28,7 +28,7 @@
       cursor: pointer;
       justify-content: flex-start;
       font-weight: var(--text-weights-semi-bold);
-      color: var(--colors-neutral-100);
+      color: var(--colors-neutral-70);
       padding: 5px 0;
       &-icon {
         margin-left: 5px;

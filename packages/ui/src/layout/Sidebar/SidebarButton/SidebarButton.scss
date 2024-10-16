@@ -34,7 +34,9 @@
     gap: 8px;
     color: var(--colors-primary-100);
   }
-  @include mq-medium(down) {
+
+    // MD-DOWN
+  @media screen and (max-width: 720px) {
     display: none;
   }
 }

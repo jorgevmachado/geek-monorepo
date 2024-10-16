@@ -9,18 +9,14 @@ interface GImageProps extends React.ImgHTMLAttributes<Element> {
     readonly fit?: 'cover' | 'contain';
     readonly lazyLoad?: boolean;
     readonly fallback?: boolean;
-    readonly className?: string;
     readonly fetchPriority?: 'high' | 'low' | 'auto';
 }
 
 export default function GImage( {
-    alt,
     fit,
-    className,
     lazyLoad = false,
     fallback = true,
     onError: onErrorCallback,
-    loading,
     fetchPriority,
     ...props
 }: GImageProps) {
@@ -36,7 +32,7 @@ export default function GImage( {
 
     if (isInvalid && fallback) {
         return (
-            <div className="g-image__fallback" title={alt}>
+            <div className="g-image__fallback" title={props.alt}>
                 <GIcon className="g-image__fallback--icon" icon={<CiCamera size={20}/>} />
             </div>
         );
@@ -47,8 +43,8 @@ export default function GImage( {
             {...props}
             onError={onError}
             fetchPriority={fetchPriority}
-            loading={loading ?? (lazyLoad ? 'lazy' : undefined)}
-            className={`${className} g-image ${fit ? `g-image__fit-${fit}` : ''}`}
-            alt={alt}/>
+            loading={props.loading ?? (lazyLoad ? 'lazy' : undefined)}
+            className={`${props.className} g-image ${fit ? `g-image__fit-${fit}` : ''}`}
+            alt={props.alt}/>
     );
 }

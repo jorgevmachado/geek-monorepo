@@ -1,4 +1,4 @@
-import { HTMLAttributes } from 'react';
+import React, { HTMLAttributes } from 'react';
 
 import './GIcon.scss';
 import { TColors } from '../../interfaces';

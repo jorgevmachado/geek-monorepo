@@ -1,11 +1,11 @@
-import { HTMLAttributes, useState } from 'react';
+import React, { useState } from 'react';
 
-import './GAvatar.scss';
 import GImage from '../GImage';
 import GText from '../GText';
 
+import './GAvatar.scss';
 
-interface GAvatarProps extends HTMLAttributes<Element> {
+interface GAvatarProps extends React.HTMLAttributes<Element> {
     readonly src?: string;
     readonly size?: 'xlarge' | 'large' | 'medium' | 'small';
     readonly name: string;
@@ -13,7 +13,7 @@ interface GAvatarProps extends HTMLAttributes<Element> {
     readonly hasNotification?: boolean;
 }
 
-const getNameInitials = (name: string, length = 3): string => {
+const getNameInitials = (name: string, length: number): string => {
     function format(initialLetters: string[]) {
         return initialLetters
             .map((word) => word[0])
@@ -38,7 +38,14 @@ const getNameInitials = (name: string, length = 3): string => {
     return format(initials);
 };
 
-export default function GAvatar({ src, size, name, initialsLength, hasNotification, ...props }: GAvatarProps) {
+export default function GAvatar({
+    src,
+    size = 'medium',
+    name,
+    initialsLength = 3,
+    hasNotification,
+    ...props
+}: GAvatarProps) {
 
     const [isImageLoaded, setImageLoaded] = useState<boolean>(false);
     

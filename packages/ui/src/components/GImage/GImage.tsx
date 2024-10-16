@@ -1,8 +1,9 @@
-import './GImage.scss';
-import { ReactEventHandler, useCallback, useState } from 'react';
+import React, { ReactEventHandler, useCallback, useState } from 'react';
 import { CiCamera } from 'react-icons/ci';
 
 import GIcon from '../GIcon';
+
+import './GImage.scss';
 
 interface GImageProps extends React.ImgHTMLAttributes<Element> {
     readonly fit?: 'cover' | 'contain';

@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 
 import { FaHamburger } from 'react-icons/fa';
-
-import GIcon from '../../components/GIcon';
-
-import HeaderButton from './HeaderButton';
 import HeaderDropdown from './HeaderDropdown';
 import HeaderSidebar from './HeaderSidebar';
 
 import './Header.scss';
 import { NavSidebar, Navbar, User } from '../interface';
+import GAction from '../../components/GAction';
+import GImage from '../../components/GImage';
+
 
 interface HeaderProps {
     user: User;
@@ -27,11 +26,17 @@ export default function Header({ user, logo, navbar, sidebar, onLogout }: Header
     return (
         <header className="header-container">
             <div className="header-container__brand">
-                <button className="header-container__brand--button" onClick={handleToggleMenu} >
-                    <GIcon icon={<FaHamburger/>} color="primary-100" />
-                </button>
+                <GAction
+                    icon={<FaHamburger/>}
+                    type="button"
+                    onClick={handleToggleMenu}
+                    context="primary"
+                    className="header-container__brand--button"
+                    aria-label="sidebar"
+                    appearance="iconButton"
+                />
                 <div className="header-container__brand--logo">
-                    <img alt="Logo" src={logo} title="Logo" />
+                    <GImage src={logo} alt="Logo" title="Logo" />
                 </div>
             </div>
             <nav className="header-container__nav">
@@ -39,11 +44,21 @@ export default function Header({ user, logo, navbar, sidebar, onLogout }: Header
                     {navbar?.map((item) => (
                         <li className={`header-container__nav--list-item ${item.type === 'dropdown' ? 'header-container__nav--list-dropdown' : ''}`} key={item.key}>
                             {item.type === 'button' ? (
-                                <HeaderButton label={item.label} onRedirect={item?.onRedirect} />
+                                <GAction type="link" context="primary" appearance="navbar" onClick={item?.onRedirect}>
+                                    {item.label}
+                                </GAction>
                             ) : (
                                 <HeaderDropdown label={item.label}>
                                     {item?.items?.map((subItem) => (
-                                        <HeaderButton key={subItem.key} label={subItem.label} onRedirect={subItem?.onRedirect}/>
+                                        <GAction
+                                            key={subItem.key}
+                                            type="link"
+                                            context="primary"
+                                            onClick={subItem?.onRedirect}
+                                            appearance="dropdown">
+                                            {subItem.label}
+                                        </GAction>
+
                                     ))}
                                 </HeaderDropdown>
                             )}

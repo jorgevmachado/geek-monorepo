@@ -1,6 +1,12 @@
+import React from 'react';
+
 import './G{{ pascalCase name }}.scss';
 
-export default function G{{ pascalCase name }}({ children }: { children: React.ReactNode }) {
+interface G{{ pascalCase name }}Props {
+  children: React.ReactNode;
+}
+
+export default function G{{ pascalCase name }}({ children }: G{{ pascalCase name }}Props) {
   return (
     <div className="g-{{ kebabCase name }}">
       <h1>{{ pascalCase name }} Component</h1>

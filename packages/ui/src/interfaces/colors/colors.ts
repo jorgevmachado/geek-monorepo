@@ -122,3 +122,26 @@ export const OColors: Array<TColors> = [
     'whatsapp-110',
     'whatsapp-120',
 ];
+
+export type TContext =
+    | 'link'
+    | 'info'
+    | 'error'
+    | 'custom'
+    | 'neutral'
+    | 'success'
+    | 'primary'
+    | 'secondary'
+    | 'attention';
+
+export const OContext: Array<TContext> = [
+    'link',
+    'info',
+    'error',
+    'custom',
+    'neutral',
+    'success',
+    'primary',
+    'secondary',
+    'attention'
+];

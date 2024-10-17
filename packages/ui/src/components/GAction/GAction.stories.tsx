@@ -1,13 +1,17 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
-import { OAppearance, OContext, OIconPosition, OSize, OType } from './interface';
+import { OContext } from '../../interfaces/colors';
+import { OIconPosition } from '../../interfaces/icons';
+import { OWeight } from '../../interfaces/fonts';
 
-import GButton from './GButton';
+import { OSize, OType } from './interface';
+import { OAppearance } from './interface';
 
+import GAction from './GAction';
 
 const meta = {
-    title: 'Atoms/GButton',
-    component: GButton,
+    title: 'Atoms/GAction',
+    component: GAction,
     argTypes: {
         icon: {
             table: {
@@ -36,6 +40,14 @@ const meta = {
                 type: { summary: 'boolean' },
                 defaultValue: { summary: 'false' },
             },
+        },
+        weight: {
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: 'regular' },
+            },
+            options: OWeight,
+            control: { type: 'radio' },
         },
         rounded: {
             table: {
@@ -86,7 +98,7 @@ const meta = {
             control: { type: 'radio' },
         },
     }
-} satisfies Meta<typeof GButton>;
+} satisfies Meta<typeof GAction>;
 
 export default meta;
 
@@ -94,85 +106,77 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     args: {
-        children: 'Default',
-    },
+        context: 'neutral',
+        children: 'Button',
+    }
 };
 
-export const Success: Story = {
+export const Primary: Story = {
     args: {
-        context: 'success',
-        size: 'large',
-        children: 'Success',
-    },
+        context: 'primary',
+        children: 'Primary'
+    }
+};
+
+export const Secondary: Story = {
+    args: {
+        context: 'secondary',
+        children: 'Secondary'
+    }
+};
+
+export const Info: Story = {
+    args: {
+        context: 'info',
+        children: 'Info'
+    }
 };
 
 export const Error: Story = {
     args: {
         context: 'error',
-        size: 'large',
-        children: 'Error',
-    },
+        children: 'Error'
+    }
 };
 
-
-export const Info: Story = {
+export const Attention: Story = {
     args: {
-        context: 'info',
-        size: 'large',
-        children: 'Info',
-    },
+        context: 'attention',
+        children: 'Attention'
+    }
 };
 
-export const Outline: Story = {
+export const PrimaryLink: Story = {
     args: {
-        size: 'large',
-        context: 'neutral',
-        appearance: 'outline',
-        children: 'Outline',
-    },
+        type: 'link',
+        context: 'primary',
+        children: 'Link'
+    }
 };
 
-export const Link: Story = {
+export const PrimaryLinkNavbar: Story = {
     args: {
-        size: 'large',
-        context: 'link',
-        children: 'Link',
-    },
+        type: 'link',
+        context: 'primary',
+        children: 'Link Navbar',
+        appearance: 'navbar',
+    }
 };
 
-export const Borderless: Story = {
+export const PrimaryLinkDropdown: Story = {
     args: {
-        size: 'large',
-        context: 'secondary',
-        children: 'Borderless',
-        appearance: 'borderless',
-    },
+        type: 'link',
+        context: 'primary',
+        children: 'Link Dropdown',
+        appearance: 'dropdown',
+    }
 };
 
-export const Select: Story = {
+export const PrimaryButtonSelect: Story = {
     args: {
-        size: 'large',
-        context: 'secondary',
+        type: 'button',
+        context: 'primary',
         children: 'Select',
         appearance: 'select',
-    },
-};
-
-export const IconButton: Story = {
-    args: {
-        size: 'large',
-        context: 'info',
-        children: 'iconButton',
-        appearance: 'iconButton',
-    },
-};
-
-export const ButtonWithIcon: Story = {
-    args: {
-        icon: 'react',
-        size: 'large',
-        context: 'primary',
-        children: 'Button With Icon',
-        appearance: 'standard',
-    },
+    }
 };

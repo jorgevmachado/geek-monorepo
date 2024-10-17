@@ -19,8 +19,8 @@ export default function SidebarButton({
     path,
     onRedirect,
 }: GSidebarButtonProps) {
-
-    const shouldActiveButton = location.pathname.includes(path);
+    // TODO VOLTAR NO FUTURO PARA CORRIGIR O shouldActiveButton
+    const shouldActiveButton = false;
 
     return (
         <button

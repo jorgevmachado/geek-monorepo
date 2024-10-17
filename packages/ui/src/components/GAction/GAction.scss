@@ -1,4 +1,4 @@
-@import "../../styles/colors";
+@import "../../styles/main";
 
 .g-action {
   &__link {
@@ -558,6 +558,8 @@
     font-weight: var(--text-weights-bold);
     border-radius: var(--borders-large);
     text-decoration: none;
+
+    @include focus;
 
     &:disabled {
       color: var(--colors-neutral-60);

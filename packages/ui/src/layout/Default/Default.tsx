@@ -7,6 +7,7 @@ import Sidebar from '../Sidebar';
 import './Default.scss';
 
 import type { NavSidebar, Navbar, User } from '../interface';
+import GAction from '../../components/GAction';
 
 
 interface DefaultProps {
@@ -25,6 +26,7 @@ export default function Default({ user, logo, navbar, sidebar, children, onLogou
                 <Sidebar sidebar={sidebar} />
                 <div className="main-content">
                     {children}
+                    <GAction appearance="select"  context="primary">BOTÃO</GAction>
                 </div>
             </main>
         </Fade>

@@ -4,9 +4,9 @@ import React, { useEffect } from 'react';
 
 import GIcon from '../../components/GIcon';
 
-import type { TIcon, TIconPosition } from '@interfaces/icons';
-import { TContext } from '@interfaces/colors';
-import { TWeight } from '@interfaces/fonts';
+import type { TIcon, TIconPosition } from '../../interfaces/icons';
+import { TContext } from '../../interfaces/colors';
+import { TWeight } from '../../interfaces/fonts';
 
 import { TAppearance, TSize, TType } from './interface';
 

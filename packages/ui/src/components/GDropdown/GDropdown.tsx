@@ -3,10 +3,11 @@ import React, { useEffect, useState } from 'react';
 import { MdOutlineArrowDropDown, MdOutlineArrowDropUp } from 'react-icons/md';
 
 import { TColors, TContext, TIconPosition, TType } from '../../interfaces';
+import joinClass from '../../utils/joinClass';
 
 import GAction from '../GAction';
 
-import { GDropdownProps } from './interface';
+import type { GDropdownProps } from './interface';
 
 import './GDropdown.scss';
 
@@ -125,11 +126,11 @@ export default function GDropdown( {
 
 
             {handleIsOpen() && (
-                <div className={`
-                    g-dropdown__content
-                    g-dropdown__content--context-${context} 
-                    g-dropdown__content--appearance-${appearance}                    
-               `} tabIndex={-1}>
+                <div className={joinClass([
+                    'g-dropdown__content',
+                    `g-dropdown__content--context-${context}`,
+                    `g-dropdown__content--appearance-${appearance}`
+                    ])} tabIndex={-1}>
                     {children}
                 </div>
             )}

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { TColors, TVariant, TWeight } from '../../interfaces';
+import { joinClass } from '../../utils';
 
 import { formatText, isReactNode, } from './config';
 import { IFormattedText } from './interface';
@@ -53,13 +54,13 @@ export default function GText({
     const formattedText = isReactNode(children) ? null : formatText(children as string);
     return (
         <CustomTag
-            className={`
-                g-text
-                g-u-color-${color}
-                g-text__variant--${variant}
-                g-text__weight--${weight}
-                ${props.className}
-            `}
+            className={joinClass([
+                'g-text',
+                `g-u-color-${color}`,
+                `g-text__variant--${variant}`,
+                `g-text__weight--${weight}`,
+                `${props.className}`
+            ])}
             htmlFor={htmlFor}
             {...props}
         >

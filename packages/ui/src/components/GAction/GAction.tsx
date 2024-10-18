@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 
 import type { TIcon, TIconPosition } from '../../interfaces/icons';
 import { TColors } from '../../interfaces/colors';
+import joinClass from '../../utils/joinClass';
 
 import GIcon from '../../components/GIcon';
 
@@ -73,21 +74,21 @@ export default function GAction({
 
     const principalClassName = `g-action__${isLink ? 'link' : 'button'}`;
 
-    const classNameList = `
-        ${principalClassName}
-        ${principalClassName}--size-${size}
-        ${principalClassName}--weight-${weight}
-        ${iconPosition && hasLabel ? `${principalClassName}--icon-${iconPosition}` : ''}        
-        ${fluid ? `${principalClassName}--fluid` : ''}
-        ${rounded ? `${principalClassName}--rounded` : ''}
-        ${principalClassName}--context-${context}
-        ${selected ? `${principalClassName}--selected` : ''}                
-        ${!hasLabel ? `${principalClassName}--no-label` : ''}
-        ${!hasLabel ? `${principalClassName}--no-label-${appearance}` : ''}                
-        ${principalClassName}--appearance-${appearance}
-        ${principalClassName}--appearance-${appearance}__${context}
-        ${props.className}
-    `;
+    const classNameList = joinClass([
+        principalClassName,
+        `${principalClassName}--size-${size}`,
+        `${principalClassName}--weight-${weight}`,
+        `${iconPosition && hasLabel ? `${principalClassName}--icon-${iconPosition}` : ''}`,
+        `${fluid ? `${principalClassName}--fluid` : ''}`,
+        `${rounded ? `${principalClassName}--rounded` : ''}`,
+        `${principalClassName}--context-${context}`,
+        `${selected ? `${principalClassName}--selected` : ''}`,
+        `${!hasLabel ? `${principalClassName}--no-label` : ''}`,
+        `${!hasLabel ? `${principalClassName}--no-label-${appearance}` : ''}`,
+        `${principalClassName}--appearance-${appearance}`,
+        `${principalClassName}--appearance-${appearance}__${context}`,
+        `${props.className}`
+    ]);
 
   return (
     <Element {...props} type={type} className={classNameList}>

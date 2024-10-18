@@ -1,5 +1,123 @@
 @import "../../styles/main";
 
+@mixin context-link($light, $medium, $dark) {
+  color: $light;
+  font-weight: var(--text-weights-bold);
+  &:hover {
+    color: $medium;
+  }
+  &:active {
+    color: $dark;
+  }
+
+  &.g-action__link--appearance-navbar {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    color: var(--colors-neutral-28);
+    text-wrap: nowrap;
+    font-size: var(--dimensions-regular);
+    font-weight: var(--text-weights-medium);
+    transition: all 0.2s ease-in-out;
+    &::after {
+      content: "";
+      background-color: transparent;
+      width: 0;
+      height: 2px;
+      position: absolute;
+      bottom: 0;
+      transition: all 0.2s ease-in-out;
+    }
+    &:hover::after {
+      width: var(--dimensions-regular);
+      background-color: $medium;
+    }
+    &:hover {
+      color: $dark;
+    }
+  }
+
+  &.g-action__link--appearance-dropdown {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    color: var(--colors-neutral-28);
+    text-wrap: nowrap;
+    font-size: var(--dimensions-regular);
+    font-weight: var(--text-weights-medium);
+    transition: all 0.2s ease-in-out;
+    &::after {
+      content: "";
+      background-color: transparent;
+      width: 0;
+      height: 2px;
+      position: absolute;
+      bottom: 0;
+      transition: all 0.2s ease-in-out;
+    }
+    &:hover::after {
+      width: var(--dimensions-regular);
+      background-color: $medium;
+    }
+    &:hover {
+      color: $dark;
+    }
+  }
+}
+
+@mixin context-button($t60, $t70, $t80, $t90, $t100) {
+  color: var(--colors-neutral-70);
+  border: 1px solid $t80;
+  background-color: $t80;
+
+  &:hover:not(:focus) {
+    border: 1px solid $t90;
+    background-color: $t90;
+  }
+
+  &:active {
+    border: 1px solid $t100;
+    background-color: $t100;
+  }
+
+  &.g-action__button--appearance-outline {
+    color: $t70;
+    border: 1px solid $t70;
+    background-color: transparent;
+
+    &:hover:not(:focus) {
+      background-color: $t60;
+    }
+
+    &:active {
+      background-color: $t60;
+    }
+  }
+
+  &.g-action__button--appearance-borderless{
+    color: $t70;
+    border: 1px solid transparent;
+    background-color: transparent;
+
+    &:hover:not(:focus) {
+      border-color: $t60;
+      background-color: $t60;
+
+    }
+
+    &:active {
+      border-color: $t60;
+      background-color: $t60;
+    }
+  }
+}
+
 .g-action {
   &__link {
     cursor: pointer;
@@ -47,508 +165,61 @@
 
     /*
     * =======
+    * Icons
+    * =======
+    */
+    &--icon-left__icon {
+      margin-top: var(--dimensions-xx-tiny);
+      margin-right: var(--dimensions-x-tiny);
+    }
+    &--icon-right__icon {
+      margin-top: var(--dimensions-xx-tiny);
+      margin-left: var(--dimensions-x-tiny);
+    }
+
+    /*
+    * =======
     * Contexts
     * =======
     */
+
+    // link
+    &--context-link {
+      @include context-link(#0000FF, #0000CD, #00008B);
+    }
     // Info
     &--context-info {
-      color: var(--colors-info-70);
-      font-weight: var(--text-weights-bold);
-      &:hover {
-        color: var(--colors-info-80);
-      }
-      &:active {
-        color: var(--colors-info-90);
-      }
-
-      &.g-action__link--appearance-navbar {
-        position: relative;
-        cursor: pointer;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        text-decoration: none;
-        color: var(--colors-neutral-28);
-        text-wrap: nowrap;
-        font-size: var(--dimensions-regular);
-        font-weight: var(--text-weights-medium);
-        transition: all 0.2s ease-in-out;
-        &::after {
-          content: "";
-          background-color: transparent;
-          width: 0;
-          height: 2px;
-          position: absolute;
-          bottom: 0;
-          transition: all 0.2s ease-in-out;
-        }
-        &:hover::after {
-          width: var(--dimensions-regular);
-          background-color: var(--colors-info-80);
-        }
-        &:hover {
-          color: var(--colors-info-80);
-        }
-      }
-
-      &.g-action__link--appearance-dropdown {
-        position: relative;
-        cursor: pointer;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        text-decoration: none;
-        color: var(--colors-neutral-28);
-        text-wrap: nowrap;
-        font-size: var(--dimensions-regular);
-        font-weight: var(--text-weights-medium);
-        transition: all 0.2s ease-in-out;
-        &::after {
-          content: "";
-          background-color: transparent;
-          width: 0;
-          height: 2px;
-          position: absolute;
-          bottom: 0;
-          transition: all 0.2s ease-in-out;
-        }
-        &:hover::after {
-          width: var(--dimensions-regular);
-          background-color: var(--colors-info-80);
-        }
-        &:hover {
-          color: var(--colors-neutral-12);
-        }
-      }
+      @include context-link(var(--colors-info-70), var(--colors-info-80), var(--colors-info-90));
     }
 
     // Error
     &--context-error {
-      color: var(--colors-error-70);
-      font-weight: var(--text-weights-bold);
-      &:hover {
-        color: var(--colors-error-80);
-      }
-      &:active {
-        color: var(--colors-error-90);
-      }
-
-      &.g-action__link--appearance-navbar {
-        position: relative;
-        cursor: pointer;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        text-decoration: none;
-        color: var(--colors-neutral-28);
-        text-wrap: nowrap;
-        font-size: var(--dimensions-regular);
-        font-weight: var(--text-weights-medium);
-        transition: all 0.2s ease-in-out;
-        &::after {
-          content: "";
-          background-color: transparent;
-          width: 0;
-          height: 2px;
-          position: absolute;
-          bottom: 0;
-          transition: all 0.2s ease-in-out;
-        }
-        &:hover::after {
-          width: var(--dimensions-regular);
-          background-color: var(--colors-error-80);
-        }
-        &:hover {
-          color: var(--colors-error-90);
-        }
-      }
-
-      &.g-action__link--appearance-dropdown {
-        position: relative;
-        cursor: pointer;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        text-decoration: none;
-        color: var(--colors-neutral-28);
-        text-wrap: nowrap;
-        font-size: var(--dimensions-regular);
-        font-weight: var(--text-weights-medium);
-        transition: all 0.2s ease-in-out;
-        &::after {
-          content: "";
-          background-color: transparent;
-          width: 0;
-          height: 2px;
-          position: absolute;
-          bottom: 0;
-          transition: all 0.2s ease-in-out;
-        }
-        &:hover::after {
-          width: var(--dimensions-regular);
-          background-color: var(--colors-error-80);
-        }
-        &:hover {
-          color: var(--colors-neutral-12);
-        }
-      }
+      @include context-link(var(--colors-error-70), var(--colors-error-80), var(--colors-error-90));
     }
 
     // Neutral
     &--context-neutral {
-      color: var(--colors-neutral-44);
-      font-weight: var(--text-weights-bold);
-      &:hover {
-        color: var(--colors-neutral-110);
-      }
-      &:active {
-        color: var(--colors-neutral-120);
-      }
-
-      &.g-action__link--appearance-navbar {
-        position: relative;
-        cursor: pointer;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        text-decoration: none;
-        color: var(--colors-neutral-28);
-        text-wrap: nowrap;
-        font-size: var(--dimensions-regular);
-        font-weight: var(--text-weights-medium);
-        transition: all 0.2s ease-in-out;
-        &::after {
-          content: "";
-          background-color: transparent;
-          width: 0;
-          height: 2px;
-          position: absolute;
-          bottom: 0;
-          transition: all 0.2s ease-in-out;
-        }
-        &:hover::after {
-          width: var(--dimensions-regular);
-          background-color: var(--colors-neutral-100);
-        }
-      }
-
-      &.g-action__link--appearance-dropdown {
-        position: relative;
-        cursor: pointer;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        text-decoration: none;
-        color: var(--colors-neutral-28);
-        text-wrap: nowrap;
-        font-size: var(--dimensions-regular);
-        font-weight: var(--text-weights-medium);
-        transition: all 0.2s ease-in-out;
-        &::after {
-          content: "";
-          background-color: transparent;
-          width: 0;
-          height: 2px;
-          position: absolute;
-          bottom: 0;
-          transition: all 0.2s ease-in-out;
-        }
-        &:hover::after {
-          width: var(--dimensions-regular);
-          background-color: var(--colors-neutral-100);
-        }
-        &:hover {
-          color: var(--colors-neutral-12);
-        }
-      }
+      @include context-link(var(--colors-neutral-100), var(--colors-neutral-110), var(--colors-neutral-120));
     }
 
     // Success
     &--context-success {
-      color: var(--colors-success-70);
-      font-weight: var(--text-weights-bold);
-      &:hover {
-        color: var(--colors-success-80);
-      }
-      &:active {
-        color: var(--colors-success-90);
-      }
-
-      &.g-action__link--appearance-navbar {
-        position: relative;
-        cursor: pointer;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        text-decoration: none;
-        color: var(--colors-neutral-28);
-        text-wrap: nowrap;
-        font-size: var(--dimensions-regular);
-        font-weight: var(--text-weights-medium);
-        transition: all 0.2s ease-in-out;
-        &::after {
-          content: "";
-          background-color: transparent;
-          width: 0;
-          height: 2px;
-          position: absolute;
-          bottom: 0;
-          transition: all 0.2s ease-in-out;
-        }
-        &:hover::after {
-          width: var(--dimensions-regular);
-          background-color: var(--colors-success-80);
-        }
-        &:hover {
-          color: var(--colors-success-90);
-        }
-      }
-
-      &.g-action__link--appearance-dropdown {
-        position: relative;
-        cursor: pointer;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        text-decoration: none;
-        color: var(--colors-neutral-28);
-        text-wrap: nowrap;
-        font-size: var(--dimensions-regular);
-        font-weight: var(--text-weights-medium);
-        transition: all 0.2s ease-in-out;
-        &::after {
-          content: "";
-          background-color: transparent;
-          width: 0;
-          height: 2px;
-          position: absolute;
-          bottom: 0;
-          transition: all 0.2s ease-in-out;
-        }
-        &:hover::after {
-          width: var(--dimensions-regular);
-          background-color: var(--colors-success-80);
-        }
-        &:hover {
-          color: var(--colors-neutral-12);
-        }
-      }
+      @include context-link(var(--colors-success-70), var(--colors-success-80), var(--colors-success-90));
     }
 
     // Primary
     &--context-primary {
-      color: var(--colors-primary-70);
-      font-weight: var(--text-weights-bold);
-      &:hover {
-        color: var(--colors-primary-80);
-      }
-      &:active {
-        color: var(--colors-primary-90);
-      }
-
-      &.g-action__link--appearance-navbar {
-        position: relative;
-        cursor: pointer;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        text-decoration: none;
-        color: var(--colors-neutral-28);
-        text-wrap: nowrap;
-        font-size: var(--dimensions-regular);
-        font-weight: var(--text-weights-medium);
-        transition: all 0.2s ease-in-out;
-        &::after {
-          content: "";
-          background-color: transparent;
-          width: 0;
-          height: 2px;
-          position: absolute;
-          bottom: 0;
-          transition: all 0.2s ease-in-out;
-        }
-        &:hover::after {
-          width: var(--dimensions-regular);
-          background-color: var(--colors-primary-80);
-        }
-        &:hover {
-          color: var(--colors-primary-90);
-        }
-      }
-
-      &.g-action__link--appearance-dropdown {
-        position: relative;
-        cursor: pointer;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        text-decoration: none;
-        color: var(--colors-neutral-28);
-        text-wrap: nowrap;
-        font-size: var(--dimensions-regular);
-        font-weight: var(--text-weights-medium);
-        transition: all 0.2s ease-in-out;
-        &::after {
-          content: "";
-          background-color: transparent;
-          width: 0;
-          height: 2px;
-          position: absolute;
-          bottom: 0;
-          transition: all 0.2s ease-in-out;
-        }
-        &:hover::after {
-          width: var(--dimensions-regular);
-          background-color: var(--colors-primary-80);
-        }
-        &:hover {
-          color: var(--colors-neutral-12);
-        }
-      }
+      @include context-link(var(--colors-primary-70), var(--colors-primary-80), var(--colors-primary-90));
     }
 
     // Secondary
     &--context-secondary {
-      color: var(--colors-secondary-70);
-      font-weight: var(--text-weights-bold);
-      &:hover {
-        color: var(--colors-secondary-80);
-      }
-      &:active {
-        color: var(--colors-secondary-90);
-      }
-
-      &.g-action__link--appearance-navbar {
-        position: relative;
-        cursor: pointer;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        text-decoration: none;
-        color: var(--colors-neutral-28);
-        text-wrap: nowrap;
-        font-size: var(--dimensions-regular);
-        font-weight: var(--text-weights-medium);
-        transition: all 0.2s ease-in-out;
-        &::after {
-          content: "";
-          background-color: transparent;
-          width: 0;
-          height: 2px;
-          position: absolute;
-          bottom: 0;
-          transition: all 0.2s ease-in-out;
-        }
-        &:hover::after {
-          width: var(--dimensions-regular);
-          background-color: var(--colors-secondary-80);
-        }
-        &:hover {
-          color: var(--colors-secondary-90);
-        }
-      }
-
-      &.g-action__link--appearance-dropdown {
-        position: relative;
-        cursor: pointer;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        text-decoration: none;
-        color: var(--colors-neutral-28);
-        text-wrap: nowrap;
-        font-size: var(--dimensions-regular);
-        font-weight: var(--text-weights-medium);
-        transition: all 0.2s ease-in-out;
-        &::after {
-          content: "";
-          background-color: transparent;
-          width: 0;
-          height: 2px;
-          position: absolute;
-          bottom: 0;
-          transition: all 0.2s ease-in-out;
-        }
-        &:hover::after {
-          width: var(--dimensions-regular);
-          background-color: var(--colors-secondary-80);
-        }
-        &:hover {
-          color: var(--colors-neutral-12);
-        }
-      }
+      @include context-link(var(--colors-secondary-70), var(--colors-secondary-80), var(--colors-secondary-90));
     }
 
     // Attention
     &--context-attention {
-      color: var(--colors-attention-70);
-      font-weight: var(--text-weights-bold);
-      &:hover {
-        color: var(--colors-attention-80);
-      }
-      &:active {
-        color: var(--colors-attention-90);
-      }
-
-      &.g-action__link--appearance-navbar {
-        position: relative;
-        cursor: pointer;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        text-decoration: none;
-        color: var(--colors-neutral-28);
-        text-wrap: nowrap;
-        font-size: var(--dimensions-regular);
-        font-weight: var(--text-weights-medium);
-        transition: all 0.2s ease-in-out;
-        &::after {
-          content: "";
-          background-color: transparent;
-          width: 0;
-          height: 2px;
-          position: absolute;
-          bottom: 0;
-          transition: all 0.2s ease-in-out;
-        }
-        &:hover::after {
-          width: var(--dimensions-regular);
-          background-color: var(--colors-attention-80);
-        }
-        &:hover {
-          color: var(--colors-attention-90);
-        }
-      }
-
-      &.g-action__link--appearance-dropdown {
-        position: relative;
-        cursor: pointer;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        text-decoration: none;
-        color: var(--colors-neutral-28);
-        text-wrap: nowrap;
-        font-size: var(--dimensions-regular);
-        font-weight: var(--text-weights-medium);
-        transition: all 0.2s ease-in-out;
-        &::after {
-          content: "";
-          background-color: transparent;
-          width: 0;
-          height: 2px;
-          position: absolute;
-          bottom: 0;
-          transition: all 0.2s ease-in-out;
-        }
-        &:hover::after {
-          width: var(--dimensions-regular);
-          background-color: var(--colors-attention-80);
-        }
-        &:hover {
-          color: var(--colors-neutral-12);
-        }
-      }
+      @include context-link(var(--colors-attention-70), var(--colors-attention-80), var(--colors-attention-90));
     }
   }
 
@@ -626,12 +297,10 @@
     * =======
     */
     &--icon-left__icon {
-      margin-top: var(--dimensions-xx-tiny);
-      margin-right: var(--dimensions-tiny);
+      margin-right: var(--dimensions-x-tiny);
     }
     &--icon-right__icon {
-      margin-top: var(--dimensions-xx-tiny);
-      margin-left: var(--dimensions-tiny);
+      margin-left: var(--dimensions-x-tiny);
     }
 
     /*
@@ -667,100 +336,53 @@
     * Contexts
     * =======
     */
-    // Info
-    &--context-info {
-      color: var(--colors-neutral-70);
-      border: 1px solid var(--colors-info-80);
-      background-color: var(--colors-info-80);
 
-      &:hover:not(:focus) {
-        border: 1px solid var(--colors-info-90);
-        background-color: var(--colors-info-90);
-      }
-
-      &:active {
-        border: 1px solid var(--colors-info-100);
-        background-color: var(--colors-info-100);
-      }
-
-      &.g-action__button--appearance-outline {
-        color: var(--colors-info-70);
-        border: 1px solid var(--colors-info-70);
-        background-color: transparent;
-
-        &:hover:not(:focus) {
-          background-color: var(--colors-info-50);
-        }
-
-        &:active {
-          background-color: var(--colors-info-60);
-        }
-      }
-
-      &.g-action__button--appearance-borderless{
-        color: var(--colors-info-70);
-        border: 1px solid transparent;
-        background-color: transparent;
-
-        &:hover:not(:focus) {
-          border-color: var(--colors-info-40);
-          background-color: var(--colors-info-40);
-
-        }
-
-        &:active {
-          border-color: var(--colors-info-50);
-          background-color: var(--colors-info-50);
+    // link
+    &--context-link {
+      color: var(--colors-neutral-60);
+      border: none;
+      position: absolute;
+      background: none;
+      &:active, &.g-action__button--selected {
+        background-color: var(--colors-neutral-70);
+        border: none;
+        color: var(--colors-neutral-120);
+        &::after {
+          display: block;
+          position: relative;
+          content: "";
+          width: 100%;
+          height: var(--dimensions-x-tiny);
+          // fixes button content moving 2px vertically
+          margin-bottom: -#{var(--dimensions-x-tiny)};
+          left: 0;
+          bottom: 0;
+          background-color: var(--colors-neutral-120);
+          border-radius: 2px;
         }
       }
     }
 
+    // Info
+    &--context-info {
+      @include context-button(
+          var(--colors-info-60),
+          var(--colors-info-70),
+          var(--colors-info-80),
+          var(--colors-info-90),
+          var(--colors-info-100)
+      );
+    }
+
     // Error
     &--context-error {
-      color: var(--colors-neutral-70);
-      border: 1px solid var(--colors-error-80);
-      background-color: var(--colors-error-80);
-
-      &:hover:not(:focus) {
-        border: 1px solid var(--colors-error-90);
-        background-color: var(--colors-error-90);
-      }
-
-      &:active {
-        border: 1px solid var(--colors-error-100);
-        background-color: var(--colors-error-100);
-      }
-
-      &.g-action__button--appearance-outline {
-        color: var(--colors-error-70);
-        border: 1px solid var(--colors-error-70);
-        background-color: transparent;
-
-        &:hover:not(:focus) {
-          background-color: var(--colors-error-50);
-        }
-
-        &:active {
-          background-color: var(--colors-error-60);
-        }
-      }
-
-      &.g-action__button--appearance-borderless{
-        color: var(--colors-error-70);
-        border: 1px solid transparent;
-        background-color: transparent;
-
-        &:hover:not(:focus) {
-          border-color: var(--colors-error-40);
-          background-color: var(--colors-error-40);
-
-        }
-
-        &:active {
-          border-color: var(--colors-error-50);
-          background-color: var(--colors-error-50);
-        }
-      }
+      @include context-button(
+                      var(--colors-error-60),
+                      var(--colors-error-70),
+                      var(--colors-error-80),
+                      var(--colors-error-90),
+                      var(--colors-error-100)
+      );
     }
 
     // Neutral
@@ -838,198 +460,46 @@
 
     // Success
     &--context-success {
-      color: var(--colors-neutral-70);
-      border: 1px solid var(--colors-success-80);
-      background-color: var(--colors-success-80);
-
-      &:hover:not(:focus) {
-        border: 1px solid var(--colors-success-90);
-        background-color: var(--colors-success-90);
-      }
-
-      &:active {
-        border: 1px solid var(--colors-success-100);
-        background-color: var(--colors-success-100);
-      }
-
-      &.g-action__button--appearance-outline {
-        color: var(--colors-success-70);
-        border: 1px solid var(--colors-success-70);
-        background-color: transparent;
-
-        &:hover:not(:focus) {
-          background-color: var(--colors-success-50);
-        }
-
-        &:active {
-          background-color: var(--colors-success-60);
-        }
-      }
-
-      &.g-action__button--appearance-borderless{
-        color: var(--colors-success-70);
-        border: 1px solid transparent;
-        background-color: transparent;
-
-        &:hover:not(:focus) {
-          border-color: var(--colors-success-40);
-          background-color: var(--colors-success-40);
-
-        }
-
-        &:active {
-          border-color: var(--colors-success-50);
-          background-color: var(--colors-success-50);
-        }
-      }
+      @include context-button(
+                      var(--colors-success-60),
+                      var(--colors-success-70),
+                      var(--colors-success-80),
+                      var(--colors-success-90),
+                      var(--colors-success-100)
+      );
     }
 
     // Primary
     &--context-primary {
-      border: 1px solid var(--colors-primary-70);
-      color: var(--colors-neutral-70);
-      background-color: var(--colors-primary-70);
-      --standard-background-color: #{var(--colors-primary-70)};
-      --standard-hover-background-color: #{var(--colors-primary-80)};
-
-      &:hover:not(:focus) {
-        border: 1px solid var(--colors-primary-80);
-        background-color: var(--colors-primary-80);
-      }
-
-      &:active {
-        border: 1px solid var(--colors-primary-100);
-        background-color: var(--colors-primary-100);
-      }
-
-      &.g-action__button--appearance-outline {
-        color: var(--colors-primary-70);
-        border: 1px solid var(--colors-primary-70);
-        background-color: transparent;
-
-        &:hover:not(:focus) {
-          background-color: var(--colors-primary-50);
-        }
-
-        &:active {
-          background-color: var(--colors-primary-60);
-        }
-      }
-
-      &.g-action__button--appearance-borderless{
-        color: var(--colors-primary-70);
-        border: 1px solid transparent;
-        background-color: transparent;
-
-        &:hover:not(:focus) {
-          border-color: var(--colors-primary-40);
-          background-color: var(--colors-primary-40);
-
-        }
-
-        &:active {
-          border-color: var(--colors-primary-50);
-          background-color: var(--colors-primary-50);
-        }
-      }
+      @include context-button(
+                      var(--colors-primary-60),
+                      var(--colors-primary-70),
+                      var(--colors-primary-80),
+                      var(--colors-primary-90),
+                      var(--colors-primary-100)
+      );
     }
 
     // Secondary
     &--context-secondary {
-      border: 1px solid var(--colors-secondary-70);
-      color: var(--colors-neutral-70);
-      background-color: var(--colors-secondary-70);
-      --standard-background-color: #{var(--colors-secondary-70)};
-      --standard-hover-background-color: #{var(--colors-secondary-80)};
-
-      &:hover:not(:focus) {
-        border: 1px solid var(--colors-secondary-80);
-        background-color: var(--colors-secondary-80);
-      }
-
-      &:active {
-        border: 1px solid var(--colors-secondary-100);
-        background-color: var(--colors-secondary-100);
-      }
-
-      &.g-action__button--appearance-outline {
-        color: var(--colors-secondary-70);
-        border: 1px solid var(--colors-secondary-70);
-        background-color: transparent;
-
-        &:hover:not(:focus) {
-          background-color: var(--colors-secondary-50);
-        }
-
-        &:active {
-          background-color: var(--colors-secondary-60);
-        }
-      }
-
-      &.g-action__button--appearance-borderless{
-        color: var(--colors-secondary-70);
-        border: 1px solid transparent;
-        background-color: transparent;
-
-        &:hover:not(:focus) {
-          border-color: var(--colors-secondary-40);
-          background-color: var(--colors-secondary-40);
-
-        }
-
-        &:active {
-          border-color: var(--colors-secondary-50);
-          background-color: var(--colors-secondary-50);
-        }
-      }
+      @include context-button(
+                      var(--colors-secondary-60),
+                      var(--colors-secondary-70),
+                      var(--colors-secondary-80),
+                      var(--colors-secondary-90),
+                      var(--colors-secondary-100)
+      );
     }
 
     // Attention
     &--context-attention {
-      color: var(--colors-neutral-70);
-      border: 1px solid var(--colors-attention-80);
-      background-color: var(--colors-attention-80);
-
-      &:hover:not(:focus) {
-        border: 1px solid var(--colors-attention-90);
-        background-color: var(--colors-attention-90);
-      }
-
-      &:active {
-        border: 1px solid var(--colors-attention-100);
-        background-color: var(--colors-attention-100);
-      }
-
-      &.g-action__button--appearance-outline {
-        color: var(--colors-attention-70);
-        border: 1px solid var(--colors-attention-70);
-        background-color: transparent;
-
-        &:hover:not(:focus) {
-          background-color: var(--colors-attention-60);
-        }
-
-        &:active {
-          background-color: var(--colors-attention-60);
-        }
-      }
-
-      &.g-action__button--appearance-borderless{
-        color: var(--colors-attention-70);
-        border: 1px solid transparent;
-        background-color: transparent;
-
-        &:hover:not(:focus) {
-          border-color: var(--colors-attention-40);
-          background-color: var(--colors-attention-40);
-
-        }
-
-        &:active {
-          border-color: var(--colors-attention-60);
-          background-color: var(--colors-attention-60);
-        }
-      }
+      @include context-button(
+                      var(--colors-attention-60),
+                      var(--colors-attention-70),
+                      var(--colors-attention-80),
+                      var(--colors-attention-90),
+                      var(--colors-attention-100)
+      );
     }
 
     /*
@@ -1190,6 +660,11 @@
         color: var(--color-neutral-100);
         border-color: var(--color-neutral-90);
       }
+    }
+
+    //dropdown
+    &--appearance-dropdown.g-action__button--icon-right__icon {
+      margin: 0;
     }
 
   }

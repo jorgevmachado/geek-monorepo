@@ -7,6 +7,11 @@
   &__trigger {
     cursor: pointer;
   }
+  &__activator {
+    &--icon {
+      margin-top: .5rem;
+    }
+  }
   &__content {
     background-color: var(--colors-neutral-70);
     width: auto;
@@ -14,5 +19,32 @@
     z-index: 101;
     margin-top: var(--dimensions-tiny);
     border-radius: var(--borders-regular);
+    &--appearance-navbar {
+      background-color: var(--colors-neutral-70);
+      border-radius: 8px;
+      box-shadow: var(--shadows-x-small);
+      position: absolute;
+      top: 100%;
+      padding: 1rem 0;
+      &.g-dropdown__content--context-primary {
+        a {
+          padding: .75rem 1.25rem;
+          &:hover {
+            color: var(--colors-neutral-12);
+            background-color: var(--colors-primary-100);
+          }
+        }
+      }
+      &.g-dropdown__content--context-secondary {
+        a {
+          padding: .75rem 1.25rem;
+          &:hover {
+            color: var(--colors-neutral-12);
+            background-color: var(--colors-secondary-100);
+          }
+        }
+      }
+
+    }
   }
 }

@@ -1,52 +1,36 @@
 import React, { useEffect } from 'react';
 
-
+import type { TIcon, TIconPosition } from '../../interfaces/icons';
+import { TColors } from '../../interfaces/colors';
 
 import GIcon from '../../components/GIcon';
 
-import type { TIcon, TIconPosition } from '../../interfaces/icons';
-import { TContext } from '../../interfaces/colors';
-import { TWeight } from '../../interfaces/fonts';
-
-import { TAppearance, TSize, TType } from './interface';
+import { GActionProps } from './interface';
 
 import './GAction.scss';
 
 interface ContentProps {
     icon?: React.ReactNode | TIcon;
     children?: React.ReactNode;
+    iconColor?: TColors;
+    className?: string;
     iconPosition?: TIconPosition;
 }
 
-function Content({ children, icon, iconPosition }: ContentProps) {
+function Content({ icon, children, iconColor, className, iconPosition }: ContentProps) {
     return (
         <>
             {icon && iconPosition === 'left' && (
-                <GIcon icon={icon} className={`g-action__button--icon-${iconPosition}__icon`} />
+                <GIcon icon={icon} className={`${className}--icon-${iconPosition}__icon g-u-color-${iconColor}`} />
             )}
             {children}
             {icon && iconPosition === 'right' && (
-                <GIcon icon={icon} className={`g-action__button--icon-${iconPosition}__icon`} />
+                <GIcon icon={icon} className={`${className}--icon-${iconPosition}__icon g-u-color-${iconColor}`} />
             )}
         </>
     );
 }
 
-interface GActionProps extends React.AnchorHTMLAttributes<HTMLAnchorElement>{
-    icon?: React.ReactNode | TIcon;    
-    type?: TType;
-    size?: TSize;
-    fluid?: boolean;
-    weight?: TWeight;
-    rounded?: boolean;
-    context?: TContext;
-    selected?: boolean;
-    children?: React.ReactNode;
-    disabled?: boolean;
-    appearance?: TAppearance;
-    underlined?: boolean;
-    iconPosition?: TIconPosition;
-}
 
 function elementTypeOf(isLink?: boolean): React.ElementType {
     return (isLink ? 'a' : 'button') as React.ElementType;
@@ -64,6 +48,7 @@ export default function GAction({
     selected,
     children,
     disabled,
+    iconColor,
     appearance,
     underlined,
     iconPosition = 'left',
@@ -109,7 +94,10 @@ export default function GAction({
         {
             !isAppearanceIconButton
                 ? (
-                    <Content icon={icon} iconPosition={iconPosition}>
+                    <Content icon={icon}
+                             iconColor={iconColor}
+                             className={principalClassName}
+                             iconPosition={iconPosition}>
                         {children}
                     </Content>
                 )

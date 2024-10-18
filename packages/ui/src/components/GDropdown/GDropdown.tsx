@@ -1,34 +1,84 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+
+import { MdOutlineArrowDropDown, MdOutlineArrowDropUp } from 'react-icons/md';
+
+import { TColors, TContext, TIconPosition, TType } from '../../interfaces';
+
+import GAction from '../GAction';
+
+import { GDropdownProps } from './interface';
 
 import './GDropdown.scss';
 
-interface DropdownProps {
-    isOpen?: boolean;
-    disabled?: boolean;
-    onChange?: (value: boolean) => void;
-    children: React.ReactNode;
-    activator: React.ReactNode;
-    onClickOutside?: (value: boolean) => void;
+interface DropdownActivatorProps {
+    type?: TType;
+    label?: string;
+    context?: TContext;
+    iconPosition?: TIconPosition;
 }
 
-export default function GDropdown( { isOpen, disabled, onChange, children, activator, onClickOutside }: DropdownProps ) {
-    function useOutsideClick(ref: any) {
-        useEffect(() => {
-            function handleClickOutside(event: any) {
-                if (ref.current && !ref.current.contains(event.target)) {
-                    onClickOutside && onClickOutside(true);
-                    setIsOpenModel(false);
-                    onChange && onChange(isOpenModel);
-                }
-            }
-            document.addEventListener('mousedown', handleClickOutside);
-            return () => {
-                document.removeEventListener('mousedown', handleClickOutside);
-            };
-        }, [ref]);
-    }
+function DropdownActivator({
+    type= 'button',
+    label = 'open',
+    context = 'neutral',
+    iconPosition = 'right'
+}: DropdownActivatorProps) {
 
-    const wrapperRef = useRef(null);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+    const icon = isDropdownOpen ? <MdOutlineArrowDropUp size={28} /> : <MdOutlineArrowDropDown size={28} />;
+    const handleOpenDropdown = () => setIsDropdownOpen(!isDropdownOpen);
+
+    return (
+        <div className={`g-dropdown__activator--${type}`} >
+            <GAction
+                icon={icon}
+                type={type}
+                onClick={handleOpenDropdown}
+                context={context}
+                iconColor={`${context}-100` as TColors}
+                appearance="dropdown"
+                iconPosition={iconPosition}>
+                { label }
+            </GAction>
+        </div>
+    );
+}
+
+
+
+export default function GDropdown( {
+    type = 'button',
+    label,
+    context = 'neutral',
+    isOpen,
+    disabled,
+    onChange,
+    children,
+    activator,
+    appearance,
+    onClickOutside
+}: GDropdownProps ) {
+
+    const [isOpenModel, setIsOpenModel] = useState(false);
+
+    // function useOutsideClick(ref: any) {
+    //     useEffect(() => {
+    //         function handleClickOutside(event: any) {
+    //             if (ref.current && !ref.current.contains(event.target)) {
+    //                 onClickOutside && onClickOutside(true);
+    //                 setIsOpenModel(false);
+    //                 onChange && onChange(isOpenModel);
+    //             }
+    //         }
+    //         document.addEventListener('mousedown', handleClickOutside);
+    //         return () => {
+    //             document.removeEventListener('mousedown', handleClickOutside);
+    //         };
+    //     }, [ref]);
+    // }
+
+    // const wrapperRef = useRef(null);
 
     useEffect(() => {
         if (isOpen !== undefined) {
@@ -36,9 +86,9 @@ export default function GDropdown( { isOpen, disabled, onChange, children, activ
         }
     }, [isOpen]);
 
-    useOutsideClick(wrapperRef);
+    // useOutsideClick(wrapperRef);
 
-    const [isOpenModel, setIsOpenModel] = useState(false);
+
 
     const handleIsOpen = () => {
         if (isOpen !== undefined) {
@@ -51,6 +101,7 @@ export default function GDropdown( { isOpen, disabled, onChange, children, activ
         if (disabled) {
             return;
         }
+
         if (isOpen === undefined) {
             setIsOpenModel(!isOpenModel);
         }
@@ -60,13 +111,25 @@ export default function GDropdown( { isOpen, disabled, onChange, children, activ
         }
     };
 
+
+
     return (
         <div className="g-dropdown">
             <div className="g-dropdown__trigger" onClick={handleClick}>
-                {activator}
+                {
+                    !activator
+                        ? <DropdownActivator label={label} type={type} context={context}/>
+                        : activator
+                }
             </div>
+
+
             {handleIsOpen() && (
-                <div className="g-dropdown__content" tabIndex={-1}>
+                <div className={`
+                    g-dropdown__content
+                    g-dropdown__content--context-${context} 
+                    g-dropdown__content--appearance-${appearance}                    
+               `} tabIndex={-1}>
                     {children}
                 </div>
             )}

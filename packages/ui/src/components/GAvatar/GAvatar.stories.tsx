@@ -62,13 +62,13 @@ export const Default: Story = {
     },
 };
 
-export const withOutImage: Story = {
+export const WithOutImage: Story = {
     args: {
         name: 'Jorge Vieira Machado',
     },
 };
 
-export const withNotification: Story = {
+export const WithNotification: Story = {
     args: {
         name: 'Jorge Vieira Machado',
         hasNotification: true,

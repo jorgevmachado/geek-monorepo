@@ -52,20 +52,20 @@ $header-height-desktop: 68px;
         &-item {
           display: inherit;
         }
-        &-dropdown {
-          a {
-            padding: 0.75rem 1.25rem;
-
-            &:hover {
-              background-color: var(--colors-primary-80);
-              color: var(--colors-neutral-12);
-            }
-
-            &::after {
-              display: none;
-            }
-          }
-        }
+        //&-dropdown {
+        //  a {
+        //    padding: 0.75rem 1.25rem;
+        //
+        //    &:hover {
+        //      background-color: var(--colors-primary-80);
+        //      color: var(--colors-neutral-12);
+        //    }
+        //
+        //    &::after {
+        //      display: none;
+        //    }
+        //  }
+        //}
       }
     }
   }

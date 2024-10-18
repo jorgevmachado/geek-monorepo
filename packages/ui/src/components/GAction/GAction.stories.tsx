@@ -2,10 +2,11 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { OContext } from '../../interfaces/colors';
 import { OIconPosition } from '../../interfaces/icons';
+import { OType } from '../../interfaces/actions';
 import { OWeight } from '../../interfaces/fonts';
 
-import { OSize, OType } from './interface';
 import { OAppearance } from './interface';
+import { OSize,  } from './interface';
 
 import GAction from './GAction';
 

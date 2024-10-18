@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 
 import { FaHamburger } from 'react-icons/fa';
-import HeaderDropdown from './HeaderDropdown';
 import HeaderSidebar from './HeaderSidebar';
 
 import './Header.scss';
 import { NavSidebar, Navbar, User } from '../interface';
-import GAction from '../../components/GAction';
-import GImage from '../../components/GImage';
 
+import GAction from '../../components/GAction';
+import GDropdown from '../../components/GDropdown';
+import GImage from '../../components/GImage';
 
 interface HeaderProps {
     user: User;
@@ -48,19 +48,20 @@ export default function Header({ user, logo, navbar, sidebar, onLogout }: Header
                                     {item.label}
                                 </GAction>
                             ) : (
-                                <HeaderDropdown label={item.label}>
+                                <GDropdown label={item.label} type="link" context="primary" appearance="navbar">
                                     {item?.items?.map((subItem) => (
                                         <GAction
                                             key={subItem.key}
                                             type="link"
                                             context="primary"
+                                            iconColor="primary-100"
                                             onClick={subItem?.onRedirect}
                                             appearance="dropdown">
                                             {subItem.label}
                                         </GAction>
-
                                     ))}
-                                </HeaderDropdown>
+                                </GDropdown>
+
                             )}
                         </li>
                     ))}

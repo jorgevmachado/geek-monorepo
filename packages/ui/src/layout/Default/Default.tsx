@@ -4,11 +4,9 @@ import Fade from '../../animations/fade';
 import Header from '../Header';
 import Sidebar from '../Sidebar';
 
-import './Default.scss';
-
 import type { NavSidebar, Navbar, User } from '../interface';
-import GAction from '../../components/GAction';
 
+import './Default.scss';
 
 interface DefaultProps {
     user: User;
@@ -19,6 +17,7 @@ interface DefaultProps {
     onLogout: () => void;
 }
 export default function Default({ user, logo, navbar, sidebar, children, onLogout }: DefaultProps ) {
+
     return (
         <Fade>
             <Header user={user} logo={logo} navbar={navbar} sidebar={sidebar} onLogout={onLogout} />
@@ -26,7 +25,6 @@ export default function Default({ user, logo, navbar, sidebar, children, onLogou
                 <Sidebar sidebar={sidebar} />
                 <div className="main-content">
                     {children}
-                    <GAction appearance="select"  context="primary">BOTÃO</GAction>
                 </div>
             </main>
         </Fade>

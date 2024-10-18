@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 
 import { MdOutlineArrowDropDown, MdOutlineArrowDropUp } from 'react-icons/md';
 
-import { GIcon } from '../../../../components';
-import { Navbar } from '../../../interface';
+import { GIcon } from '../../../components';
+import { Navbar } from '../../interface';
 
 import './HeaderSidebarAction.scss';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { NavSidebar } from '../../../interface';
+import { NavSidebar } from '../../interface';
 
 import HeaderSidebarAction from '../HeaderSidebarAction';
 

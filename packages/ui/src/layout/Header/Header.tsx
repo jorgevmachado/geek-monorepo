@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
 
 import { FaHamburger } from 'react-icons/fa';
-import HeaderSidebar from './HeaderSidebar';
-
-import './Header.scss';
-import { NavSidebar, Navbar, User } from '../interface';
+import { IoClose } from 'react-icons/io5';
+import { IoMdExit } from 'react-icons/io';
 
 import GAction from '../../components/GAction';
 import GDropdown from '../../components/GDropdown';
+import GIcon from '../../components/GIcon';
 import GImage from '../../components/GImage';
+
+import { NavSidebar, Navbar, User } from '../interface';
+
+import GroupSidebar from './GroupSidebar';
+import HeaderSidebarAction from './HeaderSidebarAction';
+import Profile from './Profile';
+
+import './Header.scss';
+
 
 interface HeaderProps {
     user: User;
@@ -22,6 +30,23 @@ export default function Header({ user, logo, navbar, sidebar, onLogout }: Header
     const [showMobileMenu, setShowMobileMenu] = useState(false);
 
     const handleToggleMenu = () => { setShowMobileMenu(!showMobileMenu); };
+
+    const groupProfile = sidebar?.find((item) => item.key === 'profile');
+
+    const profileSidebar = groupProfile?.items.find((item) => item.key === 'profile');
+
+    const profileMenu: NavSidebar['items'][number] = !profileSidebar
+        ? {
+            key: 'profile',
+            path: '/meus-dados',
+            label: 'Meus dados',
+            onRedirect: () => {
+                window.open('/meus-dados', '_self', 'noopener');
+            }
+        }
+        : profileSidebar;
+
+    const filteredSidebar = sidebar?.filter((item) => item.key !== 'profile');
 
     return (
         <header className="header-container">
@@ -67,13 +92,39 @@ export default function Header({ user, logo, navbar, sidebar, onLogout }: Header
                     ))}
                 </ul>
             </nav>
-            <HeaderSidebar
-                user={user}
-                isOpen={showMobileMenu}
-                navbar={navbar}
-                sidebar={sidebar}
-                onLogout={onLogout}
-                onToggleMenu={handleToggleMenu}/>
+            <div className={`header-container__sidebar ${showMobileMenu ? 'header-container__sidebar--show' : ''}`}>
+                <div className="header-container__sidebar--content">
+                    <Profile user={user} profileMenu={profileMenu}>
+                        <header className="header-container__sidebar--content-header">
+                            <div className="header-container__sidebar--content-header__close--icon">
+                                <GIcon onClick={handleToggleMenu} icon={<IoClose size={30}/>}/>
+                            </div>
+                        </header>
+                    </Profile>
+                    {
+                        filteredSidebar?.map((item) => (
+                            <GroupSidebar key={item.key} group={item}/>
+                        ))
+                    }
+                    <HeaderSidebarAction icon={<IoMdExit/>} label="Sair" onRedirect={onLogout}/>
+
+                    <hr className="header-container__sidebar--content-divider"/>
+
+                    <ul className="header-container__sidebar--content-navbar">
+                        {
+                            navbar?.map((item) => (
+                                <HeaderSidebarAction
+                                    key={item.key}
+                                    type={item.type}
+                                    label={item.label}
+                                    items={item.items}
+                                    onRedirect={item?.onRedirect}
+                                />
+                            ))
+                        }
+                    </ul>
+                </div>
+            </div>
         </header>
     );
 }

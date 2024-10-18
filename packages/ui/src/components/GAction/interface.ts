@@ -9,6 +9,7 @@ export const OSize: Array<TSize> = ['small' , 'regular' , 'large'];
 export type TAppearance =
     | 'navbar'
     | 'select'
+    | 'sidebar'
     | 'outline'
     | 'dropdown'
     | 'standard'
@@ -18,6 +19,7 @@ export type TAppearance =
 export const OAppearance: Array<TAppearance> = [
     'navbar',
     'select',
+    'sidebar',
     'outline',
     'dropdown',
     'standard',

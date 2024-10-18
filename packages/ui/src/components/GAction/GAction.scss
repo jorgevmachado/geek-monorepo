@@ -71,14 +71,14 @@
   }
 }
 
-@mixin context-button($t60, $t70, $t80, $t90, $t100) {
+@mixin context-button($t50,$t60, $t70, $t80, $t90, $t100) {
   color: var(--colors-neutral-70);
   border: 1px solid $t80;
   background-color: $t80;
 
   &:hover:not(:focus) {
-    border: 1px solid $t90;
-    background-color: $t90;
+    border: 1px solid $t50;
+    background-color: $t50;
   }
 
   &:active {
@@ -114,6 +114,33 @@
     &:active {
       border-color: $t60;
       background-color: $t60;
+    }
+  }
+
+  &.g-action__button--appearance-sidebar {
+    gap: 8px;
+    color: $t100;
+    width: 100%;
+    border-color: transparent;
+    cursor: pointer;
+    display: flex;
+    padding: 2rem 1.5rem;
+    font-size: 1rem;
+    transition: background 0.1s ease-in;
+    font-weight: var(--text-weights-semi-bold);
+    border-left: 4px solid transparent;
+    align-items: center;
+    border-radius: inherit;
+    flex-direction: row;
+    background-color: transparent;
+
+    &:hover:not(:focus) {
+      border-left: 4px solid transparent;
+    }
+    &:active, &-selected {
+      color: var(--colors-neutral-110);
+      border-left: 4px solid $t100;
+      background-color: $t50;
     }
   }
 }
@@ -367,6 +394,7 @@
     &--context-info {
       @include context-button(
           var(--colors-info-60),
+          var(--colors-info-60),
           var(--colors-info-70),
           var(--colors-info-80),
           var(--colors-info-90),
@@ -377,11 +405,12 @@
     // Error
     &--context-error {
       @include context-button(
-                      var(--colors-error-60),
-                      var(--colors-error-70),
-                      var(--colors-error-80),
-                      var(--colors-error-90),
-                      var(--colors-error-100)
+          var(--colors-error-60),
+          var(--colors-error-60),
+          var(--colors-error-70),
+          var(--colors-error-80),
+          var(--colors-error-90),
+          var(--colors-error-100)
       );
     }
 
@@ -461,44 +490,48 @@
     // Success
     &--context-success {
       @include context-button(
-                      var(--colors-success-60),
-                      var(--colors-success-70),
-                      var(--colors-success-80),
-                      var(--colors-success-90),
-                      var(--colors-success-100)
+          var(--colors-success-60),
+          var(--colors-success-60),
+          var(--colors-success-70),
+          var(--colors-success-80),
+          var(--colors-success-90),
+          var(--colors-success-100)
       );
     }
 
     // Primary
     &--context-primary {
       @include context-button(
-                      var(--colors-primary-60),
-                      var(--colors-primary-70),
-                      var(--colors-primary-80),
-                      var(--colors-primary-90),
-                      var(--colors-primary-100)
+          var(--colors-primary-50),
+          var(--colors-primary-60),
+          var(--colors-primary-70),
+          var(--colors-primary-80),
+          var(--colors-primary-90),
+          var(--colors-primary-100)
       );
     }
 
     // Secondary
     &--context-secondary {
       @include context-button(
-                      var(--colors-secondary-60),
-                      var(--colors-secondary-70),
-                      var(--colors-secondary-80),
-                      var(--colors-secondary-90),
-                      var(--colors-secondary-100)
+        var(--colors-secondary-50),
+        var(--colors-secondary-60),
+        var(--colors-secondary-70),
+        var(--colors-secondary-80),
+        var(--colors-secondary-90),
+        var(--colors-secondary-100)
       );
     }
 
     // Attention
     &--context-attention {
       @include context-button(
-                      var(--colors-attention-60),
-                      var(--colors-attention-70),
-                      var(--colors-attention-80),
-                      var(--colors-attention-90),
-                      var(--colors-attention-100)
+        var(--colors-attention-60),
+        var(--colors-attention-60),
+        var(--colors-attention-70),
+        var(--colors-attention-80),
+        var(--colors-attention-90),
+        var(--colors-attention-100)
       );
     }
 

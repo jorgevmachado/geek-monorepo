@@ -1,7 +1,10 @@
 import React from 'react';
 
+import { MdOutlineSpaceDashboard } from 'react-icons/md';
+
 import { NavSidebar } from '../interface';
-import SidebarButton from './SidebarButton';
+
+import GAction from '../../components/GAction';
 
 import './Sidebar.scss';
 
@@ -16,19 +19,25 @@ export default function Sidebar({ sidebar }: GSidebarProps) {
         return acc;
     }, []);
 
+    // TODO VOLTAR NO FUTURO PARA CORRIGIR O shouldActiveButton
+    const shouldActiveButton = false;
 
     return (
         <aside className="g-sidebar">
             <div className="g-sidebar-container">
                 {
                     menu?.map((item) => (
-                        <SidebarButton
+                        <GAction
                             key={item.key}
-                            path={item.path}
-                            icon={item.icon}
-                            label={item.label}
-                            onRedirect={item?.onRedirect}
-                        />
+                            icon={item.icon || <MdOutlineSpaceDashboard />}
+                            type="button"
+                            context="primary"
+                            onClick={item?.onRedirect}
+                            selected={shouldActiveButton}
+                            appearance="sidebar"
+                            iconPosition="left">
+                            {item.label}
+                        </GAction>
                     ))
                 }
             </div>

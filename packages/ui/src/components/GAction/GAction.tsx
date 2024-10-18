@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 
+import { TColors, TContext } from '../../interfaces/colors';
 import type { TIcon, TIconPosition } from '../../interfaces/icons';
-import { TColors } from '../../interfaces/colors';
+
 import joinClass from '../../utils/joinClass';
 
 import GIcon from '../../components/GIcon';
@@ -12,19 +13,22 @@ import './GAction.scss';
 
 interface ContentProps {
     icon?: React.ReactNode | TIcon;
+    context?: TContext;
     children?: React.ReactNode;
     iconColor?: TColors;
     className?: string;
     iconPosition?: TIconPosition;
 }
 
-function Content({ icon, children, iconColor, className, iconPosition }: ContentProps) {
+function Content({ icon, context, children, iconColor, className, iconPosition }: ContentProps) {
     return (
         <>
             {icon && iconPosition === 'left' && (
                 <GIcon icon={icon} className={`${className}--icon-${iconPosition}__icon g-u-color-${iconColor}`} />
             )}
-            {children}
+            <div className={`${className}--children-${context}`}>
+                {children}
+            </div>
             {icon && iconPosition === 'right' && (
                 <GIcon icon={icon} className={`${className}--icon-${iconPosition}__icon g-u-color-${iconColor}`} />
             )}
@@ -83,6 +87,7 @@ export default function GAction({
         `${rounded ? `${principalClassName}--rounded` : ''}`,
         `${principalClassName}--context-${context}`,
         `${selected ? `${principalClassName}--selected` : ''}`,
+        `${selected ? `${principalClassName}--appearance-${appearance}-selected` : ''}`,
         `${!hasLabel ? `${principalClassName}--no-label` : ''}`,
         `${!hasLabel ? `${principalClassName}--no-label-${appearance}` : ''}`,
         `${principalClassName}--appearance-${appearance}`,
@@ -96,6 +101,7 @@ export default function GAction({
             !isAppearanceIconButton
                 ? (
                     <Content icon={icon}
+                             context={context}
                              iconColor={iconColor}
                              className={principalClassName}
                              iconPosition={iconPosition}>

@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 
-import { TColors, TContext } from '../../interfaces/colors';
 import type { TIcon, TIconPosition } from '../../interfaces/icons';
+import type { TColors } from '../../interfaces/colors';
+
 
 import joinClass from '../../utils/joinClass';
 
@@ -13,24 +14,33 @@ import './GAction.scss';
 
 interface ContentProps {
     icon?: React.ReactNode | TIcon;
-    context?: TContext;
     children?: React.ReactNode;
     iconColor?: TColors;
     className?: string;
     iconPosition?: TIconPosition;
+    notificationCounter?: number;
 }
 
-function Content({ icon, context, children, iconColor, className, iconPosition }: ContentProps) {
+function Content({ icon, children, iconColor, className, iconPosition, notificationCounter }: ContentProps) {
+    const childrenClassName = joinClass([
+        `${className}--children`,
+        `${notificationCounter ? `${className}__children--notification` : ''}`
+    ]);
     return (
         <>
             {icon && iconPosition === 'left' && (
-                <GIcon icon={icon} className={`${className}--icon-${iconPosition}__icon g-u-color-${iconColor}`} />
+                <GIcon icon={icon} className={`${className}__icon--${iconPosition}-icon g-u-color-${iconColor}`} />
             )}
-            <div className={`${className}--children-${context}`}>
-                {children}
+            <div className={childrenClassName}>
+                <div>{children}</div>
+                { notificationCounter && (
+                    <div className={`${className}__children--notification-counter`}>
+                        {notificationCounter > 9 ? '9+' : notificationCounter}
+                    </div>
+                )}
             </div>
             {icon && iconPosition === 'right' && (
-                <GIcon icon={icon} className={`${className}--icon-${iconPosition}__icon g-u-color-${iconColor}`} />
+                <GIcon icon={icon} className={`${className}__icon--${iconPosition}-icon g-u-color-${iconColor}`} />
             )}
         </>
     );
@@ -39,26 +49,27 @@ function Content({ icon, context, children, iconColor, className, iconPosition }
 
 function elementTypeOf(isLink?: boolean): React.ElementType {
     return (isLink ? 'a' : 'button') as React.ElementType;
-    
+
 }
 
-export default function GAction({ 
-    icon,
-    type = 'button',
-    size = 'regular',
-    fluid,
-    weight = 'regular',
-    rounded,
-    context = 'neutral',
-    selected,
-    children,
-    disabled,
-    iconColor,
-    appearance,
-    underlined,
-    iconPosition = 'left',
-    ...props
-}: GActionProps) {
+export default function GAction({
+                                     icon,
+                                     type = 'button',
+                                     size = 'regular',
+                                     fluid,
+                                     weight = 'regular',
+                                     rounded,
+                                     context = 'neutral',
+                                     selected,
+                                     children,
+                                     disabled,
+                                     iconColor,
+                                     appearance,
+                                     underlined,
+                                     iconPosition = 'left',
+                                     notificationCounter,
+                                     ...props
+                                 }: GActionProps) {
 
     const isLink = Boolean(type === 'link' || props.href);
 
@@ -76,42 +87,40 @@ export default function GAction({
         }
     }, []);
 
-    const principalClassName = `g-action__${isLink ? 'link' : 'button'}`;
+    const rootClassName = `g-action__${isLink ? 'link' : 'button'}`;
+    const principalClassName = `${rootClassName}--context-${context}`;
 
     const classNameList = joinClass([
+        rootClassName,
         principalClassName,
-        `${principalClassName}--size-${size}`,
-        `${principalClassName}--weight-${weight}`,
-        `${iconPosition && hasLabel ? `${principalClassName}--icon-${iconPosition}` : ''}`,
-        `${fluid ? `${principalClassName}--fluid` : ''}`,
-        `${rounded ? `${principalClassName}--rounded` : ''}`,
-        `${principalClassName}--context-${context}`,
-        `${selected ? `${principalClassName}--selected` : ''}`,
-        `${selected ? `${principalClassName}--appearance-${appearance}-selected` : ''}`,
-        `${!hasLabel ? `${principalClassName}--no-label` : ''}`,
-        `${!hasLabel ? `${principalClassName}--no-label-${appearance}` : ''}`,
-        `${principalClassName}--appearance-${appearance}`,
-        `${principalClassName}--appearance-${appearance}__${context}`,
+        `${principalClassName}__size--${size}`,
+        `${principalClassName}__weight--${weight}`,
+        `${iconPosition && hasLabel ? `${principalClassName}__icon--${iconPosition}` : ''}`,
+        `${fluid ? `${principalClassName}__fluid` : ''}`,
+        `${rounded ? `${principalClassName}__rounded` : ''}`,
+        `${selected ? `${principalClassName}__selected` : ''}`,
+        `${principalClassName}__appearance--${appearance}`,
+        `${!hasLabel ? `${principalClassName}__no-label` : ''}`,
         `${props.className}`
     ]);
 
-  return (
-    <Element {...props} type={type} className={classNameList}>
-        {
-            !isAppearanceIconButton
-                ? (
-                    <Content icon={icon}
-                             context={context}
-                             iconColor={iconColor}
-                             className={principalClassName}
-                             iconPosition={iconPosition}>
-                        {children}
-                    </Content>
-                )
-                : (
-                    <GIcon icon={icon || 'react'}/>
-                )
-        }
-    </Element>
-  );
+    return (
+        <Element {...props} type={type} disabled={disabled} className={classNameList}>
+            {
+                !isAppearanceIconButton
+                    ? (
+                        <Content icon={icon}
+                                 iconColor={iconColor}
+                                 className={principalClassName}
+                                 iconPosition={iconPosition}
+                                 notificationCounter={notificationCounter}>
+                            {children}
+                        </Content>
+                    )
+                    : (
+                        <GIcon icon={icon || 'react'}/>
+                    )
+            }
+        </Element>
+    );
 };

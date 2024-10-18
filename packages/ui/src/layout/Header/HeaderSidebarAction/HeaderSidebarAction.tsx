@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { MdOutlineArrowDropDown, MdOutlineArrowDropUp } from 'react-icons/md';
 
-import { GIcon } from '../../../components';
+import { GAction, GDropdown, GIcon } from '../../../components';
 import { Navbar } from '../../interface';
 
 import './HeaderSidebarAction.scss';
@@ -33,34 +33,6 @@ function Dropdown({ label, children }: DropdownProps) {
 }
 
 
-interface ButtonProps {
-    icon?: React.ReactNode;
-    label: string;
-    counter?: number;
-    onRedirect?: () => void;
-}
-
-function Button({ icon, label, counter, onRedirect }: ButtonProps) {
-    return (
-        <button className="header-sidebar__button--link" onClick={onRedirect}>
-            <div>
-                {
-                    icon && (<GIcon className="header-sidebar__button--link-icon" icon={icon}/>)
-                }
-                {label}
-            </div>
-            {
-                counter && (
-                    <div className="header-sidebar__button--link-counter">
-                        {counter > 9 ? '9+' : counter}
-                    </div>
-                )
-            }
-        </button>
-    );
-}
-
-
 interface HeaderSidebarActionProps {
     icon?: React.ReactNode;
     path?: string;
@@ -84,15 +56,48 @@ export default function HeaderSidebarAction({
             {
                 type !== 'button'
                     ? (
-                        <Dropdown label={label}>
-                            {
-                                items?.map((item) => (
-                                    <Button key={item.key} label={item.label} onRedirect={item.onRedirect}/>
-                                ))
-                            }
-                        </Dropdown>
+                        <>
+                            <Dropdown label={label}>
+                                {
+                                    items?.map((item) => (
+                                        <GAction
+                                            key={item.key}
+                                            context="primary"
+                                            onClick={item.onRedirect}
+                                            appearance="sidebar"
+                                            iconPosition="left">
+                                            {item.label}
+                                        </GAction>
+                                    ))
+                                }
+                            </Dropdown>
+                            <GDropdown label={label} type="button" context="primary" appearance="sidebar">
+                                {
+                                    items?.map((item) => (
+                                        <GAction
+                                            key={item.key}
+                                            context="primary"
+                                            onClick={item.onRedirect}
+                                            appearance="sidebar"
+                                            iconPosition="left">
+                                            {item.label}
+                                        </GAction>
+                                    ))
+                                }
+                            </GDropdown>
+                        </>
                     )
-                    : ( <Button icon={icon} label={label} counter={counter} onRedirect={onRedirect}/> )
+                    : (
+                        <GAction
+                            icon={icon && (<GIcon className="header-sidebar__button--link-icon" icon={icon}/>)}
+                            context="primary"
+                            onClick={onRedirect}
+                            appearance="sidebar"
+                            iconPosition="left"
+                            notificationCounter={counter}>
+                        {label}
+                        </GAction>
+                    )
             }
 
         </li>

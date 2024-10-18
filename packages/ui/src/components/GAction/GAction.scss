@@ -1,27 +1,126 @@
 @import "../../styles/main";
 
-@mixin context-link($light, $medium, $dark) {
-  color: $light;
-  font-weight: var(--text-weights-bold);
+
+@mixin utils() {
+/*
+ * =======
+ * Weight
+ * =======
+ */
+  &__weight--regular {
+    font-weight: var(--text-weights-regular);
+  }
+  &__weight--medium {
+    font-weight: var(--text-weights-medium);
+  }
+  &__weight--semibold {
+    font-weight: var(--text-weights-semi-bold);
+  }
+  &__weight--bold {
+    font-weight: var(--text-weights-bold);
+  }
+
+  /*
+ * =======
+ * Fluid
+ * =======
+ */
+  &__fluid {
+    width: 100%;
+  }
+
+  /*
+    * =======
+    * Sizes
+    * =======
+    */
+  &__size--small {
+    font-size: var(--text-sizes-small);
+  }
+  &__size--regular {
+    font-size: var(--text-sizes-regular);
+  }
+  &__size--large {
+    font-size: var(--text-sizes-large);
+  }
+
+  /*
+   * =======
+   * Icons
+   * =======
+   */
+  &__icon--left-icon {
+    margin-right: var(--dimensions-x-tiny);
+  }
+  &__icon--right-icon {
+    margin-left: var(--dimensions-x-tiny);
+  }
+
+  /*
+   * =======
+   * No Label
+   * =======
+   */
+  &__no-label {
+    padding: 0;
+    border-radius: var(--borders-large);
+  }
+}
+
+
+@mixin context-link($c70, $c80, $c90) {
+  color: $c70;
+  cursor: pointer;
+  border: none;
+  display: inline-block;
+  background: none;
+  outline-offset: 0.25rem;
+
   &:hover {
-    color: $medium;
+    color: $c80;
   }
+
   &:active {
-    color: $dark;
+    color: $c90;
   }
 
-  &.g-action__link--appearance-navbar {
-    position: relative;
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    text-decoration: none;
+  &:focus:not(:focus-visible) {
+    outline-style: none;
+  }
+
+  @include utils;
+
+  /*
+   * =======
+   * Icons
+   * =======
+   */
+  &__icon--left-icon {
+    margin-top: var(--dimensions-xx-tiny);
+    margin-right: var(--dimensions-x-tiny);
+  }
+  &__icon--right-icon {
+    margin-top: var(--dimensions-xx-tiny);
+    margin-left: var(--dimensions-x-tiny);
+  }
+
+  /*
+  * =======
+  * Appearance
+  * =======
+  */
+  &__appearance--navbar {
     color: var(--colors-neutral-28);
+    display: flex;
+    cursor: pointer;
+    position: relative;
     text-wrap: nowrap;
     font-size: var(--dimensions-regular);
-    font-weight: var(--text-weights-medium);
     transition: all 0.2s ease-in-out;
+    font-weight: var(--text-weights-medium);
+    align-items: center;
+    flex-direction: row;
+    text-decoration: none;
     &::after {
       content: "";
       background-color: transparent;
@@ -33,93 +132,276 @@
     }
     &:hover::after {
       width: var(--dimensions-regular);
-      background-color: $medium;
+      background-color: $c80;
     }
     &:hover {
-      color: $dark;
+      color: $c90;
     }
   }
 
-  &.g-action__link--appearance-dropdown {
-    position: relative;
+  &__appearance--dropdown {
+    color: var(--colors-neutral-28);
     cursor: pointer;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    text-decoration: none;
-    color: var(--colors-neutral-28);
+    position: relative;
     text-wrap: nowrap;
     font-size: var(--dimensions-regular);
     font-weight: var(--text-weights-medium);
     transition: all 0.2s ease-in-out;
+    align-items: center;
+    flex-direction: row;
+    text-decoration: none;
     &::after {
-      content: "";
-      background-color: transparent;
       width: 0;
       height: 2px;
-      position: absolute;
       bottom: 0;
+      content: "";
+      position: absolute;
       transition: all 0.2s ease-in-out;
+      background-color: transparent;
     }
     &:hover::after {
       width: var(--dimensions-regular);
-      background-color: $medium;
+      background-color: $c80;
     }
     &:hover {
-      color: $dark;
+      color: $c90;
     }
   }
 }
 
-@mixin context-button($t50,$t60, $t70, $t80, $t90, $t100) {
+/*
+ * =======
+ * Contexts: Link
+ * =======
+ */
+.g-action__link--context-info {
+    @include context-link(
+                    var(--colors-info-70),
+                    var(--colors-info-80),
+                    var(--colors-info-90)
+    );
+}
+.g-action__link--context-error {
+    @include context-link(
+                    var(--colors-error-70),
+                    var(--colors-error-80),
+                    var(--colors-error-90)
+    );
+}
+.g-action__link--context-custom {
+    @include context-link(
+                    var(--colors-custom-70),
+                    var(--colors-custom-80),
+                    var(--colors-custom-90)
+    );
+}
+.g-action__link--context-neutral {
+    @include context-link(
+                    var(--colors-neutral-100),
+                    var(--colors-neutral-110),
+                    var(--colors-neutral-120)
+    );
+}
+.g-action__link--context-success {
+    @include context-link(
+                    var(--colors-success-70),
+                    var(--colors-success-80),
+                    var(--colors-success-90)
+    );
+}
+.g-action__link--context-primary {
+    @include context-link(
+                    var(--colors-primary-70),
+                    var(--colors-primary-80),
+                    var(--colors-primary-90)
+    );
+}
+.g-action__link--context-secondary {
+    @include context-link(
+                    var(--colors-secondary-70),
+                    var(--colors-secondary-80),
+                    var(--colors-secondary-90)
+    );
+}
+.g-action__link--context-attention {
+    @include context-link(
+                    var(--colors-attention-70),
+                    var(--colors-attention-80),
+                    var(--colors-attention-90)
+    );
+}
+
+@mixin context-button($c50, $c60, $c70, $c80, $c90, $c100) {
   color: var(--colors-neutral-70);
-  border: 1px solid $t80;
-  background-color: $t80;
+  border: 1px solid $c80;
+  cursor: pointer;
+  user-select: none;
+  font-weight: var(--text-weights-bold);
+  border-radius: var(--borders-large);
+  text-decoration: none;
+  background-color: $c80;
+
+  @include focus;
+
+  &:disabled {
+    color: var(--colors-neutral-60);
+    cursor: not-allowed;
+    pointer-events: none;
+    border-color: var(--colors-neutral-90);
+    background-color: var(--colors-neutral-90);
+  }
 
   &:hover:not(:focus) {
-    border: 1px solid $t50;
-    background-color: $t50;
+    border: 1px solid $c50;
+    background-color: $c50;
   }
 
-  &:active {
-    border: 1px solid $t100;
-    background-color: $t100;
+  &:active, &__selected {
+    border-color: $c70;
+    background-color: $c70;
   }
 
-  &.g-action__button--appearance-outline {
-    color: $t70;
-    border: 1px solid $t70;
+  @include utils;
+
+  /*
+   * =======
+   * Sizes
+   * =======
+   */
+  &__size--small {
+    height: var(--dimensions-xxx-large);
+    padding: 0 1.5rem;
+    line-height: var(--text-line-heights-small);
+
+    &.g-action__button--context-link__no-label,
+    &.g-action__button--context-info__no-label,
+    &.g-action__button--context-error__no-label,
+    &.g-action__button--context-custom__no-label,
+    &.g-action__button--context-neutral__no-label,
+    &.g-action__button--context-success__no-label,
+    &.g-action__button--context-primary__no-label,
+    &.g-action__button--context-secondary__no-label,
+    &.g-action__button--context-attention__no-label {
+      width: var(--dimensions-xxx-large);
+    }
+  }
+  &__size--regular {
+    height: var(--dimensions-big);
+    padding: 0 1.5rem;
+    line-height: var(--text-line-heights-small);
+    &.g-action__button--context-link__no-label,
+    &.g-action__button--context-info__no-label,
+    &.g-action__button--context-error__no-label,
+    &.g-action__button--context-custom__no-label,
+    &.g-action__button--context-neutral__no-label,
+    &.g-action__button--context-success__no-label,
+    &.g-action__button--context-primary__no-label,
+    &.g-action__button--context-secondary__no-label,
+    &.g-action__button--context-attention__no-label {
+      width: var(--dimensions-big);
+    }
+  }
+  &__size--large {
+    height: var(--dimensions-xx-big);
+    padding: 0 1.5rem;
+    line-height: var(--text-line-heights-small);
+    &.g-action__button--context-link__no-label,
+    &.g-action__button--context-info__no-label,
+    &.g-action__button--context-error__no-label,
+    &.g-action__button--context-custom__no-label,
+    &.g-action__button--context-neutral__no-label,
+    &.g-action__button--context-success__no-label,
+    &.g-action__button--context-primary__no-label,
+    &.g-action__button--context-secondary__no-label,
+    &.g-action__button--context-attention__no-label {
+      width: var(--dimensions-xx-big);
+    }
+  }
+
+ /*
+  * =======
+  * Appearance
+  * =======
+  */
+  &__appearance--outline {
+    color: $c70;
+    border: 1px solid $c70;
     background-color: transparent;
-
     &:hover:not(:focus) {
-      background-color: $t60;
+      background-color: $c60;
     }
-
     &:active {
-      background-color: $t60;
+      background-color: $c60;
     }
   }
 
-  &.g-action__button--appearance-borderless{
-    color: $t70;
+  &__appearance--borderless {
+    color: $c70;
     border: 1px solid transparent;
     background-color: transparent;
 
     &:hover:not(:focus) {
-      border-color: $t60;
-      background-color: $t60;
+      border-color: $c60;
+      background-color: $c60;
 
     }
 
     &:active {
-      border-color: $t60;
-      background-color: $t60;
+      border-color: $c60;
+      background-color: $c60;
     }
   }
 
-  &.g-action__button--appearance-sidebar {
-    gap: 8px;
-    color: $t100;
+  &__appearance--iconButton {
+    display: flex;
+    width: var(--dimensions-big);
+    height: var(--dimensions-big);
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-neutral-70);
+
+    &:not(:disabled) {
+      border: 1px solid var(--colors-neutral-90);
+      color: $c80;
+    }
+
+    &:hover:not(:focus) {
+      border: 1px solid var(--colors-neutral-90);
+      background-color: $c50;
+    }
+    &.g-action__button--context-link__selected,
+    &.g-action__button--context-info__selected,
+    &.g-action__button--context-error__selected,
+    &.g-action__button--context-custom__selected,
+    &.g-action__button--context-success__selected,
+    &.g-action__button--context-primary__selected,
+    &.g-action__button--context-secondary__selected,
+    &.g-action__button--context-attention__selected,
+    &:active {
+      color: var(--color-neutral-70);
+      border-color: $c70;
+      background-color: $c70;
+    }
+
+    &.g-action__button--context-link__size--small,
+    &.g-action__button--context-info__size--small,
+    &.g-action__button--context-error__size--small,
+    &.g-action__button--context-custom__size--small,
+    &.g-action__button--context-neutral__size--small,
+    &.g-action__button--context-success__size--small,
+    &.g-action__button--context-primary__size--small,
+    &.g-action__button--context-secondary__size--small,
+    &.g-action__button--context-attention__size--small {
+      width: var(--dimensions-xxx-large);
+      height: var(--dimensions-xxx-large);
+    }
+
+  }
+
+  &__appearance--sidebar {
+    color: $c100;
     width: 100%;
     border-color: transparent;
     cursor: pointer;
@@ -128,7 +410,6 @@
     font-size: 1rem;
     transition: background 0.1s ease-in;
     font-weight: var(--text-weights-semi-bold);
-    border-left: 4px solid transparent;
     align-items: center;
     border-radius: inherit;
     flex-direction: row;
@@ -137,568 +418,174 @@
     &:hover:not(:focus) {
       border-left: 4px solid transparent;
     }
+
     &:active, &-selected {
       color: var(--colors-neutral-110);
-      border-left: 4px solid $t100;
-      background-color: $t50;
+      border-left: 4px solid $c100;
+      background-color: $c50;
+    }
+
+    @media screen and (min-width: 720px) {
+      gap: 8px;
+      border-left: 4px solid transparent;
+    }
+  }
+
+  &__children--notification {
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 11rem;
+    &-counter {
+      display: flex;
+      width: 24px;
+      height: 24px;
+      font-size: 14px;
+      font-weight: 500;
+      align-items: center;
+      border-radius: 50%;
+      justify-content: center;
+      color: var(--colors-neutral-70);
+      background-color: $c100;
+    }
+    @media screen and (min-width: 720px) {
+        gap: 6rem;
     }
   }
 }
 
-.g-action {
-  &__link {
-    cursor: pointer;
-    border: none;
-    background: none;
-    display: inline-block;
-    outline-offset: 0.25rem;
-
-    &:focus:not(:focus-visible) {
-      outline-style: none;
-    }
-
-    /*
-    * =======
-    * Sizes
-    * =======
-    */
-    &--size-small {
-      font-size: var(--text-sizes-small);
-    }
-    &--size-regular {
-      font-size: var(--text-sizes-regular);
-    }
-    &--size-large {
-      font-size: var(--text-sizes-large);
-    }
-
-    /*
-    * =======
-    * Weight
-    * =======
-    */
-    &--weight-regular {
-      font-weight: var(--text-weights-regular);
-    }
-    &--weight-medium {
-      font-weight: var(--text-weights-medium);
-    }
-    &--weight-semibold {
-      font-weight: var(--text-weights-semi-bold);
-    }
-    &--weight-bold {
-      font-weight: var(--text-weights-bold);
-    }
-
-    /*
-    * =======
-    * Icons
-    * =======
-    */
-    &--icon-left__icon {
-      margin-top: var(--dimensions-xx-tiny);
-      margin-right: var(--dimensions-x-tiny);
-    }
-    &--icon-right__icon {
-      margin-top: var(--dimensions-xx-tiny);
-      margin-left: var(--dimensions-x-tiny);
-    }
-
-    /*
-    * =======
-    * Contexts
-    * =======
-    */
-
-    // link
-    &--context-link {
-      @include context-link(#0000FF, #0000CD, #00008B);
-    }
-    // Info
-    &--context-info {
-      @include context-link(var(--colors-info-70), var(--colors-info-80), var(--colors-info-90));
-    }
-
-    // Error
-    &--context-error {
-      @include context-link(var(--colors-error-70), var(--colors-error-80), var(--colors-error-90));
-    }
-
-    // Neutral
-    &--context-neutral {
-      @include context-link(var(--colors-neutral-100), var(--colors-neutral-110), var(--colors-neutral-120));
-    }
-
-    // Success
-    &--context-success {
-      @include context-link(var(--colors-success-70), var(--colors-success-80), var(--colors-success-90));
-    }
-
-    // Primary
-    &--context-primary {
-      @include context-link(var(--colors-primary-70), var(--colors-primary-80), var(--colors-primary-90));
-    }
-
-    // Secondary
-    &--context-secondary {
-      @include context-link(var(--colors-secondary-70), var(--colors-secondary-80), var(--colors-secondary-90));
-    }
-
-    // Attention
-    &--context-attention {
-      @include context-link(var(--colors-attention-70), var(--colors-attention-80), var(--colors-attention-90));
-    }
+/*
+ * =======
+ * Contexts: Button
+ * =======
+ */
+.g-action__button--context-info {
+  @include context-button(
+                  var(--colors-info-70),
+                  var(--colors-info-60),
+                  var(--colors-info-70),
+                  var(--colors-info-80),
+                  var(--colors-info-90),
+                  var(--colors-info-100)
+  );
+}
+.g-action__button--context-error {
+  @include context-button(
+                  var(--colors-error-70),
+                  var(--colors-error-60),
+                  var(--colors-error-70),
+                  var(--colors-error-80),
+                  var(--colors-error-90),
+                  var(--colors-error-100)
+  );
+}
+.g-action__button--context-custom {}
+.g-action__button--context-neutral {
+  @include context-button(
+                  var(--colors-neutral-110),
+                  var(--colors-neutral-60),
+                  var(--colors-neutral-70),
+                  var(--colors-neutral-100),
+                  var(--colors-neutral-96),
+                  var(--colors-neutral-100)
+  );
+  &:active, &__selected {
+    border: 1px solid var(--colors-neutral-100);
+    background-color: var(--colors-neutral-100);
   }
+  &__appearance--outline {
+    color: var(--colors-neutral-100);
+    border: 1px solid var(--colors-neutral-100);
+    background-color: var(--colors-neutral-70);
+    &:hover:not(:focus) {
+      color: var(--colors-neutral-100);
+      border: 1px solid var(--colors-neutral-100);
+      background-color: var(--colors-neutral-96);
+    }
 
-  &__button {
-    cursor: pointer;
-    user-select: none;
-    font-weight: var(--text-weights-bold);
-    border-radius: var(--borders-large);
-    text-decoration: none;
-
-    @include focus;
-
-    &:disabled {
-      color: var(--colors-neutral-60);
-      cursor: not-allowed;
-      pointer-events: none;
-      border-color: var(--colors-neutral-90);
+    &:active {
+      color: var(--colors-neutral-100);
+      border: 1px solid var(--colors-neutral-100);
       background-color: var(--colors-neutral-90);
     }
 
-   /*
-    * =======
-    * Sizes
-    * =======
-    */
-    &--size-small {
-      height: var(--dimensions-xxx-large);
-      padding: 0 1.5rem;
-      font-size: var(--text-sizes-small);
-      line-height: var(--text-line-heights-small);
-      &.g-action__button--no-label {
-        width: var(--dimensions-xxx-large);
-      }
-    }
-    &--size-regular {
-      height: var(--dimensions-big);
-      padding: 0 1.5rem;
-      font-size: var(--text-sizes-regular);
-      line-height: var(--text-line-heights-small);
-      &.g-action__button--no-label {
-        width: var(--dimensions-big);
-      }
-    }
-    &--size-large {
-      height: var(--dimensions-xx-big);
-      padding: 0 1.5rem;
-      line-height: var(--text-line-heights-small);
-      font-size: var(--text-sizes-large);
-      &.g-action__button--no-label {
-        width: var(--dimensions-xx-big);
-      }
-    }
-
-    /*
-    * =======
-    * Weight
-    * =======
-    */
-    &--weight-regular {
-      font-weight: var(--text-weights-regular);
-    }
-    &--weight-medium {
-      font-weight: var(--text-weights-medium);
-    }
-    &--weight-semibold {
-      font-weight: var(--text-weights-semi-bold);
-    }
-    &--weight-bold {
-      font-weight: var(--text-weights-bold);
-    }
-
-   /*
-    * =======
-    * Icons
-    * =======
-    */
-    &--icon-left__icon {
-      margin-right: var(--dimensions-x-tiny);
-    }
-    &--icon-right__icon {
-      margin-left: var(--dimensions-x-tiny);
-    }
-
-    /*
-    * =======
-    * Fluid
-    * =======
-    */
-    &--fluid {
-      width: 100%;
-    }
-
-    /*
-    * =======
-    * Rounded
-    * =======
-    */
-    &--rounded {
-      border-radius: var(--dimensions-medium);
-    }
-
-    /*
-    * =======
-    * No Label
-    * =======
-    */
-    &--no-label {
-      padding: 0;
-      border-radius: var(--borders-large);
-    }
-
-   /*
-    * =======
-    * Contexts
-    * =======
-    */
-
-    // link
-    &--context-link {
+    &:disabled {
       color: var(--colors-neutral-60);
-      border: none;
-      position: absolute;
-      background: none;
-      &:active, &.g-action__button--selected {
-        background-color: var(--colors-neutral-70);
-        border: none;
-        color: var(--colors-neutral-120);
-        &::after {
-          display: block;
-          position: relative;
-          content: "";
-          width: 100%;
-          height: var(--dimensions-x-tiny);
-          // fixes button content moving 2px vertically
-          margin-bottom: -#{var(--dimensions-x-tiny)};
-          left: 0;
-          bottom: 0;
-          background-color: var(--colors-neutral-120);
-          border-radius: 2px;
-        }
-      }
-    }
-
-    // Info
-    &--context-info {
-      @include context-button(
-          var(--colors-info-60),
-          var(--colors-info-60),
-          var(--colors-info-70),
-          var(--colors-info-80),
-          var(--colors-info-90),
-          var(--colors-info-100)
-      );
-    }
-
-    // Error
-    &--context-error {
-      @include context-button(
-          var(--colors-error-60),
-          var(--colors-error-60),
-          var(--colors-error-70),
-          var(--colors-error-80),
-          var(--colors-error-90),
-          var(--colors-error-100)
-      );
-    }
-
-    // Neutral
-    &--context-neutral {
-      border: var(--colors-neutral-100);
-      color: var(--colors-neutral-70);
-      background-color: var(--colors-neutral-100);
-
-      &:hover:not(:focus) {
-        color: var(--colors-neutral-70);
-        border: var(--colors-neutral-110);
-        background-color: var(--colors-neutral-110);
-      }
-
-      &:active {
-        color: var(--colors-neutral-70);
-        border: var(--colors-neutral-120);
-        background-color: var(--colors-neutral-120);
-      }
-
-      &:disabled {
-        color: var(--colors-neutral-60);
-        border: var(--colors-neutral-90);
-        background-color: var(--colors-neutral-90);
-      }
-
-      &.g-action__button--appearance-outline {
-        color: var(--colors-neutral-100);
-        border: 1px solid var(--colors-neutral-100);
-        background-color: var(--colors-neutral-70);
-        &:hover:not(:focus) {
-          color: var(--colors-neutral-100);
-          border: 1px solid var(--colors-neutral-100);
-          background-color: var(--colors-neutral-96);
-        }
-
-        &:active {
-          color: var(--colors-neutral-100);
-          border: 1px solid var(--colors-neutral-100);
-          background-color: var(--colors-neutral-90);
-        }
-
-        &:disabled {
-          color: var(--colors-neutral-60);
-          border: 1px solid var(--colors-neutral-90);
-          background-color: var(--colors-neutral-70);
-        }
-      }
-
-      &.g-action__button--appearance-borderless {
-        color: var(--colors-neutral-100);
-        border: 1px solid transparent;
-        background-color: var(--colors-neutral-70);
-
-
-        &:hover:not(:focus) {
-          color: var(--colors-neutral-100);
-          border: 1px solid transparent;
-          background-color: var(--colors-neutral-96);
-        }
-
-        &:active {
-          color: var(--colors-neutral-100);
-          border: 1px solid transparent;
-          background-color: var(--colors-neutral-90);
-        }
-
-        &:disabled {
-          color: var(--colors-neutral-60);
-          border: 1px solid transparent;
-          background-color: var(--colors-neutral-70);
-        }
-      }
-    }
-
-    // Success
-    &--context-success {
-      @include context-button(
-          var(--colors-success-60),
-          var(--colors-success-60),
-          var(--colors-success-70),
-          var(--colors-success-80),
-          var(--colors-success-90),
-          var(--colors-success-100)
-      );
-    }
-
-    // Primary
-    &--context-primary {
-      @include context-button(
-          var(--colors-primary-50),
-          var(--colors-primary-60),
-          var(--colors-primary-70),
-          var(--colors-primary-80),
-          var(--colors-primary-90),
-          var(--colors-primary-100)
-      );
-    }
-
-    // Secondary
-    &--context-secondary {
-      @include context-button(
-        var(--colors-secondary-50),
-        var(--colors-secondary-60),
-        var(--colors-secondary-70),
-        var(--colors-secondary-80),
-        var(--colors-secondary-90),
-        var(--colors-secondary-100)
-      );
-    }
-
-    // Attention
-    &--context-attention {
-      @include context-button(
-        var(--colors-attention-60),
-        var(--colors-attention-60),
-        var(--colors-attention-70),
-        var(--colors-attention-80),
-        var(--colors-attention-90),
-        var(--colors-attention-100)
-      );
-    }
-
-    /*
-    * =======
-    * Appearance
-    * =======
-    */
-    // Select
-    &--appearance-select {
-      color: var(--colors-neutral-110);
       border: 1px solid var(--colors-neutral-90);
       background-color: var(--colors-neutral-70);
-      &:hover:not(:focus) {
-        color: var(--colors-neutral-110);
-        border: 1px solid var(--colors-neutral-90);
-        background-color: var(--colors-neutral-96);
-      }
-      &:active {
-        color: var(--colors-neutral-70);
-        border: 1px solid var(--colors-neutral-110);
-        background-color: var(--colors-neutral-110);
-      }
-      &:disabled {
-        color: var(--colors-neutral-100);
-        border: 1px solid var(--colors-neutral-60);
-        background-color: var(--colors-neutral-90);
-      }
-      &.g-action__button--selected {
-        color: var(--colors-neutral-70);
-        background: var(--colors-neutral-120);
-      }
-      &.g-action__button--selected.g-action__button--context-primary {
-        color: var(--colors-neutral-70);
-        background: var(--colors-primary-70);
-      }
-      &.g-action__button--selected.g-action__button--context-secondary {
-        color: var(--colors-neutral-70);
-        background: var(--colors-secondary-70);
-      }
     }
-
-    // Icon Button
-    &--appearance-iconButton {
-      display: flex;
-      width: var(--dimensions-big);
-      height: var(--dimensions-big);
-      padding: 0;
-      align-items: center;
-      justify-content: center;
-      background-color: var(--color-neutral-70);
-
-      &.g-action__button--size-small {
-        width: var(--dimensions-xxx-large);
-        height: var(--dimensions-xxx-large);
-      }
-    }
-
-    &--appearance-iconButton.g-action__button--context-info {
-      &:not(:disabled) {
-        border: 1px solid var(--colors-neutral-90);
-        color: var(--colors-info-70);
-      }
-      &:hover:not(:focus) {
-        border: 1px solid var(--colors-neutral-90);
-        background-color: var(--colors-info-60);
-      }
-      &:active,
-      &.g-action__button--selected {
-        color: var(--color-neutral-70);
-        border-color: var(--colors-info-70);
-        background-color: var(--colors-info-70);
-      }
-    }
-    &--appearance-iconButton.g-action__button--context-error {
-      &:not(:disabled) {
-        border: 1px solid var(--colors-neutral-90);
-        color: var(--colors-error-70);
-      }
-      &:hover:not(:focus) {
-        border: 1px solid var(--colors-neutral-90);
-        background-color: var(--colors-error-60);
-      }
-      &:active,
-      &.g-action__button--selected {
-        color: var(--color-neutral-70);
-        border-color: var(--colors-error-70);
-        background-color: var(--colors-error-70);
-      }
-    }
-    &--appearance-iconButton.g-action__button--context-success {
-      &:not(:disabled) {
-        border: 1px solid var(--colors-neutral-90);
-        color: var(--colors-success-70);
-      }
-      &:hover:not(:focus) {
-        border: 1px solid var(--colors-neutral-90);
-        background-color: var(--colors-success-60);
-      }
-      &:active,
-      &.g-action__button--selected {
-        color: var(--color-neutral-70);
-        border-color: var(--colors-success-70);
-        background-color: var(--colors-success-70);
-      }
-    }
-    &--appearance-iconButton.g-action__button--context-primary {
-      &:not(:disabled) {
-        border: 1px solid var(--colors-neutral-90);
-        color: var(--colors-primary-70);
-      }
-      &:hover:not(:focus) {
-        border: 1px solid var(--colors-neutral-90);
-        background-color: var(--colors-primary-50);
-      }
-      &:active,
-      &.g-action__button--selected {
-        color: var(--color-neutral-70);
-        border-color: var(--colors-primary-70);
-        background-color: var(--colors-primary-70);
-      }
-    }
-    &--appearance-iconButton.g-action__button--context-secondary {
-      &:not(:disabled) {
-        border: 1px solid var(--colors-neutral-90);
-        color: var(--colors-secondary-70);
-      }
-      &:hover:not(:focus) {
-        border: 1px solid var(--colors-neutral-90);
-        background-color: var(--colors-secondary-50);
-      }
-      &:active,
-      &.g-action__button--selected {
-        color: var(--color-neutral-70);
-        border-color: var(--colors-secondary-70);
-        background-color: var(--colors-secondary-70);
-      }
-    }
-    &--appearance-iconButton.g-action__button--context-attention {
-      &:not(:disabled) {
-        border: 1px solid var(--colors-neutral-90);
-        color: var(--colors-attention-70);
-      }
-      &:hover:not(:focus) {
-        border: 1px solid var(--colors-neutral-90);
-        background-color: var(--colors-attention-60);
-      }
-      &:active,
-      &.g-action__button--selected {
-        color: var(--color-neutral-70);
-        border-color: var(--colors-attention-70);
-        background-color: var(--colors-attention-70);
-      }
-    }
-
-    //outline
-    &--appearance-outline {
-      &:disabled {
-        color: var(--color-neutral-100);
-        border-color: var(--color-neutral-90);
-      }
-    }
-
-    //dropdown
-    &--appearance-dropdown.g-action__button--icon-right__icon {
-      margin: 0;
-    }
-
   }
+
+  &__appearance--borderless {
+    color: var(--colors-neutral-100);
+    border: 1px solid transparent;
+    background-color: var(--colors-neutral-70);
+
+    &:hover:not(:focus) {
+      color: var(--colors-neutral-100);
+      border: 1px solid transparent;
+      background-color: var(--colors-neutral-96);
+    }
+
+    &:active {
+      color: var(--colors-neutral-100);
+      border: 1px solid transparent;
+      background-color: var(--colors-neutral-90);
+    }
+
+    &:disabled {
+      color: var(--colors-neutral-60);
+      border: 1px solid transparent;
+      background-color: var(--colors-neutral-70);
+    }
+  }
+
+  &__appearance--iconButton {
+    &.g-action__button--context-neutral__selected,
+    &:active {
+        color: var(--colors-neutral-70);
+        border-color: var(--colors-neutral-100);
+        background-color: var(--colors-neutral-100);
+    }
+  }
+}
+.g-action__button--context-success {
+  @include context-button(
+                  var(--colors-success-70),
+                  var(--colors-success-60),
+                  var(--colors-success-70),
+                  var(--colors-success-80),
+                  var(--colors-success-90),
+                  var(--colors-success-100)
+  );
+}
+.g-action__button--context-primary {
+  @include context-button(
+                  var(--colors-primary-50),
+                  var(--colors-primary-60),
+                  var(--colors-primary-70),
+                  var(--colors-primary-80),
+                  var(--colors-primary-90),
+                  var(--colors-primary-100)
+  );
+}
+.g-action__button--context-secondary {
+  @include context-button(
+                  var(--colors-secondary-50),
+                  var(--colors-secondary-60),
+                  var(--colors-secondary-70),
+                  var(--colors-secondary-80),
+                  var(--colors-secondary-90),
+                  var(--colors-secondary-100)
+  );
+}
+.g-action__button--context-attention {
+  @include context-button(
+                  var(--colors-attention-70),
+                  var(--colors-attention-60),
+                  var(--colors-attention-70),
+                  var(--colors-attention-80),
+                  var(--colors-attention-90),
+                  var(--colors-attention-100)
+  );
 }

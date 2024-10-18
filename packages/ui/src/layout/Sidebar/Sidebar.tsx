@@ -34,6 +34,7 @@ export default function Sidebar({ sidebar }: GSidebarProps) {
                             context="primary"
                             onClick={item?.onRedirect}
                             selected={shouldActiveButton}
+                            notificationCounter={item.counter}
                             appearance="sidebar"
                             iconPosition="left">
                             {item.label}

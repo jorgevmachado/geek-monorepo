@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { TColors, TContext, type TIcon, type TIconPosition, TType, TWeight } from '../../interfaces';
+import { OContext, TColors, TContext, type TIcon, type TIconPosition, TType, TWeight } from '../../interfaces';
 
 export type TSize = 'small' | 'regular' | 'large';
 
@@ -42,155 +42,16 @@ export interface GActionProps extends React.AnchorHTMLAttributes<HTMLAnchorEleme
     appearance?: TAppearance;
     underlined?: boolean;
     iconPosition?: TIconPosition;
+    notificationCounter?: number;
 }
 
-export const gActions = ({
-    icon,
-    type,
-    size,
-    fluid,
-    weight,
-    rounded,
-    context = 'link',
-    disabled,
-    iconColor,
-    appearance,
-    underlined,
-    iconPosition,
-}: GActionProps) =>  ([
-    {
-        icon,
-        type,
-        size,
-        fluid,
-        weight,
-        rounded,
-        context,
-        children: `${type}-link`,
-        disabled,
-        iconColor,
-        appearance,
-        underlined,
-        iconPosition,
-    },
-    {
-        icon,
-        type,
-        size,
-        fluid,
-        weight,
-        rounded,
-        context: 'info',
-        children: `${type}-info`,
-        disabled,
-        iconColor,
-        appearance,
-        underlined,
-        iconPosition,
-    },
-    {
-        icon,
-        type,
-        size,
-        fluid,
-        weight,
-        rounded,
-        context: 'error',
-        children: `${type}-error`,
-        disabled,
-        iconColor,
-        appearance,
-        underlined,
-        iconPosition,
-    },
-    {
-        icon,
-        type,
-        size,
-        fluid,
-        weight,
-        rounded,
-        context:'custom',
-        children: `${type}-custom`,
-        disabled,
-        iconColor,
-        appearance,
-        underlined,
-        iconPosition,
-    },
-    {
-        icon,
-        type,
-        size,
-        fluid,
-        weight,
-        rounded,
-        context:'neutral',
-        children: `${type}-neutral`,
-        disabled,
-        iconColor,
-        appearance,
-        underlined,
-        iconPosition,
-    },
-    {
-        icon,
-        type,
-        size,
-        fluid,
-        weight,
-        rounded,
-        context:'success',
-        children: `${type}-success`,
-        disabled,
-        iconColor,
-        appearance,
-        underlined,
-        iconPosition,
-    },
-    {
-        icon,
-        type,
-        size,
-        fluid,
-        weight,
-        rounded,
-        context:'primary',
-        children: `${type}-primary`,
-        disabled,
-        iconColor,
-        appearance,
-        underlined,
-        iconPosition,
-    },
-    {
-        icon,
-        type,
-        size,
-        fluid,
-        weight,
-        rounded,
-        context:'secondary',
-        children: `${type}-secondary`,
-        disabled,
-        iconColor,
-        appearance,
-        underlined,
-        iconPosition,
-    },
-    {
-        icon,
-        type,
-        size,
-        fluid,
-        weight,
-        rounded,
-        context:'attention',
-        children: `${type}-attention`,
-        disabled,
-        iconColor,
-        appearance,
-        underlined,
-        iconPosition,
-    },
-]) as Array<GActionProps>;
+export const gActions = (gActionProps: GActionProps) =>  {
+    return OContext.map((item) => {
+        gActionProps.context = item;
+        gActionProps.children = `${gActionProps.type}-${item}`;
+        return {
+            ...gActionProps,
+            'aria-label': `${gActionProps.type}-${item}`,
+        };
+    }) as Array<GActionProps>;
+};

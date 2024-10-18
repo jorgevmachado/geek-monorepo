@@ -8,11 +8,11 @@ import { OWeight } from '../../interfaces/fonts';
 import { OAppearance } from './interface';
 import { OSize,  } from './interface';
 
-import GAction from './GAction';
+import GActions from './GAction';
 
 const meta = {
     title: 'Atoms/GAction',
-    component: GAction,
+    component: GActions,
     argTypes: {
         icon: {
             table: {
@@ -99,7 +99,7 @@ const meta = {
             control: { type: 'radio' },
         },
     }
-} satisfies Meta<typeof GAction>;
+} satisfies Meta<typeof GActions>;
 
 export default meta;
 

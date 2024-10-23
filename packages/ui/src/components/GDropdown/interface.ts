@@ -20,7 +20,7 @@ export const gDropDowns = ({
     type,
     label,
     isOpen,
-    context = 'link',
+    context = 'neutral',
     disabled,
     onChange,
     activator,

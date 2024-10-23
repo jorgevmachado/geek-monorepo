@@ -32,6 +32,7 @@ export interface GActionProps extends React.AnchorHTMLAttributes<HTMLAnchorEleme
     type?: TType;
     size?: TSize;
     fluid?: boolean;
+    focus?: boolean;
     weight?: TWeight;
     rounded?: boolean;
     context?: TContext;
@@ -42,6 +43,7 @@ export interface GActionProps extends React.AnchorHTMLAttributes<HTMLAnchorEleme
     appearance?: TAppearance;
     underlined?: boolean;
     iconPosition?: TIconPosition;
+    iconClassName?: string;
     notificationCounter?: number;
 }
 

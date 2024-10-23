@@ -12,11 +12,10 @@ import GImage from '../../components/GImage';
 import { NavSidebar, Navbar, User } from '../interface';
 
 import GroupSidebar from './GroupSidebar';
-import HeaderSidebarAction from './HeaderSidebarAction';
 import Profile from './Profile';
 
 import './Header.scss';
-
+import HeaderSidebarAction from './HeaderSidebarAction';
 
 interface HeaderProps {
     user: User;
@@ -67,7 +66,9 @@ export default function Header({ user, logo, navbar, sidebar, onLogout }: Header
             <nav className="header-container__nav">
                 <ul className="header-container__nav--list">
                     {navbar?.map((item) => (
-                        <li className={`header-container__nav--list-item ${item.type === 'dropdown' ? 'header-container__nav--list-dropdown' : ''}`} key={item.key}>
+                        <li
+                            key={item.key}
+                            className={`header-container__nav--list-item ${item.type === 'dropdown' ? 'header-container__nav--list-dropdown' : ''}`}>
                             {item.type === 'button' ? (
                                 <GAction type="link" context="primary" appearance="navbar" onClick={item?.onRedirect}>
                                     {item.label}
@@ -86,7 +87,6 @@ export default function Header({ user, logo, navbar, sidebar, onLogout }: Header
                                         </GAction>
                                     ))}
                                 </GDropdown>
-
                             )}
                         </li>
                     ))}
@@ -106,7 +106,16 @@ export default function Header({ user, logo, navbar, sidebar, onLogout }: Header
                             <GroupSidebar key={item.key} group={item}/>
                         ))
                     }
-                    <HeaderSidebarAction icon={<IoMdExit/>} label="Sair" onRedirect={onLogout}/>
+
+                    <GAction
+                        icon={<IoMdExit/>}
+                        context="primary"
+                        onClick={onLogout}
+                        appearance="sidebar"
+                        iconPosition="left"
+                        iconClassName="header-container__sidebar--content-button-icon">
+                        Sair
+                    </GAction>
 
                     <hr className="header-container__sidebar--content-divider"/>
 

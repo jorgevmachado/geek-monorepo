@@ -18,18 +18,25 @@ interface ContentProps {
     iconColor?: TColors;
     className?: string;
     iconPosition?: TIconPosition;
+    iconClassName?: string;
     notificationCounter?: number;
 }
 
-function Content({ icon, children, iconColor, className, iconPosition, notificationCounter }: ContentProps) {
+function Content({ icon, children, iconColor, className, iconPosition, iconClassName, notificationCounter }: ContentProps) {
     const childrenClassName = joinClass([
         `${className}--children`,
         `${notificationCounter ? `${className}__children--notification` : ''}`
     ]);
+
+    const childrenIconClassName = joinClass([
+        `${className}__icon--${iconPosition}-icon g-u-color-${iconColor}`,
+        `${iconClassName}`
+    ]);
+
     return (
         <>
             {icon && iconPosition === 'left' && (
-                <GIcon icon={icon} className={`${className}__icon--${iconPosition}-icon g-u-color-${iconColor}`} />
+                <GIcon icon={icon} className={childrenIconClassName} />
             )}
             <div className={childrenClassName}>
                 <div>{children}</div>
@@ -40,7 +47,7 @@ function Content({ icon, children, iconColor, className, iconPosition, notificat
                 )}
             </div>
             {icon && iconPosition === 'right' && (
-                <GIcon icon={icon} className={`${className}__icon--${iconPosition}-icon g-u-color-${iconColor}`} />
+                <GIcon icon={icon} className={childrenIconClassName} />
             )}
         </>
     );
@@ -57,6 +64,7 @@ export default function GAction({
                                      type = 'button',
                                      size = 'regular',
                                      fluid,
+                                     focus = true,
                                      weight = 'regular',
                                      rounded,
                                      context = 'neutral',
@@ -67,6 +75,7 @@ export default function GAction({
                                      appearance,
                                      underlined,
                                      iconPosition = 'left',
+                                     iconClassName,
                                      notificationCounter,
                                      ...props
                                  }: GActionProps) {
@@ -101,6 +110,7 @@ export default function GAction({
         `${selected ? `${principalClassName}__selected` : ''}`,
         `${principalClassName}__appearance--${appearance}`,
         `${!hasLabel ? `${principalClassName}__no-label` : ''}`,
+        `${focus ? `${principalClassName}__focus` : ''}`,
         `${props.className}`
     ]);
 
@@ -113,12 +123,13 @@ export default function GAction({
                                  iconColor={iconColor}
                                  className={principalClassName}
                                  iconPosition={iconPosition}
+                                 iconClassName={iconClassName}
                                  notificationCounter={notificationCounter}>
                             {children}
                         </Content>
                     )
                     : (
-                        <GIcon icon={icon || 'react'}/>
+                        <GIcon icon={icon || 'react'} className={iconClassName}/>
                     )
             }
         </Element>

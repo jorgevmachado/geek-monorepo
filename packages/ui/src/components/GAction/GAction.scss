@@ -242,7 +242,9 @@
   text-decoration: none;
   background-color: $c80;
 
-  @include focus;
+  &__focus {
+    @include focus;
+  }
 
   &:disabled {
     color: var(--colors-neutral-60);

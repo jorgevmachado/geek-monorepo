@@ -1,50 +1,88 @@
 @import "../../styles/colors";
 
+@mixin context($c100) {
+  &-appearance__navbar {
+    &--trigger-activator__type--link {}
+    &--trigger-activator__type--button {}
+    &--content {
+      top: 100%;
+      width: auto;
+      z-index: 101;
+      padding: 1rem 0;
+      position: absolute;
+      margin-top: var(--dimensions-tiny);
+      box-shadow: var(--shadows-x-small);
+      border-radius: var(--borders-regular);
+      background-color: var(--colors-neutral-70);
+      a {
+        padding: .75rem 1.25rem;
+        &:hover {
+          color: var(--colors-neutral-12);
+          background-color: $c100;
+        }
+      }
+    }
+
+  }
+  &-appearance__select {}
+  &-appearance__sidebar {
+    &--trigger-activator__type--link,
+    &--trigger-activator__type--button {
+      button {
+        color: $c100;
+        width: 100%;
+        display: flex;
+        border: 1px solid transparent;
+        padding: 2rem 1.5rem;
+        font-size: var(--dimensions-regular);
+        font-weight: var(--text-weights-semi-bold);
+        align-items: center;
+        flex-direction: row;
+        background-color: transparent;
+        justify-content: space-between;
+        &:hover, &:focus {
+          border: none;
+          border-radius: inherit;
+          background-color: var(--colors-primary-80);
+        }
+      }
+    }
+    &--content {
+      padding: 0;
+      background-color: var(--colors-primary-50);
+    }
+  }
+  &-appearance__outline {}
+  &-appearance__dropdown {}
+  &-appearance__standard {}
+  &-appearance__borderless {}
+  &-appearance__iconButton {}
+}
+
 .g-dropdown {
   width: 100%;
   position: relative;
   display: inline-block;
-  &__trigger {
-    cursor: pointer;
+  &__context--info {
+    @include context(var(--colors-info-100));
   }
-  &__activator {
-    &--icon {
-      margin-top: .5rem;
-    }
+  &__context--error {
+    @include context(var(--colors-error-100));
   }
-  &__content {
-    background-color: var(--colors-neutral-70);
-    width: auto;
-    position: absolute;
-    z-index: 101;
-    margin-top: var(--dimensions-tiny);
-    border-radius: var(--borders-regular);
-    &--appearance-navbar {
-      background-color: var(--colors-neutral-70);
-      border-radius: 8px;
-      box-shadow: var(--shadows-x-small);
-      position: absolute;
-      top: 100%;
-      padding: 1rem 0;
-      &.g-dropdown__content--context-primary {
-        a {
-          padding: .75rem 1.25rem;
-          &:hover {
-            color: var(--colors-neutral-12);
-            background-color: var(--colors-primary-100);
-          }
-        }
-      }
-      &.g-dropdown__content--context-secondary {
-        a {
-          padding: .75rem 1.25rem;
-          &:hover {
-            color: var(--colors-neutral-12);
-            background-color: var(--colors-secondary-100);
-          }
-        }
-      }
-
-    }
+  &__context--custom {}
+  &__context--neutral {
+    @include context(var(--colors-neutral-100));
+  }
+  &__context--success {
+    @include context(var(--colors-success-100));
+  }
+  &__context--primary {
+    @include context(var(--colors-primary-100));
+  }
+  &__context--secondary {
+    @include context(var(--colors-secondary-100));
+  }
+  &__context-attention {
+    @include context(var(--colors-attention-100));
   }
 }

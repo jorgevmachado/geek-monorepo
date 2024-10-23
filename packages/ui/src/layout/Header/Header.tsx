@@ -59,7 +59,7 @@ export default function Header({ user, logo, navbar, sidebar, onLogout }: Header
                     aria-label="sidebar"
                     appearance="iconButton"
                 />
-                <div className="header-container__brand--logo">
+                <div className="header-container__brand--logo" onClick={() => window.open('/', '_self', 'noopener')}>
                     <GImage src={logo} alt="Logo" title="Logo" />
                 </div>
             </div>

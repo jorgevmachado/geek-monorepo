@@ -2,8 +2,6 @@
 
 @mixin context($c100) {
   &-appearance__navbar {
-    &--trigger-activator__type--link {}
-    &--trigger-activator__type--button {}
     &--content {
       top: 100%;
       width: auto;
@@ -24,7 +22,6 @@
     }
 
   }
-  &-appearance__select {}
   &-appearance__sidebar {
     &--trigger-activator__type--link,
     &--trigger-activator__type--button {
@@ -52,11 +49,6 @@
       background-color: var(--colors-primary-50);
     }
   }
-  &-appearance__outline {}
-  &-appearance__dropdown {}
-  &-appearance__standard {}
-  &-appearance__borderless {}
-  &-appearance__iconButton {}
 }
 
 .g-dropdown {

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Menu } from '../../interface';
 
-import HeaderSidebarAction from '../HeaderSidebarAction';
+import SidebarAction from '../SidebarAction';
 
 import './GroupSidebar.scss';
 
@@ -16,7 +16,7 @@ export default function GroupSidebar({ group }: ListSidebarButtonProps) {
             <h4 className="group-sidebar__title">{group.label}</h4>
             {
                 group?.items?.map((item) => (
-                    <HeaderSidebarAction
+                    <SidebarAction
                         key={item.key}
                         icon={item.icon}
                         path={item.path}

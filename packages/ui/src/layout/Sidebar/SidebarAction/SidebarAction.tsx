@@ -3,7 +3,7 @@ import React from 'react';
 import { GAction, GDropdown, GIcon } from '../../../components';
 import { Menu } from '../../interface';
 
-import './HeaderSidebarAction.scss';
+import './SidebarAction.scss';
 
 interface HeaderSidebarActionProps {
     icon?: React.ReactNode;
@@ -14,7 +14,7 @@ interface HeaderSidebarActionProps {
     onRedirect?: () => void;
 }
 
-export default function HeaderSidebarAction({
+export default function SidebarAction({
                                                 icon,
                                                 label,
                                                 items,

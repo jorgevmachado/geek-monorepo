@@ -2,10 +2,10 @@ import React from 'react';
 
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
 
-import { Menu,  User } from '../../interface';
-import GAvatar from '../../../components/GAvatar';
-import { GIcon } from '../../../components';
-import GText from '../../../components/GText';
+import { Menu,  User } from '../interface';
+import GAvatar from '../../components/GAvatar';
+import { GIcon } from '../../components';
+import GText from '../../components/GText';
 
 import './Profile.scss';
 

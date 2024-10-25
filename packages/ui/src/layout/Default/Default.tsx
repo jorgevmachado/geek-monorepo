@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 import Fade from '../../animations/fade';
 import Header from '../Header';
@@ -34,7 +34,14 @@ export default function Default({ user, logo, menu, children, onLogout }: Defaul
                 showMobileMenu={showMobileMenu}
                 handleToggleMenu={handleToggleMenu} />
             <main className="main-container">
-                <Sidebar type="desktop" menu={menu} />
+                <Sidebar
+                    type="desktop"
+                    user={user}
+                    menu={menu}
+                    onLogout={onLogout}
+                    showMobileMenu={showMobileMenu}
+                    handleToggleMenu={handleToggleMenu}
+                />
                 <div className="main-content">
                     {children}
                     <h1>NEW</h1>

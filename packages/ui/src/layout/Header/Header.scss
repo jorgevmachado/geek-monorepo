@@ -117,25 +117,25 @@ $header-height-desktop: 68px;
     &--content {
       height: 100%;
       overflow-y: auto;
-      &-button-icon {
-        margin-right: 5px;
-        svg {
-          width: 16px;
-          height: 16px;
-          vertical-align: middle;
-          margin-bottom: 4px;
-        }
-      }
-      &-header {
-        &[data-active="true"] {
-          display: block;
-        }
-        &__close--icon {
-          color: var(--colors-neutral-70);
-          width: fit-content;
-          cursor: pointer;
-        }
-      }
+      //&-button-icon {
+      //  margin-right: 5px;
+      //  svg {
+      //    width: 16px;
+      //    height: 16px;
+      //    vertical-align: middle;
+      //    margin-bottom: 4px;
+      //  }
+      //}
+      //&-header {
+      //  &[data-active="true"] {
+      //    display: block;
+      //  }
+      //  &__close--icon {
+      //    color: var(--colors-neutral-70);
+      //    width: fit-content;
+      //    cursor: pointer;
+      //  }
+      //}
       &-divider {
         border: 0;
         margin: 0;

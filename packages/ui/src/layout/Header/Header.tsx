@@ -1,21 +1,16 @@
 import React from 'react';
 
 import { FaHamburger } from 'react-icons/fa';
-import { IoClose } from 'react-icons/io5';
-import { IoMdExit } from 'react-icons/io';
 
 import GAction from '../../components/GAction';
 import GDropdown from '../../components/GDropdown';
-import GIcon from '../../components/GIcon';
 import GImage from '../../components/GImage';
 
 import { type Menu, User } from '../interface';
 
-import GroupSidebar from './GroupSidebar';
-import Profile from './Profile';
+import Sidebar from '../Sidebar';
 
 import './Header.scss';
-import HeaderSidebarAction from './HeaderSidebarAction';
 
 interface HeaderProps {
     user: User;
@@ -29,26 +24,6 @@ interface HeaderProps {
 export default function Header({ user, logo, menu, onLogout, showMobileMenu, handleToggleMenu }: HeaderProps) {
 
     const navbar = menu?.find((group) => group.key === 'navbar')?.items;
-    const sidebar = menu?.find((group) => group.key === 'sidebar')?.items;
-
-    const groupProfile = sidebar?.find((item) => item.key === 'profile');
-
-    const profileSidebar = groupProfile?.items?.find((item) => item.key === 'profile');
-
-    const profileMenu: Menu['items'][number] = !profileSidebar
-        ? {
-            key: 'profile',
-            path: '/meus-dados',
-            label: 'Meus dados',
-            onRedirect: () => {
-                window.open('/meus-dados', '_self', 'noopener');
-            }
-        }
-        : profileSidebar;
-
-
-
-    const filteredSidebar = sidebar?.filter((item) => item.key !== 'profile');
 
     return (
         <header className="header-container">
@@ -95,47 +70,14 @@ export default function Header({ user, logo, menu, onLogout, showMobileMenu, han
                     ))}
                 </ul>
             </nav>
-            <div className={`header-container__sidebar ${showMobileMenu ? 'header-container__sidebar--show' : ''}`}>
-                <div className="header-container__sidebar--content">
-                    <Profile user={user} profileMenu={profileMenu}>
-                        <header className="header-container__sidebar--content-header">
-                            <div className="header-container__sidebar--content-header__close--icon">
-                                <GIcon onClick={handleToggleMenu} icon={<IoClose size={30}/>}/>
-                            </div>
-                        </header>
-                    </Profile>
-                    {
-                        filteredSidebar?.map((item) => (
-                            <GroupSidebar key={item.key} group={item}/>
-                        ))
-                    }
-
-                    <GAction
-                        icon={<IoMdExit/>}
-                        context="primary"
-                        onClick={onLogout}
-                        appearance="sidebar"
-                        iconPosition="left"
-                        iconClassName="header-container__sidebar--content-button-icon">
-                        Sair
-                    </GAction>
-
-                    <hr className="header-container__sidebar--content-divider"/>
-
-                    <ul className="header-container__sidebar--content-navbar">
-                        {
-                            navbar?.map((item) => (
-                                <HeaderSidebarAction
-                                    key={item.key}
-                                    label={item.label}
-                                    items={item.items}
-                                    onRedirect={item?.onRedirect}
-                                />
-                            ))
-                        }
-                    </ul>
-                </div>
-            </div>
+            <Sidebar
+                type="mobile"
+                user={user}
+                menu={menu}
+                onLogout={onLogout}
+                showMobileMenu={showMobileMenu}
+                handleToggleMenu={handleToggleMenu}
+            />
         </header>
     );
 }

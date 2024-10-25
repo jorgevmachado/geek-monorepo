@@ -9,7 +9,7 @@ import GDropdown from '../../components/GDropdown';
 import GIcon from '../../components/GIcon';
 import GImage from '../../components/GImage';
 
-import { NavSidebar, Navbar, User } from '../interface';
+import { type Menu, User } from '../interface';
 
 import GroupSidebar from './GroupSidebar';
 import Profile from './Profile';
@@ -20,21 +20,24 @@ import HeaderSidebarAction from './HeaderSidebarAction';
 interface HeaderProps {
     user: User;
     logo: string;
-    navbar?: Array<Navbar>;
-    sidebar?: Array<NavSidebar>;
+    menu?: Array<Menu>;
     onLogout: () => void;
 }
 
-export default function Header({ user, logo, navbar, sidebar, onLogout }: HeaderProps) {
+export default function Header({ user, logo, menu, onLogout }: HeaderProps) {
+
+    const navbar = menu?.find((group) => group.key === 'navbar')?.items;
+    const sidebar = menu?.find((group) => group.key === 'sidebar')?.items;
+
     const [showMobileMenu, setShowMobileMenu] = useState(false);
 
     const handleToggleMenu = () => { setShowMobileMenu(!showMobileMenu); };
 
     const groupProfile = sidebar?.find((item) => item.key === 'profile');
 
-    const profileSidebar = groupProfile?.items.find((item) => item.key === 'profile');
+    const profileSidebar = groupProfile?.items?.find((item) => item.key === 'profile');
 
-    const profileMenu: NavSidebar['items'][number] = !profileSidebar
+    const profileMenu: Menu['items'][number] = !profileSidebar
         ? {
             key: 'profile',
             path: '/meus-dados',
@@ -44,6 +47,8 @@ export default function Header({ user, logo, navbar, sidebar, onLogout }: Header
             }
         }
         : profileSidebar;
+
+
 
     const filteredSidebar = sidebar?.filter((item) => item.key !== 'profile');
 
@@ -68,8 +73,8 @@ export default function Header({ user, logo, navbar, sidebar, onLogout }: Header
                     {navbar?.map((item) => (
                         <li
                             key={item.key}
-                            className={`header-container__nav--list-item ${item.type === 'dropdown' ? 'header-container__nav--list-dropdown' : ''}`}>
-                            {item.type === 'button' ? (
+                            className={`header-container__nav--list-item ${item.items?.length ? 'header-container__nav--list-dropdown' : ''}`}>
+                            {!item.items?.length ? (
                                 <GAction type="link" context="primary" appearance="navbar" onClick={item?.onRedirect}>
                                     {item.label}
                                 </GAction>
@@ -124,7 +129,6 @@ export default function Header({ user, logo, navbar, sidebar, onLogout }: Header
                             navbar?.map((item) => (
                                 <HeaderSidebarAction
                                     key={item.key}
-                                    type={item.type}
                                     label={item.label}
                                     items={item.items}
                                     onRedirect={item?.onRedirect}

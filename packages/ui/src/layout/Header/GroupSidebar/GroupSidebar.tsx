@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { NavSidebar } from '../../interface';
+import { Menu } from '../../interface';
 
 import HeaderSidebarAction from '../HeaderSidebarAction';
 
 import './GroupSidebar.scss';
 
 interface ListSidebarButtonProps {
-    group: NavSidebar;
+    group: Menu['items'][number];
 }
 
 export default function GroupSidebar({ group }: ListSidebarButtonProps) {
@@ -15,7 +15,7 @@ export default function GroupSidebar({ group }: ListSidebarButtonProps) {
         <div className="group-sidebar">
             <h4 className="group-sidebar__title">{group.label}</h4>
             {
-                group.items.map((item) => (
+                group?.items?.map((item) => (
                     <HeaderSidebarAction
                         key={item.key}
                         icon={item.icon}

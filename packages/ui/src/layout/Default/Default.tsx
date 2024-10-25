@@ -4,7 +4,7 @@ import Fade from '../../animations/fade';
 import Header from '../Header';
 import Sidebar from '../Sidebar';
 
-import type { NavSidebar, Navbar, User } from '../interface';
+import type { Menu, User } from '../interface';
 
 import GAction from '../../components/GAction';
 import { gActions } from '../../components/GAction/interface';
@@ -14,18 +14,19 @@ import './Default.scss';
 interface DefaultProps {
     user: User;
     logo: string;
-    navbar?: Array<Navbar>;
-    sidebar?: Array<NavSidebar>;
+    menu?: Array<Menu>;
     children: React.ReactNode;
     onLogout: () => void;
 }
-export default function Default({ user, logo, navbar, sidebar, children, onLogout }: DefaultProps ) {
+export default function Default({ user, logo, menu, children, onLogout }: DefaultProps ) {
+
+    const sidebarX = menu?.find((item) => item.key === 'sidebar')?.items;
 
     return (
         <Fade>
-            <Header user={user} logo={logo} navbar={navbar} sidebar={sidebar} onLogout={onLogout} />
+            <Header user={user} logo={logo} menu={menu} onLogout={onLogout} />
             <main className="main-container">
-                <Sidebar sidebar={sidebar} />
+                <Sidebar sidebar={sidebarX} />
                 <div className="main-content">
                     {children}
                     <h1>NEW</h1>

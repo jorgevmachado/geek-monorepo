@@ -1,28 +1,28 @@
 import React from 'react';
 
 import { GAction, GDropdown, GIcon } from '../../../components';
-import { Navbar } from '../../interface';
+import { Menu } from '../../interface';
 
 import './HeaderSidebarAction.scss';
 
 interface HeaderSidebarActionProps {
     icon?: React.ReactNode;
     path?: string;
-    type?: 'button' | 'dropdown';
     label: string;
-    items?: Array<Navbar>;
+    items?: Menu['items'];
     counter?: number;
     onRedirect?: () => void;
 }
 
 export default function HeaderSidebarAction({
                                                 icon,
-                                                type = 'button',
                                                 label,
                                                 items,
                                                 counter,
                                                 onRedirect
                                             }: HeaderSidebarActionProps) {
+
+    const type =  !items?.length ? 'button' : 'dropdown';
     return (
         <li className={`header-sidebar__${type}`}>
             {

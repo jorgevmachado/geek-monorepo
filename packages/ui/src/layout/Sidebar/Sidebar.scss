@@ -1,6 +1,6 @@
 @import "../../styles/main";
 
-.g-sidebar {
+.sidebar {
   display: none;
   // MD-UP
   @media screen and (min-width: 720px) {
@@ -14,8 +14,17 @@
     height: 100%;
     border-right: 1px solid var(--colors-neutral-96);
     background-color: var(--colors-neutral-70);
-    &-container {
+    &__container {
       height: 100%;
+      &--group {
+        border-bottom: 1px solid var(--colors-neutral-96);
+        &-title {
+          color: var(--colors-neutral-110);
+          padding: 1.25rem 1.75rem 5px;
+          font-size: var(--text-sizes-body);
+          font-weight: var(--text-weights-normal);
+        }
+      }
     }
   }
 }

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
 
-import { NavSidebar, User } from '../../interface';
+import { Menu,  User } from '../../interface';
 import GAvatar from '../../../components/GAvatar';
 import { GIcon } from '../../../components';
 import GText from '../../../components/GText';
@@ -30,7 +30,7 @@ function Avatar({ user, initialsLength = 2 }: AvatarProps) {
 interface GProfileProps {
     user: User;
     children: React.ReactNode;
-    profileMenu: NavSidebar['items'][number];
+    profileMenu: Menu['items'][number];
 
 }
 export default function Profile({ user, children, profileMenu }: GProfileProps) {

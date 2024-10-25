@@ -1,30 +1,33 @@
 @import "../../styles/main";
 
 .sidebar {
-  display: none;
-  // MD-UP
-  @media screen and (min-width: 720px) {
-    top: 0;
-    width: 100%;
-    display: flex;
-    max-width: 360px;
-    min-width: 360px;
-    position: sticky;
-    flex-direction: column;
-    height: 100%;
-    border-right: 1px solid var(--colors-neutral-96);
-    background-color: var(--colors-neutral-70);
-    &__container {
+  &__desktop {
+    display: none;
+    // MD-UP
+    @media screen and (min-width: 720px) {
+      top: 0;
+      width: 100%;
+      display: flex;
+      max-width: 360px;
+      min-width: 360px;
+      position: sticky;
+      flex-direction: column;
       height: 100%;
-      &--group {
-        border-bottom: 1px solid var(--colors-neutral-96);
-        &-title {
-          color: var(--colors-neutral-110);
-          padding: 1.25rem 1.75rem 5px;
-          font-size: var(--text-sizes-body);
-          font-weight: var(--text-weights-normal);
+      border-right: 1px solid var(--colors-neutral-96);
+      background-color: var(--colors-neutral-70);
+      &--container {
+        height: 100%;
+        &-group {
+          border-bottom: 1px solid var(--colors-neutral-96);
+          &__title {
+            color: var(--colors-neutral-110);
+            padding: 1.25rem 1.75rem 5px;
+            font-size: var(--text-sizes-body);
+            font-weight: var(--text-weights-normal);
+          }
         }
       }
     }
   }
+  &__mobile {}
 }

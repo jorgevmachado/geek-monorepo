@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { FaHamburger } from 'react-icons/fa';
 import { IoClose } from 'react-icons/io5';
@@ -22,16 +22,14 @@ interface HeaderProps {
     logo: string;
     menu?: Array<Menu>;
     onLogout: () => void;
+    showMobileMenu?: boolean;
+    handleToggleMenu?: () => void;
 }
 
-export default function Header({ user, logo, menu, onLogout }: HeaderProps) {
+export default function Header({ user, logo, menu, onLogout, showMobileMenu, handleToggleMenu }: HeaderProps) {
 
     const navbar = menu?.find((group) => group.key === 'navbar')?.items;
     const sidebar = menu?.find((group) => group.key === 'sidebar')?.items;
-
-    const [showMobileMenu, setShowMobileMenu] = useState(false);
-
-    const handleToggleMenu = () => { setShowMobileMenu(!showMobileMenu); };
 
     const groupProfile = sidebar?.find((item) => item.key === 'profile');
 

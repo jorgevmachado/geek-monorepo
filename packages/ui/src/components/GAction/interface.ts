@@ -35,6 +35,7 @@ export interface GActionProps extends React.AnchorHTMLAttributes<HTMLAnchorEleme
     focus?: boolean;
     weight?: TWeight;
     rounded?: boolean;
+    onClick?: () => void;
     context?: TContext;
     selected?: boolean;
     children?: React.ReactNode;

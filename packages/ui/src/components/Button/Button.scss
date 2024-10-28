@@ -114,6 +114,28 @@
 
   &-selected {}
 
+  &-children__notification {
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 11rem;
+    &__counter {
+      display: flex;
+      width: 24px;
+      height: 24px;
+      font-size: 14px;
+      font-weight: 500;
+      align-items: center;
+      border-radius: 50%;
+      justify-content: center;
+      color: var(--colors-neutral-70);
+      background-color: $StrongDarkColor;
+    }
+    @media screen and (min-width: 720px) {
+      gap: 6rem;
+    }
+  }
+
   &-appearance--sidebar {
     color: $StrongDarkColor;
     width: 100%;

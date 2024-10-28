@@ -37,7 +37,7 @@ function Content(contentProps: ContentProps) {
             <div className={childrenClassName}>
                 <div>{contentProps.children}</div>
                 { contentProps.notificationCounter && (
-                    <div className={`${contentProps.className}--children__notification--counter`}>
+                    <div className={`${contentProps.className}-children__notification--counter`}>
                         {contentProps.notificationCounter > 9 ? '9+' : contentProps.notificationCounter}
                     </div>
                 )}
@@ -101,6 +101,7 @@ export default function Button({
             {
                 !isAppearanceIconButton ? <Content
                                             icon={icon}
+                                            iconColor={iconColor}
                                             className={rootClassName}
                                             iconPosition={iconPosition}
                                             iconClassName={iconClassName}

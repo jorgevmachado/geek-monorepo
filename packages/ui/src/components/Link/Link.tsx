@@ -56,6 +56,7 @@ export default function Link({
     weight = 'regular',
     context = 'neutral',
     children,
+    iconColor,
     appearance,
     iconPosition = 'left',
     iconClassName,
@@ -76,6 +77,7 @@ export default function Link({
         <a{...props} className={classNameList}>
             <Content
                 icon={icon}
+                iconColor={iconColor}
                 className={rootClassName}
                 iconPosition={iconPosition}
                 iconClassName={iconClassName}

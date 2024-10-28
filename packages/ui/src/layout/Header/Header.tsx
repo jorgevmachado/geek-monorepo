@@ -2,9 +2,10 @@ import React from 'react';
 
 import { FaHamburger } from 'react-icons/fa';
 
-import GAction from '../../components/GAction';
+import Button from '../../components/Button';
 import GDropdown from '../../components/GDropdown';
 import GImage from '../../components/GImage';
+import Link from '../../components/Link';
 
 import { type Menu, User } from '../interface';
 
@@ -28,15 +29,13 @@ export default function Header({ user, logo, menu, onLogout, showMobileMenu, han
     return (
         <header className="header-container">
             <div className="header-container__brand">
-                <GAction
+                <Button
                     icon={<FaHamburger/>}
-                    type="button"
                     onClick={handleToggleMenu}
                     context="primary"
                     className="header-container__brand--button"
                     aria-label="sidebar"
-                    appearance="iconButton"
-                />
+                    appearance="iconButton"/>
                 <div className="header-container__brand--logo" onClick={() => window.open('/', '_self', 'noopener')}>
                     <GImage src={logo} alt="Logo" title="Logo" />
                 </div>
@@ -48,21 +47,21 @@ export default function Header({ user, logo, menu, onLogout, showMobileMenu, han
                             key={item.key}
                             className={`header-container__nav--list-item ${item.items?.length ? 'header-container__nav--list-dropdown' : ''}`}>
                             {!item.items?.length ? (
-                                <GAction type="link" context="primary" appearance="navbar" onClick={item?.onRedirect}>
+                                <Link type="link" context="primary" appearance="menu" onClick={item?.onRedirect}>
                                     {item.label}
-                                </GAction>
+                                </Link>
                             ) : (
                                 <GDropdown label={item.label} type="link" context="primary" appearance="navbar">
                                     {item?.items?.map((subItem) => (
-                                        <GAction
+                                        <Link
                                             key={subItem.key}
                                             type="link"
                                             context="primary"
                                             iconColor="primary-100"
                                             onClick={subItem?.onRedirect}
-                                            appearance="dropdown">
+                                            appearance="menu">
                                             {subItem.label}
-                                        </GAction>
+                                        </Link>
                                     ))}
                                 </GDropdown>
                             )}

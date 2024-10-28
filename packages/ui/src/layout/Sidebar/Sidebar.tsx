@@ -4,7 +4,7 @@ import { IoClose } from 'react-icons/io5';
 import { IoMdExit } from 'react-icons/io';
 import { MdOutlineSpaceDashboard } from 'react-icons/md';
 
-import GAction from '../../components/GAction';
+import Button from '../../components/Button';
 import GIcon from '../../components/GIcon';
 
 import { Menu, type User } from '../interface';
@@ -15,6 +15,7 @@ import GroupSidebar from './GroupSidebar';
 import SidebarAction from './SidebarAction';
 
 import './Sidebar.scss';
+
 
 interface GSidebarProps {
     type: 'desktop' | 'mobile';
@@ -61,7 +62,7 @@ export default function Sidebar({ type, user, menu, onLogout, showMobileMenu, ha
                             <h4 className="sidebar__desktop--container-group__title">{group.label}</h4>
                             {
                                 group?.items?.map((item) => (
-                                    <GAction
+                                    <Button
                                         key={item.key}
                                         icon={item.icon || <MdOutlineSpaceDashboard />}
                                         type="button"
@@ -72,7 +73,7 @@ export default function Sidebar({ type, user, menu, onLogout, showMobileMenu, ha
                                         appearance="sidebar"
                                         iconPosition="left">
                                         {item.label}
-                                    </GAction>
+                                    </Button>
                                 ))
                             }
                         </div>
@@ -95,7 +96,7 @@ export default function Sidebar({ type, user, menu, onLogout, showMobileMenu, ha
                         <GroupSidebar key={item.key} group={item}/>
                     ))
                 }
-                <GAction
+                <Button
                     icon={<IoMdExit/>}
                     context="primary"
                     onClick={onLogout}
@@ -103,7 +104,7 @@ export default function Sidebar({ type, user, menu, onLogout, showMobileMenu, ha
                     iconPosition="left"
                     iconClassName="sidebar__mobile--container-logout">
                     Sair
-                </GAction>
+                </Button>
 
                 <hr className="sidebar__mobile--container-divider"/>
 

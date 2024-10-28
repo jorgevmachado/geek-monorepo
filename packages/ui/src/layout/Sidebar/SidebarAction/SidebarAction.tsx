@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { GAction, GDropdown, GIcon } from '../../../components';
+import Button from '../../../components/Button';
+import GDropdown from '../../../components/GDropdown';
+import GIcon  from '../../../components/GIcon';
 import { Menu } from '../../interface';
 
 import './SidebarAction.scss';
@@ -31,20 +33,20 @@ export default function SidebarAction({
                         <GDropdown label={label} type="button" context="primary" appearance="sidebar">
                             {
                                 items?.map((item) => (
-                                    <GAction
+                                    <Button
                                         key={item.key}
                                         context="primary"
                                         onClick={item.onRedirect}
                                         appearance="sidebar"
                                         iconPosition="left">
                                         {item.label}
-                                    </GAction>
+                                    </Button>
                                 ))
                             }
                         </GDropdown>
                     )
                     : (
-                        <GAction
+                        <Button
                             icon={icon && (<GIcon className="header-sidebar__button--link-icon" icon={icon}/>)}
                             context="primary"
                             onClick={onRedirect}
@@ -52,7 +54,7 @@ export default function SidebarAction({
                             iconPosition="left"
                             notificationCounter={counter}>
                         {label}
-                        </GAction>
+                        </Button>
                     )
             }
 

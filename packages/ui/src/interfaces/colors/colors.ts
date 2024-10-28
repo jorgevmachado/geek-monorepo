@@ -126,7 +126,6 @@ export const OColors: Array<TColors> = [
 export type TContext =
     | 'info'
     | 'error'
-    | 'custom'
     | 'neutral'
     | 'success'
     | 'primary'
@@ -136,7 +135,6 @@ export type TContext =
 export const OContext: Array<TContext> = [
     'info',
     'error',
-    'custom',
     'neutral',
     'success',
     'primary',

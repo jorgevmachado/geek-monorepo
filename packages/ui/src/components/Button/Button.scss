@@ -1,0 +1,355 @@
+@import "../../styles/main";
+
+@mixin context($StrongLightColor, $MediumLightColor, $WeakLightColor, $WeakDarkColor, $StrongDarkColor) {
+  color: var(--colors-neutral-70);
+  border: 1px solid $WeakDarkColor;
+  cursor: pointer;
+  user-select: none;
+  font-weight: var(--text-weights-bold);
+  border-radius: var(--borders-large);
+  text-decoration: none;
+  background-color: $WeakDarkColor;
+
+  &:disabled {
+    color: var(--colors-neutral-60);
+    cursor: not-allowed;
+    pointer-events: none;
+    border-color: var(--colors-neutral-90);
+    background-color: var(--colors-neutral-90);
+  }
+
+  &:hover:not(:focus) {
+    border: 1px solid $StrongLightColor;
+    background-color: $StrongLightColor;
+  }
+
+  &:active, &-selected {
+    border-color: $WeakLightColor;
+    background-color: $WeakLightColor;
+  }
+
+  &-icon {
+    &__position--left {
+      margin-right: var(--dimensions-x-tiny);
+    }
+    &__position--right {
+      margin-left: var(--dimensions-x-tiny);
+    }
+  }
+
+  &-size {
+    &__small {
+      height: var(--dimensions-xxx-large);
+      padding: 0 1.5rem;
+      line-height: var(--text-line-heights-small);
+      &.button__context--info-no-label,
+      &.button__context--error-no-label,
+      &.button__context--neutral-no-label,
+      &.button__context--success-no-label,
+      &.button__context--primary-no-label,
+      &.button__context--secondary-no-label,
+      &.button__context--attention-no-label {
+        width: var(--dimensions-xxx-large);
+      }
+    }
+    &__regular {
+      height: var(--dimensions-big);
+      padding: 0 1.5rem;
+      line-height: var(--text-line-heights-small);
+      &.button__context--info-no-label,
+      &.button__context--error-no-label,
+      &.button__context--neutral-no-label,
+      &.button__context--success-no-label,
+      &.button__context--primary-no-label,
+      &.button__context--secondary-no-label,
+      &.button__context--attention-no-label {
+        width: var(--dimensions-big);
+      }
+    }
+    &__large {
+      height: var(--dimensions-xx-big);
+      padding: 0 1.5rem;
+      line-height: var(--text-line-heights-small);
+      &.button__context--info-no-label,
+      &.button__context--error-no-label,
+      &.button__context--neutral-no-label,
+      &.button__context--success-no-label,
+      &.button__context--primary-no-label,
+      &.button__context--secondary-no-label,
+      &.button__context--attention-no-label {
+        width: var(--dimensions-xx-big);
+      }
+    }
+  }
+
+  &-focus {
+    @include focus;
+  }
+
+  &-fluid {
+    width: 100%;
+  }
+
+  &-weight {
+    &__regular {
+      font-weight: var(--text-weights-regular);
+    }
+    &__medium {
+      font-weight: var(--text-weights-medium);
+    }
+    &__semibold {
+      font-weight: var(--text-weights-semi-bold);
+    }
+    &__bold {
+      font-weight: var(--text-weights-bold);
+    }
+  }
+
+  &-rounded {}
+
+  &-no-label {
+    padding: 0;
+    border-radius: var(--borders-large);
+  }
+
+  &-selected {}
+
+  &-appearance--sidebar {
+    color: $StrongDarkColor;
+    width: 100%;
+    border-color: transparent;
+    cursor: pointer;
+    display: flex;
+    padding: 2rem 1.5rem;
+    font-size: 1rem;
+    transition: background 0.1s ease-in;
+    font-weight: var(--text-weights-semi-bold);
+    align-items: center;
+    border-radius: inherit;
+    flex-direction: row;
+    background-color: transparent;
+
+    &:hover:not(:focus) {
+      border-left: 4px solid transparent;
+    }
+
+    &:active, &-selected {
+      color: var(--colors-neutral-110);
+      border-left: 4px solid $StrongDarkColor;
+      background-color: $StrongLightColor;
+    }
+
+    @media screen and (min-width: 720px) {
+      gap: 8px;
+      border-left: 4px solid transparent;
+    }
+  }
+
+  &-appearance--outline {
+    color: $WeakLightColor;
+    border: 1px solid $WeakLightColor;
+    background-color: transparent;
+    &:hover:not(:focus) {
+      background-color: $MediumLightColor;
+    }
+    &:active {
+      background-color: $MediumLightColor;
+    }
+  }
+
+  &-appearance--borderless {
+    color: $WeakLightColor;
+    border: 1px solid transparent;
+    background-color: transparent;
+
+    &:hover:not(:focus) {
+      border-color: $MediumLightColor;
+      background-color: $MediumLightColor;
+
+    }
+
+    &:active {
+      border-color: $MediumLightColor;
+      background-color: $MediumLightColor;
+    }
+  }
+
+  &-appearance--iconButton {
+    display: flex;
+    width: var(--dimensions-big);
+    height: var(--dimensions-big);
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-neutral-70);
+
+    &:not(:disabled) {
+      border: 1px solid var(--colors-neutral-90);
+      color: $WeakDarkColor;
+    }
+
+    &:hover:not(:focus) {
+      border: 1px solid var(--colors-neutral-90);
+      background-color: $StrongLightColor;
+    }
+
+    &.button__context--info-selected,
+    &.button__context--error-selected,
+    &.button__context--neutral-selected,
+    &.button__context--success-selected,
+    &.button__context--primary-selected,
+    &.button__context--secondary-selected,
+    &.button__context--attention-selected,
+    &:active {
+      color: var(--color-neutral-70);
+      border-color: $WeakLightColor;
+      background-color: $WeakLightColor;
+    }
+
+    &.button__context--info-size__small,
+    &.button__context--error-size__small,
+    &.button__context--neutral-size__small,
+    &.button__context--success-size__small,
+    &.button__context--primary-size__small,
+    &.button__context--secondary-size__small,
+    &.button__context--attention-size__small,
+    &:active {
+      color: var(--color-neutral-70);
+      border-color: $WeakLightColor;
+      background-color: $WeakLightColor;
+    }
+
+  }
+}
+
+.button__context--info {
+  @include context(
+                  var(--colors-info-70),
+                  var(--colors-info-60),
+                  var(--colors-info-70),
+                  var(--colors-info-80),
+                  var(--colors-info-80)
+  );
+}
+.button__context--error {
+  @include context(
+                  var(--colors-error-70),
+                  var(--colors-error-60),
+                  var(--colors-error-70),
+                  var(--colors-error-80),
+                  var(--colors-error-80)
+  );
+}
+.button__context--neutral {
+  @include context(
+                  var(--colors-neutral-110),
+                  var(--colors-neutral-60),
+                  var(--colors-neutral-70),
+                  var(--colors-neutral-100),
+                  var(--colors-neutral-100)
+  );
+  &:active, &__selected {
+    border: 1px solid var(--colors-neutral-100);
+    background-color: var(--colors-neutral-100);
+  }
+  &-appearance--sidebar {
+    &:hover{
+      color: var(--colors-neutral-70);
+    }
+
+  }
+  &-appearance--outline {
+    color: var(--colors-neutral-100);
+    border: 1px solid var(--colors-neutral-100);
+    background-color: var(--colors-neutral-70);
+    &:hover:not(:focus) {
+      color: var(--colors-neutral-100);
+      border: 1px solid var(--colors-neutral-100);
+      background-color: var(--colors-neutral-96);
+    }
+
+    &:active {
+      color: var(--colors-neutral-100);
+      border: 1px solid var(--colors-neutral-100);
+      background-color: var(--colors-neutral-90);
+    }
+
+    &:disabled {
+      color: var(--colors-neutral-60);
+      border: 1px solid var(--colors-neutral-90);
+      background-color: var(--colors-neutral-70);
+    }
+  }
+  &-appearance--borderless {
+    color: var(--colors-neutral-100);
+    border: 1px solid transparent;
+    background-color: var(--colors-neutral-70);
+
+    &:hover:not(:focus) {
+      color: var(--colors-neutral-100);
+      border: 1px solid transparent;
+      background-color: var(--colors-neutral-96);
+    }
+
+    &:active {
+      color: var(--colors-neutral-100);
+      border: 1px solid transparent;
+      background-color: var(--colors-neutral-90);
+    }
+
+    &:disabled {
+      color: var(--colors-neutral-60);
+      border: 1px solid transparent;
+      background-color: var(--colors-neutral-70);
+    }
+  }
+  &-appearance--iconButton {
+    &.button__context--neutral-selected,
+    &:active {
+      color: var(--colors-neutral-70);
+      border-color: var(--colors-neutral-100);
+      background-color: var(--colors-neutral-100);
+    }
+    &.button__context--neutral:hover{
+      color: var(--colors-neutral-70);
+      border-color: var(--colors-neutral-100);
+      background-color: var(--colors-neutral-100);
+    }
+  }
+}
+.button__context--success {
+  @include context(
+                  var(--colors-success-70),
+                  var(--colors-success-60),
+                  var(--colors-success-70),
+                  var(--colors-success-80),
+                  var(--colors-success-80)
+  );
+}
+.button__context--primary {
+  @include context(
+                  var(--colors-primary-50),
+                  var(--colors-primary-60),
+                  var(--colors-primary-70),
+                  var(--colors-primary-80),
+                  var(--colors-primary-100)
+  );
+}
+.button__context--secondary {
+  @include context(
+                  var(--colors-secondary-50),
+                  var(--colors-secondary-60),
+                  var(--colors-secondary-70),
+                  var(--colors-secondary-80),
+                  var(--colors-secondary-100)
+  );
+}
+.button__context--attention {
+  @include context(
+                  var(--colors-attention-70),
+                  var(--colors-attention-60),
+                  var(--colors-attention-70),
+                  var(--colors-attention-80),
+                  var(--colors-attention-80)
+  );
+}

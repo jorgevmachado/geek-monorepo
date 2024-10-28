@@ -1,0 +1,140 @@
+@import "../../styles/main";
+
+@mixin context($WeakColor, $MediumColor, $StrongColor) {
+  color: $WeakColor;
+  cursor: pointer;
+  border: none;
+  display: inline-block;
+  background: none;
+  outline-offset: 0.25rem;
+
+  &:hover {
+    color: $MediumColor;
+  }
+
+  &:active {
+    color: $StrongColor;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline-style: none;
+  }
+
+  &-icon {
+    &__position--left {
+      margin-top: var(--dimensions-xx-tiny);
+      margin-right: var(--dimensions-x-tiny);
+    }
+    &__position--right {
+      margin-top: var(--dimensions-xx-tiny);
+      margin-left: var(--dimensions-x-tiny);
+    }
+  }
+
+  &-size {
+    &__small {
+      font-size: var(--text-sizes-small);
+    }
+    &__regular {
+      font-size: var(--text-sizes-regular);
+    }
+    &__large {
+      font-size: var(--text-sizes-large);
+    }
+  }
+
+  &-weight {
+    &__regular {
+      font-weight: var(--text-weights-regular);
+    }
+    &__medium {
+      font-weight: var(--text-weights-medium);
+    }
+    &__semibold {
+      font-weight: var(--text-weights-semi-bold);
+    }
+    &__bold {
+      font-weight: var(--text-weights-bold);
+    }
+  }
+
+  &-appearance--menu {
+    color: var(--colors-neutral-28);
+    cursor: pointer;
+    display: flex;
+    position: relative;
+    text-wrap: nowrap;
+    font-size: var(--dimensions-regular);
+    transition: all 0.2s ease-in-out;
+    font-weight: var(--text-weights-medium);
+    align-items: center;
+    flex-direction: row;
+    text-decoration: none;
+    &::after {
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      content: "";
+      position: absolute;
+      transition: all 0.2s ease-in-out;
+      background-color: transparent;
+    }
+    &:hover::after {
+      width: var(--dimensions-regular);
+      background-color: $MediumColor;
+    }
+    &:hover {
+      color: $StrongColor;
+    }
+  }
+}
+
+.link__context--info {
+  @include context(
+                  var(--colors-info-70),
+                  var(--colors-info-80),
+                  var(--colors-info-90)
+  );
+}
+.link__context--error {
+  @include context(
+                  var(--colors-error-70),
+                  var(--colors-error-80),
+                  var(--colors-error-90)
+  );
+}
+.link__context--neutral {
+  @include context(
+                  var(--colors-neutral-100),
+                  var(--colors-neutral-110),
+                  var(--colors-neutral-120)
+  );
+}
+.link__context--success {
+  @include context(
+                  var(--colors-success-70),
+                  var(--colors-success-80),
+                  var(--colors-success-90)
+  );
+}
+.link__context--primary {
+  @include context(
+                  var(--colors-primary-70),
+                  var(--colors-primary-80),
+                  var(--colors-primary-90)
+  );
+}
+.link__context--secondary {
+  @include context(
+                  var(--colors-secondary-70),
+                  var(--colors-secondary-80),
+                  var(--colors-secondary-90)
+  );
+}
+.link__context--attention {
+  @include context(
+                  var(--colors-attention-70),
+                  var(--colors-attention-80),
+                  var(--colors-attention-90)
+  );
+}

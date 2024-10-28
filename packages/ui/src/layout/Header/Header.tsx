@@ -51,7 +51,7 @@ export default function Header({ user, logo, menu, onLogout, showMobileMenu, han
                                     {item.label}
                                 </Link>
                             ) : (
-                                <GDropdown label={item.label} type="link" context="primary" appearance="navbar">
+                                <GDropdown label={item.label} type="link" context="primary" appearance="menu">
                                     {item?.items?.map((subItem) => (
                                         <Link
                                             key={subItem.key}

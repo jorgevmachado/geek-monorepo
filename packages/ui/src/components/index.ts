@@ -1,4 +1,4 @@
-export { default as GAvatar } from './GAvatar';
+export { default as Avatar } from './Avatar';
 export { default as Icon } from './Icon';
 export { default as GImage } from './GImage';
 export { default as Text } from './Text';

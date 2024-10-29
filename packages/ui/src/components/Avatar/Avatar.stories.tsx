@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import GAvatar from './GAvatar';
+import Avatar from './Avatar';
 
 const meta = {
     title: 'Atoms/GAvatar',
-    component: GAvatar,
+    component: Avatar,
     argTypes: {
         src: {
             type: { name: 'string' },
@@ -49,7 +49,7 @@ const meta = {
             control: { type: 'boolean' },
         },
     }
-} satisfies Meta<typeof GAvatar>;
+} satisfies Meta<typeof Avatar>;
 
 export default meta;
 

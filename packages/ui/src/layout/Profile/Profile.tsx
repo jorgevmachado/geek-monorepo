@@ -3,8 +3,8 @@ import React from 'react';
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
 
 import { Menu,  User } from '../interface';
-import GAvatar from '../../components/GAvatar';
-import { Icon } from '../../components';
+import Avatar from '../../components/Avatar';
+import Icon from '../../components/Icon';
 import Text from '../../components/Text';
 
 import './Profile.scss';
@@ -15,10 +15,10 @@ interface AvatarProps {
     
 }
 
-function Avatar({ user, initialsLength = 2 }: AvatarProps) {
+function AvatarProfile({ user, initialsLength = 2 }: AvatarProps) {
     const picture = user?.picture ? user?.picture : '';
     return (
-        <GAvatar 
+        <Avatar
             size="large"
             name={user?.name}
             initialsLength={initialsLength}
@@ -38,7 +38,7 @@ export default function Profile({ user, children, profileMenu }: GProfileProps) 
         <div className="profile">
             {children}
             <div className="profile__info">
-                <Avatar user={user}/>
+                <AvatarProfile user={user}/>
                 <div>
                     <Text className="profile__info--name">{user.name}</Text>
                     <Text className="profile__info--email"><span>{user.email}</span></Text>

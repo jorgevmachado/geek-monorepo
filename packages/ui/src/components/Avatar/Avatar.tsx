@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import GImage from '../GImage';
 import Text from '../Text';
 
-import './GAvatar.scss';
+import './Avatar.scss';
 
 interface GAvatarProps extends React.HTMLAttributes<Element> {
     readonly src?: string;
@@ -38,7 +38,7 @@ const getNameInitials = (name: string, length: number): string => {
     return format(initials);
 };
 
-export default function GAvatar({
+export default function Avatar({
     src,
     size = 'medium',
     name,
@@ -50,12 +50,12 @@ export default function GAvatar({
     const [isImageLoaded, setImageLoaded] = useState<boolean>(false);
     
     const rootClassList = `
-                g-avatar
-                ${hasNotification ? 'g-avatar__has-notification': ''}
-                g-avatar__size--${size}
+                avatar
+                ${hasNotification ? 'avatar__has-notification': ''}
+                avatar__size--${size}
 `;
     
-    const imageClassList = `g-avatar__img ${isImageLoaded ? 'g-avatar__img--loaded' : ''}`;
+    const imageClassList = `avatar__img ${isImageLoaded ? 'avatar__img--loaded' : ''}`;
 
     const onLoadImage = () => {
         setImageLoaded(true);
@@ -63,7 +63,7 @@ export default function GAvatar({
 
     return (
         <div className={rootClassList} style={{ width: size, height: size }} {...props}>
-            <div className="g-avatar__wrapper">
+            <div className="avatar__wrapper">
                 {Boolean(src) && (
                     <GImage className={imageClassList} alt={name} src={src} onLoad={onLoadImage}/>
                 )}

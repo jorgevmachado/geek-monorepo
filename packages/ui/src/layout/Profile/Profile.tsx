@@ -4,8 +4,8 @@ import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
 
 import { Menu,  User } from '../interface';
 import GAvatar from '../../components/GAvatar';
-import { GIcon } from '../../components';
-import GText from '../../components/GText';
+import { Icon } from '../../components';
+import Text from '../../components/Text';
 
 import './Profile.scss';
 
@@ -40,11 +40,11 @@ export default function Profile({ user, children, profileMenu }: GProfileProps) 
             <div className="profile__info">
                 <Avatar user={user}/>
                 <div>
-                    <GText className="profile__info--name">{user.name}</GText>
-                    <GText className="profile__info--email"><span>{user.email}</span></GText>
+                    <Text className="profile__info--name">{user.name}</Text>
+                    <Text className="profile__info--email"><span>{user.email}</span></Text>
                     <button className="profile__info--button" onClick={profileMenu.onRedirect}>
                         {profileMenu.label}
-                        <GIcon icon={<MdOutlineKeyboardArrowRight />} className="profile__info--button-icon"/>
+                        <Icon icon={<MdOutlineKeyboardArrowRight />} className="profile__info--button-icon"/>
                     </button>
                 </div>
             </div>

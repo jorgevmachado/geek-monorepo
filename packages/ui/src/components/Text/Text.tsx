@@ -6,7 +6,7 @@ import { joinClass } from '../../utils';
 import { formatText, isReactNode, } from './config';
 import { IFormattedText } from './interface';
 
-import './GText.scss';
+import './Text.scss';
 
 type TDisplay =  'ALL' | 'DESKTOP' | 'MOBILE';
 
@@ -39,7 +39,7 @@ interface GTextProps extends React.HTMLProps<Element> {
     readonly children: React.ReactNode | string;
 }
 
-export default function GText({
+export default function Text({
     tag = 'p',
     color = 'neutral-28',
     weight = 'regular',

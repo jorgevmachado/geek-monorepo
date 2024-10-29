@@ -5,7 +5,7 @@ import { OColors } from '../../interfaces';
 import Icon from './Icon';
 
 const meta = {
-    title: 'Atoms/GIcon',
+    title: 'Atoms/Icon',
     component: Icon,
     argTypes: {
         icon: {

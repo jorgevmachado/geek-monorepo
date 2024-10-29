@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import GImage from '../GImage';
-import GText from '../GText';
+import Text from '../Text';
 
 import './GAvatar.scss';
 
@@ -68,9 +68,9 @@ export default function GAvatar({
                     <GImage className={imageClassList} alt={name} src={src} onLoad={onLoadImage}/>
                 )}
                 {!isImageLoaded && (
-                    <GText tag="span" color="neutral-28">
+                    <Text tag="span" color="neutral-28">
                         {getNameInitials(name, initialsLength)}
-                    </GText>
+                    </Text>
                 )}
             </div>
         </div>

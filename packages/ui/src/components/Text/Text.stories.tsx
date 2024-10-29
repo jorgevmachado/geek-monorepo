@@ -2,11 +2,11 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { OColors, OVariant, OWeight } from '../../interfaces';
 
-import GText from './GText';
+import Text from './Text';
 
 const meta = {
     title: 'Atoms/GText',
-    component: GText,
+    component: Text,
     argTypes: {
         tag: {
             type: {
@@ -53,7 +53,7 @@ const meta = {
             },
         }
     }
-} satisfies Meta<typeof GText>;
+} satisfies Meta<typeof Text>;
 
 export default meta;
 

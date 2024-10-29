@@ -5,7 +5,7 @@ import { OColors, OVariant, OWeight } from '../../interfaces';
 import Text from './Text';
 
 const meta = {
-    title: 'Atoms/GText',
+    title: 'Atoms/Text',
     component: Text,
     argTypes: {
         tag: {

@@ -30,7 +30,7 @@ function FormatText({ display, className, formattedText }: FormatTextProps) {
 }
 
 
-interface GTextProps extends React.HTMLProps<Element> {
+interface TextProps extends React.HTMLProps<Element> {
     readonly tag?: string;
     readonly color?: TColors;
     readonly weight?: TWeight;
@@ -47,7 +47,7 @@ export default function Text({
     htmlFor,
     children,
     ...props
-}: GTextProps) {
+}: TextProps) {
 
     const CustomTag = tag as React.ElementType;
 
@@ -55,10 +55,10 @@ export default function Text({
     return (
         <CustomTag
             className={joinClass([
-                'g-text',
+                'text',
                 `g-u-color-${color}`,
-                `g-text__variant--${variant}`,
-                `g-text__weight--${weight}`,
+                `text__variant--${variant}`,
+                `text__weight--${weight}`,
                 `${props.className}`
             ])}
             htmlFor={htmlFor}

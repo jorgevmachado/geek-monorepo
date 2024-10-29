@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import GImage from '../GImage';
+import Image from '../Image';
 import Text from '../Text';
 
 import './Avatar.scss';
@@ -65,7 +65,7 @@ export default function Avatar({
         <div className={rootClassList} style={{ width: size, height: size }} {...props}>
             <div className="avatar__wrapper">
                 {Boolean(src) && (
-                    <GImage className={imageClassList} alt={name} src={src} onLoad={onLoadImage}/>
+                    <Image className={imageClassList} alt={name} src={src} onLoad={onLoadImage}/>
                 )}
                 {!isImageLoaded && (
                     <Text tag="span" color="neutral-28">

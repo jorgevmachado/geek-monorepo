@@ -3,23 +3,23 @@ import { CiCamera } from 'react-icons/ci';
 
 import Icon from '../Icon';
 
-import './GImage.scss';
+import './Image.scss';
 
-interface GImageProps extends React.ImgHTMLAttributes<Element> {
+interface ImageProps extends React.ImgHTMLAttributes<Element> {
     readonly fit?: 'cover' | 'contain';
     readonly lazyLoad?: boolean;
     readonly fallback?: boolean;
     readonly fetchPriority?: 'high' | 'low' | 'auto';
 }
 
-export default function GImage( {
+export default function Image({
     fit,
     lazyLoad = false,
     fallback = true,
     onError: onErrorCallback,
     fetchPriority,
     ...props
-}: GImageProps) {
+}: ImageProps) {
     const [isInvalid, setIsInvalid] = useState(false);
 
     const onError = useCallback<ReactEventHandler<HTMLImageElement>>(
@@ -32,8 +32,8 @@ export default function GImage( {
 
     if (isInvalid && fallback) {
         return (
-            <div className="g-image__fallback" title={props.alt}>
-                <Icon className="g-image__fallback--icon" icon={<CiCamera size={20}/>} />
+            <div className="image__fallback" title={props.alt}>
+                <Icon className="image__fallback--icon" icon={<CiCamera size={20}/>} />
             </div>
         );
     }
@@ -44,7 +44,7 @@ export default function GImage( {
             onError={onError}
             fetchPriority={fetchPriority}
             loading={props.loading ?? (lazyLoad ? 'lazy' : undefined)}
-            className={`${props.className} g-image ${fit ? `g-image__fit-${fit}` : ''}`}
+            className={`${props.className} g-image ${fit ? `image__fit-${fit}` : ''}`}
             alt={props.alt}/>
     );
 }

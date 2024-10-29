@@ -4,7 +4,7 @@ import { FaHamburger } from 'react-icons/fa';
 
 import Button from '../../components/Button';
 import GDropdown from '../../components/GDropdown';
-import GImage from '../../components/GImage';
+import Image from '../../components/Image';
 import Link from '../../components/Link';
 
 import { type Menu, User } from '../interface';
@@ -37,7 +37,7 @@ export default function Header({ user, logo, menu, onLogout, showMobileMenu, han
                     aria-label="sidebar"
                     appearance="iconButton"/>
                 <div className="header-container__brand--logo" onClick={() => window.open('/', '_self', 'noopener')}>
-                    <GImage src={logo} alt="Logo" title="Logo" />
+                    <Image src={logo} alt="Logo" title="Logo" />
                 </div>
             </div>
             <nav className="header-container__nav">

@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import GImage from '../GImage';
+import GImage from './';
 
 const meta = {
-    title: 'Atoms/GImage',
+    title: 'Atoms/Image',
     component: GImage,
     argTypes: {
         fit: {

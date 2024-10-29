@@ -2,7 +2,7 @@ import React from 'react';
 
 import Button from '../../../components/Button';
 import GDropdown from '../../../components/GDropdown';
-import GIcon  from '../../../components/GIcon';
+import Icon  from '../../../components/Icon';
 import { Menu } from '../../interface';
 
 import './SidebarAction.scss';
@@ -47,7 +47,7 @@ export default function SidebarAction({
                     )
                     : (
                         <Button
-                            icon={icon && (<GIcon className="header-sidebar__button--link-icon" icon={icon}/>)}
+                            icon={icon && (<Icon className="header-sidebar__button--link-icon" icon={icon}/>)}
                             context="primary"
                             onClick={onRedirect}
                             appearance="sidebar"

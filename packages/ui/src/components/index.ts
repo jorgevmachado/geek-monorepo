@@ -1,5 +1,5 @@
 export { default as GAvatar } from './GAvatar';
-export { default as GIcon } from './GIcon';
+export { default as GIcon } from './Icon';
 export { default as GImage } from './GImage';
 export { default as GText } from './GText';
 export { default as GDropdown } from './GDropdown';

@@ -2,11 +2,11 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { OColors } from '../../interfaces';
 
-import GIcon from './GIcon';
+import Icon from './Icon';
 
 const meta = {
     title: 'Atoms/GIcon',
-    component: GIcon,
+    component: Icon,
     argTypes: {
         icon: {
             table: {
@@ -30,7 +30,7 @@ const meta = {
 
         },
     }
-} satisfies Meta<typeof GIcon>;
+} satisfies Meta<typeof Icon>;
 
 export default meta;
 

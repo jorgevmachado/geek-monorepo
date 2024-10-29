@@ -1,7 +1,7 @@
 import React, { ReactEventHandler, useCallback, useState } from 'react';
 import { CiCamera } from 'react-icons/ci';
 
-import GIcon from '../GIcon';
+import Icon from '../Icon';
 
 import './GImage.scss';
 
@@ -33,7 +33,7 @@ export default function GImage( {
     if (isInvalid && fallback) {
         return (
             <div className="g-image__fallback" title={props.alt}>
-                <GIcon className="g-image__fallback--icon" icon={<CiCamera size={20}/>} />
+                <Icon className="g-image__fallback--icon" icon={<CiCamera size={20}/>} />
             </div>
         );
     }

@@ -5,7 +5,7 @@ import { IoMdExit } from 'react-icons/io';
 import { MdOutlineSpaceDashboard } from 'react-icons/md';
 
 import Button from '../../components/Button';
-import GIcon from '../../components/GIcon';
+import Icon from '../../components/Icon';
 
 import { Menu, type User } from '../interface';
 
@@ -87,7 +87,7 @@ export default function Sidebar({ type, user, menu, onLogout, showMobileMenu, ha
                 <Profile user={user} profileMenu={profileMenu}>
                     <header className="sidebar__mobile--container-profile">
                         <div className="sidebar__mobile--container-profile__close">
-                            <GIcon onClick={handleToggleMenu} icon={<IoClose size={30}/>}/>
+                            <Icon onClick={handleToggleMenu} icon={<IoClose size={30}/>}/>
                         </div>
                     </header>
                 </Profile>

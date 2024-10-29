@@ -5,7 +5,7 @@ import { joinClass } from '../../utils';
 
 import { getIcon } from './options';
 
-import './GIcon.scss';
+import './Icon.scss';
 
 interface IconProps extends React.HTMLAttributes<HTMLSpanElement> {
     readonly icon: React.ReactNode | TIcon;
@@ -13,9 +13,9 @@ interface IconProps extends React.HTMLAttributes<HTMLSpanElement> {
     readonly color?: TColors;
 }
 
-export default function GIcon({ icon, size, color, ...props }: IconProps) {
+export default function Icon({ icon, size, color, ...props }: IconProps) {
     const classList = joinClass([
-        'g-icon',
+        'icon',
         `${color ? `g-u-color-${color}` : ''}`,
         `${props.className ? props.className : ''}`
     ]);

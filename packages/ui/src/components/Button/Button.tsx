@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import type { TColors, TIcon, TIconPosition } from '../../interfaces';
 import { joinClass } from '../../utils';
 
-import GIcon from '../GIcon';
+import Icon from '../Icon';
 
 import type { ButtonProps } from './interface';
 
@@ -32,7 +32,7 @@ function Content(contentProps: ContentProps) {
     return (
         <>
             {contentProps.icon && contentProps.iconPosition === 'left' && (
-                <GIcon icon={contentProps.icon} className={childrenIconClassName} />
+                <Icon icon={contentProps.icon} className={childrenIconClassName} />
             )}
             <div className={childrenClassName}>
                 <div>{contentProps.children}</div>
@@ -43,7 +43,7 @@ function Content(contentProps: ContentProps) {
                 )}
             </div>
             {contentProps.icon && contentProps.iconPosition === 'right' && (
-                <GIcon icon={contentProps.icon} className={childrenIconClassName} />
+                <Icon icon={contentProps.icon} className={childrenIconClassName} />
             )}
         </>
     );
@@ -108,7 +108,7 @@ export default function Button({
                                             notificationCounter={notificationCounter}>
                         {children}
                 </Content>
-                    : <GIcon icon={icon || 'react'} className={iconClassName}/>
+                    : <Icon icon={icon || 'react'} className={iconClassName}/>
             }
         </button>
     );

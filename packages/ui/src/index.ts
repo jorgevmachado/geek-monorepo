@@ -7,3 +7,4 @@ export * from './animations';
 export * from './components';
 export * from './layout';
 export * from './interfaces';
+export * from './hooks';

@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+
+import useOutsideClick from '../../hooks/useOutsideClick';
 
 import { DropdownProps } from './interface';
 
@@ -7,7 +9,6 @@ import { joinClass } from '../../utils';
 import Activator from './Activator';
 
 import './Dropdown.scss';
-
 
 export default function Dropdown({
 type = 'button',
@@ -18,10 +19,11 @@ disabled,
 onChange,
 children,
 activator,
-appearance = 'standard'
+appearance = 'standard',
+onClickOutside
 }: DropdownProps) {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
+    const ref = useRef<HTMLDivElement>(null);
     const rootClassName = `dropdown__context--${context}-appearance__${appearance}`;
     const classNameList = joinClass([ 'dropdown', rootClassName ]);
     
@@ -54,8 +56,14 @@ appearance = 'standard'
 
     const handleOpenDropdown = () => setIsDropdownOpen(!isDropdownOpen);
 
+    useOutsideClick(ref, () => {
+        onClickOutside && onClickOutside(true);
+        setIsDropdownOpen(false);
+        onChange && onChange(isDropdownOpen);
+    }, []);
+
   return (
-    <div className={classNameList}>
+    <div ref={ref} className={classNameList}>
         <div className={`${rootClassName}--trigger`} onClick={handleClick}>
             {
                 !activator

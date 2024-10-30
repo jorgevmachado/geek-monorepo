@@ -18,7 +18,7 @@ import './Sidebar.scss';
 
 
 interface SidebarProps {
-    user: IUser;
+    user?: IUser;
     menu?: Array<Menu>;
     onLogout?: () => void;
     showMobileMenu?: boolean;

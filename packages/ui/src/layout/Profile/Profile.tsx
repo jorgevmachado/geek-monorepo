@@ -11,7 +11,7 @@ import { Menu } from '../interface';
 import './Profile.scss';
 
 interface AvatarProps {
-    user: IUser;
+    user?: IUser;
     initialsLength?: number;
     
 }
@@ -21,7 +21,7 @@ function AvatarProfile({ user, initialsLength = 2 }: AvatarProps) {
     return (
         <Avatar
             size="large"
-            name={user?.name}
+            name={user?.name || 'username'}
             initialsLength={initialsLength}
             src={picture}
         />
@@ -29,7 +29,7 @@ function AvatarProfile({ user, initialsLength = 2 }: AvatarProps) {
 }
 
 interface GProfileProps {
-    user: IUser;
+    user?: IUser;
     children: React.ReactNode;
     className?: string;
     profileMenu: Menu['items'][number];
@@ -41,8 +41,8 @@ export default function Profile({ user, children, className, profileMenu }: GPro
             <div className="profile__info">
                 <AvatarProfile user={user}/>
                 <div>
-                    <Text className="profile__info--name">{user.name}</Text>
-                    <Text className="profile__info--email"><span>{user.email}</span></Text>
+                    <Text className="profile__info--name">{user?.name}</Text>
+                    <Text className="profile__info--email"><span>{user?.email}</span></Text>
                     <button className="profile__info--button" onClick={profileMenu.onRedirect}>
                         {profileMenu.label}
                         <Icon icon="arrow-right" className="profile__info--button-icon"/>

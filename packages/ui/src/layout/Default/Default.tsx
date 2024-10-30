@@ -115,7 +115,7 @@ function Dropdowns() {
 }
 
 interface DefaultProps {
-    user: IUser;
+    user?: IUser;
     logo: string;
     menu?: Array<Menu>;
     children: React.ReactNode;

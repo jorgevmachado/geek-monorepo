@@ -1,16 +1,17 @@
 import React from 'react';
 
-import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
+import type { IUser } from '@geek/business';
 
-import { Menu,  User } from '../interface';
 import Avatar from '../../components/Avatar';
 import Icon from '../../components/Icon';
 import Text from '../../components/Text';
 
+import { Menu } from '../interface';
+
 import './Profile.scss';
 
 interface AvatarProps {
-    user: { name: string; email: string; picture?: string;};
+    user: IUser;
     initialsLength?: number;
     
 }
@@ -28,7 +29,7 @@ function AvatarProfile({ user, initialsLength = 2 }: AvatarProps) {
 }
 
 interface GProfileProps {
-    user: User;
+    user: IUser;
     children: React.ReactNode;
     className?: string;
     profileMenu: Menu['items'][number];
@@ -44,7 +45,7 @@ export default function Profile({ user, children, className, profileMenu }: GPro
                     <Text className="profile__info--email"><span>{user.email}</span></Text>
                     <button className="profile__info--button" onClick={profileMenu.onRedirect}>
                         {profileMenu.label}
-                        <Icon icon={<MdOutlineKeyboardArrowRight />} className="profile__info--button-icon"/>
+                        <Icon icon="arrow-right" className="profile__info--button-icon"/>
                     </button>
                 </div>
             </div>

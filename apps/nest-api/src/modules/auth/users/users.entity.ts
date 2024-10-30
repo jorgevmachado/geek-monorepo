@@ -28,6 +28,9 @@ export class Users implements IUser {
   @Column({ nullable: false, default: EStatus.INCOMPLETE })
   status: EStatus;
 
+  @Column({ nullable: true })
+  picture?: string;
+
   @Column({ nullable: false })
   password?: string;
 

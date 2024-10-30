@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import { IUser } from '@geek/business';
+
 import Fade from '../../animations/fade';
 import Header from '../Header';
 import Sidebar from '../Sidebar';
@@ -8,10 +10,11 @@ import Button, { GenerateButtons } from '../../components/Button';
 import Dropdown, { GenerateDropdowns } from '../../components/Dropdown';
 import Link, { GenerateLinks } from '../../components/Link';
 
-import type { Menu, User } from '../interface';
+import type { Menu } from '../interface';
+
+import { TColors } from '../../interfaces';
 
 import './Default.scss';
-import { TColors } from '../../interfaces';
 
 function Buttons() {
     return GenerateButtons({ icon: 'react', iconPosition: 'left' }).map((group) => (
@@ -112,7 +115,7 @@ function Dropdowns() {
 }
 
 interface DefaultProps {
-    user: User;
+    user: IUser;
     logo: string;
     menu?: Array<Menu>;
     children: React.ReactNode;

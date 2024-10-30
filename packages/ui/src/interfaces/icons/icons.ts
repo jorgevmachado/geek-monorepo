@@ -7,7 +7,8 @@ export type TIcon =
     'calendar' |
     'document' |
     'dashboard' |
-    'hamburger';
+    'hamburger' |
+    'arrow-right';
 
 export const OIcon: Array<TIcon> = [
     'user',
@@ -17,7 +18,8 @@ export const OIcon: Array<TIcon> = [
     'phone',
     'calendar',
     'document',
-    'hamburger'
+    'hamburger',
+    'arrow-right'
 ];
 
 export type TIconPosition = 'left' | 'right';

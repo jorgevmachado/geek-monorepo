@@ -1,11 +1,13 @@
 import React from 'react';
 
+import type { IUser } from '@geek/business';
+
 import { IoClose } from 'react-icons/io5';
 
 import Button from '../../components/Button';
 import Icon from '../../components/Icon';
 
-import { Menu, type User } from '../interface';
+import { Menu } from '../interface';
 
 import Profile from '../Profile';
 
@@ -14,8 +16,9 @@ import SidebarAction from './SidebarAction';
 
 import './Sidebar.scss';
 
+
 interface SidebarProps {
-    user: User;
+    user: IUser;
     menu?: Array<Menu>;
     onLogout?: () => void;
     showMobileMenu?: boolean;

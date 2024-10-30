@@ -51,6 +51,7 @@
   "dependencies": {
     "react": "^18.2.0",
     "sass": "^1.79.4",
-    "sass-loader": "^16.0.2"
+    "sass-loader": "^16.0.2",
+    "@geek/business": "*"
   }
 }

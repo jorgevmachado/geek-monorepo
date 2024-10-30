@@ -1,11 +1,12 @@
 import React from 'react';
 
 import { CiCalendar, CiHeart, CiPhone, CiUser } from 'react-icons/ci';
+import { MdOutlineKeyboardArrowRight, MdOutlineSpaceDashboard } from 'react-icons/md';
 import { FaHamburger } from 'react-icons/fa';
 import { FaReact } from 'react-icons/fa6';
 import { IoDocumentTextOutline } from 'react-icons/io5';
 import { IoMdExit } from 'react-icons/io';
-import { MdOutlineSpaceDashboard } from 'react-icons/md';
+
 
 import type { TColors, TIcon } from '../../interfaces';
 
@@ -30,6 +31,8 @@ export function getIcon(icon: TIcon, size?: string | number, color?: TColors) {
             return <MdOutlineSpaceDashboard size={size || '1em'} color={color}/>;
         case 'hamburger':
             return <FaHamburger size={size || '1em'} color={color}/>;
+        case 'arrow-right':
+            return <MdOutlineKeyboardArrowRight size={size || '1em'} color={color}/>;
         case 'react':
         default:
             return <FaReact size={size || '1em'} color={color} />;

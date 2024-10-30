@@ -3,10 +3,10 @@ import { Default } from '@geek/ui';
 
 import { config } from '../config';
 
-export default function Rental() {
+export default function Help() {
     return (
         <Default {...config}>
-            <h3> ALUGUEL </h3>
+            <h1> Help </h1>
         </Default>
     );
 }

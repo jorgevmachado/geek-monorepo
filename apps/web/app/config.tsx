@@ -1,14 +1,21 @@
+import { ERole, EStatus, type IUser } from '@geek/business';
 import { type Menu } from '@geek/ui';
 
 const logo = '/logo/logo.svg';
 
-const user = {
-    name: 'Jorge Luiz',
+const user: IUser = {
+    id: 'xpto',
+    cpf: '00256337160',
+    name: 'Jorge Luiz Vieira da Silva Machado',
     email: 'jorge.vmachado@gmail.com',
+    role: ERole.ADMIN,
+    status: EStatus.ACTIVE,
+    createdAt: new Date('2024-01-01'),
+    updatedAt:  new Date('2024-01-01'),
 };
 
 const onLogout = () => {
-    window.open('/anuncio/cadastrar/', '_self', 'noopener');
+    console.log('logout');
 };
 
 const menu: Array<Menu> = [
@@ -16,105 +23,19 @@ const menu: Array<Menu> = [
         key: 'navbar',
         items: [
             {
-                key: 'rental',
-                path: '/aluguel',
-                label: 'Alugar',
+                key: 'about',
+                label: 'Sobre',
+                path: '/about',
                 onRedirect: () => {
-                    window.open('/aluguel', '_self', 'noopener');
-                },
-            },
-            {
-                key: 'sale',
-                label: 'Comprar',
-                path: '/venda',
-                onRedirect: () => {
-                    window.open('/venda', '_self', 'noopener');
-                },
-            },
-            {
-                key: 'developments',
-                path: '/',
-                label: 'Lançamentos',
-                items: [
-                    {
-                        key: 'on-the-plant',
-                        label: 'Na planta',
-                        path: '/lancamentos/imoveis/na-planta',
-                        onRedirect: () => {
-                            window.open('/lancamentos/imoveis/na-planta', '_self', 'noopener');
-                        },
-                    },
-                    {
-                        key: 'under-construction',
-                        label: 'Em construção',
-                        path: '/lancamentos/imoveis/em-construcao',
-                        onRedirect: () => {
-                            window.open('/lancamentos/imoveis/em-construcao', '_self', 'noopener');
-                        },
-                    },
-                    {
-                        key: 'ready-to-live',
-                        label: 'Pronto para morar',
-                        path: '/lancamentos/imoveis/pronto-para-morar',
-                        onRedirect: () => {
-                            window.open('/lancamentos/imoveis/pronto-para-morar', '_self', 'noopener');
-                        },
-                    },
-                    {
-                        key: 'all-properties',
-                        label: 'Todos os imóveis',
-                        path: '/lancamentos',
-                        onRedirect: () => {
-                            window.open('/lancamentos', '_self', 'noopener');
-                        },
-                    },
-                ],
-            },
-            {
-                key: 'advertising',
-                path: '/',
-                label: 'Anunciar',
-                items: [
-                    {
-                        key: 'broker',
-                        label: 'Sou corretor(a)/imobiliária',
-                        path: '/corretor',
-                        onRedirect: () => {
-                            window.open('/corretor', '_self', 'noopener');
-                        },
-                    },
-                    {
-                        key: 'owner',
-                        label: 'Sou proprietário(a)',
-                        path: '/proprietarios',
-                        onRedirect: () => {
-                            window.open('/proprietarios', '_self', 'noopener');
-                        },
-                    },
-                ]
-            },
-            {
-                key: 'discovery',
-                label: 'Descobrir',
-                path: '/descobrir',
-                onRedirect: () => {
-                    window.open('/descobrir', '_self', 'noopener');
-                },
-            },
-            {
-                key: 'financing',
-                label: 'Financiamento',
-                path: '/financiamento',
-                onRedirect: () => {
-                    window.open('/financiamento', '_self', 'noopener');
+                    window.open('/about', '_self', 'noopener');
                 },
             },
             {
                 key: 'help',
                 label: 'Ajuda',
-                path: '/ajuda',
+                path: '/help',
                 onRedirect: () => {
-                    window.open('/ajuda', '_self', 'noopener');
+                    window.open('/help', '_self', 'noopener');
                 },
             }
         ]
@@ -130,66 +51,24 @@ const menu: Array<Menu> = [
                         key: 'profile',
                         icon: 'user',
                         label: 'Meus dados',
-                        path: '/meus-dados',
+                        path: '/profile',
                         onRedirect: () => {
-                            window.open('/meus-dados', '_self', 'noopener');
+                            window.open('/profile', '_self', 'noopener');
                         }
                     },
                 ],
             },
             {
-                key: 'searching',
-                label: 'Buscando imóveis',
+                key: 'pokemons',
+                label: 'Pokemons',
                 items: [
                     {
-                        key: 'favorites',
-                        icon: 'like',
-                        label: 'Favoritos',
-                        path: '/favoritos',
-                        onRedirect: () => {
-                            window.open('/favoritos', '_self', 'noopener');
-                        }
-                    },
-                    {
-                        key: 'contracted-advertisements',
-                        icon: 'phone',
-                        label: 'Anúncios contatados',
-                        path: '/contatados',
-                        onRedirect: () => {
-                            window.open('/contatados', '_self', 'noopener');
-                        }
-                    },
-                    {
-                        key: 'requested-visits',
-                        icon: 'calendar',
-                        label: 'Visitas solicitadas',
-                        path: '/minhas-visitas',
-                        onRedirect: () => {
-                            window.open('/minhas-visitas', '_self', 'noopener');
-                        }
-                    },
-                    {
-                        key: 'proposals-sent',
-                        icon: 'document',
-                        label: 'Propostas enviadas',
-                        path: '/minhas-propostas',
-                        onRedirect: () => {
-                            window.open('/minhas-propostas', '_self', 'noopener');
-                        }
-                    },
-                ]
-            },
-            {
-                key: 'owners',
-                label: 'Anunciando imóveis',
-                items: [
-                    {
-                        key: 'publisher',
-                        label: 'Anunciar meu imóvel',
-                        path: '/anuncio/cadastrar/',
+                        key: 'my-pokemons',
+                        label: 'Meus Pokemons',
+                        path: '/pokemons',
                         counter: 96,
                         onRedirect: () => {
-                            window.open('/anuncio/cadastrar/', '_self', 'noopener');
+                            window.open('/pokemons', '_self', 'noopener');
                         }
                     }
                 ]
@@ -202,7 +81,7 @@ const menu: Array<Menu> = [
                         icon: 'exit',
                         key: 'logout',
                         label: 'Sair',
-                        path: '/anuncio/cadastrar/',
+                        path: '/logout',
                         onRedirect: onLogout
                     }
                 ]

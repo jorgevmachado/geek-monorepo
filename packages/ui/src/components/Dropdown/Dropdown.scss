@@ -1,0 +1,200 @@
+@import "../../styles/colors";
+
+@mixin context($LightColor, $DarkColor) {
+  &-appearance__navbar {
+    &--content-type__link ,
+    &--content-type__button {
+      top: 100%;
+      width: auto;
+      z-index: 101;
+      padding: 1rem 0;
+      position: absolute;
+    }
+    &--content-type__link {
+      margin-top: var(--dimensions-tiny);
+      box-shadow: var(--shadows-x-small);
+      border-radius: var(--borders-regular);
+      background-color: var(--colors-neutral-70);
+      .link {
+        padding: .75rem 1.25rem;
+        &:hover {
+          color: var(--colors-neutral-12);
+          background-color: $DarkColor;
+        }
+      }
+    }
+    &--content-type__button {
+      .button {
+        padding: .75rem 1.25rem;
+        margin-top: var(--dimensions-tiny);
+      }
+    }
+  }
+  &-appearance__sidebar {
+    &--trigger {
+      &-activator__type--link,
+      &-activator__type--button {
+        .button {
+          color: $DarkColor;
+          width: 100%;
+          display: flex;
+          border: 1px solid transparent;
+          padding: 2rem 1.5rem;
+          font-size: var(--dimensions-regular);
+          font-weight: var(--text-weights-semi-bold);
+          align-items: center;
+          flex-direction: row;
+          background-color: transparent;
+          justify-content: space-between;
+          &:hover, &:focus {
+            border: none;
+            border-radius: inherit;
+            background-color: var(--colors-primary-80);
+          }
+        }
+        .link {
+          color: $DarkColor;
+          width: 100%;
+          display: flex;
+          border: 1px solid transparent;
+          padding: 1rem;
+          font-size: var(--dimensions-regular);
+          font-weight: var(--text-weights-semi-bold);
+          align-items: center;
+          flex-direction: row;
+          background-color: transparent;
+          justify-content: space-between;
+          &:hover, &:focus {
+            border: none;
+            border-radius: inherit;
+            background-color: var(--colors-primary-80);
+          }
+        }
+      }
+    }
+    &--content-type__link,
+    &--content-type__button {
+      padding: 0;
+      background-color: $LightColor;
+      .button {
+        &__context--info,
+        &__context--error,
+        &__context--neutral,
+        &__context--success,
+        &__context--primary,
+        &__context--secondary,
+        &__context--attention, {
+          &-appearance__standard,
+          &-appearance__outline,
+          &-appearance__borderless,
+          &-appearance__iconButton {
+            width: 100%;
+            margin-top: var(--dimensions-tiny);
+          }
+        }
+      }
+      .link {
+        &__context--info,
+        &__context--error,
+        &__context--neutral,
+        &__context--success,
+        &__context--primary,
+        &__context--secondary,
+        &__context--attention, {
+          &-appearance__menu,
+          &-appearance__standard {
+            width: 100%;
+            display: flex;
+            margin-top: var(--dimensions-tiny);
+            align-items: center;
+            justify-content: center;
+          }
+        }
+      }
+
+    }
+  }
+  &-appearance__standard {
+    &--content-type__link {
+      top: 100%;
+      display: flex;
+      flex-direction: column;
+      width: auto;
+      z-index: 101;
+      padding: 1rem 0;
+      position: absolute;
+      margin-top: var(--dimensions-tiny);
+      box-shadow: var(--shadows-x-small);
+      border-radius: var(--borders-regular);
+      background-color: var(--colors-neutral-70);
+      .link {
+        padding: .75rem 1.25rem;
+      }
+    }
+    &--content-type__button {
+      .button {
+        &__context--info,
+        &__context--error,
+        &__context--neutral,
+        &__context--success,
+        &__context--primary,
+        &__context--secondary,
+        &__context--attention, {
+          &-appearance__standard,
+          &-appearance__outline,
+          &-appearance__borderless,
+          &-appearance__iconButton {
+            margin-top: var(--dimensions-tiny);
+          }
+        }
+      }
+    }
+  }
+}
+.dropdown {
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  &__context--info {
+    @include context(
+      var(--colors-info-60),
+      var(--colors-info-100)
+    );
+  }
+  &__context--error {
+    @include context(
+        var(--colors-error-60),
+        var(--colors-error-100)
+    );
+  }
+  &__context--neutral {
+    @include context(
+      var(--colors-neutral-60),
+      var(--colors-neutral-100)
+    );
+  }
+  &__context--success {
+    @include context(
+        var(--colors-success-60),
+        var(--colors-success-100)
+    );
+  }
+  &__context--primary {
+    @include context(
+        var(--colors-primary-50),
+        var(--colors-primary-100)
+    );
+  }
+  &__context--secondary {
+    @include context(
+        var(--colors-secondary-50),
+        var(--colors-secondary-100)
+    );
+  }
+  &__context-attention {
+    @include context(
+        var(--colors-attention-60),
+        var(--colors-attention-100),
+    );
+  }
+}

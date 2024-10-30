@@ -20,14 +20,16 @@ interface ContentProps {
 }
 
 function Content(contentProps: ContentProps) {
+    const rootChildrenClassName = `${contentProps.className}--children`;
     const childrenClassName = joinClass([
-        `${contentProps.className}-children`,
-        `${contentProps.notificationCounter ? `${contentProps.className}-children__notification` : ''}`
+        rootChildrenClassName,
+        `${contentProps.notificationCounter ? `${rootChildrenClassName}-notification` : ''}`
     ]);
 
     const childrenIconClassName = joinClass([
-        `${contentProps.className}-icon__position--${contentProps.iconPosition} g-u-color-${contentProps.iconColor}`,
-        `${contentProps.iconClassName}`
+        `${rootChildrenClassName}-icon__position--${contentProps.iconPosition} `,
+        `${contentProps.iconColor ? `g-u-color-${contentProps.iconColor}` : ''} `,
+        `${contentProps.iconClassName ? contentProps.iconClassName : ''}`
     ]);
     return (
         <>
@@ -37,7 +39,7 @@ function Content(contentProps: ContentProps) {
             <div className={childrenClassName}>
                 <div>{contentProps.children}</div>
                 { contentProps.notificationCounter && (
-                    <div className={`${contentProps.className}-children__notification--counter`}>
+                    <div className={`${rootChildrenClassName}-notification__counter`}>
                         {contentProps.notificationCounter > 9 ? '9+' : contentProps.notificationCounter}
                     </div>
                 )}
@@ -61,7 +63,7 @@ export default function Button({
     children,
     disabled,
     iconColor,
-    appearance,
+    appearance = 'standard',
     iconPosition = 'left',
     iconClassName,
     notificationCounter,
@@ -82,10 +84,12 @@ export default function Button({
 
     const rootClassName = `button__context--${context}`;
 
+    const rootAppearanceClassName = `${rootClassName}-appearance__${appearance}`;
+
     const classNameList = joinClass([
         'button',
         rootClassName,
-        `${iconPosition && hasLabel ? `${rootClassName}-icon--${iconPosition}` : ''}`,
+        rootAppearanceClassName,
         `${rootClassName}-size__${size}`,
         `${focus ? `${rootClassName}-focus` : ''}`,
         `${fluid ? `${rootClassName}-fluid` : ''}`,
@@ -93,7 +97,6 @@ export default function Button({
         `${rounded ? `${rootClassName}-rounded` : ''}`,
         `${!hasLabel ? `${rootClassName}-no-label` : ''}`,
         `${selected ? `${rootClassName}-selected` : ''}`,
-        `${rootClassName}-appearance--${appearance}`,
         `${props.className}`
     ]);
     return (
@@ -102,7 +105,7 @@ export default function Button({
                 !isAppearanceIconButton ? <Content
                                             icon={icon}
                                             iconColor={iconColor}
-                                            className={rootClassName}
+                                            className={rootAppearanceClassName}
                                             iconPosition={iconPosition}
                                             iconClassName={iconClassName}
                                             notificationCounter={notificationCounter}>

@@ -3,14 +3,17 @@ import React from 'react';
 import { TContext, TType } from '../../interfaces';
 
 export type TAppearance =
-    | 'menu'
+    | 'navbar'
     | 'sidebar'
-    | 'outline'
-    | 'standard'
-    | 'borderless'
-    | 'iconButton';
+    | 'standard';
 
-export interface GDropdownProps {
+export const OAppearance: Array<TAppearance> = [
+    'navbar',
+    'sidebar',
+    'standard'
+];
+
+export interface DropdownProps {
     type?: TType;
     label?: string;
     isOpen?: boolean;

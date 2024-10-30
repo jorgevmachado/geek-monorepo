@@ -70,7 +70,7 @@ export default function Link({
         `${iconPosition ? `${rootClassName}-icon--${iconPosition}` : ''}`,
         `${rootClassName}-size__${size}`,
         `${rootClassName}-weight__${weight}`,
-        `${rootClassName}-appearance--${appearance}`,
+        `${rootClassName}-appearance__${appearance}`,
         `${props.className}`
     ]);
     return (

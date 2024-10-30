@@ -3,7 +3,7 @@ import React from 'react';
 import { FaHamburger } from 'react-icons/fa';
 
 import Button from '../../components/Button';
-import GDropdown from '../../components/GDropdown';
+import Dropdown from '../../components/Dropdown';
 import Image from '../../components/Image';
 import Link from '../../components/Link';
 
@@ -51,7 +51,7 @@ export default function Header({ user, logo, menu, onLogout, showMobileMenu, han
                                     {item.label}
                                 </Link>
                             ) : (
-                                <GDropdown label={item.label} type="link" context="primary" appearance="menu">
+                                <Dropdown label={item.label} type="link" context="primary" appearance="navbar">
                                     {item?.items?.map((subItem) => (
                                         <Link
                                             key={subItem.key}
@@ -63,7 +63,7 @@ export default function Header({ user, logo, menu, onLogout, showMobileMenu, han
                                             {subItem.label}
                                         </Link>
                                     ))}
-                                </GDropdown>
+                                </Dropdown>
                             )}
                         </li>
                     ))}

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Button from '../../../components/Button';
-import GDropdown from '../../../components/GDropdown';
+import Dropdown from '../../../components/Dropdown';
 import Icon  from '../../../components/Icon';
 import { Menu } from '../../interface';
 
@@ -30,7 +30,7 @@ export default function SidebarAction({
             {
                 type !== 'button'
                     ? (
-                        <GDropdown label={label} type="button" context="primary" appearance="sidebar">
+                        <Dropdown label={label} type="button" context="primary" appearance="sidebar">
                             {
                                 items?.map((item) => (
                                     <Button
@@ -43,7 +43,7 @@ export default function SidebarAction({
                                     </Button>
                                 ))
                             }
-                        </GDropdown>
+                        </Dropdown>
                     )
                     : (
                         <Button

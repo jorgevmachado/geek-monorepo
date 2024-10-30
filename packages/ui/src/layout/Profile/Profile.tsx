@@ -30,12 +30,12 @@ function AvatarProfile({ user, initialsLength = 2 }: AvatarProps) {
 interface GProfileProps {
     user: User;
     children: React.ReactNode;
+    className?: string;
     profileMenu: Menu['items'][number];
-
 }
-export default function Profile({ user, children, profileMenu }: GProfileProps) {
+export default function Profile({ user, children, className, profileMenu }: GProfileProps) {
     return (
-        <div className="profile">
+        <div className={`profile ${className ? className : ''}`}>
             {children}
             <div className="profile__info">
                 <AvatarProfile user={user}/>

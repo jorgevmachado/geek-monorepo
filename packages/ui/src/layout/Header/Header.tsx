@@ -7,24 +7,17 @@ import Dropdown from '../../components/Dropdown';
 import Image from '../../components/Image';
 import Link from '../../components/Link';
 
-import { type Menu, User } from '../interface';
-
-import Sidebar from '../Sidebar';
+import { type Menu } from '../interface';
 
 import './Header.scss';
 
 interface HeaderProps {
-    user: User;
     logo: string;
-    menu?: Array<Menu>;
-    onLogout: () => void;
-    showMobileMenu?: boolean;
+    navbar?: Menu['items'];
     handleToggleMenu?: () => void;
 }
 
-export default function Header({ user, logo, menu, onLogout, showMobileMenu, handleToggleMenu }: HeaderProps) {
-
-    const navbar = menu?.find((group) => group.key === 'navbar')?.items;
+export default function Header({ logo, navbar, handleToggleMenu }: HeaderProps) {
 
     return (
         <header className="header-container">
@@ -69,14 +62,6 @@ export default function Header({ user, logo, menu, onLogout, showMobileMenu, han
                     ))}
                 </ul>
             </nav>
-            <Sidebar
-                type="mobile"
-                user={user}
-                menu={menu}
-                onLogout={onLogout}
-                showMobileMenu={showMobileMenu}
-                handleToggleMenu={handleToggleMenu}
-            />
         </header>
     );
 }

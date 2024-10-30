@@ -1,4 +1,5 @@
 import React from 'react';
+import type { TIcon } from '../interfaces';
 
 export interface User {
     name: string;
@@ -8,7 +9,7 @@ export interface User {
 
 interface MenuItem {
     key: string;
-    icon?: React.ReactNode;
+    icon?: React.ReactNode | TIcon;
     path?: string;
     label: string;
     counter?: number;

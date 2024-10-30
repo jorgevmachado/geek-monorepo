@@ -127,24 +127,21 @@ export default function Default({ user, logo, menu, children, onLogout }: Defaul
         setShowMobileMenu(!showMobileMenu);
     };
 
+    const navbar = menu?.find((group) => group.key === 'navbar')?.items;
+
     return (
         <Fade>
             <Header
-                user={user}
                 logo={logo}
-                menu={menu}
-                onLogout={onLogout}
-                showMobileMenu={showMobileMenu}
+                navbar={navbar}
                 handleToggleMenu={handleToggleMenu}/>
             <main className="main-container">
                 <Sidebar
-                    type="desktop"
                     user={user}
                     menu={menu}
                     onLogout={onLogout}
                     showMobileMenu={showMobileMenu}
-                    handleToggleMenu={handleToggleMenu}
-                />
+                    handleToggleMenu={handleToggleMenu}/>
                 <div className="main-content">
                     {children}
                 </div>

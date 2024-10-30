@@ -1,8 +1,3 @@
-import React from 'react';
-
-import { CiCalendar, CiHeart, CiPhone, CiUser } from 'react-icons/ci';
-import { IoDocumentTextOutline } from 'react-icons/io5';
-
 import { type Menu } from '@geek/ui';
 
 const logo = '/logo/logo.svg';
@@ -10,6 +5,10 @@ const logo = '/logo/logo.svg';
 const user = {
     name: 'Jorge Luiz',
     email: 'jorge.vmachado@gmail.com',
+};
+
+const onLogout = () => {
+    window.open('/anuncio/cadastrar/', '_self', 'noopener');
 };
 
 const menu: Array<Menu> = [
@@ -129,7 +128,7 @@ const menu: Array<Menu> = [
                 items: [
                     {
                         key: 'profile',
-                        icon: <CiUser/>,
+                        icon: 'user',
                         label: 'Meus dados',
                         path: '/meus-dados',
                         onRedirect: () => {
@@ -144,7 +143,7 @@ const menu: Array<Menu> = [
                 items: [
                     {
                         key: 'favorites',
-                        icon: <CiHeart />,
+                        icon: 'like',
                         label: 'Favoritos',
                         path: '/favoritos',
                         onRedirect: () => {
@@ -153,7 +152,7 @@ const menu: Array<Menu> = [
                     },
                     {
                         key: 'contracted-advertisements',
-                        icon: <CiPhone />,
+                        icon: 'phone',
                         label: 'Anúncios contatados',
                         path: '/contatados',
                         onRedirect: () => {
@@ -162,7 +161,7 @@ const menu: Array<Menu> = [
                     },
                     {
                         key: 'requested-visits',
-                        icon: <CiCalendar />,
+                        icon: 'calendar',
                         label: 'Visitas solicitadas',
                         path: '/minhas-visitas',
                         onRedirect: () => {
@@ -171,7 +170,7 @@ const menu: Array<Menu> = [
                     },
                     {
                         key: 'proposals-sent',
-                        icon: <IoDocumentTextOutline />,
+                        icon: 'document',
                         label: 'Propostas enviadas',
                         path: '/minhas-propostas',
                         onRedirect: () => {
@@ -194,6 +193,19 @@ const menu: Array<Menu> = [
                         }
                     }
                 ]
+            },
+            {
+                key: 'logout',
+                label: '',
+                items: [
+                    {
+                        icon: 'exit',
+                        key: 'logout',
+                        label: 'Sair',
+                        path: '/anuncio/cadastrar/',
+                        onRedirect: onLogout
+                    }
+                ]
             }
         ]
     },
@@ -203,7 +215,5 @@ export const config = {
     logo,
     user,
     menu,
-    onLogout: () => {
-        window.open('/anuncio/cadastrar/', '_self', 'noopener');
-    }
+    onLogout
 };

@@ -85,6 +85,17 @@
       "**/*.(t|j)s"
     ],
     "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "moduleNameMapper": {
+      "@/(.*)": "<rootDir>/$1"
+    },
+    "coveragePathIgnorePatterns": [
+      "main.ts",
+      ".module.ts",
+      ".strategy.ts",
+      ".decorator.ts",
+      ".guards.ts",
+      ".entity.ts"
+    ]
   }
 }

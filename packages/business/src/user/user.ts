@@ -22,7 +22,7 @@ export interface IUser {
   picture?: string;
   password?: string;
   createdAt: Date;
-  updatedAt: Date;
+  updatedAt?: Date;
   deletedAt?: Date;
   dateOfBirth?: Date;
   recoverToken?: string;

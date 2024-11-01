@@ -177,3 +177,5 @@ build
 *.pem
 
 *storybook.log
+
+*.js

@@ -1,10 +1,25 @@
 {
   "name": "@geek/services",
   "version": "0.0.0",
-  "private": true,
+  "main": "dist/index.js",
+  "type": "module",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./*": {
+      "import": "./dist/*/index.js",
+      "require": "./dist/*/index.js",
+      "types": "./dist/*/index.d.ts"
+    }
+  },
   "scripts": {
     "lint": "eslint . --max-warnings 0 --fix",
-    "build": "rimraf dist && tsc && tsc-alias -p tsconfig.json",
+    "build": "rimraf dist && tsc && tsc-alias -p tsconfig.aliases.json",
     "generate": "turbo gen service"
   },
   "devDependencies": {

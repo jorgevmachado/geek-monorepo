@@ -8,11 +8,10 @@ import {
 } from 'class-validator';
 import { Transform } from 'class-transformer';
 
-import { EGender } from '@geek/business';
-
 import { Match } from '../../../shared/decorators/match.decorator';
 
 import { CPF } from '../decorators/cpf.decorator';
+import { EGender } from '../users/user.interface';
 
 export class CreateAuthDto {
   /**

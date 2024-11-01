@@ -2,10 +2,10 @@ import { BadRequestException, ForbiddenException, UnprocessableEntityException }
 import { Test, TestingModule } from '@nestjs/testing';
 import { JwtService } from '@nestjs/jwt';
 
-
-import { ERole, EStatus } from '@geek/business';
+import { EStatus } from '../../interfaces/status.interface';
 
 import { AuthService } from './auth.service';
+import { ERole } from './users/user.interface';
 import { USER_FIXTURE } from './users/users.fixture';
 import { UsersService } from './users/users.service';
 

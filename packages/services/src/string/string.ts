@@ -1,4 +1,4 @@
-import { serialize } from '@/object';
+import { serialize } from '../object';
 
 export function formatUrl(url: string, path: string, params = {}) {
   const query = serialize(params);

@@ -1,6 +1,6 @@
-import { EGender, ERole, EStatus, type IUser } from '@geek/business';
-
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import { EGender, ERole, type IUser } from './user.interface';
+import { EStatus } from '../../../interfaces/status.interface';
 
 @Entity({ name: 'users' })
 export class Users implements IUser {

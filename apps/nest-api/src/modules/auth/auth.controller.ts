@@ -1,12 +1,11 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post, Query, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 
-import { ERole } from '@geek/business';
-
 import { AuthRoleGuards } from './auth-role.guards';
 import { AuthService } from './auth.service';
 import { CreateAuthDto } from './dto/create-auth.dto';
 import { CredentialsAuthDto } from './dto/credentials-auth.dto';
+import { ERole } from './users/user.interface';
 import { FilterAuthDto } from './dto/filter-auth.dto';
 import { GetUserAuth } from './auth-user.decorator';
 import { Role } from './auth-role.decorator';

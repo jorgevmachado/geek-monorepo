@@ -4,8 +4,9 @@ import { getRepositoryToken } from '@nestjs/typeorm';
 
 import { Repository } from 'typeorm';
 
-import { ERole, EStatus } from '@geek/business';
+import { EStatus } from '../../../interfaces/status.interface';
 
+import { ERole } from './user.interface';
 import { USER_FIXTURE } from './users.fixture';
 import { Users } from './users.entity';
 import { UsersService } from './users.service';

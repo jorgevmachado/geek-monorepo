@@ -5,15 +5,15 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { isArray } from 'class-validator';
 
-import { EGender, ERole, EStatus } from '@geek/business';
-
-import { IFilterParams, Service } from '../../../shared/service';
+import { type IFilterParams, Service } from '../../../shared/service';
+import { EStatus } from '../../../interfaces/status.interface';
 
 import { CreateAuthDto } from '../dto/create-auth.dto';
 import { CredentialsAuthDto } from '../dto/credentials-auth.dto';
 import { FilterAuthDto } from '../dto/filter-auth.dto';
 import { UpdateAuthDto } from '../dto/update-auth.dto';
 
+import { EGender, ERole } from './user.interface';
 import { Users } from './users.entity';
 
 @Injectable()

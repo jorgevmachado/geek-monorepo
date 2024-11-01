@@ -8,8 +8,7 @@ import {
 } from 'class-validator';
 import { Transform } from 'class-transformer';
 
-import { EGender, ERole } from '@geek/business';
-
+import { EGender, ERole } from '../users/user.interface';
 import { CPF } from '../decorators/cpf.decorator';
 
 export class UpdateAuthDto {

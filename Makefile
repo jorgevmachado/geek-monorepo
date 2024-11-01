@@ -31,20 +31,32 @@ clean-dependencies:
 	$(call delete_in_project,packages/eslint-config,node_modules)
 	$(call delete_in_project,packages/tokens,node_modules)
 
-clean-builds:
-	$(call delete_in_project,packages/business,dist)
+services-clean:
 	$(call delete_in_project,packages/services,dist)
-	$(call delete_in_project,packages/typescript-config,dist)
-	$(call delete_in_project,packages/ui,dist)
+
+tokens-clean:
 	$(call delete_in_project,packages/tokens,dist)
+
+business-clean:
+	$(call delete_in_project,packages/business,dist)
+
+typescript-config-clean:
+	$(call delete_in_project,packages/typescript-config,dist)
+
+ui-clean:
+	$(call delete_in_project,packages/ui,dist)
+
+clean-builds:
+	make services-clean
+	make tokens-clean
+	make business-clean
+	make typescript-config-clean
+	make ui-clean
 
 clean-all: clean-dependencies clean-builds
 #------------------------------------------------- END ----------------------------------------------------------------#
 
 #------------------------------------------------- BUILD --------------------------------------------------------------#
-build:
-	turbo build
-
 nest-build:
 	$(call run_project,apps/nest-api,build)
 
@@ -54,24 +66,49 @@ next-build:
 vite-build:
 	$(call run_project,apps/react-vite,build)
 
-business-build:
+business-build-dirty:
+	make business-clean
 	$(call run_project,packages/business,build)
 
-services-build:
+business-build:
+	make business-clean
+	$(call run_project,packages/business,build)
+
+services-build-dirty:
+	make services-clean
 	$(call run_project,packages/services,build)
 
-ui-build:
+services-build:
+	make services-clean
+	$(call run_project,packages/services,build)
+
+ui-build-dirty:
+	make ui-clean
 	$(call run_project,packages/ui,build)
 
-tokens-build:
+ui-build:
+	make ui-clean
+	$(call run_project,packages/ui,build)
+
+tokens-build-dirty:
+	make tokens-clean
 	$(call run_project,packages/tokens,build)
 
+tokens-build:
+	make tokens-clean
+	$(call run_project,packages/tokens,build)
+
+build-dependencies-dirty:
+	make services-build-dirty
+	make tokens-build-dirty
+	make business-build-dirty
+	make ui-build-dirty
+
 build-dependencies:
-	make business-build
 	make services-build
 	make tokens-build
+	make business-build
 	make ui-build
-
 #------------------------------------------------- END ----------------------------------------------------------------#
 
 #------------------------------------------------- GENERATE -----------------------------------------------------------#
@@ -128,8 +165,10 @@ nest-test:
 nest-test-cov:
 	$(call run_project,apps/nest-api,test:cov)
 #------------------------------------------------- END ----------------------------------------------------------------#
-
 setup:
 	make clean-all
 	make install
+	make build-dependencies-dirty
+
+build:
 	make build-dependencies

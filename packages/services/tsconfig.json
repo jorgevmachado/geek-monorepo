@@ -1,14 +1,25 @@
 {
-  "extends": "@geek/typescript-config/base.json",
+  "extends": "@geek/typescript-config/services.json",
   "compilerOptions": {
-    "baseUrl": "./",
     "outDir": "./dist",
-    "paths": {
-      "@/*": [
-        "src/*"
-      ]
-    }
+    "baseUrl": "./",
+    "rootDirs": [ "./dist" ],
+    "plugins": [
+      {
+        "transform": "typescript-transform-paths",
+        "afterDeclarations": true
+      }
+    ],
+    "moduleResolution": "Bundler"
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist", "build"]
+  "include": [ "src/**/*.ts" ],
+  "exclude": [
+    "node_modules",
+    "build",
+    "dist",
+    "**/__mocks__",
+    "**/tests",
+    "**/*.spec.tsx",
+    "**/*.spec.ts"
+  ]
 }

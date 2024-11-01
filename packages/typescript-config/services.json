@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "business",
+  "display": "services",
   "compileOnSave": false,
   "extends": "./base.json",
   "compilerOptions": {

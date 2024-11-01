@@ -1,4 +1,4 @@
-import { formatUrl } from '@/string';
+import { formatUrl } from '../string';
 
 interface RequestConfig<B = any> {
   body?: B;

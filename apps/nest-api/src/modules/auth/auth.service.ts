@@ -1,12 +1,12 @@
 import { BadRequestException, ForbiddenException, Injectable, UnprocessableEntityException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 
-import { ERole, EStatus } from '@geek/business';
-
+import { EStatus } from '../../interfaces/status.interface';
 import type { IIndexParams } from '../../shared/service';
 
 import { CreateAuthDto } from './dto/create-auth.dto';
 import { CredentialsAuthDto } from './dto/credentials-auth.dto';
+import { ERole } from './users/user.interface';
 import { UpdateAuthDto } from './dto/update-auth.dto';
 import { Users } from './users/users.entity';
 import { UsersService } from './users/users.service';

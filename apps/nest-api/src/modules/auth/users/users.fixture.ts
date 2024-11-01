@@ -1,6 +1,8 @@
-import { EGender, ERole, EStatus, IUser } from '@geek/business';
+import { EGender, ERole } from './user.interface';
+import { EStatus } from '../../../interfaces/status.interface';
+import { Users } from './users.entity';
 
-export const USER_FIXTURE: IUser = {
+export const USER_FIXTURE: Users = {
     id: 'eaca4c08-e62d-495a-ae1c-918199da8d52',
     cpf: '49892120450',
     role: ERole.USER,

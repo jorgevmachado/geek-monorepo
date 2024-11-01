@@ -1,6 +1,6 @@
 import React from 'react';
 
-import type { IUser } from '@geek/business';
+import type { IUser } from '@geek/business/user';
 
 import { IoClose } from 'react-icons/io5';
 

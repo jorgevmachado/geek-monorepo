@@ -61,7 +61,7 @@ nest-build:
 	$(call run_project,apps/nest-api,build)
 
 next-build:
-	$(call run_project,apps/web,build)
+	$(call run_project,apps/react-next,build)
 
 vite-build:
 	$(call run_project,apps/react-vite,build)
@@ -126,7 +126,7 @@ dev:
 	turbo dev
 
 next-dev:
-	$(call run_project,apps/web,dev)
+	$(call run_project,apps/react-next,dev)
 #------------------------------------------------- END ----------------------------------------------------------------#
 
 #------------------------------------------------- LINT ---------------------------------------------------------------#
@@ -134,7 +134,7 @@ lint:
 	turbo lint
 
 next-lint:
-	$(call run_project,apps/web,lint)
+	$(call run_project,apps/react-next,lint)
 
 business-lint:
 	$(call run_project,packages/business,lint)

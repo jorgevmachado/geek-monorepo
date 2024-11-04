@@ -125,28 +125,16 @@ install:
 dev:
 	turbo dev
 
-nest-dev:
-	$(call run_project,apps/nest-api,dev)
-
 next-dev:
 	$(call run_project,apps/web,dev)
-
-vite-dev:
-	$(call run_project,apps/react-vite,dev)
 #------------------------------------------------- END ----------------------------------------------------------------#
 
 #------------------------------------------------- LINT ---------------------------------------------------------------#
 lint:
 	turbo lint
 
-nest-lint:
-	$(call run_project,apps/nest-api,lint)
-
 next-lint:
 	$(call run_project,apps/web,lint)
-
-vite-lint:
-	$(call run_project,apps/react-vite,lint)
 
 business-lint:
 	$(call run_project,packages/business,lint)
@@ -159,11 +147,6 @@ ui-lint:
 #------------------------------------------------- END ----------------------------------------------------------------#
 
 #------------------------------------------------- TEST ---------------------------------------------------------------#
-nest-test:
-	$(call run_project,apps/nest-api,test)
-
-nest-test-cov:
-	$(call run_project,apps/nest-api,test:cov)
 #------------------------------------------------- END ----------------------------------------------------------------#
 setup:
 	make clean-all

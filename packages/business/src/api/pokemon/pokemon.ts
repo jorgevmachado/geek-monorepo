@@ -1,4 +1,4 @@
-import {Http} from '@geek/services/http';
+import { Http } from '@geek/services/http';
 
 export class Pokemon extends Http {
     constructor() {

@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import GImage from './';
+import Image from './';
 
 const meta = {
     title: 'Atoms/Image',
-    component: GImage,
+    component: Image,
     argTypes: {
         fit: {
             table: {
@@ -35,7 +35,7 @@ const meta = {
             control: { type: 'radio' },
         },
     }
-} satisfies Meta<typeof GImage>;
+} satisfies Meta<typeof Image>;
 
 export default meta;
 

@@ -3,7 +3,7 @@ import { EStatus } from '@geek/business/status';
 import { type Menu } from '@geek/ui';
 
 export function onLogout() {
-    console.log('Logout');
+    window.open('/auth/login', '_self', 'noopener');
 }
 
 export const USER: IUser = {

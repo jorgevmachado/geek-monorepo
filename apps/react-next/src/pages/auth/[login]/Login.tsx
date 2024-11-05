@@ -1,7 +1,11 @@
-export default function Login() {
-    return (
-        <div>
-            <h1>LOGIN</h1>
-        </div>
-       );
-}
+import { NextPageWithLayout } from '@/pages/_app';
+
+import { Blank } from '@geek/ui';
+
+import { Auth } from '@/layout';
+
+const Login: NextPageWithLayout = () => <Auth/>;
+
+Login.getLayout = (page) => <Blank>{page}</Blank>;
+
+export default Login;

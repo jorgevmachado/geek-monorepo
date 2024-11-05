@@ -46,6 +46,7 @@ module.exports = {
     "no-unused-vars": "off",
     "object-curly-spacing": ["error", "always"],
     'keyword-spacing': ['error', { 'before': true, 'after': true }],
+    'no-extra-boolean-cast': 'off',
     'space-before-function-paren': ['error', {
       'anonymous': 'always',
       'named': 'never',

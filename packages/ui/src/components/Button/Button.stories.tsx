@@ -150,39 +150,18 @@ export const Default: Story = {
     }
 };
 
-export const Primary: Story = {
-    args: {
-        context: 'primary',
-        children: 'Primary',
-    }
-};
 
-export const Secondary: Story = {
-    args: {
-        context: 'secondary',
-        children: 'Secondary',
-    }
-};
-
-export const Info: Story = {
-    args: {
-        context: 'info',
-        children: 'Info',
-    }
-};
-
-export const Error: Story = {
-    args: {
-        context: 'error',
-        children: 'Error',
-    }
-};
-
-export const Attention: Story = {
-    args: {
-        context: 'attention',
-        children: 'Attention',
-    }
+export const Buttons: Story = {
+    render: (args) => (
+        <div style={{display: 'flex',  flexDirection: 'column', gap: '8px', width: '12%' }}>
+            <Button {...args}>Neutral</Button>
+            <Button {...args} context="primary">Primary</Button>
+            <Button {...args} context="secondary">Secondary</Button>
+            <Button {...args} context="info">Info</Button>
+            <Button {...args} context="attention">Attention</Button>
+            <Button {...args} context="error">Error</Button>
+        </div>
+    )
 };
 
 export const IconOnly: Story = {
@@ -219,6 +198,7 @@ export const Sidebar: Story = {
             <Button {...args} context="secondary">Secondary</Button>
             <Button {...args} context="info">Info</Button>
             <Button {...args} context="attention">Attention</Button>
+            <Button {...args} context="error">Error</Button>
         </div>
     )
 }
@@ -234,6 +214,7 @@ export const Outline: Story = {
             <Button {...args} context="secondary">Secondary</Button>
             <Button {...args} context="info">Info</Button>
             <Button {...args} context="attention">Attention</Button>
+            <Button {...args} context="error">Error</Button>
         </div>
     )
 }
@@ -249,6 +230,7 @@ export const Standard: Story = {
             <Button {...args} context="secondary">Secondary</Button>
             <Button {...args} context="info">Info</Button>
             <Button {...args} context="attention">Attention</Button>
+            <Button {...args} context="error">Error</Button>
         </div>
     )
 }
@@ -264,6 +246,7 @@ export const Borderless: Story = {
             <Button {...args} context="secondary">Secondary</Button>
             <Button {...args} context="info">Info</Button>
             <Button {...args} context="attention">Attention</Button>
+            <Button {...args} context="error">Error</Button>
         </div>
     )
 }
@@ -279,6 +262,7 @@ export const IconButton: Story = {
             <Button {...args} context="secondary">Secondary</Button>
             <Button {...args} context="info">Info</Button>
             <Button {...args} context="attention">Attention</Button>
+            <Button {...args} context="error">Error</Button>
         </div>
     )
 }

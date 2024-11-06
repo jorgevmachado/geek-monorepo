@@ -6,75 +6,15 @@ import Fade from '../../animations/fade';
 import Header from '../Header';
 import Sidebar from '../Sidebar';
 
-import Button, { GenerateButtons } from '../../components/Button';
 import Dropdown, { GenerateDropdowns } from '../../components/Dropdown';
-import Link, { GenerateLinks } from '../../components/Link';
+import Button from '../../components/Button';
 
 import type { Menu } from '../interface';
 
 import { TColors } from '../../interfaces';
 
-import Icon from 'src/components/Icon';
-import Input from '../../components/Input';
 
 import './Default.scss';
-
-function Buttons() {
-    return GenerateButtons({ icon: 'react', iconPosition: 'left' }).map((group) => (
-        <div id={group.id} key={group.key}>
-            <br/>
-            <h1>{group.label}</h1>
-            <br/>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '50%' }}>
-                {
-                    group.contexts.map((item, index) => (
-                        <Button
-                            key={index}
-                            icon={item.icon}
-                            type={item.type}
-                            weight={item.weight}
-                            context={item.context}
-                            onClick={item?.onClick}
-                            selected={item.selected}
-                            appearance={item.appearance}
-                            aria-label={item['aria-label']}
-                            iconPosition={item.iconPosition}
-                            notificationCounter={item.notificationCounter}>
-                            {item.children}
-                        </Button>
-                    ))
-                }
-            </div>
-        </div>
-    ));
-}
-
-function Links() {
-    return GenerateLinks({}).map((group) => (
-        <div id={group.id} key={group.key}>
-            <br/>
-            <h1>{group.label}</h1>
-            <br/>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '50%' }}>
-                {
-                    group.contexts.map((item, index) => (
-                        <Link
-                            key={index}
-                            icon={item.icon}
-                            weight={item.weight}
-                            context={item.context}
-                            appearance={item.appearance}
-                            iconPosition={item.iconPosition}
-                            notificationCounter={item.notificationCounter}
-                        >
-                            {item.children}
-                        </Link>
-                    ))
-                }
-            </div>
-        </div>
-    ));
-}
 
 function Dropdowns() {
     return GenerateDropdowns({}).map((group) => (

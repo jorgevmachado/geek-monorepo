@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { OColors } from '../../interfaces';
+import { OColors, OIcon } from '../../interfaces';
 
 import Icon from './Icon';
 
@@ -13,6 +13,8 @@ const meta = {
                 type: { summary: 'string' },
                 defaultValue: { summary: 'react' },
             },
+            options: OIcon,
+            control: { type: 'select' },
         },
         size: {
             table: {

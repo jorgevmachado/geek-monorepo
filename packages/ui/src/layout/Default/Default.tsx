@@ -150,28 +150,6 @@ export default function Default({ user, logo, menu, children, onLogout }: Defaul
                     handleToggleMenu={handleToggleMenu}/>
                 <div className="main-content">
                     {children}
-
-
-                    <div id="counter" style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '50%' }}>
-                        <h1>INPUT DEFAULT</h1>
-                        <Input
-                            tip="(Tip)"
-                            type="text"
-                            value=""
-                            label="Label"
-                            onBlur={function noRefCheck() {}}
-                            onClick={function noRefCheck() {}}
-                            onFocus={function noRefCheck() {}}
-                            onInput={function noRefCheck() {}}
-                            variant="regular"
-                            iconContext="primary"
-                            onMouseDown={function noRefCheck() {}}
-                            placeholder="Placeholder">
-                            <div data-children="counter">
-                                9+
-                            </div>
-                        </Input>
-                    </div>
                 </div>
             </main>
         </Fade>

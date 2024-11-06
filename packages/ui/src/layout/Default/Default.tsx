@@ -6,60 +6,13 @@ import Fade from '../../animations/fade';
 import Header from '../Header';
 import Sidebar from '../Sidebar';
 
-import Dropdown, { GenerateDropdowns } from '../../components/Dropdown';
-import Button from '../../components/Button';
-
 import type { Menu } from '../interface';
-
-import { TColors } from '../../interfaces';
-
 
 import './Default.scss';
 
-function Dropdowns() {
-    return GenerateDropdowns({}).map((group) => (
-        <div id={group.id} key={group.key}>
-            <br/>
-            <h1>{group.label}</h1>
-            <br/>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '50%' }}>
-                {
-                    group.contexts.map((item, index) => (
-                        <div style={{ margin: '0 0 12rem 0 ' }}>
-                            <Dropdown
-                                key={index}
-                                context={item.context}
-                                appearance={item.appearance}>
-                                <Button
-                                    context={item.context}
-                                    iconColor={`${item.context}-100` as TColors}
-                                    appearance="standard">
-                                    BUTTON 1
-                                </Button>
-                                <Button
-                                    context={item.context}
-                                    iconColor={`${item.context}-100` as TColors}
-                                    appearance="standard">
-                                    BUTTON 2
-                                </Button>
-                                <Button
-                                    context={item.context}
-                                    iconColor={`${item.context}-100` as TColors}
-                                    appearance="standard">
-                                    BUTTON 3
-                                </Button>
-                            </Dropdown>
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
-    ));
-}
-
 interface DefaultProps {
     user?: IUser;
-    logo: string;
+    logo?: string;
     menu?: Array<Menu>;
     children: React.ReactNode;
     onLogout: () => void;

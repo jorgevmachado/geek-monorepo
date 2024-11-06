@@ -109,7 +109,7 @@ export const Default: Story = {};
 
 export const Links: Story = {
     render: (args) => (
-        <div style={{display: 'flex',  flexDirection: 'column', gap: '8px'}}>
+        <div style={{ display: 'flex',  flexDirection: 'column', gap: '8px' }}>
             <Link {...args}>Neutral</Link>
             <Link {...args} context="primary">Primary</Link>
             <Link {...args} context="secondary">Secondary</Link>
@@ -125,7 +125,7 @@ export const Menu: Story = {
         appearance: 'menu',
     },
     render: (args) => (
-        <div style={{display: 'flex',  flexDirection: 'column', gap: '8px'}}>
+        <div style={{ display: 'flex',  flexDirection: 'column', gap: '8px' }}>
             <Link {...args}>Neutral</Link>
             <Link {...args} context="primary">Primary</Link>
             <Link {...args} context="secondary">Secondary</Link>
@@ -142,7 +142,7 @@ export const WithIconLeft: Story = {
         context: 'primary',
         children: 'With Icon Left',
     }
-}
+};
 
 export const WithIconRight: Story = {
     args: {
@@ -151,7 +151,7 @@ export const WithIconRight: Story = {
         children: 'With Icon Right',
         iconPosition: 'right'
     }
-}
+};
 
 export const WithNotificationCount: Story = {
     args: {
@@ -159,4 +159,4 @@ export const WithNotificationCount: Story = {
         children: 'With Notification Count',
         notificationCounter: 9,
     }
-}
+};

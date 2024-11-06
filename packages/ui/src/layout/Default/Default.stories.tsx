@@ -5,7 +5,6 @@ import { Meta, type StoryObj } from '@storybook/react';
 import Default from './';
 import { ERole } from '@geek/business/user';
 import { EStatus } from '@geek/business/status';
-import { onLogout } from 'react-next/src/layout/config';
 
 const meta = {
     args: {
@@ -27,17 +26,13 @@ const meta = {
                     key: 'about',
                     label: 'Sobre',
                     path: '/about',
-                    onRedirect: () => {
-                        window.open('/about', '_self', 'noopener');
-                    }
+                    onRedirect: () => console.log('about')
                 },
                 {
                     key: 'help',
                     label: 'Ajuda',
                     path: '/help',
-                    onRedirect: () => {
-                        window.open('/help', '_self', 'noopener');
-                    },
+                    onRedirect: () => console.log('help')
                 }
             ]
         },
@@ -53,9 +48,7 @@ const meta = {
                 icon: 'user',
                 label: 'Meus dados',
                 path: '/profile',
-                onRedirect: () => {
-                    window.open('/profile', '_self', 'noopener');
-                }
+                onRedirect: () => console.log('profile')
             },
         ],
     },
@@ -68,7 +61,7 @@ const meta = {
                 key: 'logout',
                 label: 'Sair',
                 path: '/logout',
-                onRedirect: onLogout
+                onRedirect: () => console.log('logout')
             }
         ]
     }

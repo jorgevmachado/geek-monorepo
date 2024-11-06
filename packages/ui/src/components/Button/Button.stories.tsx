@@ -153,7 +153,7 @@ export const Default: Story = {
 
 export const Buttons: Story = {
     render: (args) => (
-        <div style={{display: 'flex',  flexDirection: 'column', gap: '8px', width: '12%' }}>
+        <div style={{ display: 'flex',  flexDirection: 'column', gap: '8px', width: '12%' }}>
             <Button {...args}>Neutral</Button>
             <Button {...args} context="primary">Primary</Button>
             <Button {...args} context="secondary">Secondary</Button>
@@ -171,13 +171,13 @@ export const IconOnly: Story = {
       iconColor: 'neutral-70',
     },
     render: (args) => (
-        <div style={{display: 'flex', gap: '8px', alignItems: 'center'}}>
+        <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
             <Button {...args} size="small" aria-label="small"></Button>
             <Button {...args} size="regular" aria-label="regular"></Button>
             <Button {...args} size="large" aria-label="large"></Button>
         </div>
     )
-}
+};
 
 export const Rounded: Story = {
     args: {
@@ -192,7 +192,7 @@ export const Sidebar: Story = {
         appearance: 'sidebar',
     },
     render: (args) => (
-        <div style={{display: 'flex',  flexDirection: 'column', gap: '8px'}}>
+        <div style={{ display: 'flex',  flexDirection: 'column', gap: '8px' }}>
             <Button {...args}>Neutral</Button>
             <Button {...args} context="primary">Primary</Button>
             <Button {...args} context="secondary">Secondary</Button>
@@ -201,14 +201,14 @@ export const Sidebar: Story = {
             <Button {...args} context="error">Error</Button>
         </div>
     )
-}
+};
 
 export const Outline: Story = {
     args: {
         appearance: 'outline',
     },
     render: (args) => (
-        <div style={{display: 'flex',  flexDirection: 'column', gap: '8px'}}>
+        <div style={{ display: 'flex',  flexDirection: 'column', gap: '8px' }}>
             <Button {...args}>Neutral</Button>
             <Button {...args} context="primary">Primary</Button>
             <Button {...args} context="secondary">Secondary</Button>
@@ -217,14 +217,14 @@ export const Outline: Story = {
             <Button {...args} context="error">Error</Button>
         </div>
     )
-}
+};
 
 export const Standard: Story = {
     args: {
         appearance: 'standard',
     },
     render: (args) => (
-        <div style={{display: 'flex',  flexDirection: 'column', gap: '8px'}}>
+        <div style={{ display: 'flex',  flexDirection: 'column', gap: '8px' }}>
             <Button {...args}>Neutral</Button>
             <Button {...args} context="primary">Primary</Button>
             <Button {...args} context="secondary">Secondary</Button>
@@ -233,14 +233,14 @@ export const Standard: Story = {
             <Button {...args} context="error">Error</Button>
         </div>
     )
-}
+};
 
 export const Borderless: Story = {
     args: {
         appearance: 'borderless',
     },
     render: (args) => (
-        <div style={{display: 'flex',  flexDirection: 'column', gap: '8px'}}>
+        <div style={{ display: 'flex',  flexDirection: 'column', gap: '8px' }}>
             <Button {...args}>Neutral</Button>
             <Button {...args} context="primary">Primary</Button>
             <Button {...args} context="secondary">Secondary</Button>
@@ -249,14 +249,14 @@ export const Borderless: Story = {
             <Button {...args} context="error">Error</Button>
         </div>
     )
-}
+};
 
 export const IconButton: Story = {
     args: {
         appearance: 'iconButton',
     },
     render: (args) => (
-        <div style={{display: 'flex',  flexDirection: 'row', gap: '8px'}}>
+        <div style={{ display: 'flex',  flexDirection: 'row', gap: '8px' }}>
             <Button {...args}>Neutral</Button>
             <Button {...args} context="primary">Primary</Button>
             <Button {...args} context="secondary">Secondary</Button>
@@ -265,11 +265,11 @@ export const IconButton: Story = {
             <Button {...args} context="error">Error</Button>
         </div>
     )
-}
+};
 
 export const Fluid: Story = {
     args: {
         fluid: true,
         children: 'Fluid',
     }
-}
+};

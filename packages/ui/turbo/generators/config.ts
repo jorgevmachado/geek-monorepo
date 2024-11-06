@@ -21,6 +21,11 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
       },
       {
         type: 'add',
+        path: 'src/components/{{pascalCase name}}/{{pascalCase name}}.stories.tsx',
+        templateFile: 'templates/components/storybook.hbs',
+      },
+      {
+        type: 'add',
         path: 'src/components/{{pascalCase name}}/{{pascalCase name}}.scss',
         templateFile: 'templates/components/stylesheet.hbs',
       },
@@ -51,6 +56,11 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
         type: 'add',
         path: 'src/layout/{{pascalCase name}}/{{pascalCase name}}.tsx',
         templateFile: 'templates/layouts/layout.hbs',
+      },
+      {
+        type: 'add',
+        path: 'src/layout/{{pascalCase name}}/{{pascalCase name}}.stories.tsx',
+        templateFile: 'templates/layouts/storybook.hbs',
       },
       {
         type: 'add',

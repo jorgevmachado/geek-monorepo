@@ -18,6 +18,7 @@ const meta = {
         size: 'regular',
         weight: 'regular',
         context: 'neutral',
+        children: 'Exemplo',
         iconColor: 'neutral-28',
         appearance: 'standard',
         iconPosition: 'left',
@@ -104,11 +105,7 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-    args: {
-        children: 'Exemplo',
-    }
-};
+export const Default: Story = {};
 
 export const Links: Story = {
     render: (args) => (
@@ -160,6 +157,6 @@ export const WithNotificationCount: Story = {
     args: {
         context: 'primary',
         children: 'With Notification Count',
-        notificationCounter: '9+',
+        notificationCounter: 9,
     }
 }

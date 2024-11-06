@@ -25,11 +25,6 @@ export default function Auth({
     return (
         <div className="auth">
             <Image src={logo} alt="logo" title="logo" className="auth__logo" />
-            <Text className="auth__title">
-                Ao continuar você aceita os Termos de uso e Política de privacidade,
-                acorda em receber comunicações do GEEK, aforma ter mais de 18 anos e permite
-                o compartilhamento de seus dados nas interações com a plataforma.
-            </Text>
             <div className="auth__container">
                 {
                     loginGoogle && (
@@ -52,23 +47,46 @@ export default function Auth({
                 {
                     internalLogin && (
                         <div className="auth__container--internal">
-                            <Text className="auth__container--internal-title">Ou entre com seu e-mail</Text>
+                            {
+                                loginGoogle || loginFacebook && (
+                                    <Text className="auth__container--internal-title">Ou entre com seu e-mail</Text>
+                                )
+                            }
                             <div className="auth__container--internal-form">
                                 <form action={internalLogin.action} method="post">
-                                    <Input
-                                        tip="(Tip)"
-                                        type="text"
-                                        value=""
-                                        label="Label"
-                                        variant="regular"
-                                        onBlur={function noRefCheck(){}}
-                                        onClick={function noRefCheck(){}}
-                                        onFocus={function noRefCheck(){}}
-                                        onInput={function noRefCheck(){}}
-                                        iconContext="primary"
-                                        onMouseDown={function noRefCheck(){}}
-                                        placeholder="Placeholder"
-                                    />
+                                    <div className="auth__container--internal-form__login">
+                                        <Input
+                                            type="text"
+                                            value=""
+                                            label="E-mail"
+                                            variant="regular"
+                                            onBlur={function noRefCheck(){}}
+                                            onClick={function noRefCheck(){}}
+                                            onFocus={function noRefCheck(){}}
+                                            onInput={function noRefCheck(){}}
+                                            iconContext="primary"
+                                            onMouseDown={function noRefCheck(){}}
+                                            placeholder="Digite o seu melhor e-mail"
+                                        />
+                                    </div>
+                                    <div className="auth__container--internal-form__password">
+                                        <Input
+                                            type="text"
+                                            value=""
+                                            label="Senha"
+                                            variant="regular"
+                                            onBlur={function noRefCheck() {}}
+                                            onClick={function noRefCheck() {}}
+                                            onFocus={function noRefCheck() {}}
+                                            onInput={function noRefCheck() {}}
+                                            iconContext="primary"
+                                            onMouseDown={function noRefCheck() {}}
+                                            placeholder="Digite a sua melhor senha"
+                                        />
+                                    </div>
+                                    <div className="auth__container--internal-form__actions">
+                                        <Button fluid context="primary">Entrar</Button>
+                                    </div>
                                 </form>
                             </div>
                         </div>

@@ -48,7 +48,7 @@ hasFloatingSlots,
     const [isInputMouseFocused, setIsInputMouseFocused] = useState<boolean>(false);
     const [isInputFocused, setIsInputFocused] = useState<boolean>(false);
     const [currentInputValue, setCurrentInputValue] = useState<string>('');
-    const [currentPlaceholder, setCurrentPlaceholder] = useState<string>(placeholder ?? '');
+    const [currentPlaceholder, setCurrentPlaceholder] = useState<string>('');
 
     const isShrink = floatingLabel && (inputHasValue || isInputFocused);
 
@@ -72,6 +72,10 @@ hasFloatingSlots,
     useEffect(() => {
         setCurrentPlaceholder(isShrink ? placeholder ?? '' : '');
     }, [isShrink]);
+
+    useEffect(() => {
+        setCurrentPlaceholder(placeholder);
+    }, [placeholder]);
 
     const rootClassList = joinClass([
         'input',

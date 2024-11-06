@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Meta, type StoryObj} from '@storybook/react';
+import { Meta, type StoryObj } from '@storybook/react';
 
 import Blank from './';
 

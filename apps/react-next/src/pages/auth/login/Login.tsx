@@ -2,7 +2,8 @@ import React from 'react';
 
 import { NextPageWithLayout } from '@/pages/_app';
 
-import { Blank, SignIn } from '@geek/ui';
+import Blank from '@geek/ui/layout/Blank';
+import SignIn from '@geek/ui/layout/Auth/SignIn';
 
 import { LOGO } from '@/layout/config';
 
@@ -20,7 +21,7 @@ const onSubmit = ({ username, password }: OnSubmit ) => {
 const Login: NextPageWithLayout = () => <SignIn
     logo={LOGO}
     onSubmit={onSubmit}
-    signUpLink="/auth/sign-up"
+    signUpLink="/auth/register"
     internalLogin={true}
     forgetPasswordLink="/auth/forgot-password"
 />;

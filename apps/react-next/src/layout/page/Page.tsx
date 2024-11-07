@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Default } from '@geek/ui';
+import Default from '@geek/ui/layout/Default';
 
 import { CONFIG } from '@/layout/config';
 

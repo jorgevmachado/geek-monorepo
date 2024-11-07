@@ -1,16 +1,13 @@
 import React from 'react';
 
 import { CiCalendar, CiHeart, CiPhone, CiUser } from 'react-icons/ci';
+import { FaFacebook, FaGoogle, FaHamburger } from 'react-icons/fa';
 import { MdOutlineKeyboardArrowRight, MdOutlineSpaceDashboard } from 'react-icons/md';
-import { FaHamburger } from 'react-icons/fa';
 import { FaReact } from 'react-icons/fa6';
 import { IoDocumentTextOutline } from 'react-icons/io5';
 import { IoMdExit } from 'react-icons/io';
 
-
 import type { TColors, TIcon } from '../../interfaces';
-
-
 
 export function getIcon(icon: TIcon, size?: string | number, color?: TColors) {
 
@@ -23,6 +20,10 @@ export function getIcon(icon: TIcon, size?: string | number, color?: TColors) {
             return <IoMdExit size={size || '1em'} color={color}/>;
         case 'phone':
             return <CiPhone size={size || '1em'} color={color}/>;
+        case 'google':
+            return <FaGoogle size={size || '1em'} color={color}/>;
+        case 'facebook':
+            return <FaFacebook size={size || '1em'} color={color}/>;
         case 'calendar':
             return <CiCalendar size={size || '1em'} color={color}/>;
         case 'document':

@@ -1,4 +1,4 @@
-.auth {
+.signup {
   display: flex;
   flex-direction: column;
   &__logo {
@@ -33,16 +33,31 @@
         align-items: center;
       }
       &-form {
-        &__username {
-          margin-bottom: 2rem;
+        &__cpf {
+          margin-bottom: 1rem;
+        }
+        &__name {
+          margin-bottom: 1rem;
+        }
+        &__email {
+          margin-bottom: 1rem;
         }
         &__password {
+          margin-bottom: 2rem;
+        }
+        &__password-confirmation {
+          margin-bottom: 2rem;
+        }
+        &__date-of-birth {
+          margin-bottom: 2rem;
+        }
+        &__gender {
           margin-bottom: 2rem;
         }
       }
     }
 
-    &--forget {
+    &--signin {
       display: flex;
       align-items: center;
       margin-top: 1rem;

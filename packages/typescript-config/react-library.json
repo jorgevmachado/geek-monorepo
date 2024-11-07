@@ -3,6 +3,23 @@
   "display": "React Library",
   "extends": "./base.json",
   "compilerOptions": {
-    "jsx": "react-jsx"
+    "jsx": "react",
+    "target": "ES2022",
+    "module": "ESNext",
+    "baseUrl": ".",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "allowJs": true,
+    "sourceMap": true,
+    "declaration": true,
+    "skipLibCheck": true,
+    "declarationMap": true,
+    "noUnusedLocals": true,
+    "noImplicitAny": false,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "emitDeclarationOnly": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true
   }
 }

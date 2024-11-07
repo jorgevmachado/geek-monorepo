@@ -1,19 +1,21 @@
 {
   "extends": "@geek/typescript-config/react-library.json",
   "compilerOptions": {
-    "jsx": "react",
-    "lib": ["dom", "dom.iterable", "ESNext"],
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
     "outDir": "dist",
-    "baseUrl": "./",
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "noEmit": true,
-    "allowJs": true,
-    "sourceMap": true,
-    "emitDeclarationOnly": true,
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "."
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["src", "src/", "types/custom.d.ts"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.stories.tsx",
+    "**/__mocks__",
+    "**/tests",
+    "**/*.spec.tsx"
+  ]
 }

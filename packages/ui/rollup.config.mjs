@@ -1,3 +1,4 @@
+import terser from '@rollup/plugin-terser';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
@@ -10,6 +11,7 @@ const plugins = [
     resolve(),
     commonjs(),
     typescript({ tsconfig: './tsconfig.json' }),
+    terser(),
     postcss({
         extensions: ['.css', '.scss'],
         extract: true,
@@ -32,7 +34,7 @@ const plugins = [
             includePaths: [
                 'node_modules',
                 'src/styles'
-            ]
+            ],
         }
     })
 ];
@@ -45,9 +47,10 @@ export default [
             format: 'esm',
             sourcemap: true,
             preserveModules: true,
-            preserveModulesRoot: 'src'
+            preserveModulesRoot: 'src',
+            silenceDeprecations: ['legacy-js-api'],
         },
         plugins,
-        external: ['react', 'react-dom']
+        external: ['react', 'react-dom', '@geek/services', '@geek/business']
     }
 ];

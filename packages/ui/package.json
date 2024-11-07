@@ -4,8 +4,20 @@
   "private": true,
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "exports": {
-    ".": "./src/index.ts"
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./*": {
+      "import": "./dist/*/index.js",
+      "require": "./dist/*/index.js",
+      "types": "./dist/*/index.d.ts"
+    }
   },
   "scripts": {
     "build": "rimraf dist && rollup -c",
@@ -22,6 +34,7 @@
     "@geek/typescript-config": "*",
     "@rollup/plugin-commonjs": "^28.0.1",
     "@rollup/plugin-node-resolve": "^15.3.0",
+    "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^12.1.1",
     "@storybook/addon-essentials": "^8.3.5",
     "@storybook/addon-interactions": "^8.3.5",
@@ -49,9 +62,9 @@
     "typescript": "^5.6.3"
   },
   "dependencies": {
+    "@geek/business": "*",
     "react": "^18.2.0",
     "sass": "^1.79.4",
-    "sass-loader": "^16.0.2",
-    "@geek/business": "*"
+    "sass-loader": "^16.0.2"
   }
 }

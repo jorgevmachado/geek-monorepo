@@ -1,5 +1,5 @@
 'use client';
-import { Default } from '@geek/ui';
+import Default from '@geek/ui/layout/Default';
 import { FaBeer } from 'react-icons/fa';
 
 import { config } from './config';

@@ -7,4 +7,5 @@ module.exports = {
     project: "./tsconfig.lint.json",
     tsconfigRootDir: __dirname,
   },
+  ignorePatterns: [".eslintrc.cjs", "*.js", "rollup.config.mjs"],
 };

@@ -288,7 +288,7 @@ export default function SignUp({
                 {
                     signInLink && (
                         <div className="signup__container--signin">
-                            <Text> ja possui uma conta ? </Text>
+                            <Text> ja possui uma conta ? &nbsp;</Text>
                             <Link href={signInLink} context="primary"> Entre aqui </Link>
                         </div>
                     )

@@ -21,16 +21,35 @@
     box-sizing: border-box;
     align-items: center;
     flex-direction: column;
+    &--google, &--facebook {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
     &--internal {
       width: 100%;
+      &-title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
       &-form {
-        &__login {
+        &__username {
           margin-bottom: 2rem;
         }
         &__password {
           margin-bottom: 2rem;
         }
       }
+    }
+
+    &--forget {
+      display: flex;
+      align-items: center;
+      margin-top: 1rem;
+      justify-content: center;
+    }
+    &--signin {
+      margin-top: 1rem;
     }
   }
 }

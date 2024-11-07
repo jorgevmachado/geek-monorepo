@@ -4,6 +4,8 @@ export type TIcon =
     'exit' |
     'react' |
     'phone' |
+    'google' |
+    'facebook' |
     'calendar' |
     'document' |
     'dashboard' |
@@ -16,6 +18,8 @@ export const OIcon: Array<TIcon> = [
     'exit',
     'react',
     'phone',
+    'google',
+    'facebook',
     'calendar',
     'document',
     'hamburger',

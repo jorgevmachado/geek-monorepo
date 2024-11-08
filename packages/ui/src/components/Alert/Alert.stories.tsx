@@ -5,6 +5,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Text from '../Text';
 
 import Alert from './';
+import { OAlert } from '../../interfaces';
 
 const meta = {
     args: {
@@ -14,7 +15,7 @@ const meta = {
     title: 'Atoms/Alert',
     argTypes: {
         type: {
-            options: ['info', 'lamp', 'error', 'warning', 'success'],
+            options: OAlert,
             control: { type: 'select' },
         },
     },

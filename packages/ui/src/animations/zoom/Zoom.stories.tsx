@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 
 import { Meta, type StoryObj } from '@storybook/react';
 
-import Button from '../../components/Button';
+import  Button from '../../components/Button';
 
-import Fade from './Fade';
+import Zoom from './Zoom';
 
 const meta = {
     args: {
@@ -13,32 +13,32 @@ const meta = {
         timeout: .2,
         children: <><h1>TESTE</h1></>
     },
-        title: 'Animations/Fade',
+    title: 'Animations/Zoom',
     argTypes: {
-      enter: {
-          table: {
-              type: { summary: 'boolean' },
-              defaultValue: { summary: 'true' }
-          },
-          control: { type: 'boolean' },
-      },
-      delay: {
-          table: {
-              type: { summary: 'string' },
-              defaultValue: { summary: '0' }
-          },
-          control: { type: 'number' },
-      },
-      timeout: {
-          table: {
-              type: { summary: 'string' },
-              defaultValue: { summary: '.2' }
-          },
-          control: { type: 'number' },
-      },
+        enter: {
+            table: {
+                type: { summary: 'boolean' },
+                defaultValue: { summary: 'true' }
+            },
+            control: { type: 'boolean' },
+        },
+        delay: {
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: '0' }
+            },
+            control: { type: 'number' },
+        },
+        timeout: {
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: '.2' }
+            },
+            control: { type: 'number' },
+        },
     },
-    component: Fade,
-} satisfies Meta<typeof  Fade>;
+    component: Zoom,
+} satisfies Meta<typeof Zoom>;
 
 export default meta;
 
@@ -49,9 +49,12 @@ export const Default: Story = {
         const [show, setShow] = useState(false);
 
         const handleToggle = () => { setShow(!show); };
+        
         return (
             <>
-                <Fade {...args} enter={show} children={args.children}/>
+                <Zoom {...args} enter={show}>
+                    <Button>TESTE</Button>
+                </Zoom>
                 <Button onClick={handleToggle}>TOGGLE</Button>
             </>
         );
@@ -65,11 +68,12 @@ export const ListTemplate: Story = {
         const names = ['John', 'Paul', 'George', 'Ringo'];
 
         const handleToggle = () => { setShow(!show); };
+
         return (
             <>
                 {
                     names.map((name, index) => (
-                        <Fade key={index}  {...args} enter={show} children={name} delay={index * 500}/>
+                        <Zoom {...args} key={index} enter={show} delay={index * 500} children={name}/>
                     ))
                 }
                 <Button onClick={handleToggle}>TOGGLE</Button>

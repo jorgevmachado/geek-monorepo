@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { IUser } from '@geek/business';
+import { User } from '@geek/business/auth';
 
 import Fade from '../../animations/fade';
 import Header from '../Header';
@@ -11,7 +11,7 @@ import type { Menu } from '../interface';
 import './Default.scss';
 
 interface DefaultProps {
-    user?: IUser;
+    user?: User;
     logo?: string;
     menu?: Array<Menu>;
     children: React.ReactNode;

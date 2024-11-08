@@ -1,6 +1,6 @@
 import React from 'react';
 
-import type { IUser } from '@geek/business';
+import type { User } from '@geek/business/auth';
 
 import Avatar from '../../components/Avatar';
 import Icon from '../../components/Icon';
@@ -11,7 +11,7 @@ import { Menu } from '../interface';
 import './Profile.scss';
 
 interface AvatarProps {
-    user?: IUser;
+    user?: User;
     initialsLength?: number;
     
 }
@@ -29,7 +29,7 @@ function AvatarProfile({ user, initialsLength = 2 }: AvatarProps) {
 }
 
 interface GProfileProps {
-    user?: IUser;
+    user?: User;
     children: React.ReactNode;
     className?: string;
     profileMenu: Menu['items'][number];

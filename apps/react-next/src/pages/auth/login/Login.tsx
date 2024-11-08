@@ -10,6 +10,7 @@ import SignIn from '@geek/ui/layout/Auth/SignIn';
 import { LOGO } from '@/layout/config';
 import { authService } from '@/shared/core';
 import { cookies } from '@geek/services';
+import { useAlert } from '@geek/ui/hooks/alert';
 
 interface OnSubmit {
  username: string;
@@ -20,14 +21,16 @@ const Login: NextPageWithLayout = () => {
     const router = useRouter();
     const searchParams = useSearchParams();
     const redirect = searchParams.get('redirect') ?? '/';
+    const { addAlert } = useAlert();
     
     const onSubmit = ({ username, password }: OnSubmit ) => {
         authService.signIn({ email: username, password })
             .then((token) => {
                 cookies.setGeekAccessToken(token);
+                addAlert({ type: 'error', message: 'Autenticado com sucesso!' });
                 router.push(redirect);
-            }).catch((error) => {
-            console.log('# => error => ', error);
+            }).catch(() => {
+                addAlert({ type: 'error', message: 'Algo deu errado, tente novamente mais tarde!' });
         });
     };
 

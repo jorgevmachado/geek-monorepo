@@ -2,13 +2,16 @@ import '@geek/tokens/dist/geek/css/_variables.css';
 import '@/styles/globals.scss';
 
 import { ReactElement, ReactNode, useEffect } from 'react';
-
+import { usePathname, useRouter } from 'next/navigation';
 import type { AppProps } from 'next/app';
 import type { NextPage } from 'next';
-import {usePathname, useRouter} from 'next/navigation';
+
+import { cookies } from '@geek/services/cookies';
+
+import Alert from '@geek/ui/components/Alert';
+import AlertProvider from '@geek/ui/hooks/alert';
 
 import { Page } from '@/layout/page';
-import { cookies } from '@geek/services/cookies';
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
     getLayout?: (page: ReactElement) => ReactNode
@@ -38,5 +41,9 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
         (page) => (<Page>{page}</Page>)
     );
     
-    return getLayout(<Component {...pageProps}/>);
+    return getLayout(
+        <AlertProvider elem={Alert}>
+            <Component {...pageProps}/>
+        </AlertProvider>
+    );
 }

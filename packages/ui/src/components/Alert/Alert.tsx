@@ -4,10 +4,12 @@ import { joinClass } from '../../utils';
 
 import Icon from '../Icon';
 
+import type { TAlert } from '../../interfaces';
+
 import './Alert.scss';
 
 interface AlertProps {
-    type: 'info' | 'lamp' | 'error' | 'warning' | 'success';
+    type: TAlert;
     link?: {
         text: string;
         clickAction: () => void;

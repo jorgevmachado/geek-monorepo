@@ -6,20 +6,24 @@ class Validator {
     private emailRegex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
     private numberRegex = /^[0-9]+$/;
 
-    public isValidCep(value: string): boolean {
-        return this.cepRegex.test(value);
+    public isValidCep(value: string, clean: boolean = true): boolean {
+        const currentValue = clean ? this.cleanAll(value) : value;
+        return this.cepRegex.test(currentValue);
     }
 
-    public isValidPhone(value: string): boolean {
-        return this.phoneRegex.test(value);
+    public isValidPhone(value: string, clean: boolean = true): boolean {
+        const currentValue = clean ? this.cleanAll(value) : value;
+        return this.phoneRegex.test(currentValue);
     }
 
-    public isValidMobile(value: string): boolean {
-        return this.mobileRegex.test(value);
+    public isValidMobile(value: string, clean: boolean = true): boolean {
+        const currentValue = clean ? this.cleanAll(value) : value;
+        return this.mobileRegex.test(currentValue);
     }
 
-    public isValidCpf(value: string): boolean {
-        return this.cpfRegex.test(value);
+    public isValidCpf(value: string, clean: boolean = true): boolean {
+        const currentValue = clean ? this.cleanAll(value) : value;
+        return this.cpfRegex.test(currentValue);
     }
 
     public isValidEmail(email: string): boolean {
@@ -34,8 +38,9 @@ class Validator {
         return value.length >= 6;
     }
 
-    public isValidPhoneMobile(value: string): boolean {
-        return value.length === 10 || value.length === 11;
+    public isValidPhoneMobile(value: string, clean: boolean = true): boolean {
+        const currentValue = clean ? this.cleanAll(value) : value;
+        return currentValue.length === 10 || currentValue.length === 11;
     }
 
     public isEmpty(value: unknown): boolean {
@@ -50,6 +55,10 @@ class Validator {
         }
 
         return false;
+    }
+
+    private cleanAll(value: string) {
+        return value.replaceAll('.', '').replace('-','').replaceAll('(', '').replaceAll(')', '').replaceAll(' ', '');
     }
 
 }

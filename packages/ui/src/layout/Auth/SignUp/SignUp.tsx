@@ -6,16 +6,21 @@ import Input from '../../../components/Input/Input';
 import Link from '../../../components/Link';
 import Text from '../../../components/Text';
 
-import './SignUp.scss';
+import formatter from '../../../utils/formatter';
 import validator from '../../../utils/validator';
+
+type TInput = 'cpf' | 'name' | 'gender' | 'email' | 'whatsUp' | 'password' | 'dateOfBirth' | 'passwordConfirmation';
+
+import './SignUp.scss';
 
 export interface OnSubmit {
     cpf: string;
     name: string;
     email: string;
-    dateOfBirth: string;
     gender: string;
+    whatsUp: string;
     password: string;
+    dateOfBirth: string;
     passwordConfirmation: string;
 }
 
@@ -52,6 +57,14 @@ export default function SignUp({
     const [invalidEmail, setInvalidEmail] = useState<boolean>(false);
     const [onBlurEmail, setOnBlurEmail] = useState<boolean>(false);
 
+    const [whatsUp, setWhatsUp] = useState<string>('');
+    const [invalidWhatsUp, setInvalidWhatsUp] = useState<boolean>(false);
+    const [onBlurWhatsUp, setOnBlurWhatsUp] = useState<boolean>(false);
+
+    const [gender, setGender] = useState<string>('');
+    const [invalidGender, setInvalidGender] = useState<boolean>(false);
+    const [onBlurGender, setOnBlurGender] = useState<boolean>(false);
+
     const [password, setPassword] = useState<string>('');
     const [invalidPassword, setInvalidPassword] = useState<boolean>(false);
     const [onBlurPassword, setOnBlurPassword] = useState<boolean>(false);
@@ -64,30 +77,31 @@ export default function SignUp({
     const [invalidDateOfBirth, setInvalidDateOfBirth] = useState<boolean>(false);
     const [onBlurDateOfBirth, setOnBlurDateOfBirth] = useState<boolean>(false);
 
-    const [gender, setGender] = useState<string>('');
-    const [invalidGender, setInvalidGender] = useState<boolean>(false);
-    const [onBlurGender, setOnBlurGender] = useState<boolean>(false);
+
     
     
-    const validateInput = (blur: boolean,  value: string, type: 'cpf' | 'password' | 'email' | 'gender' | 'date' | 'passwordConfirmation' | 'name') => {
+    const validateInput = (blur: boolean,  value: string, type: TInput) => {
         if (blur) {
             if (type === 'cpf') {
                 const valid = validator.isValidCpf(value);
                 setInvalidCpf(!valid);
-            } else if (type === 'password') {
-                const valid = validator.isValidPassword(value);
-                setInvalidPassword(!valid);
-            } else if (type === 'passwordConfirmation') {
-                const valid = validator.isValidPassword(value);
-                setInvalidPasswordConfirmation(!valid);
             } else if (type === 'email') {
                 const valid = validator.isValidEmail(value);
                 setInvalidEmail(!valid);
             } else if (type === 'gender') {
                 const valid = value === 'MALE' || value === 'FEMALE';
                 setInvalidGender(!valid);
-            } else if (type === 'date') {
+            } else if (type === 'whatsUp') {
+                const valid = validator.isValidMobile(value)
+                setInvalidWhatsUp(!valid);
+            }  else if (type === 'password') {
+                const valid = validator.isValidPassword(value);
+                setInvalidPassword(!valid);
+            } else if (type === 'dateOfBirth') {
                 setInvalidDateOfBirth(false);
+            } else if (type === 'passwordConfirmation') {
+                const valid = validator.isValidPassword(value);
+                setInvalidPasswordConfirmation(!valid);
             } else {
                 setInvalidName(false);
             }
@@ -107,16 +121,20 @@ export default function SignUp({
     }, [email, onBlurEmail]);
 
     useEffect(() => {
-        validateInput(onBlurDateOfBirth, dateOfBirth, 'date');
-    }, [dateOfBirth, onBlurDateOfBirth]);
-
-    useEffect(() => {
         validateInput(onBlurGender, gender, 'gender');
     }, [gender, onBlurGender]);
 
     useEffect(() => {
+        validateInput(onBlurWhatsUp, whatsUp, 'whatsUp');
+    }, [whatsUp, onBlurWhatsUp]);
+
+    useEffect(() => {
         validateInput(onBlurPassword, password, 'password');
     }, [password, onBlurPassword]);
+
+    useEffect(() => {
+        validateInput(onBlurDateOfBirth, dateOfBirth, 'dateOfBirth');
+    }, [dateOfBirth, onBlurDateOfBirth]);
 
     useEffect(() => {
         validateInput(onBlurPasswordConfirmation, passwordConfirmation, 'passwordConfirmation');
@@ -127,7 +145,7 @@ export default function SignUp({
         validateInput(true, cpf, 'cpf');
         validateInput(true, name, 'name');
         validateInput(true, email, 'email');
-        validateInput(true, dateOfBirth, 'date');
+        validateInput(true, dateOfBirth, 'dateOfBirth');
         validateInput(true, gender, 'gender');
         validateInput(true, password, 'password');
         validateInput(true, passwordConfirmation, 'passwordConfirmation');
@@ -142,7 +160,7 @@ export default function SignUp({
             !invalidPasswordConfirmation;
         
         if (valid) {
-            onSubmit && onSubmit({ cpf, name, email, dateOfBirth, gender, password, passwordConfirmation });
+            onSubmit && onSubmit({ cpf, name, email, gender, whatsUp, password, dateOfBirth, passwordConfirmation });
         }
 
     };
@@ -182,7 +200,7 @@ export default function SignUp({
                                     <div className="signup__container--internal-form__cpf">
                                         <Input
                                             type="text"
-                                            value={cpf}
+                                            value={formatter.maskCpf(cpf)}
                                             label="CPF"
                                             onBlur={() => setOnBlurCpf(true)}
                                             variant="regular"
@@ -221,18 +239,32 @@ export default function SignUp({
                                             invalidMessage="O campo deve ser um email válido"
                                         />
                                     </div>
+                                    <div className="signup__container--internal-form__whats-up">
+                                        <Input
+                                            type="text"
+                                            value={formatter.maskPhone(whatsUp)}
+                                            label="WhatsUp"
+                                            onBlur={() => setOnBlurWhatsUp(true)}
+                                            variant="regular"
+                                            onInput={(e: React.ChangeEvent<HTMLInputElement>) => setWhatsUp(e.target.value)}
+                                            isInvalid={invalidWhatsUp}
+                                            iconContext="primary"
+                                            placeholder="Digite o seu WhatsUp"
+                                            invalidMessage="O campo deve ser um WhatsUp válido"
+                                        />
+                                    </div>
                                     <div className="signup__container--internal-form__gender">
                                         <Input
-                                            type="password"
+                                            type="text"
                                             value={gender}
-                                            label="Senha"
+                                            label="Gênero"
                                             onBlur={() => setOnBlurGender(true)}
                                             variant="regular"
                                             onInput={(e: React.ChangeEvent<HTMLInputElement>) => setGender(e.target.value)}
                                             isInvalid={invalidGender}
                                             iconContext="primary"
-                                            placeholder="Digite o seu genero"
-                                            invalidMessage="O campo deve ser um genero válido"
+                                            placeholder="Digite o seu gênero"
+                                            invalidMessage="O campo deve ser um gênero válido"
                                         />
                                     </div>
                                     <div className="signup__container--internal-form__date-of-birth">

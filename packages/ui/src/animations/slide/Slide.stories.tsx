@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-import Slide from './Slide';
-
 import { Meta, type StoryObj } from '@storybook/react';
 
 import Button from '../../components/Button';
+
+import Slide from './Slide';
 
 const meta = {
     args: {
@@ -55,7 +55,7 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Template: Story = {
+export const Default: Story = {
     render: (args) => {
         const [show, setShow] = useState(false);
 

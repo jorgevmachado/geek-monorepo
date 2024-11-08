@@ -2,9 +2,10 @@ import { type Menu } from '@geek/ui';
 
 import { EGender, ERole, EStatus } from '@geek/business/api';
 import { User } from '@geek/business/auth';
+import { cookies } from '@geek/services/cookies';
 
 export function onLogout() {
-    window.open('/auth/login', '_self', 'noopener');
+    cookies.removeGeekAccessToken();
 }
 
 export const USER: User = {

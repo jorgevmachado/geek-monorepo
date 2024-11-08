@@ -31,6 +31,10 @@ class Cookies extends Base {
     public setGeekAccessToken(value: string) {
         return this.set('geekAccessToken', value);
     }
+
+    public removeGeekAccessToken() {
+        return this.remove('geekAccessToken');
+    }
 }
 
 export default new Cookies();

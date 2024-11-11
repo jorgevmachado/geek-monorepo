@@ -1,3 +1,4 @@
+export * from './user';
 export * from './alert';
 export * from  './useResize';
 export * from './useOutsideClick';

@@ -16,4 +16,8 @@ export class Auth {
     public async getUser(id: string): Promise<User> {
         return this.geekNest.getUser(id).then(res => res);
     }
+
+    public async me(): Promise<User> {
+        return this.geekNest.me().then(res => res);
+    }
 }

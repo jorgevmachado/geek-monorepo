@@ -7,7 +7,7 @@ export class GeekNest extends Http {
     constructor({ baseUrl, accessToken }: dto.IGeekNestConfig) {
         super(baseUrl, {
             headers: {
-                Authorization: accessToken,
+                Authorization: `Bearer ${accessToken}`,
                 'content-type': 'application/json; charset=UTF-8'
             },
         });
@@ -23,5 +23,9 @@ export class GeekNest extends Http {
 
     public async getUser(id: string): Promise<dto.IUser> {
         return this.get(`auth/${id}`);
+    }
+
+    public async me(): Promise<dto.IUser> {
+        return this.get('auth/me');
     }
 }

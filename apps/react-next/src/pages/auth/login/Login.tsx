@@ -7,7 +7,6 @@ import { NextPageWithLayout } from '@/pages/_app';
 import Blank from '@geek/ui/layout/Blank';
 import SignIn from '@geek/ui/layout/Auth/SignIn';
 
-import { LOGO } from '@/layout/config';
 import { authService } from '@/shared/core';
 import { cookies } from '@geek/services';
 import { useAlert } from '@geek/ui/hooks/alert';
@@ -36,7 +35,7 @@ const Login: NextPageWithLayout = () => {
 
     return (
         <SignIn
-            logo={LOGO}
+            logo="/logo/logo.svg"
             onSubmit={onSubmit}
             signUpLink="/auth/register"
             internalLogin={true}

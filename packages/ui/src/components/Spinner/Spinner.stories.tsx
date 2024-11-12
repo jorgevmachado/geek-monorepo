@@ -2,13 +2,31 @@ import Spinner from './Spinner';
 
 import { Meta, type StoryObj } from '@storybook/react';
 
+import { OContext } from '../../interfaces';
+
 const meta = {
     args: {
         size: 32,
         context: 'primary'
     },
     title: 'Atoms/Spinner',
-    argTypes: {},
+    argTypes: {
+        size: {
+            table: {
+                type: { summary: 'number' },
+                defaultValue: { summary: '32' },
+            },
+            control: { type: 'range', min: 16, max: 300 }
+        },
+        context: {
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: 'primary' },
+            },
+            options: OContext,
+            control: { type: 'select' },
+        },
+    },
     component: Spinner
 } satisfies Meta<typeof Spinner>;
 

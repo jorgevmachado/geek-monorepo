@@ -4,6 +4,7 @@ export type TIcon =
     'info'|
     'like'|
     'exit'|
+    'check'|
     'close'|
     'error'|
     'react'|
@@ -23,6 +24,7 @@ export const OIcon: Array<TIcon> = [
     'lamp',
     'like',
     'exit',
+    'check',
     'close',
     'error',
     'react',

@@ -34,6 +34,23 @@ export abstract class Http {
     return this.send<T>(url, { ...override, method: 'GET' });
   }
 
+  path<B, T = any>(
+      path: string,
+      config: RequestConfig<B> = { params: {}, override: {}, body: {} as B },
+  ): Promise<T> {
+    const { body, params, override } = config;
+
+    const url = formatUrl(this.url, path, params);
+
+    const isFormData = body instanceof FormData;
+
+    return this.send(url, {
+      ...override,
+      method: 'PATH',
+      body: isFormData ? body : JSON.stringify(body),
+    });
+  }
+
   post<B, T = any>(
     path: string,
     config: RequestConfig<B> = { params: {}, override: {}, body: {} as B },
@@ -49,6 +66,17 @@ export abstract class Http {
       method: 'POST',
       body: isFormData ? body : JSON.stringify(body),
     });
+  }
+
+  remove<T>(
+      path: string,
+      config: Omit<RequestConfig, 'body'> = { params: {}, override: {} },
+  ): Promise<T> {
+    const { params, override } = config;
+
+    const url = formatUrl(this.url, path, params);
+
+    return this.send<T>(url, { ...override, method: 'DELETE' });
   }
 
   private async send<T>(

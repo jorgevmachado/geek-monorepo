@@ -1,0 +1,28 @@
+.persist {
+  display: flex;
+  flex-direction: column;
+  &__type {
+    &--signIn, &--signUp {
+      align-items: center;
+      justify-content: center;
+    }
+    &--update {
+      width: 50%;
+    }
+  }
+  &__logo {
+    height: 25rem;
+    margin-bottom: -4rem;
+  }
+  &__social {}
+  &__form {}
+  &__signUp,
+  &__signIn,
+  &__forget-password {
+    gap: 8px;
+    display: flex;
+    margin-top: 1rem;
+    flex-direction: row;
+    margin-bottom: 1rem;
+  }
+}

@@ -24,8 +24,8 @@ export default function Page({ token, children }: PageProps) {
             authService.me()
                 .then((user) => setUser(user))
                 .catch(() => {
-                    cookies.removeGeekAccessToken();
-                    router.push('/auth/login');
+                    // cookies.removeGeekAccessToken();
+                    // router.push('/auth/login');
                 });
         }
     }, [token]);
@@ -65,7 +65,7 @@ export default function Page({ token, children }: PageProps) {
                             icon: 'user',
                             label: 'Meus dados',
                             path: '/profile',
-                            onRedirect: () => router.push('/profile')
+                            onRedirect: () => router.push('/auth/profile')
                         },
                     ]
                 },

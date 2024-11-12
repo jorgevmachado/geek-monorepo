@@ -5,79 +5,104 @@
       "$value": "0px"
     },
     "xx-tiny": {
-      "$value": "0.25rem"
+      "$value": "0.25rem",
+      "$comment": "4px if 16px = 1rem"
     },
     "x-tiny": {
-      "$value": "0.125rem"
+      "$value": "0.125rem",
+      "$comment": "2px if 16px = 1rem"
     },
     "tiny": {
-      "$value": "0.5rem"
+      "$value": "0.5rem",
+      "$comment": "8px if 16px = 1rem"
     },
     "xx-small": {
-      "$value": "0.625rem"
+      "$value": "0.625rem",
+      "$comment": "10px if 16px = 1rem"
     },
     "x-small": {
-      "$value": "0.75rem"
+      "$value": "0.75rem",
+      "$comment": "12px if 16px = 1rem"
     },
     "small": {
-      "$value": "0.875rem"
+      "$value": "0.875rem",
+      "$comment": "14px if 16px = 1rem"
     },
     "regular": {
-      "$value": "1rem"
+      "$value": "1rem",
+      "$comment": "16px if 16px = 1rem"
     },
     "x-regular": {
-      "$value": "1.125rem"
+      "$value": "1.125rem",
+      "$comment": "18px if 16px = 1rem"
     },
     "xx-regular": {
-      "$value": "1.25rem"
+      "$value": "1.25rem",
+      "$comment": "20px if 16px = 1rem"
     },
     "medium": {
-      "$value": "1.5rem"
+      "$value": "1.5rem",
+      "$comment": "24px if 16px = 1rem"
     },
     "x-medium": {
-      "$value": "1.625rem"
+      "$value": "1.625rem",
+      "$comment": "26px if 16px = 1rem"
     },
     "xx-medium": {
-      "$value": "1.75rem"
+      "$value": "1.75rem",
+      "$comment": "28px if 16px = 1rem"
     },
     "large": {
-      "$value": "2rem"
+      "$value": "2rem",
+      "$comment": "32px if 16px = 1rem"
     },
     "x-large": {
-      "$value": "2.25rem"
+      "$value": "2.25rem",
+      "$comment": "36px if 16px = 1rem"
     },
     "xx-large": {
-      "$value": "2.5rem"
+      "$value": "2.5rem",
+      "$comment": "40px if 16px = 1rem"
     },
     "xxx-large": {
-      "$value": "2.75rem"
+      "$value": "2.75rem",
+      "$comment": "44px if 16px = 1rem"
     },
     "big": {
-      "$value": "3rem"
+      "$value": "3rem",
+      "$comment": "48px if 16px = 1rem"
     },
     "x-big": {
-      "$value": "3.25rem"
+      "$value": "3.25rem",
+      "$comment": "52px if 16px = 1rem"
     },
     "xx-big": {
-      "$value": "3.5rem"
+      "$value": "3.5rem",
+      "$comment": "56px if 16px = 1rem"
     },
     "xxx-big": {
-      "$value": "3.75rem"
+      "$value": "3.75rem",
+      "$comment": "60px if 16px = 1rem"
     },
     "huge": {
-      "$value": "4rem"
+      "$value": "4rem",
+      "$comment": "64px if 16px = 1rem"
     },
     "x-huge": {
-      "$value": "4.25rem"
+      "$value": "4.25rem",
+      "$comment": "68px if 16px = 1rem"
     },
     "xx-huge": {
-      "$value": "4.5rem"
+      "$value": "4.5rem",
+      "$comment": "72px if 16px = 1rem"
     },
     "giant": {
-      "$value": "5rem"
+      "$value": "5rem",
+      "$comment": "80px if 16px = 1rem"
     },
     "max": {
-      "$value": "9999px"
+      "$value": "9999px",
+      "$comment": "9999px if 16px = 1rem"
     }
   }
 }

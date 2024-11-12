@@ -29,7 +29,7 @@ export class GeekNest extends Http {
         return this.get('auth/me');
     }
 
-    public async updateUser(id: string, user: dto.IUser): Promise<dto.IUser> {
+    public async updateUser(id: string, user: dto.IUpdateUserParams): Promise<dto.IUser> {
         return this.path(`auth/${id}`, { body: user });
     }
 }

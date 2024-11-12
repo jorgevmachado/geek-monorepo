@@ -29,3 +29,5 @@ export interface ISignUpParams extends Omit<IUser, 'id' | 'role' | 'status'> {
 export interface ISignInParams extends Pick<IUser, 'email'> {
     password: string;
 }
+
+export type IUpdateUserParams = Omit<IUser, 'id' | 'status' | 'createdAt' | 'updatedAt' | 'deletedAt'>;

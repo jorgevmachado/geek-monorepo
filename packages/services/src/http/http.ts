@@ -46,7 +46,7 @@ export abstract class Http {
 
     return this.send(url, {
       ...override,
-      method: 'PATH',
+      method: 'PUT',
       body: isFormData ? body : JSON.stringify(body),
     });
   }

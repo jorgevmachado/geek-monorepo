@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { type User } from '@geek/business/auth';
 
+import { EGender } from '@geek/business';
+
 import Button from '../../../components/Button';
 import Input from '../../../components/Input';
 import Text from '../../../components/Text';
 
 import formatter from '../../../utils/formatter';
+
+import Radio from '../../../components/Radio';
 
 export interface OnSubmit {
     cpf?: User['cpf'];
@@ -24,6 +28,7 @@ interface UpdateProps {
     description: string;
 }
 
+import './Update.scss';
 
 export default function Update({ user, title, onSubmit, description }: UpdateProps) {
 
@@ -43,7 +48,7 @@ export default function Update({ user, title, onSubmit, description }: UpdatePro
     const [invalidWhatsUp, setInvalidWhatsUp] = useState<boolean>(false);
     const [onBlurWhatsUp, setOnBlurWhatsUp] = useState<boolean>(false);
 
-    const [gender, setGender] = useState<string>(user.gender);
+    const [gender, setGender] = useState<EGender>(user.gender);
     const [invalidGender, setInvalidGender] = useState<boolean>(false);
     const [onBlurGender, setOnBlurGender] = useState<boolean>(false);
 
@@ -56,11 +61,11 @@ export default function Update({ user, title, onSubmit, description }: UpdatePro
     };
     return (
         <div className="auth-update">
-            <Text tag="h1">{title}</Text>
-            <Text tag="h2">{description}</Text>
-            <div className="auth-update__form">
+            <Text tag="h1" weight="bold" variant="xlarge">{title}</Text>
+            <Text tag="h2" variant="regular">{description}</Text>
+            <div className="update__container--form">
                 <form onSubmit={handleSubmit}>
-                    <div className="signup__container--internal-form__cpf">
+                    <div className="update__container--form-cpf">
                         <Input
                             type="text"
                             value={formatter.maskCpf(cpf)}
@@ -74,7 +79,7 @@ export default function Update({ user, title, onSubmit, description }: UpdatePro
                             invalidMessage="O campo deve ser um CPF válido"
                         />
                     </div>
-                    <div className="signup__container--internal-form__name">
+                    <div className="update__container--form-name">
                         <Input
                             type="text"
                             value={name}
@@ -88,7 +93,7 @@ export default function Update({ user, title, onSubmit, description }: UpdatePro
                             invalidMessage="O campo deve ser um Nome válido"
                         />
                     </div>
-                    <div className="signup__container--internal-form__email">
+                    <div className="update__container--form-email">
                         <Input
                             type="email"
                             value={email}
@@ -102,7 +107,7 @@ export default function Update({ user, title, onSubmit, description }: UpdatePro
                             invalidMessage="O campo deve ser um email válido"
                         />
                     </div>
-                    <div className="signup__container--internal-form__whats-up">
+                    <div className="update__container--form-whats-up">
                         <Input
                             type="text"
                             value={formatter.maskPhone(whatsUp)}
@@ -116,21 +121,24 @@ export default function Update({ user, title, onSubmit, description }: UpdatePro
                             invalidMessage="O campo deve ser um WhatsUp válido"
                         />
                     </div>
-                    <div className="signup__container--internal-form__gender">
-                        <Input
-                            type="text"
-                            value={gender}
-                            label="Gênero"
-                            onBlur={() => setOnBlurGender(true)}
-                            variant="regular"
-                            onInput={(e: React.ChangeEvent<HTMLInputElement>) => setGender(e.target.value)}
-                            isInvalid={invalidGender}
-                            iconContext="primary"
-                            placeholder="Digite o seu gênero"
-                            invalidMessage="O campo deve ser um gênero válido"
-                        />
+                    <div className="update__container--form-gender">
+                        <Text>Genero</Text>
+                        <Radio
+                            value="MALE"
+                            context="primary"
+                            modelValue={gender}
+                            onItemClick={ (value) => setGender(value as EGender)}>
+                            Masculino
+                        </Radio>
+                        <Radio
+                            value="FEMALE"
+                            context="primary"
+                            modelValue={gender}
+                            onItemClick={ (value) => setGender(value as EGender)}>
+                            Feminino
+                        </Radio>
                     </div>
-                    <div className="signup__container--internal-form__date-of-birth">
+                    <div className="update__container--form-date-of-birth">
                         <Input
                             type="text"
                             value={dateOfBirth}
@@ -144,7 +152,7 @@ export default function Update({ user, title, onSubmit, description }: UpdatePro
                             invalidMessage="O campo deve ser uma data válido"
                         />
                     </div>
-                    <div className="signup__container--internal-form__button">
+                    <div className="update__container--form-button">
                         <Button type="submit" fluid context="primary">Salvar alterações</Button>
                     </div>
                 </form>

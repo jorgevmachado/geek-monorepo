@@ -8,6 +8,7 @@ import { formatter, joinClass, validator } from '../../../../utils';
 import type { FormProps, TInput } from './interface';
 
 import './Form.scss';
+import type { TPersist } from '../interface';
 
 export default function Form({
     user,
@@ -28,26 +29,26 @@ export default function Form({
     const [invalidEmail, setInvalidEmail] = useState<boolean>(false);
     const [onBlurEmail, setOnBlurEmail] = useState<boolean>(false);
 
-    const [whatsUp, setWhatsUp] = useState<string>(user?.whatsUp ?? '');
-    const [invalidWhatsUp, setInvalidWhatsUp] = useState<boolean>(false);
-    const [onBlurWhatsUp, setOnBlurWhatsUp] = useState<boolean>(false);
-
     const [gender, setGender] = useState<string>(user?.gender ?? '');
     const [invalidGender, setInvalidGender] = useState<boolean>(false);
     const [onBlurGender, setOnBlurGender] = useState<boolean>(false);
+
+    const [whatsUp, setWhatsUp] = useState<string>(user?.whatsUp ?? '');
+    const [invalidWhatsUp, setInvalidWhatsUp] = useState<boolean>(false);
+    const [onBlurWhatsUp, setOnBlurWhatsUp] = useState<boolean>(false);
 
     const [password, setPassword] = useState<string>('');
     const [invalidPassword, setInvalidPassword] = useState<boolean>(false);
     const [onBlurPassword, setOnBlurPassword] = useState<boolean>(false);
 
-    const [passwordConfirmation, setPasswordConfirmation] = useState<string>('');
-    const [invalidPasswordConfirmation, setInvalidPasswordConfirmation] = useState<boolean>(false);
-    const [onBlurPasswordConfirmation, setOnBlurPasswordConfirmation] = useState<boolean>(false);
-
     const [dateOfBirth, setDateOfBirth] = useState<string>(user?.dateOfBirth?.toString() ?? '' );
     const [invalidDateOfBirth, setInvalidDateOfBirth] = useState<boolean>(false);
     const [onBlurDateOfBirth, setOnBlurDateOfBirth] = useState<boolean>(false);
 
+    const [passwordConfirmation, setPasswordConfirmation] = useState<string>('');
+    const [invalidPasswordConfirmation, setInvalidPasswordConfirmation] = useState<boolean>(false);
+    const [onBlurPasswordConfirmation, setOnBlurPasswordConfirmation] = useState<boolean>(false);
+    
     const classNameList = joinClass([
         props.className,
         'form',
@@ -80,7 +81,7 @@ export default function Form({
             }
         }
     };
-    
+
     useEffect(() => {
         validateInput(onBlurCpf, cpf, 'cpf');
     }, [cpf, onBlurCpf]);
@@ -113,35 +114,48 @@ export default function Form({
         validateInput(onBlurPasswordConfirmation, passwordConfirmation, 'passwordConfirmation');
     }, [passwordConfirmation, onBlurPasswordConfirmation]);
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
+    const validateAll = (type: TPersist ) => {
+        setInvalidCpf(false);
+        setInvalidName(false);
+        setInvalidEmail(false);
+        setInvalidGender(false);
+        setInvalidWhatsUp(false);
+        setInvalidPassword(false);
+        setInvalidDateOfBirth(false);
+        setInvalidPasswordConfirmation(false);
 
         validateInput(true, email, 'email');
-        validateInput(true, password, 'password');
-        
-        if (type === 'signIn') {
-            setInvalidCpf(false);
-            setInvalidName(false);
-            setInvalidGender(false);
-            setInvalidDateOfBirth(false);
-            setInvalidPasswordConfirmation(false);
+
+        if (type ==='signIn' || type ==='signUp') {
+            validateInput(true, password, 'password');
         }
         
-        if (type !== 'signIn') {
-            validateInput(true, cpf, 'cpf');
-            validateInput(true, name, 'name');
-            validateInput(true, gender, 'gender');
-            validateInput(true, dateOfBirth, 'dateOfBirth');
+        if (type === 'signUp') {
             validateInput(true, passwordConfirmation, 'passwordConfirmation');
         }
         
+        if (type === 'signUp' || type === 'update') {
+            validateInput(true, cpf, 'cpf');
+            validateInput(true, name, 'name');
+            validateInput(true, email, 'email');
+            validateInput(true, gender, 'gender');
+            validateInput(true, whatsUp, 'whatsUp');
+            validateInput(true, dateOfBirth, 'dateOfBirth');
+        }
+    };
+    
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+
+        validateAll(type);
+
         const valid =
             !invalidCpf &&
             !invalidName &&
             !invalidEmail &&
-            !invalidDateOfBirth &&
             !invalidGender &&
             !invalidPassword &&
+            !invalidDateOfBirth &&
             !invalidPasswordConfirmation;
 
         if (valid) {

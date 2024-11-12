@@ -1,6 +1,6 @@
 import { GeekNest } from '../api';
 
-import type { SignInParams, SignUpParams, User } from './interface';
+import {SignInParams, SignUpParams, UpdateParams, User} from './interface';
 
 export class Auth {
     constructor(private geekNest: GeekNest) {}
@@ -21,7 +21,7 @@ export class Auth {
         return this.geekNest.me().then(res => res);
     }
 
-    public async update(id: string, user: User): Promise<User> {
-        return this.geekNest.updateUser(id, user).then(res => res);
+    public async update(id: string, params: UpdateParams): Promise<User> {
+        return this.geekNest.updateUser(id, params).then(res => res);
     }
 }

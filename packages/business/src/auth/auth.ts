@@ -13,11 +13,15 @@ export class Auth {
         return this.geekNest.signIn(params).then(res => res.token);
     }
 
-    public async getUser(id: string): Promise<User> {
+    public async get(id: string): Promise<User> {
         return this.geekNest.getUser(id).then(res => res);
     }
 
     public async me(): Promise<User> {
         return this.geekNest.me().then(res => res);
+    }
+
+    public async update(id: string, user: User): Promise<User> {
+        return this.geekNest.updateUser(id, user).then(res => res);
     }
 }

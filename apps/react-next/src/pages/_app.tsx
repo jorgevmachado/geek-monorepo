@@ -1,4 +1,5 @@
 import '@geek/tokens/dist/geek/css/_variables.css';
+import '@geek/tokens/dist/geek/scss/_variables.scss';
 import '@/styles/globals.scss';
 
 import { ReactElement, ReactNode, useEffect } from 'react';

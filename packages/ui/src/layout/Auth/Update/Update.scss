@@ -1,0 +1,43 @@
+.update {
+  &__container {
+    &--form {
+      display: flex;
+      flex-direction: column;
+      width: 55%;
+      &-cpf {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+      &-name {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+      &-email {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+      &-whats-up {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+      &-gender {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        .text {
+          font-size: var(--dimensions-regular);
+          margin-top: 1rem;
+          line-height: var(--dimensions-regular);
+          margin-bottom: 1rem;
+        }
+      }
+      &-date-of-birth {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+      &-button {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}

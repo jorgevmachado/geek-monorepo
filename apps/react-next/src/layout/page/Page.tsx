@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import { router } from 'next/client';
 
-import Default from '@geek/ui/layout/Default';
+import { cookies } from '@geek/services';
 
 import { User } from '@geek/business';
 
+import Default from '@geek/ui/layout/Default';
+import type { Menu } from '@geek/ui/layout';
+import UserProvider from '@geek/ui/hooks/user';
+
 import { authService } from '@/shared/core';
 
-import { cookies } from '@geek/services';
-import { router } from 'next/client';
-import type { Menu } from '@geek/ui/layout/';
 
 interface PageProps {
     token: string;
@@ -85,13 +87,15 @@ export default function Page({ token, children }: PageProps) {
     ];
 
     return user ? (
-        <Default
-            logo="/logo/logo.svg"
-            user={user}
-            menu={MENU}
-            onLogout={onLogout}>
-            {children}
-        </Default>
+        <UserProvider user={user}>
+            <Default
+                logo="/logo/logo.svg"
+                user={user}
+                menu={MENU}
+                onLogout={onLogout}>
+                {children}
+            </Default>
+        </UserProvider>
     ) : null;
 
 }

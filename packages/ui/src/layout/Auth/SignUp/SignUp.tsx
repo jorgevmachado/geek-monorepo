@@ -92,7 +92,7 @@ export default function SignUp({
                 const valid = value === 'MALE' || value === 'FEMALE';
                 setInvalidGender(!valid);
             } else if (type === 'whatsUp') {
-                const valid = validator.isValidMobile(value)
+                const valid = validator.isValidMobile(value);
                 setInvalidWhatsUp(!valid);
             }  else if (type === 'password') {
                 const valid = validator.isValidPassword(value);

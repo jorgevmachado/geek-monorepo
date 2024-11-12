@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { CiCalendar, CiHeart, CiPhone, CiUser, CiWarning } from 'react-icons/ci';
-import { FaFacebook, FaGoogle, FaHamburger, FaRegLightbulb } from 'react-icons/fa';
+import { FaCheck, FaFacebook, FaGoogle, FaHamburger, FaRegLightbulb } from 'react-icons/fa';
 import { IoClose, IoDocumentTextOutline } from 'react-icons/io5';
 import { MdOutlineInfo, MdOutlineKeyboardArrowRight, MdOutlineSpaceDashboard } from 'react-icons/md';
 import { FaReact } from 'react-icons/fa6';
@@ -24,6 +24,8 @@ export function getIcon(icon: TIcon, size?: string | number, color?: TColors) {
             return <CiHeart size={size || '1em'} color={color}/>;
         case 'exit':
             return <IoMdExit size={size || '1em'} color={color}/>;
+        case 'check':
+            return <FaCheck size={size || '1em'} color={color}/>;
         case 'close':
             return <IoClose size={size || '1em'} color={color}/>;
         case 'error':

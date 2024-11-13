@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
 
+import { formatter, validator } from '@geek/services';
+
 import { EGender, ERole } from '@geek/business';
 
-import { Button, Input, Radio, Text } from '../../../../components';
-import { formatter, joinClass, validator } from '../../../../utils';
+import { Button, Input, Radio, Text, joinClass } from '@geek/ds';
 
 import type { FormProps, TInput } from './interface';
 
-import './Form.scss';
 import type { TPersist } from '../interface';
+
+import './Form.scss';
+
 
 export default function Form({
     user,

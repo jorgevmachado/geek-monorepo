@@ -56,89 +56,93 @@ run:
 #------------------------------------------------- CLEAN --------------------------------------------------------------#
 clean-dependencies:
 	rm -rf ./node_modules
-	$(call delete_in_project,packages/business,node_modules)
 	$(call delete_in_project,packages/services,node_modules)
-	$(call delete_in_project,packages/ui,node_modules)
+	$(call delete_in_project,packages/business,node_modules)
 	$(call delete_in_project,packages/eslint-config,node_modules)
 	$(call delete_in_project,packages/tokens,node_modules)
+	$(call delete_in_project,packages/ds,node_modules)
+	$(call delete_in_project,packages/ui,node_modules)
 
 services-clean:
 	$(call delete_in_project,packages/services,dist)
 
-tokens-clean:
-	$(call delete_in_project,packages/tokens,dist)
-
 business-clean:
 	$(call delete_in_project,packages/business,dist)
 
+tokens-clean:
+	$(call delete_in_project,packages/tokens,dist)
+
 typescript-config-clean:
 	$(call delete_in_project,packages/typescript-config,dist)
+
+ds-clean:
+	$(call delete_in_project,packages/ds,dist)
 
 ui-clean:
 	$(call delete_in_project,packages/ui,dist)
 
 clean-builds:
 	make services-clean
-	make tokens-clean
 	make business-clean
+	make tokens-clean
 	make typescript-config-clean
+	make ds-clean
 	make ui-clean
 
 clean-all: clean-dependencies clean-builds
 #------------------------------------------------- END ----------------------------------------------------------------#
 
 #------------------------------------------------- BUILD --------------------------------------------------------------#
-nest-build:
-	$(call run_project,apps/nest-api,build)
-
 next-build:
 	$(call run_project,apps/react-next,build)
 
-vite-build:
-	$(call run_project,apps/react-vite,build)
-
-business-build-dirty:
-	make business-clean
-	$(call run_project,packages/business,build)
-
-business-build:
-	make business-clean
-	$(call run_project,packages/business,build)
-
 services-build-dirty:
-	make services-clean
 	$(call run_project,packages/services,build)
 
 services-build:
 	make services-clean
 	$(call run_project,packages/services,build)
 
-ui-build-dirty:
-	make ui-clean
-	$(call run_project,packages/ui,build)
+business-build-dirty:
+	$(call run_project,packages/business,build)
 
-ui-build:
-	make ui-clean
-	$(call run_project,packages/ui,build)
+business-build:
+	make business-clean
+	$(call run_project,packages/business,build)
 
 tokens-build-dirty:
-	make tokens-clean
 	$(call run_project,packages/tokens,build)
 
 tokens-build:
 	make tokens-clean
 	$(call run_project,packages/tokens,build)
 
+ds-build-dirty:
+	$(call run_project,packages/ui,build)
+
+ds-build:
+	make ds-clean
+	$(call run_project,packages/ds,build)
+
+ds-build-dirty:
+	$(call run_project,packages/ds,build)
+
+ui-build:
+	make ui-clean
+	$(call run_project,packages/ui,build)
+
 build-dependencies-dirty:
 	make services-build-dirty
 	make tokens-build-dirty
 	make business-build-dirty
+	make ds-build-dirty
 	make ui-build-dirty
 
 build-dependencies:
 	make services-build
 	make tokens-build
 	make business-build
+	make ds-build
 	make ui-build
 #------------------------------------------------- END ----------------------------------------------------------------#
 
@@ -172,11 +176,14 @@ lint:
 next-lint:
 	$(call run_project,apps/react-next,lint)
 
+services-lint:
+	$(call run_project,packages/services,lint)
+
 business-lint:
 	$(call run_project,packages/business,lint)
 
-services-lint:
-	$(call run_project,packages/services,lint)
+ds-lint:
+	$(call run_project,packages/ds,lint)
 
 ui-lint:
 	$(call run_project,packages/ui,lint)

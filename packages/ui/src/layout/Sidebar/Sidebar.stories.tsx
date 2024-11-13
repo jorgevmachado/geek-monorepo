@@ -1,8 +1,8 @@
-import React from 'react';
+import * as React from 'react';
 
 import { Meta, type StoryObj } from '@storybook/react';
 
-import { EGender, ERole, EStatus } from '@geek/business/api';
+import { EGender, ERole, EStatus } from '@geek/business';
 
 import Sidebar from './';
 

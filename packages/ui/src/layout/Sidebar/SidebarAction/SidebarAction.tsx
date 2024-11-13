@@ -1,8 +1,7 @@
 import React from 'react';
 
-import Button from '../../../components/Button';
-import Dropdown from '../../../components/Dropdown';
-import Icon  from '../../../components/Icon';
+import { Button, Dropdown, Icon } from '@geek/ds';
+
 import { Menu } from '../../interface';
 
 import './SidebarAction.scss';

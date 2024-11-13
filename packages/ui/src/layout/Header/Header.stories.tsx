@@ -1,9 +1,8 @@
-import React from 'react';
+import * as React from 'react';
 
 import { Meta, type StoryObj } from '@storybook/react';
 
 import Header from './Header';
-
 
 const meta = {
     args: {

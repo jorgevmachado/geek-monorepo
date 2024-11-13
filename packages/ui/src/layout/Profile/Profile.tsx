@@ -2,9 +2,7 @@ import React from 'react';
 
 import type { User } from '@geek/business/auth';
 
-import Avatar from '../../components/Avatar';
-import Icon from '../../components/Icon';
-import Text from '../../components/Text';
+import { Avatar, Icon, Text } from '@geek/ds';
 
 import { Menu } from '../interface';
 

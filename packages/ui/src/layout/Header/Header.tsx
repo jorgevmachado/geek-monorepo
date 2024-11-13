@@ -2,10 +2,7 @@ import React from 'react';
 
 import { FaHamburger } from 'react-icons/fa';
 
-import Button from '../../components/Button';
-import Dropdown from '../../components/Dropdown';
-import Image from '../../components/Image';
-import Link from '../../components/Link';
+import { Button, Dropdown, Image, Link } from '@geek/ds';
 
 import { type Menu } from '../interface';
 

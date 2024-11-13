@@ -1,10 +1,10 @@
-import React from 'react';
+import * as React from 'react';
 
 import { Meta, type StoryObj } from '@storybook/react';
 
 import Default from './';
 
-import { EGender, ERole, EStatus } from '@geek/business/api';
+import { EGender, ERole, EStatus } from '@geek/business';
 
 const meta = {
     args: {

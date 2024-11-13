@@ -5,7 +5,7 @@
   "extends": "./base.json",
   "compilerOptions": {
     "jsx": "preserve",
-    "lib": [ "es2018",  "dom" ],
+    "lib": [ "es2021",  "dom" ],
     "outDir": "./dist",
     "types": [ "node" ],
     "target": "esnext",

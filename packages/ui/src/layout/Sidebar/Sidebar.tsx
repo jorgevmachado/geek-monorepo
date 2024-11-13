@@ -1,11 +1,10 @@
 import React from 'react';
 
-import type { User } from '@geek/business/auth';
-
 import { IoClose } from 'react-icons/io5';
 
-import Button from '../../components/Button';
-import Icon from '../../components/Icon';
+import type { User } from '@geek/business/auth';
+
+import { Button, Icon } from '@geek/ds';
 
 import { Menu } from '../interface';
 
@@ -15,7 +14,6 @@ import GroupSidebar from './GroupSidebar';
 import SidebarAction from './SidebarAction';
 
 import './Sidebar.scss';
-
 
 interface SidebarProps {
     user?: User;

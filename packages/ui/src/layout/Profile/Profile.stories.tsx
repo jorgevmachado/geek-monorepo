@@ -1,12 +1,12 @@
-import React from 'react';
+import * as React from 'react';
 
 import { Meta, type StoryObj } from '@storybook/react';
 
-import { EGender, ERole, EStatus } from '@geek/business/api';
+import { EGender, ERole, EStatus } from '@geek/business';
+
+import { Icon } from '@geek/ds';
 
 import { IoClose } from 'react-icons/io5';
-
-import Icon from '../../components/Icon';
 
 import Profile from './';
 

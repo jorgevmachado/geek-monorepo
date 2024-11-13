@@ -1,10 +1,8 @@
 import React from 'react';
 
-import { joinClass } from '../../../utils';
+import { Button, Link, Text } from '@geek/ds';
 
-import Button from '../../../components/Button';
-import Link from '../../../components/Link';
-import Text from '../../../components/Text';
+import { joinClass } from '../../../utils';
 
 import Form from './Form';
 
@@ -26,7 +24,6 @@ function ActionLink({ link, ...props }: ActionLinkProps) {
         </div>
     );
 }
-
 
 export default function Persist({
                                     user,

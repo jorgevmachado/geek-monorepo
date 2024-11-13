@@ -1,0 +1,21 @@
+{
+  "extends": "@geek/typescript-config/react-library.json",
+  "compilerOptions": {
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+    "outDir": "dist",
+    "baseUrl": "."
+  },
+  "include": ["src", "src/", "types/custom.d.ts"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.stories.tsx",
+    "**/__mocks__",
+    "**/tests",
+    "**/*.spec.tsx"
+  ]
+}

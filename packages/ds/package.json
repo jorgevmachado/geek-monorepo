@@ -1,5 +1,5 @@
 {
-  "name": "@geek/ui",
+  "name": "@geek/ds",
   "version": "1.0.0",
   "private": true,
   "main": "dist/index.js",
@@ -9,14 +9,15 @@
   ],
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.js"
+
     },
     "./*": {
+      "types": "./dist/*/index.d.ts",
       "import": "./dist/*/index.js",
-      "require": "./dist/*/index.js",
-      "types": "./dist/*/index.d.ts"
+      "require": "./dist/*/index.js"
     }
   },
   "scripts": {
@@ -64,7 +65,6 @@
   },
   "dependencies": {
     "@geek/business": "*",
-    "@geek/ds": "*",
     "react": "^18.2.0",
     "sass": "^1.79.4",
     "sass-loader": "^16.0.2"

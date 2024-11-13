@@ -46,6 +46,7 @@ export default function Text({
     variant = 'regular',
     htmlFor,
     children,
+    className,
     ...props
 }: TextProps) {
 
@@ -59,7 +60,7 @@ export default function Text({
                 `g-u-color-${color}`,
                 `text__variant--${variant}`,
                 `text__weight--${weight}`,
-                `${props.className}`
+                `${className}`,
             ])}
             htmlFor={htmlFor}
             {...props}

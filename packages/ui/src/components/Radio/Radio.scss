@@ -1,0 +1,192 @@
+@import "../../styles/main";
+
+@mixin context($WeakColor, $MediumColor, $StrongColor) {
+    &.radio {
+        &:hover:not(:focus-within) {
+            outline: none;
+            &:not(&.radio__checked):not(&.radio__disabled) {
+                background-color: $WeakColor;
+                .radio__wrapper--input {
+                    border: 1px solid $StrongColor;
+                }
+            }
+        }
+        &__checked {
+            background-color: $WeakColor;
+            .text {
+                color: $MediumColor;
+            }
+        }
+    }
+    .radio__wrapper--input:checked {
+        border-color: $StrongColor;
+        background-color: $StrongColor;
+    }
+}
+
+.radio {
+    cursor: pointer;
+    display: flex;
+    padding: 12px;
+    align-items: center;
+    border-radius: 12px;
+    margin-bottom: 0.25rem;
+    background-color: var(--colors-neutral-70);
+
+    &__disabled {
+        cursor: default;
+        pointer-events: none;
+        background-color: #fff;
+        .text {
+            color: var(--colors-neutral-60);
+        }
+    }
+
+    &__focused {
+        @include focus;
+    }
+
+    &__label {
+        cursor: pointer;
+    }
+
+    &__wrapper {
+        width: 1.5rem;
+        height: 1.5rem;
+        margin: 0 12px 0 0;
+        position: relative;
+        min-width: 1.5rem;
+        &--input {
+            width: 100%;
+            height: 100%;
+            border: 1px solid var(--colors-neutral-60);
+            cursor: pointer;
+            margin: 0;
+            display: inline-block;
+            position: relative;
+            appearance: none;
+            border-radius: 50%;
+            background-color: var(--colors-neutral-70);
+
+            &:focus, &:focus-visible {
+                outline: none;
+            }
+
+            &:checked {
+                & + .radio__wrapper--icon {
+                    display: block;
+                    pointer-events: none;
+                }
+                &[disabled] {
+                    background-color: var(--colors-neutral-90);
+                }
+            }
+
+            &[disabled] {
+                cursor: default;
+                border-color: var(--colors-neutral-90);
+                background-color: var(--colors-neutral-96);
+            }
+
+        }
+    }
+
+    &__context--info {
+        @include context(
+                        var(--colors-info-70),
+                        var(--colors-info-80),
+                        var(--colors-info-90)
+        )
+    }
+    &__context--neutral {
+        @include context(
+                        var(--colors-neutral-100),
+                        var(--colors-neutral-110),
+                        var(--colors-neutral-120)
+        )
+    }
+    &__context--success {
+        @include context(
+                        var(--colors-success-70),
+                        var(--colors-success-80),
+                        var(--colors-success-90)
+        )
+    }
+    &__context--primary {
+        @include context(var(--colors-primary-40), var(--colors-primary-80), var(--colors-primary-90));
+    }
+
+    &__context--secondary {
+        @include context(var(--colors-secondary-40), var(--colors-secondary-80), var(--colors-secondary-90));
+    }
+
+    &__context--attention {
+        @include context(var(--colors-attention-70), var(--colors-attention-80), var(--colors-attention-90));
+    }
+}
+
+/*
+* =========
+* icon
+* =========
+ */
+.radio__wrapper--input:checked + .radio__wrapper--icon {
+    display: block;
+    pointer-events: none;
+}
+
+.radio .radio__wrapper--icon {
+    top: 50%;
+    left: 50%;
+    color: var(--colors-neutral-70);
+    height: 0.8rem;
+    width: 0.8rem;
+    display: none;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    svg {
+        display: block;
+    }
+}
+
+/*
+* =========
+* variant
+* =========
+ */
+.radio__variant--regular {
+    .radio__wrapper {
+        width: 20px;
+        height: 20px;
+        min-width: 20px;
+    }
+}
+
+.radio__variant--large {
+    .radio__wrapper {
+        width: 2rem;
+        height: 2rem;
+        min-width: 2rem;
+        &--icon {
+            width: 1.25rem;
+            height:  1.25rem;
+            svg {
+                width: 1.25rem;
+                height:  1.25rem;
+            }
+        }
+    }
+}
+
+/*
+* =========
+* error
+* =========
+ */
+.radio__error .radio__wrapper--input {
+    border-color: var(--colors-error-80);
+}
+.radio__error .text {
+    color: var(--colors-error-80);
+}
+

@@ -1,0 +1,37 @@
+.spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    animation: spin 1s linear infinite;
+  }
+
+  &__context--info {
+    color: var(--colors-info-80);
+  }
+  &__context--error {
+    color: var(--colors-error-80);
+  }
+  &__context--neutral {
+    color: var(--colors-neutral-100);
+  }
+  &__context--success {
+    color: var(--colors-success-80);
+  }
+  &__context--primary {
+    color: var(--colors-primary-100);
+  }
+  &__context--secondary {
+    color: var(--colors-secondary-100);
+  }
+  &__context--attention {
+    color: var(--colors-attention-80);
+  }
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}

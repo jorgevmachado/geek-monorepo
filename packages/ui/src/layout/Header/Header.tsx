@@ -12,12 +12,16 @@ import { type Menu } from '../interface';
 import './Header.scss';
 
 interface HeaderProps {
-    logo: string;
+    logo?: string;
     navbar?: Menu['items'];
     handleToggleMenu?: () => void;
 }
 
-export default function Header({ logo, navbar, handleToggleMenu }: HeaderProps) {
+export default function Header({
+    logo = 'https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_dark_1x_r5.png',
+    navbar,
+    handleToggleMenu
+}: HeaderProps) {
 
     return (
         <header className="header-container">

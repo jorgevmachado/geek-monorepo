@@ -20,6 +20,7 @@
     }
   },
   "scripts": {
+    "watch": "rollup -c --watch",
     "build": "rimraf dist && rollup -c",
     "lint": "eslint . --max-warnings 0",
     "generate:component": "turbo gen component",

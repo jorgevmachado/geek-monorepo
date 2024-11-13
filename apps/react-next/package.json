@@ -1,0 +1,32 @@
+{
+  "name": "react-next",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --hostname dev.geek.com.br --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "15.0.2",
+    "react": "19.0.0-rc-02c0e824-20241028",
+    "react-dom": "19.0.0-rc-02c0e824-20241028",
+    "@geek/ui": "*",
+    "@geek/tokens": "*",
+    "@geek/services": "*",
+    "@geek/business": "*"
+  },
+  "devDependencies": {
+    "@geek/eslint-config": "*",
+    "@geek/typescript-config": "*",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "15.0.2",
+    "sass": "^1.80.6",
+    "sass-loader": "^16.0.3",
+    "typescript": "^5"
+  }
+}

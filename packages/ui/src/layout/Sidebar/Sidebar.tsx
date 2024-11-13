@@ -1,6 +1,6 @@
 import React from 'react';
 
-import type { IUser } from '@geek/business/user';
+import type { User } from '@geek/business/auth';
 
 import { IoClose } from 'react-icons/io5';
 
@@ -18,7 +18,7 @@ import './Sidebar.scss';
 
 
 interface SidebarProps {
-    user?: IUser;
+    user?: User;
     menu?: Array<Menu>;
     onLogout?: () => void;
     showMobileMenu?: boolean;

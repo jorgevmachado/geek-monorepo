@@ -1,21 +1,38 @@
 export type TIcon =
-    'user' |
-    'like' |
-    'exit' |
-    'react' |
-    'phone' |
-    'calendar' |
-    'document' |
-    'dashboard' |
-    'hamburger' |
+    'user'|
+    'lamp'|
+    'info'|
+    'like'|
+    'exit'|
+    'check'|
+    'close'|
+    'error'|
+    'react'|
+    'phone'|
+    'google'|
+    'confirm'|
+    'warning'|
+    'facebook'|
+    'calendar'|
+    'document'|
+    'dashboard'|
+    'hamburger'|
     'arrow-right';
 
 export const OIcon: Array<TIcon> = [
     'user',
+    'lamp',
     'like',
     'exit',
+    'check',
+    'close',
+    'error',
     'react',
     'phone',
+    'google',
+    'confirm',
+    'warning',
+    'facebook',
     'calendar',
     'document',
     'hamburger',

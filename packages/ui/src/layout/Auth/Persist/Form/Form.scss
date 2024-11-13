@@ -1,0 +1,44 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  &__cpf,
+  &__name,
+  &__email,
+  &__button,
+  &__gender,
+  &__whats-up,
+  &__password,
+  &__date-of-birth,
+  &__password-confirmation {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  &__cpf {
+    order: 1;
+  }
+  &__name {
+    order: 2;
+  }
+  &__email {
+    order: 3;
+  }
+  &__button {
+    order: 9;
+  }
+  &__gender {
+    order: 5;
+    width: 12rem;
+  }
+  &__whats-up {
+    order: 4;
+  }
+  &__password {
+    order: 7;
+  }
+  &__date-of-birth {
+    order: 6;
+  }
+  &__password-confirmation {
+    order: 8;
+  }
+}

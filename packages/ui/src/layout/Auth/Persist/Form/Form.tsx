@@ -228,14 +228,20 @@ export default function Form({
                             value="MALE"
                             context="primary"
                             modelValue={gender}
-                            onItemClick={(value) => setGender(value as EGender)}>
+                            onItemClick={(value) => {
+                                setGender(value as EGender);
+                                setOnBlurGender(true);
+                            }}>
                             Masculino
                         </Radio>
                         <Radio
                             value="FEMALE"
                             context="primary"
                             modelValue={gender}
-                            onItemClick={(value) => setGender(value as EGender)}>
+                            onItemClick={(value) => {
+                                setGender(value as EGender);
+                                setOnBlurGender(true);
+                            }}>
                             Feminino
                         </Radio>
                     </div>
